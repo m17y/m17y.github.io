@@ -158,4 +158,6 @@ nav:
   - 更新日志:
     - changelog/index.md
     - How to upgrade: upgrade.md
+  - 关于我: 
+    - about/about.md
 

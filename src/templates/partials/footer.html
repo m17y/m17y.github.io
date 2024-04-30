@@ -27,7 +27,7 @@
   {% if "navigation.footer" in features %}
     {% if page.previous_page or page.next_page %}
       {% if page.meta and page.meta.hide %}
-        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+        {% set hidden = "hidden" %}
       {% endif %}
       <nav
         class="md-footer__inner md-grid"
