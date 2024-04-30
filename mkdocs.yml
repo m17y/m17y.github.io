@@ -1,5 +1,5 @@
 # Project information
-site_name: Material for MkDocs
+site_name: m17y
 site_url: https://m17y.github.io/
 site_author: m17y
 site_description: >-
@@ -55,7 +55,7 @@ theme:
     code: Roboto Mono
   favicon: assets/favicon.png
   icon:
-    logo: logo
+    logo: material/code-tags
 
 # Plugins
 plugins:
