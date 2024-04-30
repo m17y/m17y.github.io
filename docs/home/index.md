@@ -1,5 +1,6 @@
 ---
 template: home.html
+# /material/overrides/home.html
 title: Material for MkDocs
 social:
   cards_layout_options:
