@@ -1,41 +1,19 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
-    "baseUrl": "src",
+    "module": "Node16",
+    "moduleResolution": "Node16",
     "esModuleInterop": true,
-    "jsx": "react",
-    "jsxFactory": "h",
-    "lib": [
-      "dom",
-      "esnext",
-      "webworker"
-    ],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "paths": {
-      "~/*": ["./templates/assets/javascripts/*"],
-      "_/*": ["./overrides/assets/javascripts/*"]
-    },
-    "removeComments": false,
+    "resolveJsonModule": true,
+    "target": "ES2021",
     "sourceMap": true,
-    "skipLibCheck": true,
+    "outDir": "./dist",
+    "baseUrl": "./scripts",
+    "noEmit": true,
     "strictBindCallApply": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "stripInternal": true,
-    "target": "es2015"
+    "skipLibCheck": true
   },
-  "include": [
-    "src/overrides/assets/javascripts",
-    "src/templates/assets/javascripts",
-    "tools",
-    "typings"
-  ]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "swc": true
+  }
 }
