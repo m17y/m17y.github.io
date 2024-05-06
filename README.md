@@ -1,3 +1,7 @@
+https://www.mkdocs.org/user-guide/configuration/#nav
+[mkdocs官方文档](https://www.mkdocs.org/user-guide/configuration/#nav)
+
+
 [![Word Art](docs/images/wordArt.webp)](https://oi-wiki.org/)
 
 # 欢迎来到 **OI Wiki**！
