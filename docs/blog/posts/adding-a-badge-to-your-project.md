@@ -8,6 +8,7 @@ description: >
   project is built with Material for MkDocs
 categories:
   - General
+  - Hello
 ---
 
 # Adding a :simple-materialformkdocs: badge to your project
