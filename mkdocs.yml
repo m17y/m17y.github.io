@@ -24,7 +24,7 @@ theme:
     - content.code.copy
     - content.tooltips
     - navigation.indexes
-    - navigation.sections
+    # - navigation.sections
     - navigation.tabs
     - navigation.instant #折叠侧边栏
     - navigation.instant.prefetch
@@ -156,9 +156,10 @@ extra_css:
 # Contents
 nav:
   - Home: 'home.md'
-  - User: '/about/'
   - Blog:
     - blog/index.md
+  - xxxx:
+    - dp/index.md
   - OI WOKI:
     - 简介:
       - Getting Started: index.md
