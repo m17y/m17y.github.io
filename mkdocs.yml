@@ -1,13 +1,13 @@
-site_name: Material for MkDocs
-site_url: https://squidfunk.github.io/mkdocs-material/
-site_author: Martin Donath
-site_description: >-
-  Write your documentation in Markdown and create a professional static site in
-  minutes – searchable, customizable, in 60+ languages, for all devices
+site_name: m17y
+site_url: https://m17y.github.io
+site_author: m17y
+site_description: Are you OK!?
+strict: false
 
 # Repository
-repo_name: squidfunk/mkdocs-material
-repo_url: https://github.com/squidfunk/mkdocs-material
+repo_name: m17y/m17y.github.io
+repo_url: https://github.com/m17y/m17y.github.io
+edit_uri: 'https://m17y.github.io/edit-landing/?ref='
 
 # Copyright
 copyright: Copyright &copy; 2016 - 2024 Martin Donath
@@ -84,15 +84,15 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/squidfunk
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/squidfunk/mkdocs-material/
-    - icon: fontawesome/brands/python
-      link: https://pypi.org/project/mkdocs-material/
-    - icon: fontawesome/brands/mastodon
-      link: https://fosstodon.org/@squidfunk
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
+      link: https://github.com/m17y/m17y.github.io
+    # - icon: fontawesome/brands/docker
+    #   link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+    # - icon: fontawesome/brands/python
+    #   link: https://pypi.org/project/mkdocs-material/
+    # - icon: fontawesome/brands/mastodon
+    #   link: https://fosstodon.org/@squidfunk
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/squidfunk
 
 # Extensions
 markdown_extensions:
