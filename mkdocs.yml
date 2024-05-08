@@ -23,7 +23,6 @@ theme:
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-    - navigation.footer
     - navigation.indexes
     - navigation.sections
     - navigation.tabs
@@ -34,30 +33,34 @@ theme:
     - search.suggest
     - toc.follow
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/link
-        name: Switch to light mode
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: white
+      accent: red
       toggle:
-        icon: material/toggle-switch
+        icon: material/weather-sunny
         name: Switch to dark mode
+    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
+      primary: blue
+      accent: blue
       toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
-  font:
-    text: Roboto
-    code: Roboto Mono
-  favicon: assets/favicon.png
+        icon: material/weather-night
+        name: Switch to light mode
+  include_search_page: false
+  search_index_only: true
+  favicon: 'favicon.ico'
   icon:
-    logo: logo
+    logo: 'material/school'
+  features:
+    - content.action.edit
+    - navigation.tabs
+    - navigation.instant
+  font:
+    text: 'Fira Sans'
+    code: 'Fira Mono'
 
 # Plugins
 plugins:
@@ -142,6 +145,16 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+extra_javascript:
+  - '_static/js/math-csr.js?math-csr'
+  - 'assets/vendor/mathjax/es5/tex-mml-chtml.js?math-csr'
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - '_static/css/extra.css?v=14'
+
 # Contents
 nav:
   - Home: 'home.md'
