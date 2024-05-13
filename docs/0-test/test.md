@@ -775,13 +775,14 @@ The HTML specification is maintained by the W3C.
 ### 旅行墙
 
 <div class="grid" markdown>
-![图 1](images/b6c4344701da04b150af923356a2e90101bd7e4b6e3707014844379f835b5671.png)   { .card }
 
-![图 1](images/b6c4344701da04b150af923356a2e90101bd7e4b6e3707014844379f835b5671.png)   { .card }
+![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
+ 
+![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
 
-![图 1](images/b6c4344701da04b150af923356a2e90101bd7e4b6e3707014844379f835b5671.png)   { .card }
+![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
 
-![图 1](images/b6c4344701da04b150af923356a2e90101bd7e4b6e3707014844379f835b5671.png)   { .card }
+![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
 
 
 
@@ -796,4 +797,14 @@ The HTML specification is maintained by the W3C.
 
 > :fontawesome-brands-internet-explorer: **Internet Explorer** ... huh?
 
+</div>
+
+<div class="grid" markdown>
+    <div class="subpage-box-cover">
+        <a data-pjax-state="" href="../../diary/fujian">
+        <p class="image-caption">厦门</p>
+        <p class="image-description">2023-03</p>
+        <img alt="阅读" data-loaded="true" data-src="" src="https://s21.ax1x.com/2024/03/30/pFTaJaj.jpg">
+        </a>
+    </div>
 </div>
