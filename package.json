@@ -31,7 +31,7 @@
   "homepage": "https://github.com/OI-wiki/OI-wiki#readme",
   "dependencies": {
     "@swc/core": "^1.2.210",
-    "chalk": "^4.1.0",
+    "chalk": "^5.3.0",
     "colors": "^1.4.0",
     "cross-env": "^7.0.3",
     "klaw": "^4.0.1",
