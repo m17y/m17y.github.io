@@ -73,7 +73,6 @@ plugins:
 # Hooks
 hooks:
   # - hooks/on_env.py
-  
   - mkdocs-material/material/overrides/hooks/shortcodes.py
   - mkdocs-material/material/overrides/hooks/translations.py
 
