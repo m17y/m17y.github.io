@@ -1,18 +1,20 @@
-=== "Unordered list"
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+=== "科幻"
+
+    -   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+    
+    Install [`mkdocs-material`](#) with [`pip`](#) and get up
+    and running in minutes
+    ```
+
+
+=== "哲学"
+
+    -   :material-clock-fast:{ .lg .middle } __《被讨厌的勇气》__
     
     Install [`mkdocs-material`](#) with [`pip`](#) and get up
     and running in minutes
     ---
-
-=== "Ordered list"
-
--   :material-clock-fast:{ .lg .middle } __《被讨厌的勇气》__
-    
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
-    ---
-
+<!-- 
 !!! example
 
     === "Unordered List"
@@ -51,4 +53,4 @@
 | `PUT`       | :material-check-all: Update resource |
 | `DELETE`    | :material-close:     Delete resource |
 
-
+ -->
