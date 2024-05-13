@@ -72,7 +72,10 @@ plugins:
 
 # Hooks
 hooks:
-  - hooks/on_env.py
+  # - hooks/on_env.py
+  
+  - mkdocs-material/material/overrides/hooks/shortcodes.py
+  - mkdocs-material/material/overrides/hooks/translations.py
 
 # Additional configuration
 extra:
@@ -160,8 +163,10 @@ nav:
   - 📚书籍: '2-book/index.md'
   - 🎬电影: '3-movie/index.md'
   - 🌏旅行: '4-travel/index.md'
-  - Blog:
+  - 博客:
     - 7-blog/index.md
+  - 测试:
+    - 0-test/test.md
   - OI WOKI:
     - 简介:
       - Getting Started: oi-wiki/index.md

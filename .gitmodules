@@ -1,0 +1,3 @@
+[submodule "mkdocs-material"]
+	path = mkdocs-material
+	url = https://github.com/m17y/mkdocs-material.git
