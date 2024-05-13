@@ -774,32 +774,61 @@ The HTML specification is maintained by the W3C.
 
 ### 旅行墙
 
-<div class="grid" markdown>
 
-![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
- 
-![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
+<div class="grid cards" markdown style="display: ruby;">
 
-![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
+<figure markdown="span" style=" box-shadow: 2px 2px 10px black; transform: scale(1.1, 1.1);margin-right: 1em;">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 style='margin: 0em 0em 0em 0;'}
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
 
-![图 1](images/wallhaven.jpg){ align=left width=240 hight=200 }
+<figure markdown="span" style=" box-shadow: 2px 2px 10px black; transform: scale(1.1, 1.1);margin-right: 1em;">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 style='margin: 0em 0em 0em 0;'}
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
+
+<figure markdown="span" style=" box-shadow: 2px 2px 10px black; transform: scale(1.1, 1.1);margin-right: 1em;">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 style='margin: 0em 0em 0em 0;'}
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
+
+<figure markdown="span" style=" box-shadow: 2px 2px 10px black; transform: scale(1.1, 1.1);margin-right: 1em;">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 style='margin: 0em 0em 0em 0;'}
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
+
+<figure markdown="span" style=" box-shadow: 2px 2px 10px black; transform: scale(1.1, 1.1);margin-right: 1em;">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 style='margin: 0em 0em 0em 0;'}
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
 
 
-
-:fontawesome-brands-html5: **HTML** for content and structure
-{ .card }
-
-:fontawesome-brands-js: **JavaScript** for interactivity
-{ .card }
-
-:fontawesome-brands-css3: **CSS** for text running out of boxes
-{ .card }
-
-> :fontawesome-brands-internet-explorer: **Internet Explorer** ... huh?
+<figure markdown="span">
+  ![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 }
+  <figcaption>厦门</figcaption>
+  <figcaption>2023-03</figcaption>
+</figure>
 
 </div>
 
-<div class="grid" markdown>
+
+### 旅行测试3
+
+<div class="grid cards" markdown>
+![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 }
+![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 }
+![图 1](images/wallhaven.jpg){ align=left width=200 hight=200 }
+</div>
+
+
+### 旅行2
+
+<div >
     <div class="subpage-box-cover">
         <a data-pjax-state="" href="../../diary/fujian">
         <p class="image-caption">厦门</p>
@@ -808,3 +837,11 @@ The HTML specification is maintained by the W3C.
         </a>
     </div>
 </div>
+
+
+
+
+
+### sss
+
+![alt 我是谁](images/wallhaven.jpg 'wo'){ align=left width=200 hight=200 }
