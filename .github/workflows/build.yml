@@ -33,4 +33,4 @@ jobs:
       - run: git config --global user.name "Action-bot"
       - run: ls -l
       - run: git commit -am 'update site-Page'
-      - run: git push -u origin2 sitePage --force
+      - run: git push -u origin2 site-Page --force
