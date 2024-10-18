@@ -30,5 +30,7 @@ jobs:
       - run: git remote add origin2 https://github.com/m17y/m17y.github.io.git
       - run: git branch -M site-Page
       - run: git add -A
+      - run: git config --global user.email "Action-bot@example.com"
+      - run: git config --global user.name "Action-bot"
       - run: git commit -am 'update site-Page'
       - run: git push -u origin2 sitePage --force
