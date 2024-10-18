@@ -2,8 +2,8 @@ name: bulid
 on:
   push:
     branches:
-      - site-Page
-      # - main
+      - master 
+      - main
 permissions:
   contents: write
 jobs:
