@@ -32,5 +32,6 @@ jobs:
       - run: git add -A
       - run: git config --global user.email "Action-bot@example.com"
       - run: git config --global user.name "Action-bot"
+      - run: ls -l
       - run: git commit -am 'update site-Page'
       - run: git push -u origin2 sitePage --force
