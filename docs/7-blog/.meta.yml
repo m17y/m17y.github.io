@@ -1,0 +1,8 @@
+comments: true
+hide:
+  - feedback
+authors:
+  - squidfunk
+categories:
+  - Hello
+  - World
