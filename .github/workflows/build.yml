@@ -27,6 +27,7 @@ jobs:
       # - run: mkdocs gh-deploy --force
       ################################################################
       #############创建可以部署的静态文件################################
+      - run: mkdocs gh-deploy
       - run: mkdocs build 
       - uses: JamesIves/github-pages-deploy-action@4.0.0
         with: 
