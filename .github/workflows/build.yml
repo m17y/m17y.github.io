@@ -28,7 +28,7 @@ jobs:
       #############创建可以部署的静态文件################################
       - run: mkdocs build 
       - run: ls /home/runner/work/m17y.github.io/m17y.github.io/site | grep -v site | xargs rm -rf
-      - run: git push origin --delete site-Page
+      # - run: git push origin --delete site-Page
       - run: git branch -M site-Page
       - run: git add -A 
       - run: ls -l
