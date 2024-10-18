@@ -24,9 +24,8 @@ jobs:
       - run: pip install mkdocs-material 
       - run: pip install mkdocs-minify-plugin~=0.8.0
       # - run: mkdocs gh-deploy --force
-      - run: mkdir /home/runner/work/site
-      - run: mkdocs build -d /home/runner/work/site
-      - run: cd /home/runner/work/site
+      - run: mkdocs build 
+      - run: cd site
       - run: git remote add origin2 https://github.com/m17y/m17y.github.io.git
       - run: git branch -M site-Page
       - run: git add -A
