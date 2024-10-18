@@ -28,7 +28,8 @@ jobs:
       ################################################################
       #############创建可以部署的静态文件################################
       - run: mkdocs build 
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with: 
-          branch: site-page
-          folder: site
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@4.0.0
+      with: 
+        branch: site-page
+        folder: site
