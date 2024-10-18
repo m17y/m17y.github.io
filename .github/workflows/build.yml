@@ -30,7 +30,7 @@ jobs:
       - run: mkdocs build 
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/
+          path: site/
       # - run: ls /home/runner/work/m17y.github.io/m17y.github.io/site | grep -v site | xargs rm -rf
       # # - run: git push origin --delete site-Page
       # - run: git remote add origin2 https://github.com/m17y/m17y.github.io.git
