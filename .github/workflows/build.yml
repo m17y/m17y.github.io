@@ -28,5 +28,7 @@ jobs:
       - run: mkdocs build -d /home/runner/work/site
       - run: cd /home/runner/work/site
       - run: git remote add origin2 https://github.com/m17y/m17y.github.io.git
-      - run: git branch -M sitePage
+      - run: git branch -M site-Page
+      - run: git add -A
+      - run: git commit -am 'update site-Page'
       - run: git push -u origin2 sitePage --force
