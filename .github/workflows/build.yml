@@ -28,16 +28,7 @@ jobs:
       ################################################################
       #############创建可以部署的静态文件################################
       - run: mkdocs build 
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: site/
-      # - run: ls /home/runner/work/m17y.github.io/m17y.github.io/site | grep -v site | xargs rm -rf
-      # # - run: git push origin --delete site-Page
-      # - run: git remote add origin2 https://github.com/m17y/m17y.github.io.git
-      # - run: git config --global user.email "Action-bot@example.com"
-      # - run: git config --global user.name "Action-bot"
-      # - run: git branch -M site-Page
-      # - run: git add site
-      # - run: ls -l
-      # - run: git commit -am 'update site-Page'
-      # - run: git push -u origin2 site-Page --force
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with: 
+          branch: site-page
+          folder: site
