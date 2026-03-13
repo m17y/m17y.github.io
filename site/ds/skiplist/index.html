@@ -1,0 +1,1104 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/ds/skiplist/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Skiplist - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Skiplist
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度证明
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="复杂度证明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空间复杂度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间复杂度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        具体实现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="具体实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取节点的最大层数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        完整代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跳表的随机访问优化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/ds/skiplist.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Skiplist</h1>
+
+<p>跳表 (Skip List) 是由 William Pugh 发明的一种查找数据结构，支持对数据的快速查找，插入和删除．</p>
+<p>跳表的期望空间复杂度为 $O(n)$，跳表的查询，插入和删除操作的期望时间复杂度都为 $O(\log n)$．</p>
+<h2 id="_1">基本思想</h2>
+<p>顾名思义，跳表是一种类似于链表的数据结构．更加准确地说，跳表是对有序链表的改进．</p>
+<p>为方便讨论，后续所有有序链表默认为 <strong>升序</strong> 排序．</p>
+<p>一个有序链表的查找操作，就是从头部开始逐个比较，直到当前节点的值大于或者等于目标节点的值．很明显，这个操作的复杂度是 $O(n)$．</p>
+<p>跳表在有序链表的基础上，引入了 <strong>分层</strong> 的概念．首先，跳表的每一层都是一个有序链表，特别地，最底层是初始的有序链表．每个位于第 $i$ 层的节点有 $p$ 的概率出现在第 $i+1$ 层，$p$ 为常数．</p>
+<p>记在 $n$ 个节点的跳表中，期望包含 $\frac{1}{p}$ 个元素的层为第 $L(n)$ 层，易得 $L(n) = \log_{\frac{1}{p}}n$．</p>
+<p>在跳表中查找，就是从第 $L(n)$ 层开始，水平地逐个比较直至当前节点的下一个节点大于等于目标节点，然后移动至下一层．重复这个过程直至到达第一层且无法继续进行操作．此时，若下一个节点是目标节点，则成功查找；反之，则元素不存在．这样一来，查找的过程中会跳过一些没有必要的比较，所以相比于有序链表的查询，跳表的查询更快．可以证明，跳表查询的平均复杂度为 $O(\log n)$．</p>
+<h2 id="_2">复杂度证明</h2>
+<h3 id="_3">空间复杂度</h3>
+<p>对于一个节点而言，节点的最高层数为 $i$ 的概率为 $p^{i-1}(1 - p)$．所以，跳表的期望层数为 $\sum_{i\ge 1} ip^{i - 1}(1-p) = \frac{1}{1 - p}$，且因为 $p$ 为常数，所以跳表的 <strong>期望空间复杂度</strong> 为 $O(n)$．</p>
+<p>在最坏的情况下，每一层有序链表等于初始有序链表，即跳表的 <strong>最差空间复杂度</strong> 为 $O(n \log n)$．</p>
+<h3 id="_4">时间复杂度</h3>
+<p>从后向前分析查找路径，这个过程可以分为从最底层爬到第 $L(n)$ 层和后续操作两个部分．在分析时，假设一个节点的具体信息在它被访问之前是未知的．</p>
+<p>假设当前我们处于一个第 $i$ 层的节点 $x$，我们并不知道 $x$ 的最大层数和 $x$ 左侧节点的最大层数，只知道 $x$ 的最大层数至少为 $i$．如果 $x$ 的最大层数大于 $i$，那么下一步应该是向上走，这种情况的概率为 $p$；如果 $x$ 的最大层数等于 $i$，那么下一步应该是向左走，这种情况概率为 $1-p$．</p>
+<p>令 $C(i)$ 为在一个无限长度的跳表中向上爬 $i$ 层的期望代价，那么有：</p>
+<p>$$
+\begin{aligned}
+C(0) &amp; = 0 \
+C(i) &amp; = (1-p)(1+C(i)) + p(1+C(i-1))
+\end{aligned}
+$$</p>
+<p>解得 $C(i)=\frac{i}{p}$．</p>
+<p>由此可以得出：在长度为 $n$ 的跳表中，从最底层爬到第 $L(n)$ 层的期望步数存在上界 $\frac{L(n) - 1}{p}$．</p>
+<p>现在只需要分析爬到第 $L(n)$ 层后还要再走多少步．易得，到了第 $L(n)$ 层后，向左走的步数不会超过第 $L(n)$ 层及更高层的节点数总和，而这个总和的期望为 $\frac{1}{p}$．所以到了第 $L(n)$ 层后向左走的期望步数存在上界 $\frac{1}{p}$．同理，到了第 $L(n)$ 层后向上走的期望步数存在上界 $\frac{1}{p}$．</p>
+<p>所以，跳表查询的期望查找步数为 $\frac{L(n) - 1}{p} + \frac{2}{p}$，又因为 $L(n)=\log_{\frac{1}{p}}n$，所以跳表查询的 <strong>期望时间复杂度</strong> 为 $O(\log n)$．</p>
+<p>在最坏的情况下，每一层有序链表等于初始有序链表，查找过程相当于对最高层的有序链表进行查询，即跳表查询操作的 <strong>最差时间复杂度</strong> 为 $O(n)$．</p>
+<p>插入操作和删除操作就是进行一遍查询的过程，途中记录需要修改的节点，最后完成修改．易得每一层至多只需要修改一个节点，又因为跳表期望层数为 $\log_{\frac{1}{p}}n$，所以插入和修改的 <strong>期望时间复杂度</strong> 也为 $O(\log n)$．</p>
+<h2 id="_5">具体实现</h2>
+<h3 id="_6">获取节点的最大层数</h3>
+<p>模拟以 $p$ 的概率往上加一层，最后和上限值取最小．</p>
+<pre><code class="language-cpp">int randomLevel() {
+  int lv = 1;
+  // MAXL = 32, S = 0xFFFF, PS = S * P, P = 1 / 4
+  while ((rand() &amp; S) &lt; PS) ++lv;
+  return min(MAXL, lv);
+}
+</code></pre>
+<h3 id="_7">查询</h3>
+<p>查询跳表中是否存在键值为 <code>key</code> 的节点．具体实现时，可以设置两个哨兵节点以减少边界条件的讨论．</p>
+<pre><code class="language-cpp">V&amp; find(const K&amp; key) {
+  SkipListNode&lt;K, V&gt;* p = head;
+
+  // 找到该层最后一个键值小于 key 的节点，然后走向下一层
+  for (int i = level; i &gt;= 0; --i) {
+    while (p-&gt;forward[i]-&gt;key &lt; key) {
+      p = p-&gt;forward[i];
+    }
+  }
+  // 现在是小于，所以还需要再往后走一步
+  p = p-&gt;forward[0];
+
+  // 成功找到节点
+  if (p-&gt;key == key) return p-&gt;value;
+
+  // 节点不存在，返回 INVALID
+  return tail-&gt;value;
+}
+</code></pre>
+<h3 id="_8">插入</h3>
+<p>插入节点 <code>(key, value)</code>．插入节点的过程就是先执行一遍查询的过程，中途记录新节点是要插入哪一些节点的后面，最后再执行插入．每一层最后一个键值小于 <code>key</code> 的节点，就是需要进行修改的节点．</p>
+<pre><code class="language-cpp">void insert(const K &amp;key, const V &amp;value) {
+  // 用于记录需要修改的节点
+  SkipListNode&lt;K, V&gt; *update[MAXL + 1];
+
+  SkipListNode&lt;K, V&gt; *p = head;
+  for (int i = level; i &gt;= 0; --i) {
+    while (p-&gt;forward[i]-&gt;key &lt; key) {
+      p = p-&gt;forward[i];
+    }
+    // 第 i 层需要修改的节点为 p
+    update[i] = p;
+  }
+  p = p-&gt;forward[0];
+
+  // 若已存在则修改
+  if (p-&gt;key == key) {
+    p-&gt;value = value;
+    return;
+  }
+
+  // 获取新节点的最大层数
+  int lv = randomLevel();
+  if (lv &gt; level) {
+    lv = ++level;
+    update[lv] = head;
+  }
+
+  // 新建节点
+  SkipListNode&lt;K, V&gt; *newNode = new SkipListNode&lt;K, V&gt;(key, value, lv);
+  // 在第 0~lv 层插入新节点
+  for (int i = lv; i &gt;= 0; --i) {
+    p = update[i];
+    newNode-&gt;forward[i] = p-&gt;forward[i];
+    p-&gt;forward[i] = newNode;
+  }
+
+  ++length;
+}
+</code></pre>
+<h3 id="_9">删除</h3>
+<p>删除键值为 <code>key</code> 的节点．删除节点的过程就是先执行一遍查询的过程，中途记录要删的节点是在哪一些节点的后面，最后再执行删除．每一层最后一个键值小于 <code>key</code> 的节点，就是需要进行修改的节点．</p>
+<pre><code class="language-cpp">bool erase(const K &amp;key) {
+  // 用于记录需要修改的节点
+  SkipListNode&lt;K, V&gt; *update[MAXL + 1];
+
+  SkipListNode&lt;K, V&gt; *p = head;
+  for (int i = level; i &gt;= 0; --i) {
+    while (p-&gt;forward[i]-&gt;key &lt; key) {
+      p = p-&gt;forward[i];
+    }
+    // 第 i 层需要修改的节点为 p
+    update[i] = p;
+  }
+  p = p-&gt;forward[0];
+
+  // 节点不存在
+  if (p-&gt;key != key) return false;
+
+  // 从最底层开始删除
+  for (int i = 0; i &lt;= level; ++i) {
+    // 如果这层没有 p 删除就完成了
+    if (update[i]-&gt;forward[i] != p) {
+      break;
+    }
+    // 断开 p 的连接
+    update[i]-&gt;forward[i] = p-&gt;forward[i];
+  }
+
+  // 回收空间
+  delete p;
+
+  // 删除节点可能导致最大层数减少
+  while (level &gt; 0 &amp;&amp; head-&gt;forward[level] == tail) --level;
+
+  // 跳表长度
+  --length;
+  return true;
+}
+</code></pre>
+<h3 id="_10">完整代码</h3>
+<p>下列代码是用跳表实现的 map．未经正经测试，仅供参考．</p>
+<p>??? note "参考代码"
+    ```cpp
+    #include <cassert>
+    #include <climits>
+    #include <ctime>
+    #include <iostream>
+    #include <map>
+    using namespace std;</p>
+<pre><code>template &lt;typename K, typename V&gt;
+struct SkipListNode {
+  int level;
+  K key;
+  V value;
+  SkipListNode **forward;
+
+  SkipListNode() {}
+
+  SkipListNode(K k, V v, int l, SkipListNode *nxt = NULL) {
+    key = k;
+    value = v;
+    level = l;
+    forward = new SkipListNode *[l + 1];
+    for (int i = 0; i &lt;= l; ++i) forward[i] = nxt;
+  }
+
+  ~SkipListNode() {
+    if (forward != NULL) delete[] forward;
+  }
+};
+
+template &lt;typename K, typename V&gt;
+struct SkipList {
+  static constexpr int MAXL = 32;
+  static constexpr int P = 4;
+  static constexpr int S = 0xFFFF;
+  static constexpr int PS = S / P;
+  static constexpr int INVALID = INT_MAX;
+
+  SkipListNode&lt;K, V&gt; *head, *tail;
+  int length;
+  int level;
+
+  SkipList() {
+    srand(time(nullptr));
+
+    level = length = 0;
+    tail = new SkipListNode&lt;K, V&gt;(INVALID, 0, 0);
+    head = new SkipListNode&lt;K, V&gt;(INVALID, 0, MAXL, tail);
+  }
+
+  ~SkipList() {
+    delete head;
+    delete tail;
+  }
+
+  int randomLevel() {
+    int lv = 1;
+    while ((rand() &amp; S) &lt; PS) ++lv;
+    return MAXL &gt; lv ? lv : MAXL;
+  }
+
+  void insert(const K &amp;key, const V &amp;value) {
+    SkipListNode&lt;K, V&gt; *update[MAXL + 1];
+
+    SkipListNode&lt;K, V&gt; *p = head;
+    for (int i = level; i &gt;= 0; --i) {
+      while (p-&gt;forward[i]-&gt;key &lt; key) {
+        p = p-&gt;forward[i];
+      }
+      update[i] = p;
+    }
+    p = p-&gt;forward[0];
+
+    if (p-&gt;key == key) {
+      p-&gt;value = value;
+      return;
+    }
+
+    int lv = randomLevel();
+    if (lv &gt; level) {
+      lv = ++level;
+      update[lv] = head;
+    }
+
+    SkipListNode&lt;K, V&gt; *newNode = new SkipListNode&lt;K, V&gt;(key, value, lv);
+    for (int i = lv; i &gt;= 0; --i) {
+      p = update[i];
+      newNode-&gt;forward[i] = p-&gt;forward[i];
+      p-&gt;forward[i] = newNode;
+    }
+
+    ++length;
+  }
+
+  bool erase(const K &amp;key) {
+    SkipListNode&lt;K, V&gt; *update[MAXL + 1];
+    SkipListNode&lt;K, V&gt; *p = head;
+
+    for (int i = level; i &gt;= 0; --i) {
+      while (p-&gt;forward[i]-&gt;key &lt; key) {
+        p = p-&gt;forward[i];
+      }
+      update[i] = p;
+    }
+    p = p-&gt;forward[0];
+
+    if (p-&gt;key != key) return false;
+
+    for (int i = 0; i &lt;= level; ++i) {
+      if (update[i]-&gt;forward[i] != p) {
+        break;
+      }
+      update[i]-&gt;forward[i] = p-&gt;forward[i];
+    }
+
+    delete p;
+
+    while (level &gt; 0 &amp;&amp; head-&gt;forward[level] == tail) --level;
+    --length;
+    return true;
+  }
+
+  V &amp;operator[](const K &amp;key) {
+    V v = find(key);
+    if (v == tail-&gt;value) insert(key, 0);
+    return find(key);
+  }
+
+  V &amp;find(const K &amp;key) {
+    SkipListNode&lt;K, V&gt; *p = head;
+    for (int i = level; i &gt;= 0; --i) {
+      while (p-&gt;forward[i]-&gt;key &lt; key) {
+        p = p-&gt;forward[i];
+      }
+    }
+    p = p-&gt;forward[0];
+    if (p-&gt;key == key) return p-&gt;value;
+    return tail-&gt;value;
+  }
+
+  bool count(const K &amp;key) { return find(key) != tail-&gt;value; }
+};
+
+int main() {
+  SkipList&lt;int, int&gt; L;
+  map&lt;int, int&gt; M;
+
+  clock_t s = clock();
+
+  for (int i = 0; i &lt; 1e5; ++i) {
+    int key = rand(), value = rand();
+    L[key] = value;
+    M[key] = value;
+  }
+
+  for (int i = 0; i &lt; 1e5; ++i) {
+    int key = rand();
+    if (i &amp; 1) {
+      L.erase(key);
+      M.erase(key);
+    } else {
+      int r1 = L.count(key) ? L[key] : 0;
+      int r2 = M.count(key) ? M[key] : 0;
+      assert(r1 == r2);
+    }
+  }
+
+  clock_t e = clock();
+  cout &lt;&lt; "Time elapsed: " &lt;&lt; (double)(e - s) / CLOCKS_PER_SEC &lt;&lt; endl;
+  // about 0.2s
+
+  return 0;
+}
+```
+</code></pre>
+<h2 id="_11">跳表的随机访问优化</h2>
+<p>访问跳表中第 $k$ 个节点，相当于访问初始有序链表中的第 $k$ 个节点，很明显这个操作的时间复杂度是 $O(n)$ 的，并不足够优秀．</p>
+<p>跳表的随机访问优化就是对每一个前向指针，再多维护这个前向指针的长度．假设 $A$ 和 $B$ 都是跳表中的节点，其中 $A$ 为跳表的第 $a$ 个节点，$B$ 为跳表的第 $b$ 个节点 $(a &lt; b)$，且在跳表的某一层中 $A$ 的前向指针指向 $B$，那么这个前向指针的长度为 $b - a$．</p>
+<p>现在访问跳表中的第 $k$ 个节点，就可以从顶层开始，水平地遍历该层的链表，直到当前节点的位置加上当前节点在该层的前向指针长度大于等于 $k$，然后移动至下一层．重复这个过程直至到达第一层且无法继续行操作．此时，当前节点就是跳表中第 $k$ 个节点．</p>
+<p>这样，就可以快速地访问到跳表的第 $k$ 个元素．可以证明，这个操作的时间复杂度为 $O(\log n)$．</p>
+<h2 id="_12">参考资料</h2>
+<ol>
+<li><a href="https://15721.courses.cs.cmu.edu/spring2018/papers/08-oltpindexes1/pugh-skiplists-cacm1990.pdf">Skip Lists: A Probabilistic Alternative to Balanced Trees</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skip_list">Skip List</a></li>
+<li><a href="http://cglab.ca/~morin/teaching/5408/refs/p90b.pdf">A Skip List Cookbook</a></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

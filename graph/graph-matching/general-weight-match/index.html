@@ -1,0 +1,1345 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="accelsao, Henry-ZHR, yuhuoji">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/graph/graph-matching/general-weight-match/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>General weight match - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              General weight match
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预备知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blossom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        花（blossom）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertex-labelingequality-edge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        顶标（vertex labeling）和等边（Equality Edge）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般图最大权完美匹配的线性规划
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般图最大权完美匹配的线性规划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对偶问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        处理花的问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算法的四个步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        找不到等边扩充
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vertex-labeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整 VERTEX LABELING
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般图最大权匹配
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般图最大权匹配">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考代码
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂度分析
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/graph/graph-matching/general-weight-match.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>General weight match</h1>
+
+<p>本页从一般图最大权完美匹配到一般图最大权匹配（最大权匹配可以通过增加零边变成最大权完美匹配）．</p>
+<h2 id="_1">预备知识</h2>
+<h3 id="blossom">花（blossom）</h3>
+<p>一般图匹配和二分图匹配不同的是，图可能存在奇环．可以将偶环视为二分图．</p>
+<p>带花树算法（Blossom Algorithm）的处理方式时是遇到奇环就把它缩成一个 <strong>花（Blossom）</strong>，并把花中所有的点设为偶点．既然花上的点都可以成为偶点，那么可以把整个花直接缩成一个偶点．注意，一个花可以包含其它花．</p>
+<p>这也可以变成线性规划和对偶问题，但是要对花进行一些处理．</p>
+<h3 id="vertex-labelingequality-edge">顶标（vertex labeling）和等边（Equality Edge）</h3>
+<p>定义 $z_u$ 是点 $u$ 的顶标（vertex labeling），与 $KM$ 算法中定义的顶标含义相同．定义边 $e(u,v)$ 为 "等边" 当且仅当点 $u$ 和点 $v$ 的标号和等于边 $e$ 的权值（$z_u + z_v = w(e)$），此时边的标号 $z_e = z_u + z_v − w(e) = 0$．</p>
+<h2 id="_2">一般图最大权完美匹配的线性规划</h2>
+<h3 id="_3">定义</h3>
+<p>因为一朵花最少有三个点，缩花后成为一个点．设 $O$ 为大小为 $≥3$ 奇数的集合的集合（包含所有花），$\gamma(S)$ 表示 $S$ 集合中的边．</p>
+<p>$$
+\begin{aligned}
+&amp; \text{设} S\subseteq V \
+&amp; \gamma(S)={(u,v)\in E:u\in S,v\in S} \
+&amp; O={B\subseteq V:|B|\text{是奇数且}|B|\geq3} \
+\end{aligned}
+$$</p>
+<h3 id="_4">对偶问题</h3>
+<p>???+ note "原问题"
+    $$
+    \begin{aligned}
+    &amp; \max\sum_{e\in E}w(e)x_e \
+    &amp; \text{限制：} \
+    &amp; x(\delta(u))=1:\forall u\in V \
+    &amp; x(\gamma(B))\leq\lfloor\frac{|B|}{2}\rfloor:\forall B\in O \
+    &amp; x_e\geq0:\forall e\in E \
+    \end{aligned}
+    $$</p>
+<p>然后通过原始对偶（Primal-Dual）将问题转换为对偶问题．</p>
+<p>???+ note "对偶问题"
+    $$
+    \begin{aligned}
+    &amp; \min\sum_{u\in V}z_u+\sum_{B\in O}\left\lfloor\frac{|B|}{2}\right\rfloor z_B \
+    &amp; \text{限制：} \
+    &amp; z_B\geq0:\forall B\in O \
+    &amp; z_e\geq0:\forall e\in E \
+    &amp; \text{设} e=(u,v)，\text{这里} \
+    &amp; \begin{array}{lll}
+    z_e &amp; = &amp; z_u + z_v - w(e) + \sum_{\substack{B \in O \ u,v \in \gamma(B)}} z_B
+    \end{array}
+    \end{aligned}
+    $$</p>
+<p>$x_e=1$ 的边是匹配边，$x_e=0$ 的边是非匹配边．和二分图一样，我们必须满足 $x_e\in{0,1}:\forall e\in E$．因此必须在最大权完美匹配的时候，让所有匹配边都是 <strong>等边</strong> 的．</p>
+<p>和二分图不同的是，一般图多了 $z_B$ 要处理．下面考虑 $z_B$ 什么时候大于 $0$．</p>
+<p>可以看出，尽量使 $z_B=0$ 是最好的做法，但在不得已时还是要让 $z_B&gt;0$．在 $x(\gamma(B)) = \left\lfloor \dfrac{|B|}2 \right\rfloor \text{且} x(\delta(B)) = 1$ 时，让 $z_B&gt;0$ 即可．因为除了在这种情况下，$z_B&gt;0$ 是无意义的．</p>
+<p>根据互补松弛条件，有以下的对应关系：</p>
+<ul>
+<li>
+<p>对于选中的边 $e$，必有 $z_e=0$．</p>
+<p>$$
+x_e&gt;0 \longrightarrow z_e=0,\quad \forall e\in E
+$$</p>
+</li>
+<li>
+<p>对于选中的集合<em>B</em>，$z_B&gt;0 \longrightarrow x(\gamma(B))= \left\lfloor \dfrac{|B|}2 \right\rfloor$，即所有 $z_B&gt;0$ 的集合 $B$，都被选了集合大小一半的边，也即集合 $B$ 是一朵花，选中花中的一条边进行增广．同时，我们加入一个条件：$x(\delta(B))=1$，即只有花 $B$ 向外连了一条边的时候，$z_B&gt;0$ 才是有意义的．</p>
+<p>$$
+z_B&gt;0 \longrightarrow x(\gamma(B))=\left\lfloor\frac{|B|}2\right\rfloor, x(\delta(B))=1\quad \forall B\in O
+$$</p>
+</li>
+</ul>
+<p>以「<strong>等边</strong>」的概念，结合之前的带花树算法：用「等边」构成的增广路不断进行扩充，由于用来扩充的边全是「等边」，最后得到的最大权完美匹配仍然全是「等边」．</p>
+<h3 id="_5">处理花的问题</h3>
+<p>当遇到花的时候，要将它缩成一个偶点．将花中所有点都设为偶点，并让它的 $z_B=0$．</p>
+<p>由于缩花后会把花保存起来，直到满足某些条件才会拆开，所以不能用之前的方法记录花．</p>
+<p>如果没有特殊说明，之前提到的点，都包含缩花形成的偶点．</p>
+<p>由于花也有可能缩成点被加入队列中，并且花的数量是不固定的，因此不能像之前一样枚举每个点来检查是否有增广路．因此，在进行广度优先搜索（BFS）时，必须将所有未匹配的点都放入队列中．</p>
+<p>这样会同时产生很多棵交错树．</p>
+<h3 id="_6">算法的四个步骤</h3>
+<p>这个算法可以分成四个步骤．</p>
+<ol>
+<li>GROW（等边）：用 "等边" 构成交错树．</li>
+<li>AUGMENT（增广）：找出增广路并扩充匹配．</li>
+<li>SHRINK（缩花）：把花缩成一个点．</li>
+<li>EXPAND（展开）：把花拆开．</li>
+</ol>
+<p><img alt="general-weight-match-1" src="../images/general-weight-match-1.png" /></p>
+<p>在 AUGMENT 阶段时，因为所有未匹配点都会在不同的交错树上，所以当增广时两棵交错树的偶点连在一起，就表示找到了一条增广路．</p>
+<h3 id="_7">找不到等边扩充</h3>
+<p>和二分图一样，也会有找不到「等边」扩充的问题．这时就需要调整 vertex labeling．</p>
+<h3 id="vertex-labeling">调整 VERTEX LABELING</h3>
+<p>vertex labeling 仍要维持大于等于的性质，而且既有的「等边」不能被改变，还要让 $z_B$ 尽量的小．</p>
+<p>???+ note "定义符号 奇偶点"
+    以 $u^−$ 来表示 $u$ 在交错树上为奇点．<br />
+    以 $u^+$ 来表示 $u$ 在交错树上为偶点．<br />
+    以 $u^\varnothing$ 来表示 $u$ 不在任何一棵交错树上．<br />
+    之后所有提到的 $B$ 预设都是花，并同时代表缩花之后的点．<br />
+    花也可以有奇花偶花之分，因此也适用 $B^+$、$B^−$、$B^\varnothing$ 等符号．</p>
+<p>设目前有 r 棵交错树 $T_i=(U_{t_i},V_{t_i}):1\leq i\leq r$，令</p>
+<p>$$
+\begin{aligned}
+d1 &amp;= \min({z_e : e = (u^+,v^\varnothing)}) \
+d2 &amp;= \min({z_e : e = (u^+,v^+), ~ u^+ \in T_i, ~ v^+ \in T_j, ~ i \neq j}) / 2 \
+d3 &amp;= \min({z_{B^-} : B^- \in O}) / 2
+\end{aligned}
+$$</p>
+<p>注意这里<em>B</em>是缩花之后的点，所以可以有奇偶性．</p>
+<p>设 $d=min(d1,d2,d3)$，让</p>
+<p>$$
+\begin{aligned}
+z_{u^+} - &amp;= d \
+z_{v^-} + &amp;= d \
+z_{B^+} + &amp;= 2d \
+z_{B^-} - &amp;= 2d \
+\end{aligned}
+$$</p>
+<p>如果出现 $z_B=0(d=d3)$，为了防止 $z_B&lt;0$ 的情况，所以要把这朵花拆了 (EXPAND)．
+拆花后只留下花里的交替路径，并把花里不在交替路径上的点设为未走访 ($\varnothing$)．</p>
+<p>如此便制造了一条（以上）的等边，既有等边保持不动，并维持了 $z_e\geq0:\forall e\in E$ 的性质，且最低限度增加了 $z_B$，可以继续找增广路了．</p>
+<h2 id="_8">一般图最大权匹配</h2>
+<p>以上求的是最大权完美匹配，求最大权匹配需要在 vertex labeling 额外增加一个限制：对于所有匹配点 $u$，$z_u&gt;0$．</p>
+<p>开始时先设所有的 $z_u=max({w(e):e\in E})/2$．</p>
+<p>vertex labeling 为 $0$ 的点最后将成为未匹配点．</p>
+<h3 id="_9">参考代码</h3>
+<p>这里为了方便实现，使用边权乘 $2$ 来计算 $z_e$ 的值，这样就不会出现浮点数误差了．</p>
+<p>???+ note "存储"
+    ```cpp
+    constexpr int INF = INT_MAX;
+    constexpr int MAXN = 400;</p>
+<pre><code>struct edge {
+  int u, v, w;
+
+  // 表示(u,v)为一条边其权重为w
+  edge() {}
+
+  edge(int u, int v, int w) : u(u), v(v), w(w) {}
+};
+
+int n, n_x;
+// 有n个点，编号为 1 ~ n
+// n_x表示当前点加上花的数量，编号从n+1到n_x为花的节点
+edge g[MAXN * 2 + 1][MAXN * 2 + 1];
+// 图用邻接矩阵存储，因为最多有n-1朵花，所以大小为MAXN*
+vector&lt;int&gt; flower[MAXN * 2 + 1];
+// flower[b]记录了花b中有哪些点
+// 我们记录花中的点的方式是只记录花里面的最外层花
+```
+</code></pre>
+<p>下面是嵌套花的例子．</p>
+<p><img alt="general-weight-match-2" src="../images/general-weight-match-2.png" /></p>
+<p>其中 ${ 6, 5, 8} \in b1,{ b1, 4, 3, 2, 11, 10, 9} \in b2$．存储为：</p>
+<pre><code class="language-text">flower[b2] = {b1, 4, 3, 2, 11, 10, 9} 
+flower[b1] = {6, 5, 8}
+</code></pre>
+<p><img alt="general-weight-match-3" src="../images/general-weight-match-3.png" /></p>
+<pre><code class="language-text">flower[b2] = {9, b1, 4, 3, 2, 11, 10} 
+flower[b1] = {5, 8, 6}
+</code></pre>
+<pre><code class="language-cpp">int lab[MAXN * 2 + 1];
+// lab[u]用来记录z_u, lab[b]用来记录z_B
+int match[MAXN * 2 + 1], slack[MAXN * 2 + 1], st[MAXN * 2 + 1],
+    pa[MAXN * 2 + 1];
+// match[x]=y表示(x,y)是匹配，这里x、y可能是花
+// slack[x]=u表示z(x,u)是所有和x相邻的边中最小的那条边
+// 表示节点 x 所在的花是 b．如果 x=b 且 b&lt;=n，则表示 x
+// 是一个普通节点（不属于任何花） 表示在交错树中，节点 v 的父节点是 u
+int flower_from[MAXN * 2 + 1][MAXN + 1], S[MAXN * 2 + 1], vis[MAXN * 2 + 1];
+/*
+flower_from[b][x]=xs表示最大的包含x的b的子花是xs
+x是b里面的一个点，xs是b里面的一朵花或一个点，同时x=xs或x是xs的其中一个点
+*/
+// S[u]={-1:没走过 0:偶点 1:奇点}
+// vis只用在找lca的时候检查是不是走过了
+queue&lt;int&gt; q;
+// BFS找增广路用的queue
+</code></pre>
+<p><img alt="general-weight-match-4" src="../images/general-weight-match-4.png" /></p>
+<pre><code class="language-text">flower_from[b2][6] = b1 
+flower_from[b2][5] = b1 
+flower_from[b2][9] = 9 
+flower_from[b1][6] = 6 
+以此类推
+</code></pre>
+<pre><code class="language-cpp">int e_delta(const edge &amp;e) {
+  // 计算ze，为了方便起见先把所有边的权重乘二
+  // 在花里面直接计算 e_delta 值会导致错误
+  return lab[e.u] + lab[e.v] - g[e.u][e.v].w * 2;
+}
+
+void update_slack(int u, int x) {
+  // 以u更新slack[x]的值
+  if (!slack[x] || e_delta(g[u][x]) &lt; e_delta(g[slack[x]][x])) {
+    slack[x] = u;
+  }
+}
+
+void set_slack(int x) {
+  // 算出slack[x]的值，slack[x]=0表示x是交错树中的节点
+  slack[x] = 0;
+  for (int u = 1; u &lt;= n; ++u) {
+    if (g[u][x].w &gt; 0 &amp;&amp; st[u] != x &amp;&amp; S[st[u]] == 0) {
+      update_slack(u, x);
+    }
+  }
+}
+</code></pre>
+<pre><code class="language-cpp">void q_push(int x) {
+  // 把x丟到queue里面，我们设定queue不能直接push一朵花
+  if (x &lt;= n)
+    q.push(x);
+  else {
+    // 若要push花必须将花里面原图的点都添加到queue中
+    for (size_t i = 0; i &lt; flower[x].size(); i++) {
+      q_push(flower[x][i]);
+    }
+  }
+}
+
+void set_st(int x, int b) {
+  // 将x所在的花设为b
+  st[x] = b;
+  if (x &gt; n) {
+    // 若x也是花的话，就必须要把x里面的点其所在的花也设为b
+    for (size_t i = 0; i &lt; flower[x].size(); ++i) {
+      set_st(flower[x][i], b);
+    }
+  }
+}
+</code></pre>
+<pre><code class="language-cpp">int get_pr(int b, int xr) {
+  // xr是flower[b]中的一个点，返回值pr是它的位置
+  // 为了方便程序运行，我们让 flower[b][0]~flower[b][pr]为花里的交替路
+  int pr = find(flower[b].begin(), flower[b].end(), xr) - flower[b].begin();
+  if (pr % 2 == 1) {
+    // 检查他在花里的位置，如果 flower[b][0]~flower[b][pr] 不是交替路
+    // 就把整朵花反转，重新计算 pr
+    // 让 flower[b][0]~flower[b][pr] 为花里的交替路
+    reverse(flower[b].begin() + 1, flower[b].end());
+    return (int)flower[b].size() - pr;
+  } else
+    return pr;
+}
+</code></pre>
+<p><img alt="general-weight-match-5" src="../images/general-weight-match-5.png" /></p>
+<p>如果使用 <code>get_pr(b2,11)</code>，<code>flower[b2]</code> 会变成 <code>{9,10,11,2,3,4,b1}</code>，并返回 2．</p>
+<p>如果使用 <code>get_pr(b2,2)</code>，<code>flower[b2]</code> 会变成 <code>{9,b1,4,3,2,11,10}</code>，并返回 4．</p>
+<pre><code class="language-cpp">void set_match(int u, int v) {
+  // 设置u和v为匹配边，u和v有可能是花
+  match[u] = g[u][v].v;
+  if (u &gt; n) {
+    // 如果u是花的话
+    edge e = g[u][v];
+    int xr = flower_from[u][e.u];  // 找出e.u在flower[u]里的哪朵花上
+    int pr = get_pr(u, xr);  // 找出xr的位置并让0~pr为花里的交替路径
+    for (int i = 0; i &lt; pr; ++i) {  // 把花里的交替路上的匹配边和非匹配边反转
+      set_match(flower[u][i], flower[u][i ^ 1]);
+    }
+    set_match(xr, v);  // 设置(xr,v)为匹配边
+    rotate(flower[u].begin(), flower[u].begin() + pr, flower[u].end());
+    // 最后把pr设为花托，因为花的存法是flower[u][0]会是u的花托
+    // 所以要把flower[u][pr] rotate 到最前面
+  }
+}
+
+void augment(int u, int v) {
+  // 把u和u的祖先全部增广，并设(u,v)为匹配边
+  for (;;) {
+    int xnv = st[match[u]];
+    set_match(u, v);
+    if (!xnv) return;
+    set_match(xnv, st[pa[xnv]]);
+    u = st[pa[xnv]];
+    v = xnv;
+  }
+}
+
+int get_lca(int u, int v) {
+  // 找出u,v在交错树上的lca
+  static int t = 0;
+  for (++t; u || v; swap(u, v)) {
+    if (u == 0) continue;
+    if (vis[u] == t) return u;
+    vis[u] = t;  // 这种方法可以不用清空vis数组
+    u = st[match[u]];
+    if (u) u = st[pa[u]];
+  }
+  return 0;
+}
+</code></pre>
+<p>???+ note "增加一朵奇花"
+    <code>cpp
+    void add_blossom(int u, int lca, int v) {
+      // 将u,v,lca这朵花缩成一个点 b
+      // 交错树上u,v的lca即为花托
+      int b = n + 1;
+      while (b &lt;= n_x &amp;&amp; st[b]) ++b;
+      if (b &gt; n_x) ++n_x;
+      // 找出目前未使用的花的编号
+      lab[b] = 0;             // 设置zB=0
+      S[b] = 0;               // 整朵花为一个偶点
+      match[b] = match[lca];  // 设置花的匹配边为花托的匹配边
+      flower[b].clear();
+      flower[b].push_back(lca);
+      for (int x = u, y; x != lca; x = st[pa[y]]) {
+        flower[b].push_back(x);
+        y = st[match[x]];
+        flower[b].push_back(y);
+        q_push(y);
+      }
+      reverse(flower[b].begin() + 1, flower[b].end());
+      for (int x = v, y; x != lca; x = st[pa[y]]) {
+        flower[b].push_back(x);
+        y = st[match[x]];
+        flower[b].push_back(y);
+        q_push(y);
+      }
+      // b中所有点以环形的方式加入flower[b]，并设花托为首个元素
+      set_st(b, b);  // 把整朵花里所有的元素其所在的花设为b
+      for (int x = 1; x &lt;= n_x; ++x) {
+        g[b][x].w = 0;
+        g[x][b].w = 0;
+      }
+      for (int x = 1; x &lt;= n; ++x) {
+        flower_from[b][x] = 0;
+      }
+      for (size_t i = 0; i &lt; flower[b].size(); ++i) {
+        int xs = flower[b][i];
+        for (int x = 1; x &lt;= n_x; ++x) {
+          // 设置b和x相邻的边为b里面和x相邻的边e_delta最小的那条
+          if (g[b][x].w == 0 || e_delta(g[xs][x]) &lt; e_delta(g[b][x])) {
+            g[b][x] = g[xs][x];
+            g[x][b] = g[x][xs];
+          }
+        }
+        for (int x = 1; x &lt;= n; ++x) {
+          if (flower_from[xs][x]) {
+            // 如果b里面的点xs有包含x
+            // 那flower_from[b][x]就会是xs
+            flower_from[b][x] = xs;
+          }
+        }
+      }
+      set_slack(b);
+      // 最后必须要设置b的slack值
+    }</code></p>
+<p>???+ note "拆花"
+    <code>cpp
+    void expand_blossom(int b) {
+      // b是奇花且zB=0时，必须要把b拆开
+      // 因为只拆开b而已，所以如果b里面有包含其他的花
+      // 不需要把他们拆开
+      for (size_t i = 0; i &lt; flower[b].size(); ++i) {
+        set_st(flower[b][i], flower[b][i]);
+        // 先把flower[b]里每个元素所在的花设为自己
+      }
+      int xr = flower_from[b][g[b][pa[b]].u];
+      // xr表示交错路上b的父母节点在flower[b]里的哪朵花上
+      int pr = get_pr(b, xr);  // 找出xr的位置并让0~pr为花里的交替路径
+      for (int i = 0; i &lt; pr; i += 2) {
+        // 把交替路径拆开到交错树中
+        // 并把交替路中的偶点丢到queue里
+        int xs = flower[b][i];
+        int xns = flower[b][i + 1];
+        pa[xs] = g[xns][xs].u;
+        S[xs] = 1;
+        S[xns] = 0;
+        slack[xs] = 0;
+        set_slack(xns);
+        q_push(xns);
+      }
+      S[xr] = 1;  // 这时xr会是奇点或奇花
+      pa[xr] = pa[b];
+      for (size_t i = pr + 1; i &lt; flower[b].size(); ++i) {
+        // 把花中所有不再交替路径上的点设为未走访
+        int xs = flower[b][i];
+        S[xs] = -1;
+        set_slack(xs);
+      }
+      st[b] = 0;
+    }</code></p>
+<p>???+ note "尝试增广一条等边"
+    <code>cpp
+    bool on_found_edge(const edge &amp;e) {
+      // BFS时找到一条等边e
+      // 要对它进行以下的处理
+      // 这里u一定是偶点
+      int u = st[e.u], v = st[e.v];
+      if (S[v] == -1) {
+        // v是未走访节点
+        pa[v] = e.u;
+        S[v] = 1;
+        int nu = st[match[v]];
+        slack[v] = 0;
+        slack[nu] = 0;
+        S[nu] = 0;
+        q_push(nu);
+      } else if (S[v] == 0) {
+        // v是偶点
+        int lca = get_lca(u, v);
+        if (!lca) {  // lca=0表示u,v在不同的交错树上，有增广路
+          augment(u, v);
+          augment(v, u);
+          return true;  // 找到增广路
+        } else
+          add_blossom(u, lca, v);
+        // 否则u,v在同棵树上就会是一朵花，要缩花
+      }
+      return false;
+    }</code></p>
+<p>???+ note "增广"
+    <code>cpp
+    bool matching() {
+      memset(S + 1, -1, sizeof(int) * n_x);
+      memset(slack + 1, 0, sizeof(int) * n_x);
+      q = queue&lt;int&gt;();  // 把queue清空
+      for (int x = 1; x &lt;= n_x; ++x) {
+        if (st[x] == x &amp;&amp; !match[x]) {
+          // 把所有非匹配点加入queue里面，并设为偶点
+          pa[x] = 0;
+          S[x] = 0;
+          q_push(x);
+        }
+      }
+      if (q.empty()) return false;  // 所有点都有匹配了
+      for (;;) {
+        while (q.size()) {
+          // BFS
+          int u = q.front();
+          q.pop();
+          if (S[st[u]] == 1) continue;
+          for (int v = 1; v &lt;= n; ++v) {
+            if (g[u][v].w &gt; 0 &amp;&amp; st[u] != st[v]) {
+              if (e_delta(g[u][v]) == 0) {
+                if (on_found_edge(g[u][v])) return true;
+              } else
+                update_slack(u, st[v]);
+            }
+          }
+        }
+        // 修改lab值
+        int d = INF;
+        for (int u = 1; u &lt;= n; ++u) {
+          // 这是为了防止出现lab&lt;0的情况发生
+          // 只要有任何一个lab[u]=0就结束程序
+          if (S[st[u]] == 0) d = min(d, lab[u]);
+        }
+        for (int b = n + 1; b &lt;= n_x; ++b) {
+          if (st[b] == b &amp;&amp; S[b] == 1) d = min(d, lab[b] / 2);
+        }
+        for (int x = 1; x &lt;= n_x; ++x)
+          if (st[x] == x &amp;&amp; slack[x]) {
+            if (S[x] == -1)
+              d = min(d, e_delta(g[slack[x]][x]));
+            else if (S[x] == 0)
+              d = min(d, e_delta(g[slack[x]][x]) / 2);
+          }
+        for (int u = 1; u &lt;= n; ++u) {
+          if (S[st[u]] == 0) {
+            if (lab[u] == d) return false;
+            // 如果lab[u]=0就直接结束程序
+            lab[u] -= d;
+          } else if (S[st[u]] == 1)
+            lab[u] += d;
+        }
+        for (int b = n + 1; b &lt;= n_x; ++b) {
+          if (st[b] == b) {
+            if (S[st[b]] == 0)
+              lab[b] += d * 2;
+            else if (S[st[b]] == 1)
+              lab[b] -= d * 2;
+          }
+        }
+        q = queue&lt;int&gt;();  // 把queue清空
+        for (int x = 1; x &lt;= n_x; ++x) {
+          // 检查看看有没有增广路径产生
+          if (st[x] == x &amp;&amp; slack[x] &amp;&amp; st[slack[x]] != x &amp;&amp;
+              e_delta(g[slack[x]][x]) == 0)
+            if (on_found_edge(g[slack[x]][x])) return true;
+        }
+        for (int b = n + 1; b &lt;= n_x; ++b) {
+          // EXPAND的操作，把所有lab[b]=0的奇花拆开
+          if (st[b] == b &amp;&amp; S[b] == 1 &amp;&amp; lab[b] == 0) expand_blossom(b);
+        }
+      }
+      return false;
+    }</code></p>
+<p>???+ note "主函数"
+    <code>cpp
+    pair&lt;long long, int&gt; weight_blossom() {
+      // 主函数，一开始先初始化
+      memset(match + 1, 0, sizeof(int) * n);
+      n_x = n;  // 一开始没有花
+      int n_matches = 0;
+      long long tot_weight = 0;
+      for (int u = 0; u &lt;= n; ++u) {
+        // 先把自己所在的花设为自己
+        st[u] = u;
+        flower[u].clear();
+      }
+      int w_max = 0;
+      for (int u = 1; u &lt;= n; ++u)
+        for (int v = 1; v &lt;= n; ++v) {
+          // u是一个点时，里面所包含的点只有自己
+          flower_from[u][v] = (u == v ? u : 0);
+          w_max = max(w_max, g[u][v].w);
+          // 找出最大的边权
+        }
+      for (int u = 1; u &lt;= n; ++u) lab[u] = w_max;
+      // 让所有的lab=最大的边权
+      // 因为这里实现是用边权乘二来计算ze的值所以不用除以二
+      while (matching()) ++n_matches;
+      for (int u = 1; u &lt;= n; ++u)
+        if (match[u] &amp;&amp; match[u] &lt; u) tot_weight += g[u][match[u]].w;
+      return make_pair(tot_weight, n_matches);
+    }</code></p>
+<p>???+ note "初始化"
+    很重要 使用前一定要初始化</p>
+<pre><code>```cpp
+void init_weight_graph() {
+  // 在把边输入到图里面前必须要初始化
+  // 因为是最大权匹配所以把不存在的边设为0
+  for (int u = 1; u &lt;= n; ++u)
+    for (int v = 1; v &lt;= n; ++v) g[u][v] = edge(u, v, 0);
+}
+```
+</code></pre>
+<h2 id="_10">复杂度分析</h2>
+<p>每朵花在一次 BFS 中只会被缩花或拆花一次．每次缩花或拆花的时间复杂度为 $O(|V|)$．最多总共有 $O(|V|)$ 朵花，所以花的处理花费 $O(|V|^2)$ 的时间．而 BFS 花费 $O(|V| + |E|)$ 的时间复杂度．因此，找增广路花费 $O(|V| + |E|) + O(|V|^2) = O(|V|^2)$ 的时间复杂度．</p>
+<p>最多做 $|V|$ 次 BFS．所以，总时间复杂度为 $O(|V|^3)$．</p>
+<h2 id="_11">习题</h2>
+<ul>
+<li><a href="https://uoj.ac/problem/81">UOJ #81. 一般图最大权匹配</a></li>
+</ul>
+<h2 id="_12">参考资料</h2>
+<ol>
+<li><a href="http://pub.ist.ac.at/~vnk/papers/BLOSSOM5.html">Kolmogorov, Vladimir (2009), "Blossom V: A new implementation of a minimum cost perfect matching algorithm"</a></li>
+<li><a href="https://www.luogu.com.cn/blog/potassium/solution-p6699">从匈牙利算法到带权带花树——详解对偶问题在图匹配上的应用</a></li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

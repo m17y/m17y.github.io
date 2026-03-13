@@ -1,0 +1,1672 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="inclyc">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/lang/optimizations/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Optimizations - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Optimizations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译器优化简介
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译器优化简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是优化 (Optimization)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见的编译器优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见的编译器优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constant-folding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量折叠 (Constant Folding)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deadcode-elimination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        死代码消除 (Deadcode Elimination)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-rotate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环旋转 (Loop Rotate)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-invariant-code-motion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环不变量外提 (Loop Invariant Code Motion)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-unroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环展开 (Loop Unroll)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-unswitching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环判断外提 (Loop Unswitching)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-layout-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码布局优化 (Code Layout Optimizations)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码布局优化 (Code Layout Optimizations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-block-placement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本块放置 (Basic Block Placement)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hot-cold-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        冷热代码分离 (Hot Cold Splitting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-inlining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数内联 (Function Inlining)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数内联 (Function Inlining)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#always_inline__force_inline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        always_inline,__force_inline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tail-call-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        尾调用优化 (Tail Call Optimization)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="尾调用优化 (Tail Call Optimization)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用跳转指令代替函数调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动尾递归改写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-rpasstailcallelim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        尾递归消除 -Rpass=tailcallelim
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strength-reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        强度削减 (Strength Reduction)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="强度削减 (Strength Reduction)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标量运算符变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标量运算符变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移位代替乘法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        乘法代替除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        索引变量强度削减 (IndVars)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-vectorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动向量化 (Auto-Vectorization)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自动向量化 (Auto-Vectorization)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__restrict-type-specifier-gnu-msvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        __restrict type specifier (GNU, MSVC)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        和编译优化相关的常见语言误用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="和编译优化相关的常见语言误用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inline-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        inline - 内联
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        register - 虚假的寄存器建议
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undefined-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        未定义行为（Undefined Behavior）与编译优化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="未定义行为（Undefined Behavior）与编译优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有符号溢出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用未初始化的变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        访问越界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        空指针解引用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无副作用的无限循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sanitizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sanitizer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sanitizer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#address-sanitizer-fsanitizeaddress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address Sanitizer -fsanitize=address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#undefined-behavior-sanitizer-fsanitizeundefined" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undefined Behavior Sanitizer -fsanitize=undefined
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        杂项
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="杂项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#compiler-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compiler Explorer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        扩展阅读
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/lang/optimizations.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Optimizations</h1>
+
+<p>OI 界的常用编程语言是 C++．既然使用了这门语言，就注定要和编译器、语言标准打交道了．众所周知，C++ 非常混乱邪恶，本文旨在给出实用的编译器相关知识，足够竞赛使用．</p>
+<h2 id="_1">编译器优化简介</h2>
+<h3 id="optimization">什么是优化 (Optimization)</h3>
+<p>根据 <a href="https://en.cppreference.com/w/cpp/language/as_if">如同规则</a>（The as-if Rule），在保持语义不变的情况下，对程序运行速度、程序可执行文件大小作出改进．</p>
+<!-- ### 开优化的比赛有哪些？ -->
+
+<!-- TODO: 开 O2 的比赛 -->
+
+<h2 id="_2">常见的编译器优化</h2>
+<h3 id="constant-folding">常量折叠 (Constant Folding)</h3>
+<p>常量折叠，又称常量传播 (Constant Propagation)，如果一个表达式可以确定为常量，在他的下一个定义 (Definition) 前，可以进行常量传播．</p>
+<pre><code class="language-cpp">int x = 1;
+int y = x;  // x = 1, =&gt; y = 1
+x = 3;
+int z = 2 * y;   // z =&gt; 2 * y = 2 * 1 = 2
+int y2 = x * 2;  // x = 3, =&gt; y2 = 6
+</code></pre>
+<p>这段代码在编译期间即可被转换为：</p>
+<pre><code class="language-cpp">int x = 1;
+int y = 1;
+x = 3;
+int z = 2;
+int y2 = 6;
+</code></pre>
+<p>实例：<a href="https://godbolt.org/z/oEfY35TTd">https://godbolt.org/z/oEfY35TTd</a></p>
+<h3 id="deadcode-elimination">死代码消除 (Deadcode Elimination)</h3>
+<p>故名思义，就是一段代码没用上就会被删去．</p>
+<pre><code class="language-cpp">int test() {
+  int a = 233;
+  int b = a * 2;
+  int c = 234;
+  return c;
+}
+</code></pre>
+<p>将被转换为</p>
+<pre><code class="language-cpp">int test() { return 234; }
+</code></pre>
+<p>注意，这个代码首先进行了常量折叠，使得返回值可以确定为 234，a, b 为不活跃变量，因此删除．</p>
+<h3 id="loop-rotate">循环旋转 (Loop Rotate)</h3>
+<p>将循环从 "for" 形式，转换为 "do-while" 形式，前面再多加一个条件判断．这个变换主要为其他变换做准备．</p>
+<pre><code class="language-cpp">for (int i = 0; i &lt; n; ++i) {
+  auto v = *p;
+  use(v);
+}
+</code></pre>
+<p>变换为</p>
+<pre><code class="language-cpp">if (0 &lt; n) {
+  do {
+    auto v = *p;
+    use(v);
+    ++i;
+  } while (i &lt; n);
+}
+</code></pre>
+<h3 id="loop-invariant-code-motion">循环不变量外提 (Loop Invariant Code Motion)</h3>
+<p>基于别名分析 (Alias Analysis)，将循环中被证明是不变量（可能包含内存访问，load/store，因此依赖别名分析）的代码外提出循环体，这样可以让循环体内部少一些代码．</p>
+<pre><code class="language-cpp">for (int i = 0; i &lt; n; ++i) {
+  auto v = *p;
+  use(v);
+}
+</code></pre>
+<p>这个代码直观来看可以外提为：</p>
+<pre><code class="language-cpp">auto v = *p;
+for (int i = 0; i &lt; n; ++i) {
+  use(v);
+}
+</code></pre>
+<p>但实际上，如果 <code>n &lt;= 0</code>，这个循环永远不会被进入，但我们又执行了一条多的指令（可能有副作用！）．因此，循环通常被 Rotate 为 do-while 形式，这样可以方便插入一个 "loop guard"．之后再进行循环不变量外提．</p>
+<pre><code class="language-cpp">if (0 &lt; n) {  // loop guard
+  auto v = *p;
+  do {
+    use(v);
+    ++i;
+  } while (i &lt; n);
+}
+</code></pre>
+<h3 id="loop-unroll">循环展开 (Loop Unroll)</h3>
+<p>循环包含循环体和各类分支语句，需要现代 CPU 进行一定的分支预测．直接把循环展开，用一定的代码大小来换取运行时间．</p>
+<pre><code class="language-cpp">for (int i = 0; i &lt; 3; i++) {
+  a[i] = i;
+}
+</code></pre>
+<p>变换为：</p>
+<pre><code class="language-cpp">a[0] = 0;
+a[1] = 1;
+a[2] = 2;
+</code></pre>
+<h3 id="loop-unswitching">循环判断外提 (Loop Unswitching)</h3>
+<p>循环判断外提将循环中的条件式移到循环之外，然后在外部的两个条件各放置两个循环，这样可以增加循环向量化、并行化的可能性（通常简单循环更容易被向量化）．</p>
+<pre><code class="language-cpp">// clang-format off
+void before(int x) {
+  for(;/* i in some range */;) {
+    /* A */;
+    if (/* condition */ x % 2) {
+      /* B */;
+    }
+    /* C */;
+  }
+}
+
+void after(int x) {
+  if (/* condition */ x % 2) {
+    for(;/* i in some range */;) {
+      /* A */;
+      /* B */; // 直接执行 B ，不进行循环判断
+      /* C */;
+    }
+  } else {
+     for(;/* i in some range */;) {
+      /* A */; 
+               // 不执行 B
+      /* C */;
+    }
+  }
+}
+</code></pre>
+<h3 id="code-layout-optimizations">代码布局优化 (Code Layout Optimizations)</h3>
+<p>程序在执行时，可以将执行的路径分为冷热路径 (cold/hot path)．CPU 跳转执行，绝大多数情况下没有直接顺序执行快，后者通常被编译器作者称为 "fallthrough"．与之对应的，经常被执行到的代码成为热代码，与之相对的成为冷代码．OI 代码中，如果有一段是循环中的特判边界条件，或者异常处理，类似的逻辑，则此部分代码为冷代码．</p>
+<p>基本块 (Basic Block)，是控制流的基本结构，一个过程 (Procedure) 由若干个基本块组成，形成一个有向图．生成可执行文件的过程中，编译器需要安排一个放置基本块的布局 (Layout)，而如何编排布局，是此优化的重点．</p>
+<p>原则上，应该更偏好与将热代码放在一起，而将冷代码隔开．原因是这样能够更好地利用指令缓存，热代码的局部性会更好．</p>
+<pre><code class="language-cpp">// clang-format off
+int hotpath; // &lt;-- 热！
+if (/* 边界条件 */ false) {
+    // &lt;-- 冷！
+}
+int hotpath_again;  // &lt;-- 热！
+</code></pre>
+<h4 id="basic-block-placement">基本块放置 (Basic Block Placement)</h4>
+<p>我们用 label 来表达一种「伪机器码」，这个 C++ 程序有两种翻译方法：</p>
+<p>???+ note "布局 1"
+    <code>cpp
+    // clang-format off
+    hotblock1:
+        Stmts; // &lt;-- 热！
+        if (/* 边界条件不成立 */ true)
+            goto hotblock2; // 经常发生！ ------+
+    coldblock:                           /*   |   */
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |  跨越了大量指令，代价高昂！
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+    hotblock2:                          /*    |   */
+        Stmts; // &lt;- 热！           &lt;----------+</code></p>
+<p>另一种布局为：</p>
+<p>???+ note "布局 2"
+    <code>cpp
+    // clang-format off
+    hotblock1:
+        Stmts; // &lt;-- 热！
+        if (/* 边界条件 */ false)
+            goto coldblock; // 很少发生
+    hotblock2:                         /*   |  低代价！  */
+        Stmts; // &lt;- 热！  &lt;-----------------+
+    coldblock:
+        Stmt; // &lt;- 冷
+        Stmt; // &lt;- 冷
+        Stmt; // &lt;- 冷
+        Stmt; // &lt;- 冷
+        Stmt; // &lt;- 冷</code></p>
+<p>我们看到后一种布局中，两个热代码块被放到了一起，执行效率更优秀．</p>
+<p>为了告诉编译器分支是否容易被执行，可以使用 C++20 <code>[[likely]]</code> 和 <code>[[unlikely]]</code>:<a href="https://en.cppreference.com/w/cpp/language/attributes/likely">https://en.cppreference.com/w/cpp/language/attributes/likely</a></p>
+<p>如果比赛没有采用 C++20 以上标准，则可以利用 <code>__builtin_expect</code>(GNU Extension)．</p>
+<pre><code class="language-cpp">#define likely(x) __builtin_expect(!!(x), 1)
+#define unlikely(x) __builtin_expect(!!(x), 0)
+
+if (unlikely(/* 一些边界条件检查 */ false)) {
+  // 冷代码
+}
+</code></pre>
+<h4 id="hot-cold-splitting">冷热代码分离 (Hot Cold Splitting)</h4>
+<p>一个过程 (Procedure) 包含同时包含冷热路径，而冷代码较长，更好的做法是让冷代码作为函数调用，而不是阻断热路径．这同时也提示我们不要自作聪明的让所有函数 <code>inline</code>．冷代码对执行速度的阻碍比函数调用要多得多．</p>
+<p>???+ note "不好的代码布局"
+    <code>cpp
+    // clang-format off
+    void foo() {
+          // clang-format off
+    hotblock1:
+        Stmts; // &lt;-- 热！
+        if (/* 边界条件不成立 */ true)
+            goto hotblock2; // 经常发生！ ------+
+    coldblock:                           /*   |   */
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |  跨越了大量指令，代价高昂！
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+        Stmt; // &lt;- 冷                        |
+    hotblock2:                          /*    |   */
+        Stmts; // &lt;- 热！           &lt;----------+
+    }</code></p>
+<p>???+ note "好的代码布局"
+    ```cpp
+    // clang-format off
+    void foo() {
+    hotblock1:
+      Stmts;  // &lt;-- 热！
+      if (/<em> 边界条件 </em>/ false)
+        coldBlock();  // 将冷代码分离出，使得热路径对 cache 更友好
+    hotblock2:
+      Stmts;  // &lt;- 热！
+    }</p>
+<pre><code>void coldBlock() {
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+  Stmt;  // &lt;- 冷
+}
+```
+</code></pre>
+<p>冷热代码分离，其实就是函数内联 (Function Inlining) 的反向操作，这一优化的存在启示我们，函数内联不一定会让程序跑的更快．甚至如果内联代码是冷代码，反而会让程序跑的更慢！一些编译器存在强制内联的编译选项，但不推荐使用．编译器内部有一个静态分析过程，计算每个基本块、分支的概率，以及一个函数调用相关的代价模型，以此决定是否内联，自己决定是否内联不一定比编译器的决策好．</p>
+<p>事实上，在没有额外信息的情况下，编译器通常会假设分支跳转与不跳转的概率一致，以此为依据传播各个控制流路径的冷热程度．PGO (Profile Guided Optimization) 的一部分便是通过若干次性能测试与实验得出真正环境下的程序分支概率，这些信息可以让代码布局更加优秀．</p>
+<h3 id="function-inlining">函数内联 (Function Inlining)</h3>
+<p>函数调用通常需要寄存器和栈传递参数，调用者 (caller) 和被调用者 (callee) 都需要保存一定的寄存器状态，这个过程通常被叫做调用约定 (calling convention)．一个函数调用因此会引起一些时间损耗，而内联函数就是指将函数直接写在调用方过程中，不进行真正的函数调用．</p>
+<pre><code class="language-cpp">int add(int x) { return x + 1; }
+
+int foo() {
+  int a = 1;
+  a = add(a);
+}
+</code></pre>
+<p><code>add()</code> 可以被内联到 <code>foo()</code> 当中：</p>
+<pre><code class="language-cpp">int foo() {
+  int a = 1;
+  a = a + 1;  // &lt;-- add() 的函数体，未经过传参
+}
+</code></pre>
+<h4 id="always_inline__force_inline"><code>always_inline</code>,<code>__force_inline</code></h4>
+<p><a href="https://clang.llvm.org/docs/AttributeReference.html#always-inline-force-inline">https://clang.llvm.org/docs/AttributeReference.html#always-inline-force-inline</a></p>
+<p>一些编译器提供了手动内联函数调用的方法，在函数前加 <code>__attribute__((always_inline))</code>．这样使用不一定会比函数调用快，编译器在这个时候相信程序员有足够好的判断能力．</p>
+<h3 id="tail-call-optimization">尾调用优化 (Tail Call Optimization)</h3>
+<p>当一个函数调用位于函数体尾部的位置时，这种函数调用被成为尾调用 (Tail Call)．对于这种特殊形式的调用，可以进行一些特别的优化．绝大多数体系结构拥有 Frame Pointer (a.k.a FP) 和 Stack Pointer (a.k.a SP)，维护者函数的调用帧 (Frame)，而如果调用位于函数尾部，则我们可以不保留外层函数的调用记录，直接用内层函数取代．</p>
+<h4 id="_3">用跳转指令代替函数调用</h4>
+<p>函数调用在绝大多数体系结构下，需要保存当前程序计数器 <code>$pc</code> 的位置，保存若干 caller saved register，以便回到现场．而尾调用不需要此过程，将被直接翻译为跳转指令，因为尾递归永远不会返回到函数运行的位置．</p>
+<p>一个简单的例子：<a href="https://godbolt.org/z/e7b1safaW">https://godbolt.org/z/e7b1safaW</a></p>
+<pre><code class="language-cpp">int test(int a);
+
+int tailCall(int x) { return test(x); }
+</code></pre>
+<pre><code class="language-nasm">tailCall(int):                           ; @tailCall(int)
+        jmp     test(int)@PLT                    ; TAILCALL
+</code></pre>
+<h4 id="_4">自动尾递归改写</h4>
+<p>如果一个函数的尾调用是自身，则此函数是尾递归的．广义来讲，间接递归（由两个函数 以上共同形成递归）形成递归，且都是尾调用的，也属于尾递归的范畴．尾递归可以被编译器优化为非递归的形式，减小额外的栈开销和函数调用代价．许多算法竞赛选手热衷于写非递归的代码，在不开优化下这样可以极大优化代码的常数，然而如果开优化，递归代码生成的二进制质量和手写的代码没有什么区别．</p>
+<pre><code class="language-cpp">int fac(int n) {
+  if (n &lt; 2) return 1;
+  return /* 使用 */ n * fac(n - 1); /* 使用了变量 n ，无法直接做尾递归优化！*/
+}
+</code></pre>
+<p>注意到这个函数并不是尾递归的，但可以改写为：</p>
+<pre><code class="language-cpp">int fac(int acc, int n) {
+  if (n &lt; 2) return acc;
+  return fac(acc * n, n - 1);
+}
+</code></pre>
+<p>新的代码即是尾递归的．</p>
+<p>现代编译器可以自动帮你完成这个过程，如果你的代码有机会被改写为尾递归，则编译器可以识别出这种形式，然后完成改写．</p>
+<h4 id="-rpasstailcallelim">尾递归消除 -Rpass=tailcallelim</h4>
+<p>既然函数已经尾递归，那就可以直接删除递归语句，通过一定的静态分析，将函数直接转换为非递归的形式．我们此处并不去深究编译器作者如何做到这一点，从实际体验来看，绝大多数 OI 代码，如果存在递归版本和非递归版本，则此代码一般可自动优化为非递归版本．这里给读者一些具体的例子：</p>
+<p>???+ note "<a href="https://godbolt.org/z/8Wb6WEnzv">GCD</a>"
+    <code>cpp
+    int gcd(int a, int b) { return b ? gcd(b, a % b) : a; }</code></p>
+<p>???+ note "<a href="https://godbolt.org/z/4enof6Wcb">斐波那契数列</a>"
+    <code>cpp
+    // 展开 fib(n - 2) 这一项
+    // fib(n - 1) 不能变换为非递归，优化后的代码依然是指数级别的
+    int fib(int n) {
+      if (n &lt; 2) return 1;
+      return fib(n - 1) + fib(n - 2);
+    }</code></p>
+<p>???+ note "<a href="https://godbolt.org/z/n64e75xrf">阶乘</a>"
+    <code>cpp
+    // 展开成标量循环，然后执行自动向量化，生成的代码是 SIMD 的
+    unsigned fac(unsigned n) {
+      if (n &lt; 2) return 1;
+      return n * fac(n - 1);
+    }</code></p>
+<p>这些函数被优化后的汇编和非递归版完全相同，递归将被直接消除．对于 OI 选手而言，可以在开 O2 的情况下放心写递归版本的各种算法，和非递归版不会有什么区别．如果你写的函数本身无法被改写成非递归的形式，那么编译器也无能为力．</p>
+<h3 id="strength-reduction">强度削减 (Strength Reduction)</h3>
+<p>常见的编译优化．最简单的例子是 <code>x * 2</code> 变为 <code>x &lt;&lt; 1</code>，第二种写法在 OI 中相当常见．编译器会自动做类似的优化，在打开优化开关的情况下，<code>x * 2</code> 和 <code>x &lt;&lt; 1</code> 是完全等价的．强度削减 (Strength Reduction) 将高开销的指令转换为低开销的指令．</p>
+<h4 id="_5">标量运算符变换</h4>
+<h5 id="_6">移位代替乘法</h5>
+<pre><code class="language-cpp">int a;
+a = x * 2;   // bad!
+a = x &lt;&lt; 1;  // good!
+</code></pre>
+<p>需要注意的是有符号数和无符号数在移位 (shifting) 和类型提升 (promotion) 层面有明显的差异．符号位在移位时有着特别的处理，包括算术移位和逻辑移位两种类型．这在编写二分查找/线段树等含有大量除二操作的时候表现突出，有符号整数除法不能直接优化为一步右移位运算．</p>
+<pre><code class="language-cpp">int l, r;
+/* codes */
+int mid = (l + r) / 2; /* 如果编译器不能假定 l, r 非负，则会生成较差的代码 */
+                       // 不能优化为
+                       // mid = (l + r) &gt;&gt; 1
+                       // 反例：
+                       // mid = -127
+                       // mid / 2 = -63
+                       // mid &gt;&gt; 1 = -64
+</code></pre>
+<pre><code class="language-cpp">int mid = (l + r);
+int sign = mid &gt;&gt; 31; /* 逻辑右移, 得到符号位 */
+mid += sign;
+mid &gt;&gt;= 1; /* 算术右移 */
+</code></pre>
+<p>可行的解决方案：</p>
+<ul>
+<li>用 <code>unsigned l, r;</code>，下标本来就应该是无符号的</li>
+<li>在源代码中使用移位</li>
+</ul>
+<h5 id="_7">乘法代替除法</h5>
+<pre><code class="language-cpp">int x = a / 3;
+</code></pre>
+<p>此过程可以被变换为 <code>x = a * 0x55555556 &gt;&gt; 32</code>，具体可以看 <a href="https://zhuanlan.zhihu.com/p/151038723">这篇知乎回答</a> 或者 <a href="https://dl.acm.org/doi/10.1145/773473.178249">原始论文</a>．</p>
+<h4 id="indvars">索引变量强度削减 (IndVars)</h4>
+<p>编译器自动识别出循环中的索引变量，并将相关的高开销过程转换为低开销</p>
+<pre><code class="language-cpp">int a = 0;
+for (int i = 1; i &lt; 10; i++) {
+  a = 3 * i;  // bad!
+  a = a + 3;  // good!
+}
+</code></pre>
+<p>此处如果直接使用 <code>a = 3 * i</code> 在 OI 中很常见，而编译器可以自动分析出，等价的变换为 <code>a = a + 3</code>，用代价更低的加法代替乘法．分析循环变量的迭代过程，被称为 SCEV (Scalar Evolution)．</p>
+<p>SCEV 还可以做到优化一些循环：</p>
+<pre><code class="language-cpp">int test(int n) {
+  int ans = 1;
+  for (int i = 0; i &lt; n; i++) {
+    ans += i * (i + 1);
+  }
+  return ans;
+}
+</code></pre>
+<p>此函数会被优化为 $O(1)$ 公式求和，参考 <a href="https://godbolt.org/z/ET8d89vvK">https://godbolt.org/z/ET8d89vvK</a>．这个行为目前仅有基于 LLVM 的编译器会出现，GCC 编译器更加保守．</p>
+<pre><code class="language-nasm">test(int):                               # @test(int)
+        test    edi, edi
+        jle     .LBB0_1
+        lea     eax, [rdi - 1]
+        lea     ecx, [rdi - 2]
+        imul    rcx, rax
+        lea     eax, [rdi - 3]
+        imul    rax, rcx
+        shr     rax
+        imul    eax, eax, 1431655766
+        and     ecx, -2
+        lea     eax, [rax + 2*rcx]
+        lea     eax, [rax + 2*rdi]
+        dec     eax
+        ret
+.LBB0_1:
+        mov     eax, 1
+        ret
+</code></pre>
+<h3 id="auto-vectorization">自动向量化 (Auto-Vectorization)</h3>
+<p>单指令流多数据流是很好的提供单核并行的方法．使用这种指令，可以利用 CPU 的 SIMD 寄存器，比通用寄存器更宽，例如一次放 4 个整数然后计算．OI 选手不需要了解自动向量化的细节，通常而言，Clang 编译器会做比 GCC 更激进的自动向量化：</p>
+<pre><code class="language-cpp">// https://godbolt.org/z/h1hx5sWoE
+void test(int *a, int *b, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    a[i] += b[i];
+  }
+}
+</code></pre>
+<h4 id="__restrict-type-specifier-gnu-msvc"><code>__restrict</code> type specifier (GNU, MSVC)</h4>
+<p>两个任意指针对应的区域可能出现重叠 (overlap)，此时需要特判是否可以使用向量代码．下图展示了一个指针重叠的例子：</p>
+<p><img alt="" src="../images/overlap.png" /></p>
+<p><code>__restrict</code> 作为一种约定使编译器假定两个指针所指向的内存区域永远不会重叠．</p>
+<pre><code class="language-cpp">void test(int* __restrict a, int* __restrict b, int n) {
+  for (int i = 0; i &lt; n; i++) {
+    a[i] += b[i];
+  }
+}
+</code></pre>
+<p><code>__restrict</code> 并非 C++ 标准的一部分，但各大编译器都可以使用．此关键字影响自动向量化的代码生成质量，极端卡常的情况下可以使用．</p>
+<h2 id="_8">和编译优化相关的常见语言误用</h2>
+<h3 id="inline-">inline - 内联</h3>
+<p>函数内联在开 O2 的情况下通常由编译器自动完成．结构体定义中的 <code>inline</code> 完全是多余的，如果准备的比赛开 O2 优化，则完全不必声明为内联．如果不开 O2 则使用 <code>inline</code> 也不会让编译器真正内联．</p>
+<p><code>inline</code> 关键字在现代 C++ 被当作是一种链接、与导出符号的语义行为，而不是做函数内联．</p>
+<h3 id="register-">register - 虚假的寄存器建议</h3>
+<p>现代编译器会直接忽略你的 <code>register</code> 关键字，你自己认为的寄存器分配一般没有编译器直接跑寄存器分配算法来的聪明．此关键字于 C++11 被弃用，于 C++17 被删除[^p0001r1]．</p>
+<p><a href="https://en.cppreference.com/w/cpp/keyword/register">https://en.cppreference.com/w/cpp/keyword/register</a></p>
+<h2 id="undefined-behavior">未定义行为（Undefined Behavior）与编译优化</h2>
+<p>编译器可以认为 C++ 程序不存在 <a href="https://en.cppreference.com/w/cpp/language/ub">未定义行为</a>（undefined behavior，UB），因此在编译存在 UB 的程序时，编译器可能会产生意想不到的结果．同时，编译器也可以在假定不存在 UB 的情况下进行更加激进而自由的优化．</p>
+<p>常见的 UB 有：</p>
+<ol>
+<li><a href="https://users.cs.utah.edu/~regehr/papers/overflow12.pdf">有符号溢出</a>；</li>
+<li>使用未初始化的变量；</li>
+<li>访问越界；</li>
+<li>空指针解引用；</li>
+<li>无副作用的无限循环．</li>
+</ol>
+<p>其他 UB 和示例等可通过扩展阅读详细了解．</p>
+<h3 id="_9">有符号溢出</h3>
+<pre><code class="language-cpp">int f(int x) { return x * 2 / 2; }
+</code></pre>
+<p>编译器可以假定程序不存在有符号溢出的行为，进而此函数可能被优化为</p>
+<pre><code class="language-cpp">int f(int x) { return x; }
+</code></pre>
+<p>示例：<a href="https://godbolt.org/z/WKv3W5hvM">https://godbolt.org/z/WKv3W5hvM</a>、<a href="https://godbolt.org/z/qqE9nxP1j">https://godbolt.org/z/qqE9nxP1j</a>．</p>
+<p>可通过 <a href="https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/Code-Gen-Options.html#index-fwrapv"><code>-fwrapv</code></a> 选项禁用该假设．示例：<a href="https://godbolt.org/z/5x3K5KGnr">https://godbolt.org/z/5x3K5KGnr</a>、<a href="https://godbolt.org/z/4r4a4EzMW">https://godbolt.org/z/4r4a4EzMW</a>．</p>
+<h3 id="_10">使用未初始化的变量</h3>
+<pre><code class="language-cpp">int f(int x) {
+  int a;
+  if (x)  // either x nonzero or UB
+    a = 42;
+  return a;
+}
+</code></pre>
+<p>编译器可以假定程序不存在使用未初始化变量的行为，所以 <code>a</code> 一定会被初始化，进而此函数可能被优化为</p>
+<pre><code class="language-cpp">int f(int) { return 42; }
+</code></pre>
+<p>示例：<a href="https://godbolt.org/z/8WYMYYjdG">https://godbolt.org/z/8WYMYYjdG</a>、<a href="https://godbolt.org/z/qvGd1nvv9">https://godbolt.org/z/qvGd1nvv9</a>．</p>
+<h3 id="_11">访问越界</h3>
+<pre><code class="language-cpp">int table[4] = {};
+
+bool exists_in_table(int v) {
+  // return true in one of the first 4 iterations or UB due to out-of-bounds
+  // access
+  for (int i = 0; i &lt;= 4; i++)
+    if (table[i] == v) return true;
+  return false;
+}
+</code></pre>
+<p>编译器可以假定程序不存在访问越界的行为，所以该函数一定会在发生访问越界之前返回，进而此函数可能被优化为</p>
+<pre><code class="language-cpp">bool exists_in_table(int) { return true; }
+</code></pre>
+<p>示例：<a href="https://godbolt.org/z/xfePeYsE3">https://godbolt.org/z/xfePeYsE3</a>．</p>
+<h3 id="_12">空指针解引用</h3>
+<pre><code class="language-cpp">int f(int* p) {
+  int x = *p;
+  if (!p)
+    return x;  // Either UB above or this branch is never taken
+  else
+    return 0;
+}
+</code></pre>
+<p>编译器可以假定程序不存在空指针解引用的行为，从而 <code>!p</code> 恒为 <code>false</code>，进而此函数可能被优化为</p>
+<pre><code class="language-cpp">int f(int*) { return 0; }
+</code></pre>
+<p>示例：<a href="https://godbolt.org/z/GY1jvsrb5">https://godbolt.org/z/GY1jvsrb5</a>、<a href="https://godbolt.org/z/4ronPsnxf">https://godbolt.org/z/4ronPsnxf</a>．</p>
+<h3 id="_13">无副作用的无限循环</h3>
+<p>???+ note "验证 Fermat 大定理"
+    由 <a href="https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem">Fermat 大定理</a> 可知，不定方程 $a^3=b^3+c^3$ 没有正整数解．下面的程序试图枚举 $[1,1000]$ 内的整数验证该方程是否成立，若返回 <code>true</code> 则说明在 $[1,1000]$ 范围内找到了一组整数解，从而 Fermat 大定理不成立．</p>
+<pre><code>```cpp
+#include &lt;iostream&gt;
+
+bool fermat() {
+  const int max_value = 1000;
+
+  // Endless loop with no side effects is UB
+  for (int a = 1, b = 1, c = 1; true;) {
+    if (((a * a * a) == ((b * b * b) + (c * c * c))))
+      return true;  // disproved :()
+    a++;
+    if (a &gt; max_value) {
+      a = 1;
+      b++;
+    }
+    if (b &gt; max_value) {
+      b = 1;
+      c++;
+    }
+    if (c &gt; max_value) c = 1;
+  }
+
+  return false;  // not disproved
+}
+
+int main() {
+  std::cout &lt;&lt; "Fermat's Last Theorem ";
+  fermat() ? std::cout &lt;&lt; "has been disproved!\n"
+           : std::cout &lt;&lt; "has not been disproved.\n";
+}
+```
+</code></pre>
+<p>编译器可以假定程序不存在无副作用的无限循环，从而认为 <code>fermat()</code> 函数中的 for 循环一定会在某一时刻终止并返回 <code>true</code>，最终程序可能输出：</p>
+<pre><code class="language-text">Fermat's Last Theorem has been disproved!
+</code></pre>
+<p>示例：<a href="https://godbolt.org/z/d834MK7bz">https://godbolt.org/z/d834MK7bz</a>、<a href="https://godbolt.org/z/Eov9nsKqf">https://godbolt.org/z/Eov9nsKqf</a>．</p>
+<h2 id="sanitizer">Sanitizer</h2>
+<p>理智保证器．在运行时检查你的程序是否有未定义行为、数组越界、空指针，等等功能．
+在本地调试模式下，建议开启一些 sanitizer，可以极大缩短你的 Debug 时间．这些 sanitizer 由 Google 开发，绝大多数可以在 GCC 和 Clang 中使用．sanitizer 在 LLVM 中更加成熟，因此推荐选手本地使用 Clang 编译器进行相关除错．</p>
+<h3 id="address-sanitizer-fsanitizeaddress">Address Sanitizer -fsanitize=address</h3>
+<p><a href="https://clang.llvm.org/docs/AddressSanitizer.html">https://clang.llvm.org/docs/AddressSanitizer.html</a></p>
+<p>GCC 和 Clang 都支持这个 Sanitizer．包括如下检查项：</p>
+<ul>
+<li>越界</li>
+<li>释放后使用 (use-after-free)</li>
+<li>返回后使用 (use-after-return)</li>
+<li>重复释放 (double-free)</li>
+<li>内存泄漏 (memory-leaks)</li>
+<li>离开作用域后使用  (use-after-scope)</li>
+</ul>
+<p>应用这项检查会让你的程序慢 2x 左右．</p>
+<h3 id="undefined-behavior-sanitizer-fsanitizeundefined">Undefined Behavior Sanitizer -fsanitize=undefined</h3>
+<p><a href="https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html">https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html</a></p>
+<p>Undefined Behavior Sanitizer (a.k.a UBSan) 用于检查代码中的未定义行为．GCC 和 Clang 都支持这个 Sanitizer．自动检查你的程序有无未定义行为．UBSan 的检查项目包括：</p>
+<ul>
+<li>移位溢出，例如 32 位整数左移 72 位</li>
+<li>有符号整数溢出</li>
+<li>浮点数转换到整数数据溢出</li>
+</ul>
+<p>UBSan 的检查项可选，对程序的影响参考提供的网页地址．</p>
+<h2 id="_14">杂项</h2>
+<h3 id="compiler-explorer">Compiler Explorer</h3>
+<p>在这里观察各个编译器的行为和汇编代码：<a href="https://godbolt.org">https://godbolt.org</a></p>
+<h2 id="_15">扩展阅读</h2>
+<ol>
+<li><a href="https://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">The LLVM Project Blog: What Every C Programmer Should Know About Undefined Behavior #1/3</a></li>
+<li><a href="https://blog.llvm.org/2011/05/what-every-c-programmer-should-know_14.html">The LLVM Project Blog: What Every C Programmer Should Know About Undefined Behavior #2/3</a></li>
+<li><a href="https://blog.llvm.org/2011/05/what-every-c-programmer-should-know_21.html">The LLVM Project Blog: What Every C Programmer Should Know About Undefined Behavior #3/3</a></li>
+</ol>
+<h2 id="_16">参考资料与注释</h2>
+<p>[^p0001r1]: <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0001r1.html">Remove Deprecated Use of the register Keyword (open-std.org)</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

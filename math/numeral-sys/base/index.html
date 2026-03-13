@@ -1,0 +1,1005 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="c-forrest, Enter-tainer, hhc0001, Ir1d, KingMario, ksyx, Lutra-Fs, MegaOwIer, niujiaxing, StudyingFather, Tiphereth-A, TOMWT-qwq, ZnPdCo">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/numeral-sys/base/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Base - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Base
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同进位制间的转换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="不同进位制间的转换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        十进制转其他进制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他进制转十进制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二进制/八进制/十六进制间的相互转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        补数法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        广义进制系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="广义进制系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双射记数系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有符号位数进制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gray" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gray 码
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非正基数进制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        混合基数进制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 中的实现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/numeral-sys/base.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Base</h1>
+
+<p><strong>进位制</strong>，又称 <strong>进位系统</strong>（carry system）、<strong>进制系统</strong>、<strong>位置记法</strong>（positional notation）、<strong>位值记数法</strong>（place-value notation）、<strong>位置数值系统</strong>（positional numeral system），是一种能用有限种符号表示所有自然数的数字系统．一种进位制可以使用的符号数目称为 <strong>基数</strong>（radix）或 <strong>底数</strong>（base），基数为 $n$ 的进位制称为 $n$ 进制（$n&gt;1$），例如我们最常用的十进制，通常只使用 <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code> 这十个符号来记数．进位指的是「当一个数字的某一位达到基数时，将其置为 0 并使高一位的数加一」的操作．</p>
+<p>一般地，我们常将一个 $n$ 进制的数记作 $(a_k\cdots a_1a_0)<em>n$、$(a_k\cdots a_1a_0)</em>{(n)}$、${a_k\cdots a_1a_0}<em>{(n)}$、${a_k\cdots a_1a_0}</em>{n}$ 等．若基数隐含在上下文中我们也可以省略下标．注意此处的 $a_k\cdots a_1a_0$ 并不是 $k+1$ 个数的乘积，而是一串序列．</p>
+<p>对于 $k$ 进制数 $a_n\cdots a_1a_0$，其表示的值为 $a_nk^n+\cdots+a_1k^1+a_0k^0=\sum_{i=0}^n a_ik^i$；对一个数 $m$，设其 $k$ 进制下的表示为 $a_n\cdots a_1a_0$，则有：</p>
+<p>$$
+\begin{array}{cc}
+    a_0=m-q_0k,&amp;q_0=f(m/k),\
+    a_1=q_0-q_1k,&amp;q_1=f(q_0/k),\
+    \vdots&amp;\vdots\
+    a_n=q_{n-1}-q_nk,&amp;q_n=f(q_{n-1}/k)=0,\
+\end{array}
+$$</p>
+<p>其中 $f(x)=\lfloor x\rfloor$．</p>
+<p>数 $n$ 在 $k$ 进制下表示的长度为 $\lceil\log_k (n+1)\rceil$．</p>
+<p>我们一般通过添加小数点「$.$」来表示小数<a href="有的地区使用「$,$」表示小数点．">^note4</a>、添加负号「$-$」来表示负数、在小数末尾的一段上添加上划线表示无限循环小数等．为了方便阅读，我们可以每隔若干数位添加间隔符号（如空格、$,$、<code>'</code> 等），如 $12~345$ 表示 $12345$．</p>
+<p>在计算机中，比较常用的进位制有二进制、八进制和十六进制．</p>
+<h2 id="_1">不同进位制间的转换</h2>
+<h3 id="_2">十进制转其他进制</h3>
+<p>这里以二进制为例来演示，其他进制的原理与其类似．</p>
+<p>整数部分，把十进制数不断执行除 $2$ 操作，直至商数为 $0$，之后从下到上，取所有余数的数字，即为二进制的整数部分数字．小数部分，则用其乘 $2$，取其整数部分的结果，再用计算后的小数部分依此重复计算，算到小数部分全为 $0$ 为止，之后从上到下，取所有计算后整数部分的数字，即为二进制的小数部分数字．</p>
+<p>???+ example "例子"
+    将 $35.25$ 转化为二进制数．</p>
+<pre><code>整数部分：
+
+$$
+\begin{aligned}
+    35/2&amp;=17  &amp;\dots 1,\\
+    17/2&amp;=8   &amp;\dots 1,\\
+    8/2&amp;=4    &amp;\dots 0,\\
+    4/2&amp;=2    &amp;\dots 0,\\
+    2/2&amp;=1    &amp;\dots 0,\\
+    1/2&amp;=0    &amp;\dots 1.
+\end{aligned}
+$$
+
+小数部分：
+
+$$
+\begin{aligned}
+    0.25\times 2&amp;=0.5  &amp;\dots 0,\\
+    0.5\times 2&amp;=1     &amp;\dots 1.
+\end{aligned}
+$$
+
+即 $35.25 = (100011.01)_2$．
+</code></pre>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/math/code/base/base_1.cpp:from_dec"</code></p>
+<h3 id="_3">其他进制转十进制</h3>
+<p>还是以二进制为例．二进制数转换为十进制数，只需将每个位的值，乘以 $2^i$ 次即可，其中 $i$ 为当前位的位数，个位的位数为 $0$．</p>
+<p>???+ example "例子"
+    将 $(11010.01)_{2}$ 转换为十进制数．</p>
+<pre><code>$$
+\begin{aligned}
+    (11010.01)_{2}&amp;=\phantom{+~}1\times 2^4+1\times 2^3+0\times 2^2+1\times 2^1+0\times 2^0\\
+    &amp;\phantom{=}+~0\times 2^{-1}+1\times 2^{-2} \\
+                &amp;=26.25.
+\end{aligned}
+$$
+
+即 $(11010.01)_2 = (26.25)_{10}$．
+</code></pre>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/math/code/base/base_1.cpp:to_dec"</code></p>
+<h3 id="_4">二进制/八进制/十六进制间的相互转换</h3>
+<p>一个八进制位可以用 3 个二进制位来表示（因为 $2^3 = 8$），一个十六进制位可以用 4 个二进制位来表示（$2^4 = 16$），反之同理．</p>
+<h2 id="_5">补数法</h2>
+<p>另请参阅：<a href="../../bit/#整数与位序列">反码与补码</a></p>
+<p><strong>补数法</strong>（method of complements）是用正数表示负数，使得可以用和正数加法相同的算法/电路/机械结构来计算减法的方法．补数法广泛用于计算器和计算机的设计中，用以简化结构．</p>
+<p>对 $b$ 进制下 $n$ 位数 $a$，其 <strong>数基补数</strong>（radix complement，称为 $b$ 的补数）是 $b^n-a$，其 <strong>缩减数基补数</strong>（diminished radix complement，称为 $b-1$ 的补数，简称 <strong>减补数</strong>）是 $b^n-1-a$．在二进制下，数基补数叫做 $2$ 的补数（two's complement），又叫做 <strong>补码</strong>；缩减数基补数叫做 $1$ 的补数（ones' complement），又叫做 <strong>反码</strong>；在十进制下，数基补数又叫做 $10$ 的补数（ten's complement），缩减数基补数又叫做 $9$ 的补数（nine's complement）；其他进制以此类推．</p>
+<p>对 $b$ 进制下的 $n$ 位数 $x,y$，当计算 $x-y$ 时，我们有如下方法（若结果超过 $n$ 位，则舍弃高位）：</p>
+<ol>
+<li>考虑 $x$ 的减补数 $x'=b^n-1-x$，计算 $x'+y=b^n-1-x+y$，则该结果的减补数即为答案．</li>
+<li>考虑 $y$ 的减补数 $y'=b^n-1-y$，计算 $x+y'=b^n-1+x-y$，直接加一即为答案．</li>
+<li>考虑 $x$ 的数基补数 $x'=b^n-x$，计算 $x'+y=b^n-x+y$，则该结果的数基补数即为答案．</li>
+<li>考虑 $y$ 的数基补数 $y'=b^n-y$，计算 $x+y'=b^n+x-y$，此即为答案．</li>
+</ol>
+<p>另外，对 $k$ 进制下的数，我们设 $d=k-1$，则 $\cdots dd=:\overline{d}=\sum_{i=0}^{\infty} dk^i=-1$，所以对 $n$ 位数 $x$，设其数基补数在 $k$ 进制下的表示为 $a_{n-1}\cdots a_1a_0$，则 $\overline{d}a_{n-1}\cdots a_1a_0$ 即为 $\sum_{i=0}^{n-1}a_ik^i+\sum_{i=n}^{\infty} dk^i=k^n-x+(-k^n)=-x$．这种「无限位的数」的思想可以推广为 <a href="https://en.wikipedia.org/wiki/P-adic_number"><strong>$p$ 进数</strong></a>（$p$-adic number）．</p>
+<p>此外，我们有一个关于补数和无限循环小数的有趣定理：</p>
+<p>???+ note "Midy 定理"
+    设 $a$ 是正整数，$p$ 是正素数，$a/p$ 在 $b$ 进制下的表示为 $0.\overline{a_1a_2\cdots a_l}$，其中 $l$ 为（最短）循环节长度．若 $l$ 是偶数[^note5]，设 $l=2k$，则 $a_1a_2\cdots a_k$ 是 $a_{k+1}a_{k+2}\cdots a_{2k}$ 的减补数，即：</p>
+<pre><code>-   $a_i+a_{i+k}=b$，
+-   $a_1a_2\cdots a_k+a_{k+1}a_{k+2}\cdots a_{2k}=b^k-1$．
+
+进一步，若 $l$ 有非平凡因子 $k$，设 $l=nk$，则 $\sum_{i=0}^{n-1}a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}$ 是 $b^k-1$ 的倍数．
+</code></pre>
+<p>??? example "例子"
+    对于 $1/19=0.\overline{052~631~578~947~368~421}=0.\overline{032~745}_{(8)}$，我们有：</p>
+<pre><code>-   $052~631~578+947~368~421=999~999~999$，
+-   $052+631+578+947+368+421=3\times 999$，
+-   $032_{(8)}+745_{(8)}=777_{(8)}$，
+-   $03_{(8)}+27_{(8)}+45_{(8)}=77_{(8)}$．
+</code></pre>
+<p>??? note "证明"
+    对定理中的 $a,b,p,l,n,k$，不难发现 $1\leq a<p$，$b>1$ 且 $(a,p)=(b,p)=1$．</p>
+<pre><code>对整数 $0\leq i&lt;l$，令 $f(i)=b^i\cdot a/p-\lfloor b^i\cdot a/p\rfloor$，我们有
+
+$$
+0&lt;f(i)=0.\overline{a_{i+1}a_{i+2}\cdots a_{nk}a_1a_2\cdots a_i}&lt;1 \implies 0&lt;pf(i)&lt;p.
+$$
+
+注意到 $pf(i)\in\mathbf{N}_+$ 且 $pf(i)\equiv ab^i\pmod p$，因此 $pf(i)=ab^i\bmod p$．
+
+令 $S_n=\sum_{i=0}^{n-1}f(ik)=\sum_{i=0}^{n-1}0.\overline{a_{ik+1}a_{ik+2}\cdots a_{nk}a_1a_2\cdots a_{ik}}$，我们可以在各个小数间「交换」若干位（例如 $0.\overline{{\color{Orchid}{14}}{\color{RoyalBlue}{28}}{\color{YellowGreen}{57}}}+0.\overline{{\color{RoyalBlue}{28}}{\color{YellowGreen}{57}}{\color{Orchid}{14}}}+0.\overline{{\color{YellowGreen}{57}}{\color{Orchid}{14}}{\color{RoyalBlue}{28}}}=0.\overline{\color{Orchid}{141414}}+0.\overline{\color{RoyalBlue}{282828}}+0.\overline{\color{YellowGreen}{575757}}=0.\overline{\color{Orchid}{14}}+0.\overline{\color{RoyalBlue}{28}}+0.\overline{\color{YellowGreen}{57}}=14/99+28/99+57/99=1$），则
+
+$$
+\begin{aligned}
+    S_n&amp;=\sum_{i=0}^{n-1}0.\overline{a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}}\\
+    &amp;=\sum_{i=0}^{n-1}a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}/\left(b^k-1\right),
+\end{aligned}
+$$
+
+进而
+
+$$
+pS_n=p\sum_{i=0}^{n-1}a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}/\left(b^k-1\right)= \sum_{i=0}^{n-1} \left(ab^{ik}\bmod p\right),
+$$
+
+因此
+
+$$
+\sum_{i=0}^{n-1}a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}=\left(b^k-1\right)\frac{\sum_{i=0}^{n-1} \left(ab^{ik}\bmod p\right)}{p}.
+$$
+
+若 $p\mid \left(b^k-1\right)$，注意到
+
+$$
+\left(b^k-1\right)a/p=a_1a_2\cdots a_k.\overline{a_{k+1}a_{k+2}\cdots a_{nk}a_1a_2\cdots a_k}-0.\overline{a_{1}a_{2}\cdots a_{nk}},
+$$
+
+则有 $a_{k+1}a_{k+2}\cdots a_{nk}a_1a_2\cdots a_k=a_{1}a_{2}\cdots a_{nk}$，进而 $a_1a_2\cdots a_k=a_{k+1}a_{k+2}\cdots a_{2k}=\dots=a_{(n-1)k+1}a_{(n-1)k+2}\cdots a_{nk}$，即 $0.\overline{a_1a_2\cdots a_l}=0.\overline{a_1a_2\cdots a_k}$，这与 $l$ 的定义矛盾，因此 $p\nmid \left(b^k-1\right)$．
+
+故存在正整数 $c=\dfrac{\sum_{i=0}^{n-1} \left(ab^{ik}\bmod p\right)}{p}$，使得
+
+$$
+\sum_{i=0}^{n-1}a_{ik+1}a_{ik+2}\cdots a_{(i+1)k}=c\left(b^k-1\right).
+$$
+</code></pre>
+<p>???+ note "推论"
+    对上述的 $b,n,k,p$，有</p>
+<pre><code>$$
+\sum_{i=0}^{n-1} b^{ik}\equiv 0\pmod p.
+$$
+</code></pre>
+<h2 id="_6">广义进制系统</h2>
+<p>标准的进制系统中，基数 $b$ 总是一个固定的正数，每个数位在 $b$ 种不同的符号中选取，用以表示一个非负数（不考虑小数点和负号）．实际上仍有许多记数系统和进制系统有类似的特征，但不完全符合进制系统的规定，我们把这样的记数系统称为 <strong>广义进制系统</strong> 或 <strong>非标准进制系统</strong>（Non-standard positional numeral systems）．下面介绍几种常见的广义进制系统．</p>
+<h3 id="_7">双射记数系统</h3>
+<p>标准的进制系统并不能和其表示的数字建立双射，如 $1$、$01$、$001$ 表示的数是相同的[^note1]，而 <strong>双射记数系统</strong>（bijective numeral system）可以和其表示的数字建立双射．</p>
+<p>双射 $k$ 进制（$k\geq 1$）使用数集 ${1,2,\dots,k}$ 来唯一表示一个数，规则如下：</p>
+<ol>
+<li>用空串表示 $0$；</li>
+<li>用非空串 $a_n\cdots a_1a_0$ 表示数 $a_nk^n+\cdots+a_1k^1+a_0k^0=\sum_{i=0}^n a_ik^i$．</li>
+</ol>
+<p>对一个正数 $m$，设其双射 $k$ 进制下的表示为 $a_n\cdots a_1a_0$，则有：</p>
+<p>$$
+\begin{array}{cc}
+    a_0=m-q_0k,&amp;q_0=f(m/k),\
+    a_1=q_0-q_1k,&amp;q_1=f(q_0/k),\
+    \vdots&amp;\vdots\
+    a_n=q_{n-1}-q_nk,&amp;q_n=f(q_{n-1}/k)=0,\
+\end{array}
+$$</p>
+<p>其中 $f(x)=\lceil x\rceil-1$．</p>
+<p>例如 Microsoft Excel 的列标签采用的就是双射 $26$ 进制．</p>
+<p>在双射记数系统下，我们有 <a href="https://en.wikipedia.org/wiki/Unary_numeral_system">一进制</a>，一进制下的非空串只由 $1$ 构成，串的长度即为其表示的数．</p>
+<p>类似 <a href="#补数法">补数法</a> 下的叙述，在 $k&gt;1$ 的双射 $k$ 进制下，我们设 $d=k-1$，则 $\cdots dd=:\overline{d}=\sum_{i=0}^{\infty} dk^i=-1$，进而 $\overline{d}k=0$，所以设 $x$ 在双射 $k$ 进制下的表示为 $a_{n-1}\cdots a_1a_0$，则 $\overline{d}ka_{n-1}\cdots a_1a_0$ 即为 $-x$．</p>
+<p>下面是双射 $k$ 进制数的一些性质：</p>
+<ul>
+<li>长度为 $l\geq 0$ 的数共有 $k^l$ 种．</li>
+<li>$k\geq 2$ 时，数 $n$ 在双射 $k$ 进制下表示的长度为 $\lfloor\log_k (n+1)(k-1)\rfloor$．</li>
+<li>$k\geq 2$ 时，若一个数 $n$ 在 $k$ 进制下的表示中不含 $0$，则其在 $k$ 进制下的表示和在双射 $k$ 进制下的表示相同．</li>
+</ul>
+<p>双射 $k$ 进制转十进制和 $k$ 进制转十进制的代码相同，下面是十进制转双射 $k$ 进制的参考实现</p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/math/code/base/base_1.cpp:from_dec_bi"</code></p>
+<h3 id="_8">有符号位数进制</h3>
+<p>有的进位制系统允许数位中出现负数，例如 <a href="../balanced-ternary/">平衡三进制</a>．</p>
+<h3 id="gray">Gray 码</h3>
+<p>主条目：<a href="../gray-code/">格雷码</a></p>
+<p>Gray 码又叫 <strong>循环二进制码</strong> 或 <strong>反射二进制码</strong>（reflected binary code，RBC），是一种特殊的二进制数字系统，常用于数据校验中．</p>
+<h3 id="_9">非正基数进制</h3>
+<p>我们知道对于 $k$ 进制数 $a_n\cdots a_1a_0$，其表示的值为 $\sum_{i=0}^n a_ik^i$，我们稍加修改即可定义 $-k$ 进制数 ${a_n\cdots a_1a_0}<em>{(-k)}$ 表示 $\sum</em>{i=0}^n a_i(-k)^i$，其中 $a_n,\dots,a_1,a_0\in {0,1,\dots,k-1}$．例如 $12345_{(-10)}=8265_{(10)}$．这种进制系统叫做 <a href="https://en.wikipedia.org/wiki/Negative_base"><strong>负底数进制</strong></a>（negative-base system）．</p>
+<p>类似地，我们也可以定义 <a href="https://en.wikipedia.org/wiki/Complex-base_system"><strong>复底数进制</strong></a>（complex-base system），如 <a href="https://en.wikipedia.org/wiki/Quater-imaginary_base"><strong>$2\mathrm{i}$ 进制</strong></a>（quater-imaginary base、quater-imaginary numeral system），我们还可以定义 <a href="https://en.wikipedia.org/wiki/Non-integer_base_of_numeration"><strong>非整数进位制</strong></a>（non-integer base of numeration）用于表示实数的 <strong>$\beta$ 展开</strong>（$\beta$-expansion）等．</p>
+<h3 id="_10">混合基数进制</h3>
+<p>标准的进制系统中，每一个数位对应的基数都是固定的，而混合基数进制允许每一个数位对应不同的基数．混合基数进制系统最常见的应用就是计时：小时采用 $24$ 进制，分钟和秒采用 $60$ 进制．</p>
+<p>$a_n\cdots a_1a_0$ 在 $b$ 进制下表示的数为 $\sum_{i=0}^n a_ib^i$，而在混合基数进制下，其表示的数为 $\sum_{i=0}^n a_i\prod_{j=0}^{i-1}b_j$，其中 $b_j$ 为 $a_j$ 对应的基数．</p>
+<p>在算法竞赛中，最常见的混合基数进制系统是 <a href="https://en.wikipedia.org/wiki/Factorial_number_system"><strong>阶乘进制</strong></a>（factorial number system），其中的数可以记作 ${a_n\cdots a_1a_0}<em>{~!}$，其表示的数为 $\sum</em>{i=0}^na_i i!$[^note2]．阶乘进制在算法竞赛中的应用可参见 <a href="../../permutation/#排名">Lehmer 码/Cantor 展开</a>．</p>
+<p>???+ note "实现（十进制转阶乘进制）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/base/base_1.cpp:from_dec_factorial"</code></p>
+<p>???+ note "实现（阶乘进制转十进制）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/base/base_1.cpp:to_dec_factorial"</code></p>
+<h2 id="c">C++ 中的实现</h2>
+<p>对于非负数，C++ 中用 <code>&lt;前缀&gt;&lt;数位&gt;&lt;后缀&gt;</code> 表示一个整数字面量，其中 <code>&lt;数位&gt;</code> 和 <code>&lt;后缀&gt;</code> 均可以为空．<code>&lt;后缀&gt;</code> 用于表示字面量的类型，如 <code>u</code> 或 <code>U</code> 表示该字面量为 <code>unsigned</code>、<code>l</code> 或 <code>L</code> 表示该字面量为 <code>long</code> 等．对于 <code>&lt;前缀&gt;</code>：</p>
+<ul>
+<li>当 <code>&lt;前缀&gt;</code> 为 <code>0x</code> 或 <code>0X</code> 时表示十六进制字面量，此时 <code>&lt;数位&gt;</code> 中的字符只能在 <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, A, b, B, c, C, d, D, e, E, f, F</code> 中选取．例如 <code>0x1234ABCD</code> 为 $\text{1234ABCD}_{(16)}=305~441~741$；</li>
+<li>当 <code>&lt;前缀&gt;</code> 为 <code>0</code> 时表示八进制字面量，此时 <code>&lt;数位&gt;</code> 中的字符只能在 <code>0, 1, 2, 3, 4, 5, 6, 7</code> 中选取．例如 <code>01234567</code> 为 $1234567_{(8)}=342391$；[^note3]</li>
+<li>当 <code>&lt;前缀&gt;</code> 为 <code>1</code>、<code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>、<code>6</code>、<code>7</code>、<code>8</code> 或 <code>9</code> 时表示十进制字面量，此时 <code>&lt;数位&gt;</code> 中的字符只能在 <code>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</code> 中选取；</li>
+<li>C++14 起，当 <code>&lt;前缀&gt;</code> 为 <code>0b</code> 或 <code>0B</code> 时表示二进制字面量，此时 <code>&lt;数位&gt;</code> 中的字符只能在 <code>0, 1</code> 中选取．例如 <code>0b11001010</code> 为 $11001010_{(2)}=202$．</li>
+</ul>
+<h2 id="_11">参考资料与注释</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Positional_notation">Positional notation - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Method_of_complements">Method of complements - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-standard_positional_numeral_systems">Non-standard positional numeral systems - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bijective_numeration">Bijective numeration - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Midy%27s_theorem">Midy's theorem - Wikipedia</a></li>
+<li><a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3472.pdf">N3472 - Binary Literals in the C++ Core Language</a></li>
+</ul>
+<p>[^note1]: 我们把最高的非 $0$ 位之前的 $0$ 称为 <a href="https://en.wikipedia.org/wiki/Leading_zero"><strong>前导零</strong></a>（leading zero）．类似地，我们可以定义 <a href="https://en.wikipedia.org/wiki/Trailing_zero"><strong>后导零</strong></a>（trailing zero）．</p>
+<p>[^note2]: $a_i$ 对应的基数是 $i+1$，$0\leq a_i\leq i$．注意到 $(n+1)!-n!=n\cdot n!$，所以数在阶乘进制下的表示在去除前导零的情况下是唯一的．</p>
+<p>[^note3]: <code>0</code> 是八进制字面量．</p>
+<p>[^note5]: 当 $a=1$ 时，在十进制下满足该条件的素数序列是 <a href="https://oeis.org/A028416">A028416</a>．</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

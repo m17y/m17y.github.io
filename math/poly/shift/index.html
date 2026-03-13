@@ -1,0 +1,1177 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/poly/shift/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Shift - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shift
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式平移
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多项式平移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分治法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#taylor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Taylor 公式法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二项式定理法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续点值平移
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="连续点值平移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lagrange 插值公式法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stirling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同一行第一类无符号 Stirling 数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模素数意义下阶乘
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模素数意义下阶乘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式多点求值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续点值平移
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模素数意义下二项式系数前缀和
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模素数意义下调和数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整式递推
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考文献
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/poly/shift.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Shift</h1>
+
+<h2 id="_1">多项式平移</h2>
+<p>多项式平移是简单情况的多项式复合变换，给出 $f(x)=\sum _ {i=0}^nf_ix^i$ 的系数和一个常数 $c$，求 $f(x+c)$ 的系数，即 $f(x)\mapsto f(x+c)$．</p>
+<h3 id="_2">分治法</h3>
+<p>令</p>
+<p>$$
+f(x)=f_0(x)+x^{\left\lfloor n/2\right\rfloor}f_1(x)
+$$</p>
+<p>那么</p>
+<p>$$
+f(x+c)=f_0(x+c)+(x+c)^{\left\lfloor n/2\right\rfloor}f_1(x+c)
+$$</p>
+<p>$(x+c)^{\left\lfloor n/2\right\rfloor}$ 的系数为二项式系数，那么</p>
+<p>$$
+T(n)=2T(n/2)+O(n\log n)=O(n\log^2 n)
+$$</p>
+<p>其中 $O(n\log n)$ 为多项式乘法的时间．</p>
+<h3 id="taylor">Taylor 公式法</h3>
+<p>对 $f(x)$ 在 $c$ 处应用 Taylor 公式，有</p>
+<p>$$
+f(x)=f(c)+\frac{f'(c)}{1!}(x-c)+\frac{f''(c)}{2!}(x-c)^2+\cdots +\frac{f^{(n)}(c)}{n!}(x-c)^n
+$$</p>
+<p>那么</p>
+<p>$$
+f(x+c)=f(c)+\frac{f'(c)}{1!}x+\frac{f''(c)}{2!}x^2+\cdots +\frac{f^{(n)}(c)}{n!}x^n
+$$</p>
+<p>观察到对于 $t\geq 0$ 有</p>
+<p>$$
+\begin{aligned}
+t!\lbrack x^t\rbrack f(x+c)&amp;=f^{(t)}(c)\
+&amp;=\sum _ {i=t}^nf_ii!\frac{c^{i-t}}{(i-t)!}\
+&amp;=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}
+\end{aligned}
+$$</p>
+<p>令</p>
+<p>$$
+\begin{aligned}
+A_0(x)&amp;=\sum _ {i=0}^nf _ {n-i}(n-i)!x^i\
+B_0(x)&amp;=\sum _ {i=0}^n\frac{c^i}{i!}x^i
+\end{aligned}
+$$</p>
+<p>那么</p>
+<p>$$
+\begin{aligned}
+\lbrack x^{n-t}\rbrack (A_0(x)B_0(x))&amp;=\sum _ {i=0}^{n-t} (\lbrack x^{n-t-i}\rbrack A_0(x))(\lbrack x^i\rbrack B_0(x))\
+&amp;=\sum _ {i=0}^{n-t}f _ {i+t}(i+t)!\frac{c^i}{i!}\
+&amp;=t!\lbrack x^t\rbrack f(x+c)
+\end{aligned}
+$$</p>
+<h3 id="_3">二项式定理法</h3>
+<p>考虑二项式定理 $\displaystyle (a+b)^n=\sum _ {i=0}^n\binom{n}{i}a^ib^{n-i}$ 那么</p>
+<p>$$
+\begin{aligned}
+f(x+c)&amp;=\sum _ {i=0}^nf_i(x+c)^i\
+&amp;=\sum _ {i=0}^nf_i\left(\sum _ {j=0}^i\binom{i}{j}x^jc^{i-j}\right)\
+&amp;=\sum _ {i=0}^nf_ii!\left(\sum _ {j=0}^i\frac{x^j}{j!}\frac{c^{i-j}}{(i-j)!}\right)\
+&amp;=\sum _ {i=0}^n\frac{x^i}{i!}\left(\sum _ {j=i}^{n}f_jj!\frac{c^{j-i}}{(j-i)!}\right)
+\end{aligned}
+$$</p>
+<p>得到的结果与上述方法相同．</p>
+<h2 id="_4">连续点值平移</h2>
+<p>???+ note "例题 <a href="https://loj.ac/p/166">LOJ 166 拉格朗日插值 2</a>"
+    给出度数小于等于 $n$ 的多项式 $f$ 的连续点值 $f(0),f(1),\dots ,f(n)$，在模 $998244353$ 意义下计算 $f(c),f(c+1),\dots ,f(c+n)$，其中 $1\leq n\leq 10^5,n &lt; m\leq 10^8$．</p>
+<h3 id="lagrange">Lagrange 插值公式法</h3>
+<p>考虑 <a href="../../numerical/interp/#lagrange-插值法">Lagrange 插值公式</a></p>
+<p>$$
+\begin{aligned}
+f(x)&amp;=\sum _ {0\leq i\leq n}f(i)\prod _ {0\leq j\leq n\,\land \,j\neq i}\frac{x-j}{i-j}\
+&amp;=\sum _ {0\leq i\leq n}f(i)\frac{x!}{(x-n-1)!(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}\
+&amp;=\frac{x!}{(x-n-1)!}\sum _ {0\leq i\leq n}\frac{f(i)}{(x-i)}\frac{(-1)^{n-i}}{i!(n-i)!}
+\end{aligned}
+$$</p>
+<p>上式虽然是卷积形式但不能保证分母上 $x-i\neq 0$，所以下面仅考虑 $c &gt; n$ 的情况，其他情况（如系数在模素数意义下时须避免 $B_0(x)$ 系数的分母出现零）可以分类讨论解决，令</p>
+<p>$$
+\begin{aligned}
+A_0(x)&amp;=\sum _ {0\leq i\leq n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}x^i\
+B_0(x)&amp;=\sum _ {i\geq 0}\frac{1}{c-n+i}x^i
+\end{aligned}
+$$</p>
+<p>那么对于 $t\geq 0$ 有</p>
+<p>$$
+\begin{aligned}
+\lbrack x^{n+t}\rbrack (A_0(x)B_0(x))&amp;=\sum _ {i=0}^{n+t}(\lbrack x^i\rbrack A_0(x))(\lbrack x^{n+t-i}\rbrack B_0(x))\
+&amp;=\sum _ {i=0}^{n}\frac{f(i)(-1)^{n-i}}{i!(n-i)!}\frac{1}{c+t-i}\
+&amp;=\frac{(c+t-n-1)!}{(c+t)!}f(c+t)
+\end{aligned}
+$$</p>
+<p>实现中取 $B_0(x)$ 需要的部分截断可求出更多点值，且可利用循环卷积．</p>
+<p>对问题稍加修改，假设对于某个 $d$ 给出的点值为 $f(d),f(d+k),\dots ,f(d+nk)$，我们可以计算 $f(c+d),f(c+d+k),\dots ,f(c+d+nk)$，视作平移 $g(x)=f(d+kx)$ 的点值 $g(0),g(1),\dots ,g(n)$ 为 $g(c/k),g(c/k+1),\dots ,g(c/k+n)$．</p>
+<p>Lagrange 插值公式也给出了通过维护一些前后缀积的线性计算单个点值的方法．</p>
+<h2 id="_5">应用</h2>
+<h3 id="stirling">同一行第一类无符号 Stirling 数</h3>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P5408">P5408 第一类斯特林数·行</a>"
+    在模素数 $167772161$ 意义下求 $\displaystyle {n\brack 0},{n\brack 1},\dots ,{n\brack n}$，其中 $1\leq n&lt; 262144$．</p>
+<p>考虑</p>
+<p>$$
+x^{\overline{n}}=\sum _ {i=0}^n{n\brack i}x^i,\quad n\geq 0
+$$</p>
+<p>其中 $x^{\overline{n}}=x\cdot (x+1)\cdots (x+n-1)$ 为上升阶乘幂，令 $f_n(x)=x^{\overline{n}}$ 那么</p>
+<p>$$
+f_{2n}(x)=x^{\overline{n}}\cdot (x+n)^{\overline{n}}=f_n(x)f_n(x+n)
+$$</p>
+<p>通过多项式平移可在 $O(n\log n)$ 求出 $f_n(x+n)$，问题被缩小为原先的一半即求出 $f_n(x)$ 的系数，那么</p>
+<p>$$
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+$$</p>
+<h3 id="_6">模素数意义下阶乘</h3>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P5282">P5282【模板】快速阶乘算法</a>"
+    求 $n!\bmod p$，其中 $p$ 为素数且 $1\leq n&lt; p\leq 2^{31}-1$．</p>
+<p>令 $v=\lfloor\sqrt{n}\rfloor$ 和 $g(x)=\prod _ {i=1}^v(x+i)$ 那么</p>
+<p>$$
+n!\equiv \left(\prod _ {i=0}^{v-1}g(iv)\right)\cdot \prod _ {i=v^2+1}^n i\pmod{p}
+$$</p>
+<p>其中 $\prod _ {i=v^2+1}^n i$ 可在 $O(\sqrt{n})$ 时间计算，我们希望可以快速计算上式的前半部分．</p>
+<h4 id="_7">多项式多点求值</h4>
+<p>$g(x)$ 系数的计算可用上述多项式平移算法在 $O(n\log n)$ 时间得到，但多点求值计算 $g(0),g(v),g(2v),\dots ,g(v^2-v)$ 需要 $O(\sqrt{n}\log ^2n)$ 时间．</p>
+<h4 id="_8">连续点值平移</h4>
+<p>令 $g_d(x)=\prod _ {i=1}^d(x+i)$，我们可以用 $d+1$ 个点值 $g_d(0),g_d(v),\dots ,g_d(dv)$ 唯一确定这个次数为 $d$ 的多项式，又</p>
+<p>$$
+g _ {2d}(x)=g_d(x)g_d(x+d)
+$$</p>
+<p>所以只需 $2d+1$ 个点值可以唯一确定 $g _ {2d}(x)$，那么使用连续点值平移计算 $g_d((d+1)v),g_d((d+2)v),\dots ,g_d(2dv)$（即平移 $h(x)=g_d(vx)$ 的点值 $h(0),h(1),\dots ,h(d)$ 为 $h(d+1),h(d+2),\dots ,h(2d)$）和 $g_d(d),g_d(v+d),\dots ,g_d(2dv+d)$（即平移 $h(x)=g_d(vx)$ 的点值 $h(0),h(1),\dots ,h(d)$ 为 $h(d/v),h(d/v+1),h(d/v+2),\dots ,h(d/v+2d)$）后将这两者的对应点值相乘即得 $g _ {2d}(0),g _ {2d}(v),\dots ,g _ {2d}(2dv)$．</p>
+<p>由 $g_d(0),g_d(v),\dots ,g_d(dv)$ 计算 $g _ {d+1}(0),g _ {d+1}(v),\dots ,g _ {d+1}(dv),g _ {d+1}((d+1)v)$ 考虑</p>
+<p>$$
+g _ {d+1}(x)=(x+d+1)\cdot g_d(x)
+$$</p>
+<p>额外增加的一个点值使用线性时间的算法即可．那么在开始时维护 $g_1(0)=1,g_1(v)=v+1$ 后使用连续点值平移来倍增地维护这些点值，有</p>
+<p>$$
+T(n)=T(n/2)+O(n\log n)=O(n\log n)
+$$</p>
+<p>而我们只需要约 $\sqrt{n}$ 个点值，所以时间复杂度为 $O(\sqrt{n}\log n)$．</p>
+<h3 id="_9">模素数意义下二项式系数前缀和</h3>
+<p>???+ note "例题 <a href="https://loj.ac/p/6386">LOJ 6386 组合数前缀和</a>"
+    求 $\displaystyle \sum _ {i=0}^m\binom{n}{i}\bmod 998244353$，其中 $0\leq m\leq n\leq 9\times 10^8$．</p>
+<p>考虑使用矩阵描述 $n!=n\cdot (n-1)!$ 这一步递推，我们有</p>
+<p>$$
+\begin{bmatrix}
+n!
+\end{bmatrix}
+=\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}i+1\end{bmatrix}
+\right)
+\begin{bmatrix}
+1
+\end{bmatrix}
+$$</p>
+<p>类似的可以将二项式系数前缀和的递推描述为</p>
+<p>$$
+\begin{bmatrix}
+\binom{n}{m+1}\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}=
+\begin{bmatrix}
+(n-m)/(m+1)&amp;0\
+1&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+\binom{n}{m}\
+\sum _ {i=0}^{m-1}\binom{n}{i}
+\end{bmatrix}
+$$</p>
+<p>注意矩阵乘法的顺序，那么</p>
+<p>$$
+\begin{aligned}
+\begin{bmatrix}
+\binom{n}{m+1}\
+\sum _ {i=0}^m\binom{n}{i}
+\end{bmatrix}
+&amp;=\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+(n-i)/(i+1)&amp;0\1&amp;1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\0
+\end{bmatrix}\
+&amp;=
+\frac{1}{(m+1)!}
+\left(
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&amp;0\i+1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\0
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>令 $v=\lfloor\sqrt{m}\rfloor$，考虑维护矩阵</p>
+<p>$$
+\begin{aligned}
+M _ d(x)&amp;=
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&amp;0\
+x+i&amp;x+i
+\end{bmatrix}\
+&amp;=
+\begin{bmatrix}
+f_d(x)&amp;0\
+g_d(x)&amp;h_d(x)
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>的点值 $M _ d(0),M _ d(v),\dots ,M_d(dv)$ 即 $f_d(0),f_d(v),\dots ,f_d(dv)$、$h_d(0),\dots ,h_d(dv)$ 和 $g_d(0),\dots ,g_d(dv)$，又</p>
+<p>$$
+\begin{aligned}
+M _ {2d}(x)&amp;=
+\prod _ {i=1}^{2d}
+\begin{bmatrix}
+-x+n+1-i&amp;0\
+x+i&amp;x+i
+\end{bmatrix}\
+&amp;=
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x-d+n+1-i&amp;0\
+x+d+i&amp;x+d+i
+\end{bmatrix}
+\right)
+\left(
+\prod _ {i=1}^d
+\begin{bmatrix}
+-x+n+1-i&amp;0\
+x+i&amp;x+i
+\end{bmatrix}
+\right) \
+&amp;=
+\begin{bmatrix}
+f_d(x+d)&amp;0\
+g_d(x+d)&amp;h_d(x+d)
+\end{bmatrix}
+\begin{bmatrix}
+f_d(x)&amp;0\
+g_d(x)&amp;h_d(x)
+\end{bmatrix} \
+&amp;=
+\begin{bmatrix}
+f_d(x+d)f_d(x)&amp;0\
+g_d(x+d)f_d(x)+h_d(x+d)g_d(x)&amp;h_d(x+d)h_d(x)
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>且矩阵右下角元素恰为我们在阶乘算法中所维护的，那么</p>
+<p>$$
+\begin{aligned}
+\prod _ {i=0}^{m}
+\begin{bmatrix}
+n-i&amp;0\i+1&amp;i+1
+\end{bmatrix}=
+\left(
+\prod _ {i=(k+1)v}^m
+\begin{bmatrix}
+n-i&amp;0\
+i+1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+f_v(kv)&amp;0\
+g_v(kv)&amp;h_v(kv)
+\end{bmatrix}
+\cdots
+\begin{bmatrix}
+f_v(0)&amp;0\
+g_v(0)&amp;h_v(0)
+\end{bmatrix}
+\end{aligned}
+$$</p>
+<p>可在 $O(\sqrt m\log m)$ 时间完成计算．</p>
+<h3 id="_10">模素数意义下调和数</h3>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P5702">P5702 调和级数求和</a>"
+    求 $\sum _ {i=1}^ni^{-1}\bmod p$，其中 $p$ 为素数且 $1\leq n&lt; p&lt; 2^{30}$．</p>
+<p>记 $H_n=\sum _ {k=1}^nk^{-1}$，一步递推为</p>
+<p>$$
+\begin{bmatrix}
+(n+1)!\(n+1)!H _ {n+1}
+\end{bmatrix}=
+\begin{bmatrix}
+n+1&amp;0\1&amp;n+1
+\end{bmatrix}
+\begin{bmatrix}
+n!\n!H_n
+\end{bmatrix}
+$$</p>
+<p>那么</p>
+<p>$$
+\begin{bmatrix}
+{n+1\brack 1}\{n+1\brack 2}
+\end{bmatrix}=
+\begin{bmatrix}
+n!\n!H_n
+\end{bmatrix}=
+\left(
+\prod _ {i=0}^{n-1}
+\begin{bmatrix}
+i+1&amp;0\1&amp;i+1
+\end{bmatrix}
+\right)
+\begin{bmatrix}
+1\0
+\end{bmatrix}
+$$</p>
+<p>在这里 $\displaystyle {n+1\brack 1}$ 和 $\displaystyle {n+1\brack 2}$ 为第一类无符号 Stirling 数．维护点值矩阵的方法同上．</p>
+<h2 id="_11">整式递推</h2>
+<p>对于更一般的情况，类似于上述快速阶乘算法的案例，我们期望得到一个怎么样的算法？</p>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P6115">P6115【模板】整式递推</a>"
+    现有数列 $a$ 满足 $\forall n\ge m,\sum_{k=0}^ma_{n-k}P_k(n)=0$，其中 $P_k$ 为不超过 $d$ 次的多项式．<br />
+    给定所有 $P_k$ 的系数，和 $a_0,a_1,\dots,a_{m-1}$，求 $a_n$．
+    对 $998244353$ 取模．$n\le6\times10^8$，$1\le m,d\le7$，时限 $7s$．</p>
+<p>为了更系统地描述上述几道例题中构造矩阵的过程，我们引入 <a href="../../linear-algebra/jordan/#lambda-%E7%9F%A9%E9%98%B5">$\lambda$ 矩阵</a> 的概念．</p>
+<p>为了实现整式递推，我们应当注意到快速阶乘算法过程中，我们维护的点值其实并不是 $n!$，而是 $\prod_{i=0}^{T-1}(aT+i)$，即 <strong>一对点值之间的倍数关系</strong>．</p>
+<p>由于整式递推阶数 $m$ 不止是 $1$ 了，我们就 <strong>不能直接维护一对数之间的倍数关系了</strong>；而是维护出 <strong>一对 $m$ 维向量之间的线性变换</strong>，即 $m\times m$ 的一个矩阵，<strong>矩阵的每一项对应于某个多项式的一个点值</strong>．</p>
+<p>容易发现，对于一般的整式递推远处系数求值问题，我们可以构造</p>
+<p>$$
+-{\frac{1}{P_0(n)}}\begin{bmatrix}P_1(n)&amp;P_2(n)&amp;P_3(n)&amp;\cdots&amp;P_{m-1}(n)&amp;P_m(n)\-P_0(n)\&amp;-P_0(n)\&amp;&amp;-P_0(n)\&amp;&amp;&amp;\ddots\&amp;&amp;&amp;&amp;-P_0(n)\\end{bmatrix}
+\begin{bmatrix}a_{n-1}\a_{n-2}\a_{n-3}\\vdots\a_{n-m+1}\a_{n-m}\end{bmatrix}
+=\begin{bmatrix}a_n\a_{n-1}\a_{n-2}\\vdots\a_{n-m+2}\a_{n-m+1}\end{bmatrix}
+$$</p>
+<p>设</p>
+<p>$$
+B(\lambda)=\begin{bmatrix}
+    P_1(\lambda)&amp;P_2(\lambda)&amp;P_3(\lambda)&amp;\cdots&amp;P_{m-1}(\lambda)&amp;P_m(\lambda)\
+    -P_0(\lambda)\
+    &amp;-P_0(\lambda)\
+    &amp;&amp;-P_0(\lambda)\
+    &amp;&amp;&amp;\ddots\
+    &amp;&amp;&amp;&amp;-P_0(\lambda)\
+\end{bmatrix}
+$$</p>
+<p>我们先撇开前面的 $-\frac1{P_0(n)}$ 因子不论，我们现在要维护 $\prod_{i=0}^{T-1}B(aT+m+i)$ 这种形式的量，其中乘法自右往左．</p>
+<p>容易发现 $B_T(\lambda)=\prod_{i=0}^{T-1}B(\lambda+i)$ 是一个各项次数不高于 $dT$ 的 $\lambda$ 矩阵，只用 $dT+1$ 个值即可维护．</p>
+<p>于是我们维护出 $B_T(m)$，$B_T(m+T)$，$B_T(m+2T)$，$\dots$，$B_T(m+(dT-1)T)$，$B_T(m+dT^2)$ 这几个 $\lambda$ 矩阵的 <strong>点值</strong>，然后用类似于快速阶乘算法的方式暴力进行多项式点值平移和倍增就好了．</p>
+<p>具体地，为了让 $t=\log_2T$ 抬高 $1$，我们这么干：</p>
+<ol>
+<li>在 $O(m^2dT\log(dT))$ 时间内获取 $B_T(p+dT^2)$，$B_T(p+(dT+1)T)$，$B_T(p+(dT+2)T)$，$\cdots$，$B_T(p+(2dT-1)T)$，$B_T(p+(2dT)dT)$．</li>
+<li>在 $O(m^2dT\log(dT))$ 时间内获取 $B_T(p+2dT^2)$，$B_T(p+(2dT+1)T)$，$B_T(p+(2dT+2)T)$，$\cdots$，$B_T(p+(3dT-1)T)$，$B_T(p+(3dT)dT)$．</li>
+<li>在 $O(m^2dT\log(dT))$ 时间内获取 $B_T(p+3dT^2)$，$B_T(p+(3dT+1)T)$，$B_T(p+(3dT+2)T)$，$\cdots$，$B_T(p+(4dT-1)T)$，$B_T(p+(4dT)dT)$．</li>
+<li>计算 $B_{2T}(v)=B_{T}(v+T)B_{T}(v)$．</li>
+</ol>
+<p>我们每轮花费 $O(m^2dT\log(dT))$ 的复杂度进行平移；同时，我们每轮只用做 $\Theta(dT)$ 次矩阵乘法，复杂度可以认为是 $O(m^3dT)$．</p>
+<p>最后，我们只用做到 $T\ge\sqrt{n/d}$ 即可．</p>
+<p>之前的 $-\frac1{P_0(n)}$ 因子可以用类似的方法解决．</p>
+<p>这样，我们预处理的复杂度即为 $\Theta(\sqrt{nd}(m^3+m^2\log(nd)))$．</p>
+<p>考虑查询，我们只用 $\Theta(n/T)$ 次向量与矩阵的乘法，以及 $O(T)$ 次暴力转移．</p>
+<p>容易发现这部分计算并不是复杂度瓶颈．</p>
+<p>因此，该算法的总复杂度为 $\Theta(\sqrt{nd}(m^3+m^2\log(nd)))$．</p>
+<p>编码时，我们可以使用循环卷积的技巧来减小 NTT 的常数．</p>
+<p>在实际应用时，我们往往是对一个已知的微分有限的 GF 提取其远处系数，从而 $m,d$ 均为常数，也即做到了 $\Theta(\sqrt n\log n)$ 的远处系数求值．</p>
+<h2 id="_12">参考文献</h2>
+<ul>
+<li>Alin Bostan, Pierrick Gaudry, and Eric Schost. Linear recurrences with polynomial coefficients and application to integer factorization and Cartier–Manin operator.</li>
+<li>Min_25 的博客</li>
+<li><a href="https://www.cnblogs.com/zzqsblog/p/8408691.html">ZZQ 的博客 - 阶乘模大质数</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1241 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="Marcythm, Ir1d, Ycrpro, Xeonacid, konnyakuxzy, CJSoft, HeRaNO, ethan-enhe, ChungZH, Chrogeek, hsfzLZH1, billchenchina, orzAtalod, luoguojie, Early0v0, wy-luke">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/ds/seg/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Seg - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Seg
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线段树的基本结构与建树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线段树的基本结构与建树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线段树的区间查询
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线段树的区间查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线段树的区间修改与懒惰标记
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线段树的区间修改与懒惰标记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动态开点线段树
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一些优化
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 模板
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拓展
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用：线段树优化建图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习题目
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/ds/seg.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Seg</h1>
+
+<h2 id="_1">引入</h2>
+<p>线段树是算法竞赛中常用的用来维护 <strong>区间信息</strong> 的数据结构．</p>
+<p>线段树可以在 $O(\log N)$ 的时间复杂度内实现单点修改、区间修改、区间查询（区间求和，求区间最大值，求区间最小值）等操作．</p>
+<h2 id="_2">线段树的基本结构与建树</h2>
+<h3 id="_3">过程</h3>
+<p>线段树将每个长度不为 $1$ 的区间划分成左右两个区间递归求解，把整个线段划分为一个树形结构，通过合并左右两区间信息来求得该区间的信息．这种数据结构可以方便的进行大部分的区间操作．</p>
+<p>有个大小为 $5$ 的数组 $a={10,11,12,13,14}$，要将其转化为线段树，有以下做法：设线段树的根节点编号为 $1$，用数组 $d$ 来保存我们的线段树，$d_i$ 用来保存线段树上编号为 $i$ 的节点的值（这里每个节点所维护的值就是这个节点所表示的区间总和）．</p>
+<p>我们先给出这棵线段树的形态，如图所示：</p>
+<p><img alt="" src="../images/segt1.svg" /></p>
+<p>图中每个节点中用红色字体标明的区间，表示该节点管辖的 $a$ 数组上的位置区间．如 $d_1$ 所管辖的区间就是 $[1,5]$（$a_1,a_2, \cdots ,a_5$），即 $d_1$ 所保存的值是 $a_1+a_2+ \cdots +a_5$，$d_1=60$ 表示的是 $a_1+a_2+ \cdots +a_5=60$．</p>
+<p>通过观察不难发现，$d_i$ 的左儿子节点就是 $d_{2\times i}$，$d_i$ 的右儿子节点就是 $d_{2\times i+1}$．如果 $d_i$ 表示的是区间 $[s,t]$（即 $d_i=a_s+a_{s+1}+ \cdots +a_t$）的话，那么 $d_i$ 的左儿子节点表示的是区间 $[ s, \frac{s+t}{2} ]$，$d_i$ 的右儿子表示的是区间 $[ \frac{s+t}{2} +1,t ]$．</p>
+<p>在实现时，我们考虑递归建树．设当前的根节点为 $p$，如果根节点管辖的区间长度已经是 $1$，则可以直接根据 $a$ 数组上相应位置的值初始化该节点．否则我们将该区间从中点处分割为两个子区间，分别进入左右子节点递归建树，最后合并两个子节点的信息．</p>
+<h3 id="_4">实现</h3>
+<p>此处给出代码实现，可参考注释理解：</p>
+<p>=== "C++"
+    <code>cpp
+    void build(int s, int t, int p) {
+      // 对 [s,t] 区间建立线段树,当前根的编号为 p
+      if (s == t) {
+        d[p] = a[s];
+        return;
+      }
+      int m = s + ((t - s) &gt;&gt; 1);
+      // 移位运算符的优先级小于加减法，所以加上括号
+      // 如果写成 (s + t) &gt;&gt; 1 可能会超出 int 范围
+      build(s, m, p * 2), build(m + 1, t, p * 2 + 1);
+      // 递归对左右区间建树
+      d[p] = d[p * 2] + d[(p * 2) + 1];
+    }</code></p>
+<p>=== "Python"
+    <code>python
+    def build(s, t, p):
+        # 对 [s,t] 区间建立线段树,当前根的编号为 p
+        if s == t:
+            d[p] = a[s]
+            return
+        m = s + ((t - s) &gt;&gt; 1)
+        # 移位运算符的优先级小于加减法，所以加上括号
+        # 如果写成 (s + t) &gt;&gt; 1 可能会超出 int 范围
+        build(s, m, p * 2)
+        build(m + 1, t, p * 2 + 1)
+        # 递归对左右区间建树
+        d[p] = d[p * 2] + d[(p * 2) + 1]</code></p>
+<p>关于线段树的空间：如果采用堆式存储（$2p$ 是 $p$ 的左儿子，$2p+1$ 是 $p$ 的右儿子），若有 $n$ 个叶子结点，则 d 数组的范围最大为 $2^{\left\lceil\log{n}\right\rceil+1}$．</p>
+<p>分析：容易知道线段树的深度是 $\left\lceil\log{n}\right\rceil$ 的，则在堆式储存情况下叶子节点（包括无用的叶子节点）数量为 $2^{\left\lceil\log{n}\right\rceil}$ 个，又由于其为一棵完全二叉树，则其总节点个数 $2^{\left\lceil\log{n}\right\rceil+1}-1$．当然如果你懒得计算的话可以直接把数组长度设为 $4n$，因为 $\frac{2^{\left\lceil\log{n}\right\rceil+1}-1}{n}$ 的最大值在 $n=2^{x}+1(x\in N_{+})$ 时取到，此时节点数为 $2^{\left\lceil\log{n}\right\rceil+1}-1=2^{x+2}-1=4n-5$．</p>
+<p>而堆式存储存在无用的叶子节点，可以考虑使用内存池管理线段树节点，每当需要新建节点时从池中获取．自底向上考虑，必有每两个底层节点合并为一个上层节点，因此可以类似哈夫曼树地证明，如果有 $n$ 个叶子节点，这样的线段树总共有 $2n-1$ 个节点．其空间效率优于堆式存储，并且是可能的最优情况．</p>
+<p>这样的线段树可以自底向上维护，参考「<a href="https://github.com/hzwer/shareOI/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BB%9F%E8%AE%A1%E7%9A%84%E5%8A%9B%E9%87%8F%E2%80%94%E2%80%94%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%85%A8%E6%8E%A5%E8%A7%A6_%E5%BC%A0%E6%98%86%E7%8E%AE.pptx">统计的力量 - 张昆玮</a>」．</p>
+<h2 id="_5">线段树的区间查询</h2>
+<h3 id="_6">过程</h3>
+<p>区间查询，比如求区间 $[l,r]$ 的总和（即 $a_l+a_{l+1}+ \cdots +a_r$）、求区间最大值/最小值等操作．</p>
+<p><img alt="" src="../images/segt1.svg" /></p>
+<p>仍然以最开始的图为例，如果要查询区间 $[1,5]$ 的和，那直接获取 $d_1$ 的值（$60$）即可．</p>
+<p>如果要查询的区间为 $[3,5]$，此时就不能直接获取区间的值，但是 $[3,5]$ 可以拆成 $[3,3]$ 和 $[4,5]$，可以通过合并这两个区间的答案来求得这个区间的答案．</p>
+<p>一般地，如果要查询的区间是 $[l,r]$，则可以将其拆成最多为 $O(\log n)$ 个 <strong>极大</strong> 的区间，合并这些区间即可求出 $[l,r]$ 的答案．</p>
+<h3 id="_7">实现</h3>
+<p>此处给出代码实现，可参考注释理解：</p>
+<p>=== "C++"
+    <code>cpp
+    int getsum(int l, int r, int s, int t, int p) {
+      // [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号
+      if (l &lt;= s &amp;&amp; t &lt;= r)
+        return d[p];  // 当前区间为询问区间的子集时直接返回当前区间的和
+      int m = s + ((t - s) &gt;&gt; 1), sum = 0;
+      if (l &lt;= m) sum += getsum(l, r, s, m, p * 2);
+      // 如果左儿子代表的区间 [s, m] 与询问区间有交集, 则递归查询左儿子
+      if (r &gt; m) sum += getsum(l, r, m + 1, t, p * 2 + 1);
+      // 如果右儿子代表的区间 [m + 1, t] 与询问区间有交集, 则递归查询右儿子
+      return sum;
+    }</code></p>
+<p>=== "Python"
+    <code>python
+    def getsum(l, r, s, t, p):
+        # [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号
+        if l &lt;= s and t &lt;= r:
+            return d[p]  # 当前区间为询问区间的子集时直接返回当前区间的和
+        m = s + ((t - s) &gt;&gt; 1)
+        sum = 0
+        if l &lt;= m:
+            sum = sum + getsum(l, r, s, m, p * 2)
+        # 如果左儿子代表的区间 [s, m] 与询问区间有交集, 则递归查询左儿子
+        if r &gt; m:
+            sum = sum + getsum(l, r, m + 1, t, p * 2 + 1)
+        # 如果右儿子代表的区间 [m + 1, t] 与询问区间有交集, 则递归查询右儿子
+        return sum</code></p>
+<h2 id="_8">线段树的区间修改与懒惰标记</h2>
+<h3 id="_9">过程</h3>
+<p>如果要求修改区间 $[l,r]$，把所有包含在区间 $[l,r]$ 中的节点都遍历一次、修改一次，时间复杂度无法承受．我们这里要引入一个叫做 <strong>「懒惰标记」</strong> 的东西．</p>
+<p>懒惰标记，简单来说，就是通过延迟对节点信息的更改，从而减少可能不必要的操作次数．每次执行修改时，我们通过打标记的方法表明该节点对应的区间在某一次操作中被更改，但不更新该节点的子节点的信息．实质性的修改则在下一次访问带有标记的节点时才进行．</p>
+<p>仍然以最开始的图为例，我们将执行若干次给区间内的数加上一个值的操作．我们现在给每个节点增加一个 $t_i$，表示该节点带的标记值．</p>
+<p>最开始时的情况是这样的（为了节省空间，这里不再展示每个节点管辖的区间）：</p>
+<p><img alt="" src="../images/segt2.svg" /></p>
+<p>现在我们准备给 $[3,5]$ 上的每个数都加上 $5$．根据前面区间查询的经验，我们很快找到了两个极大区间 $[3,3]$ 和 $[4,5]$（分别对应线段树上的 $5$ 号点和 $3$ 号点）．</p>
+<p>我们直接在这两个节点上进行修改，并给它们打上标记：</p>
+<p><img alt="" src="../images/segt3.svg" /></p>
+<p>我们发现，$3$ 号节点的信息虽然被修改了（因为该区间管辖两个数，所以 $d_3$ 加上的数是 $5 \times 2=10$），但它的两个子节点却还没更新，仍然保留着修改之前的信息．不过不用担心，虽然修改目前还没进行，但当我们要查询这两个子节点的信息时，我们会利用标记修改这两个子节点的信息，使查询的结果依旧准确．</p>
+<p>接下来我们查询一下 $[4,4]$ 区间上各数字的和．</p>
+<p>我们通过递归找到 $[4,5]$ 区间，发现该区间并非我们的目标区间，且该区间上还存在标记．这时候就到标记下放的时间了．我们将该区间的两个子区间的信息更新，并清除该区间上的标记．</p>
+<p><img alt="" src="../images/segt4.svg" /></p>
+<p>现在 $6$、$7$ 两个节点的值变成了最新的值，查询的结果也是准确的．</p>
+<h3 id="_10">实现</h3>
+<p>接下来给出在存在标记的情况下，区间修改和查询操作的参考实现．</p>
+<p>区间修改（区间加上某个值）：</p>
+<p>=== "C++"
+    <code>cpp
+    // [l, r] 为修改区间, c 为被修改的元素的变化量, [s, t] 为当前节点包含的区间, p
+    // 为当前节点的编号
+    void update(int l, int r, int c, int s, int t, int p) {
+      // 当前区间为修改区间的子集时直接修改当前节点的值,然后打标记,结束修改
+      if (l &lt;= s &amp;&amp; t &lt;= r) {
+        d[p] += (t - s + 1) * c, b[p] += c;
+        return;
+      }
+      int m = s + ((t - s) &gt;&gt; 1);
+      if (b[p] &amp;&amp; s != t) {
+        // 如果当前节点的懒标记非空,则更新当前节点两个子节点的值和懒标记值
+        d[p * 2] += b[p] * (m - s + 1), d[p * 2 + 1] += b[p] * (t - m);
+        b[p * 2] += b[p], b[p * 2 + 1] += b[p];  // 将标记下传给子节点
+        b[p] = 0;                                // 清空当前节点的标记
+      }
+      if (l &lt;= m) update(l, r, c, s, m, p * 2);
+      if (r &gt; m) update(l, r, c, m + 1, t, p * 2 + 1);
+      d[p] = d[p * 2] + d[p * 2 + 1];
+    }</code></p>
+<p>=== "Python"
+    <code>python
+    def update(l, r, c, s, t, p):
+        # [l, r] 为修改区间, c 为被修改的元素的变化量, [s, t] 为当前节点包含的区间, p
+        # 为当前节点的编号
+        if l &lt;= s and t &lt;= r:
+            d[p] = d[p] + (t - s + 1) * c
+            b[p] = b[p] + c
+            return
+        # 当前区间为修改区间的子集时直接修改当前节点的值, 然后打标记, 结束修改
+        m = s + ((t - s) &gt;&gt; 1)
+        if b[p] and s != t:
+            # 如果当前节点的懒标记非空, 则更新当前节点两个子节点的值和懒标记值
+            d[p * 2] = d[p * 2] + b[p] * (m - s + 1)
+            d[p * 2 + 1] = d[p * 2 + 1] + b[p] * (t - m)
+            # 将标记下传给子节点
+            b[p * 2] = b[p * 2] + b[p]
+            b[p * 2 + 1] = b[p * 2 + 1] + b[p]
+            # 清空当前节点的标记
+            b[p] = 0
+        if l &lt;= m:
+            update(l, r, c, s, m, p * 2)
+        if r &gt; m:
+            update(l, r, c, m + 1, t, p * 2 + 1)
+        d[p] = d[p * 2] + d[p * 2 + 1]</code></p>
+<p>区间查询（区间求和）：</p>
+<p>=== "C++"
+    <code>cpp
+    int getsum(int l, int r, int s, int t, int p) {
+      // [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p 为当前节点的编号
+      if (l &lt;= s &amp;&amp; t &lt;= r) return d[p];
+      // 当前区间为询问区间的子集时直接返回当前区间的和
+      int m = s + ((t - s) &gt;&gt; 1);
+      if (b[p]) {
+        // 如果当前节点的懒标记非空,则更新当前节点两个子节点的值和懒标记值
+        d[p * 2] += b[p] * (m - s + 1), d[p * 2 + 1] += b[p] * (t - m);
+        b[p * 2] += b[p], b[p * 2 + 1] += b[p];  // 将标记下传给子节点
+        b[p] = 0;                                // 清空当前节点的标记
+      }
+      int sum = 0;
+      if (l &lt;= m) sum = getsum(l, r, s, m, p * 2);
+      if (r &gt; m) sum += getsum(l, r, m + 1, t, p * 2 + 1);
+      return sum;
+    }</code></p>
+<p>=== "Python"
+    <code>python
+    def getsum(l, r, s, t, p):
+        # [l, r] 为查询区间, [s, t] 为当前节点包含的区间, p为当前节点的编号
+        if l &lt;= s and t &lt;= r:
+            return d[p]
+        # 当前区间为询问区间的子集时直接返回当前区间的和
+        m = s + ((t - s) &gt;&gt; 1)
+        if b[p]:
+            # 如果当前节点的懒标记非空, 则更新当前节点两个子节点的值和懒标记值
+            d[p * 2] = d[p * 2] + b[p] * (m - s + 1)
+            d[p * 2 + 1] = d[p * 2 + 1] + b[p] * (t - m)
+            # 将标记下传给子节点
+            b[p * 2] = b[p * 2] + b[p]
+            b[p * 2 + 1] = b[p * 2 + 1] + b[p]
+            # 清空当前节点的标记
+            b[p] = 0
+        sum = 0
+        if l &lt;= m:
+            sum = getsum(l, r, s, m, p * 2)
+        if r &gt; m:
+            sum = sum + getsum(l, r, m + 1, t, p * 2 + 1)
+        return sum</code></p>
+<p>如果你是要实现区间修改为某一个值而不是加上某一个值的话，代码如下：</p>
+<p>=== "C++"
+    ```cpp
+    void update(int l, int r, int c, int s, int t, int p) {
+      if (l &lt;= s &amp;&amp; t &lt;= r) {
+        d[p] = (t - s + 1) * c, b[p] = c, v[p] = 1;
+        return;
+      }
+      int m = s + ((t - s) &gt;&gt; 1);
+      // 额外数组储存是否修改值
+      if (v[p]) {
+        d[p * 2] = b[p] * (m - s + 1), d[p * 2 + 1] = b[p] * (t - m);
+        b[p * 2] = b[p * 2 + 1] = b[p];
+        v[p * 2] = v[p * 2 + 1] = 1;
+        v[p] = 0;
+      }
+      if (l &lt;= m) update(l, r, c, s, m, p * 2);
+      if (r &gt; m) update(l, r, c, m + 1, t, p * 2 + 1);
+      d[p] = d[p * 2] + d[p * 2 + 1];
+    }</p>
+<pre><code>int getsum(int l, int r, int s, int t, int p) {
+  if (l &lt;= s &amp;&amp; t &lt;= r) return d[p];
+  int m = s + ((t - s) &gt;&gt; 1);
+  if (v[p]) {
+    d[p * 2] = b[p] * (m - s + 1), d[p * 2 + 1] = b[p] * (t - m);
+    b[p * 2] = b[p * 2 + 1] = b[p];
+    v[p * 2] = v[p * 2 + 1] = 1;
+    v[p] = 0;
+  }
+  int sum = 0;
+  if (l &lt;= m) sum = getsum(l, r, s, m, p * 2);
+  if (r &gt; m) sum += getsum(l, r, m + 1, t, p * 2 + 1);
+  return sum;
+}
+```
+</code></pre>
+<p>=== "Python"
+    ```python
+    def update(l, r, c, s, t, p):
+        if l &lt;= s and t &lt;= r:
+            d[p] = (t - s + 1) * c
+            b[p] = c
+            v[p] = 1
+            return
+        m = s + ((t - s) &gt;&gt; 1)
+        if v[p]:
+            d[p * 2] = b[p] * (m - s + 1)
+            d[p * 2 + 1] = b[p] * (t - m)
+            b[p * 2] = b[p * 2 + 1] = b[p]
+            v[p * 2] = v[p * 2 + 1] = 1
+            v[p] = 0
+        if l &lt;= m:
+            update(l, r, c, s, m, p * 2)
+        if r &gt; m:
+            update(l, r, c, m + 1, t, p * 2 + 1)
+        d[p] = d[p * 2] + d[p * 2 + 1]</p>
+<pre><code>def getsum(l, r, s, t, p):
+    if l &lt;= s and t &lt;= r:
+        return d[p]
+    m = s + ((t - s) &gt;&gt; 1)
+    if v[p]:
+        d[p * 2] = b[p] * (m - s + 1)
+        d[p * 2 + 1] = b[p] * (t - m)
+        b[p * 2] = b[p * 2 + 1] = b[p]
+        v[p * 2] = v[p * 2 + 1] = 1
+        v[p] = 0
+    sum = 0
+    if l &lt;= m:
+        sum = getsum(l, r, s, m, p * 2)
+    if r &gt; m:
+        sum = sum + getsum(l, r, m + 1, t, p * 2 + 1)
+    return sum
+```
+</code></pre>
+<h2 id="_11">动态开点线段树</h2>
+<p>前面讲到堆式储存的情况下，需要给线段树开 $4n$ 大小的数组．为了节省空间，我们可以不一次性建好树，而是在最初只建立一个根结点代表整个区间．当我们需要访问某个子区间时，才建立代表这个区间的子结点．这样我们不再使用 $2p$ 和 $2p+1$ 代表 $p$ 结点的儿子，而是用 $\text{ls}$ 和 $\text{rs}$ 记录儿子的编号．总之，动态开点线段树的核心思想就是：<strong>结点只有在有需要的时候才被创建</strong>．</p>
+<p>单次操作的时间复杂度是不变的，为 $O(\log n)$．由于每次操作都有可能创建并访问全新的一系列结点，因此 $m$ 次单点操作后结点的数量规模是 $O(m\log n)$．最多也只需要 $2n-1$ 个结点，没有浪费．</p>
+<p>单点修改：</p>
+<pre><code class="language-cpp">// root 表示整棵线段树的根结点；cnt 表示当前结点个数
+int n, cnt, root;
+int sum[n * 2], ls[n * 2], rs[n * 2];
+
+// 用法：update(root, 1, n, x, f); 其中 x 为待修改节点的编号
+void update(int&amp; p, int s, int t, int x, int f) {  // 引用传参
+  if (!p) p = ++cnt;  // 当结点为空时，创建一个新的结点
+  if (s == t) {
+    sum[p] += f;
+    return;
+  }
+  int m = s + ((t - s) &gt;&gt; 1);
+  if (x &lt;= m)
+    update(ls[p], s, m, x, f);
+  else
+    update(rs[p], m + 1, t, x, f);
+  sum[p] = sum[ls[p]] + sum[rs[p]];  // pushup
+}
+</code></pre>
+<p>区间询问：</p>
+<pre><code class="language-cpp">// 用法：query(root, 1, n, l, r);
+int query(int p, int s, int t, int l, int r) {
+  if (!p) return 0;  // 如果结点为空，返回 0
+  if (s &gt;= l &amp;&amp; t &lt;= r) return sum[p];
+  int m = s + ((t - s) &gt;&gt; 1), ans = 0;
+  if (l &lt;= m) ans += query(ls[p], s, m, l, r);
+  if (r &gt; m) ans += query(rs[p], m + 1, t, l, r);
+  return ans;
+}
+</code></pre>
+<p>区间修改也是一样的，不过下放标记时要注意如果缺少孩子，就直接创建一个新的孩子．或者使用标记永久化技巧．</p>
+<h2 id="_12">一些优化</h2>
+<p>这里总结几个线段树的优化：</p>
+<ul>
+<li>
+<p>在叶子节点处无需下放懒惰标记，所以懒惰标记可以不下传到叶子节点．</p>
+</li>
+<li>
+<p>下放懒惰标记可以写一个专门的函数 <code>pushdown</code>，从儿子节点更新当前节点也可以写一个专门的函数 <code>maintain</code>（或者对称地用 <code>pushup</code>），降低代码编写难度．</p>
+</li>
+<li>
+<p>标记永久化：如果确定懒惰标记不会在中途被加到溢出（即超过了该类型数据所能表示的最大范围），那么就可以将标记永久化．标记永久化可以避免下传懒惰标记，只需在进行询问时把标记的影响加到答案当中，从而降低程序常数．具体如何处理与题目特性相关，需结合题目来写．这也是树套树和可持久化数据结构中会用到的一种技巧．</p>
+</li>
+</ul>
+<h2 id="c">C++ 模板</h2>
+<p>??? note "SegTreeLazyRangeAdd 可以区间加/求和的线段树模板"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/seg/seg_4.hpp"</code></p>
+<p>??? note "SegTreeLazyRangeSet 可以区间修改/求和的线段树模板"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/seg/seg_5.hpp"</code></p>
+<h2 id="_13">例题</h2>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/P3372">luogu P3372【模板】线段树 1</a>"
+    已知一个数列，你需要进行下面两种操作：</p>
+<pre><code>-   将某区间每一个数加上 $k$．
+
+-   求出某区间每一个数的和．
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/ds/code/seg/seg_1.cpp"
+    ```
+</code></pre>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/P3373">luogu P3373【模板】线段树 2</a>"
+    已知一个数列，你需要进行下面三种操作：</p>
+<pre><code>-   将某区间每一个数乘上 $x$．
+
+-   将某区间每一个数加上 $x$．
+
+-   求出某区间每一个数的和．
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/ds/code/seg/seg_2.cpp"
+    ```
+</code></pre>
+<p>???+ note "<a href="https://vjudge.net/problem/HihoCoder-1078">HihoCoder 1078 线段树的区间修改</a>"
+    假设货架上从左到右摆放了 $N$ 种商品，并且依次标号为 $1$ 到 $N$，其中标号为 $i$ 的商品的价格为 $Pi$．小 Hi 的每次操作分为两种可能，第一种是修改价格：小 Hi 给出一段区间 $[L, R]$ 和一个新的价格 $\textit{NewP}$，所有标号在这段区间中的商品的价格都变成 $\textit{NewP}$．第二种操作是询问：小 Hi 给出一段区间 $[L, R]$，而小 Ho 要做的便是计算出所有标号在这段区间中的商品的总价格，然后告诉小 Hi．</p>
+<pre><code>??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/ds/code/seg/seg_3.cpp"
+    ```
+</code></pre>
+<p>???+ note "<a href="https://acm.hdu.edu.cn/showproblem.php?pid=6356">2018 Multi-University Training Contest 5 Problem G. Glad You Came</a>"
+    ??? note "解题思路"
+        维护一下每个区间的永久标记就可以了，最后在线段树上跑一边 DFS 统计结果即可．注意打标记的时候加个剪枝优化，否则会 TLE．</p>
+<h2 id="_14">拓展</h2>
+<p>线段树应用十分广泛，常见的拓展和变体如下：</p>
+<ul>
+<li><a href="../persistent-seg/">可持久化线段树</a></li>
+<li>各类树套树：<ul>
+<li><a href="../seg-in-seg/">线段树套线段树</a></li>
+<li><a href="../seg-in-bit/">树状数组套线段树</a></li>
+<li><a href="../balanced-in-seg/">线段树套平衡树</a></li>
+<li><a href="../seg-in-balanced/">平衡树套树状数组</a></li>
+</ul>
+</li>
+<li><a href="../li-chao-tree/">李超线段树</a></li>
+<li><a href="../cat-tree/">猫树</a></li>
+<li><a href="../seg-beats/">吉司机线段树</a></li>
+</ul>
+<p>详细内容请参阅相关页面．</p>
+<h2 id="_15">应用：线段树优化建图</h2>
+<p>在建图连边的过程中，我们有时会碰到这种题目，一个点向一段连续的区间中的点连边或者一个连续的区间向一个点连边，如果我们真的一条一条连过去，那一旦点的数量多了复杂度就爆炸了，这里就需要用线段树的区间性质来优化我们的建图了．</p>
+<p>下面是一个线段树．</p>
+<p><img alt="" src="../images/segt5.svg" /></p>
+<p>每个节点都代表了一个区间，假设我们要向区间 $[2, 4]$ 连边．</p>
+<p><img alt="" src="../images/segt6.svg" /></p>
+<p>在一些题目中，还会出现一个区间连向一个点的情况，则我们将上面第一张图的有向边全部反过来即可，上面的树叫做入树，下面这个叫做出树．</p>
+<p><img alt="" src="../images/segt7.svg" /></p>
+<p>???+ note "<a href="https://codeforces.com/problemset/problem/786/B">Legacy</a>"
+    题目大意：有 $n$ 个点、$q$ 次操作．每一种操作为以下三种类型中的一种：</p>
+<pre><code>-   操作一：连一条 $u \rightarrow v$ 的有向边，权值为 $w$．
+-   操作二：对于所有 $i \in [l,r]$ 连一条 $u \rightarrow i$ 的有向边，权值为 $w$．
+-   操作三：对于所有 $i \in [l,r]$ 连一条 $i \rightarrow u$ 的有向边，权值为 $w$．
+
+求从点 $s$ 到其他点的最短路．
+
+$1 \le n,q \le 10^5, 1 \le w \le 10^9$．
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/ds/code/seg/seg_8.cpp"
+    ```
+</code></pre>
+<h2 id="_16">练习题目</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P3372">luogu P3372【模板】线段树 1</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P13825">luogu P13825 线段树 1.5【动态开点线段树】</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3373">luogu P3373【模板】线段树 2</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4588">luogu P4588【TJOI2018】数学计算</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5490">luogu P5490【模板】扫描线 &amp; 矩形面积并</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1471">luogu P1471 方差</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,959 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="HeRaNO, Ir1d, konnyakuxzy, ksyx, Xeonacid, konnyakuxzy, greyqz, sshwy, y-kx-b">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/graph/virtual-tree/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Virtual tree - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Virtual tree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引入
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="引入">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        朴素做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优化做法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        虚树 Virtual Tree
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="虚树 Virtual Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第一种构造过程：二次排序 + LCA 连边
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第一种构造过程：二次排序 + LCA 连边">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        第二种构造过程：使用单调栈
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="第二种构造过程：使用单调栈">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        推荐习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/graph/virtual-tree.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Virtual tree</h1>
+
+<h2 id="_1">引入</h2>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/P2495">「SDOI2011」消耗战</a>"
+    在一场战争中，战场由 $n$ 个岛屿和 $n-1$ 个桥梁组成，保证每两个岛屿间有且仅有一条路径可达．现在，我军已经侦查到敌军的总部在编号为 $1$ 的岛屿，而且他们已经没有足够多的能源维系战斗，我军胜利在望．已知在其他 $k$ 个岛屿上有丰富能源，为了防止敌军获取能源，我军的任务是炸毁一些桥梁，使得敌军不能到达任何能源丰富的岛屿．由于不同桥梁的材质和结构不同，所以炸毁不同的桥梁有不同的代价，我军希望在满足目标的同时使得总代价最小．</p>
+<pre><code>侦查部门还发现，敌军有一台神秘机器．即使我军切断所有能源之后，他们也可以用那台机器．机器产生的效果不仅仅会修复所有我军炸毁的桥梁，而且会重新随机资源分布（但可以保证的是，资源不会分布到 $1$ 号岛屿上）．不过侦查部门还发现了这台机器只能够使用 $m$ 次，所以我们只需要把每次任务完成即可．
+
+对于所有数据，$2\le n\le 2.5\times 10^5,1\le m\le 5\times 10^5,\sum k_i\le 5\times 10^5,1\le k_i\le n-1$．
+</code></pre>
+<h3 id="_2">朴素做法</h3>
+<p>对于上面那题，我们不难发现——如果树的点数很少，那么我们可以直接跑 DP．</p>
+<p>首先我们称某次询问中被选中的点为——<strong>「关键点」</strong>．</p>
+<p>设 $Dp(i)$ 表示——使 $i$ 不与其子树中任意一个关键点连通的 <strong>最小代价</strong>．</p>
+<p>设 $w(a,b)$ 表示 $a$ 与 $b$ 之间的边的权值．</p>
+<p>则枚举 $i$ 的儿子 $v$：</p>
+<ul>
+<li>若 $v$ 不是关键点：$Dp(i)=Dp(i) + \min {Dp(v),w(i,v)}$；</li>
+<li>若 $v$ 是关键点：$Dp(i)=Dp(i) + w(i,v)$．</li>
+</ul>
+<p>很好，这样我们得到了一份 $O(nq)$ 的代码．</p>
+<p>听起来很有意思．</p>
+<h3 id="_3">优化做法</h3>
+<p>我们不难发现——其实很多点是没有用的．以下图为例：</p>
+<p><img alt="vtree-1" src="../images/vtree-tree.svg" /></p>
+<p>如果我们选取的关键点是：</p>
+<p><img alt="vtree-2" src="../images/vtree-key-vertex.svg" /></p>
+<p>图中只有两个红色的点是 <strong>关键点</strong>，而别的点全都是「非关键点」．</p>
+<p>对于这题来说，我们只需要保证红色的点无法到达 $1$ 号节点就行了．</p>
+<p>通过肉眼观察可以得出结论——$1$ 号节点的右子树（虽然实际上可能有多个子树，但这里只有两个子树，所以暂时这么称呼了）一个红色节点都没有，<strong>所以没必要去 DP 它</strong>．</p>
+<p>观察题目给出的条件，红色点（关键点）的总数是与 $n$ 同阶的，也就是说实际上一次询问中红色的点对于整棵树来说是很稀疏的，所以如果我们能让复杂度由红色点的总数来决定就好了．</p>
+<p>因此我们需要 <strong>浓缩信息，把一整颗大树浓缩成一颗小树</strong>．</p>
+<h2 id="virtual-tree">虚树 Virtual Tree</h2>
+<p>由此我们引出了 <strong>「虚树」</strong> 这个概念．</p>
+<p>我们先直观地来看看虚树的样子．</p>
+<p>下图中，红色结点是我们选择的关键点．红色和黑色结点都是虚树中的点．黑色的边是虚树中的边．</p>
+<p><img alt="vtree-3" src="../images/vtree-vtree1.svg" /></p>
+<p><img alt="vtree-4" src="../images/vtree-vtree2.svg" /></p>
+<p><img alt="vtree-5" src="../images/vtree-vtree3.svg" /></p>
+<p><img alt="vtree-6" src="../images/vtree-vtree4.svg" /></p>
+<p>因为任意两个关键点的 LCA 也是需要保存重要信息的，所以我们需要保存它们的 LCA，因此虚树中不一定只有关键点．</p>
+<p>不难发现虚树中祖先后代的关系并不会改变．（就是不会出现原本 $a$ 是 $b$ 的祖先结果后面 $a$ 变成 $b$ 的后代了之类的鬼事）</p>
+<p>但我们不可能 $O(k^2)$ 暴力枚举 LCA，所以我们不难想到——首先将关键点按 DFS 序排序，然后排完序以后相邻的两个关键点（相邻指的是在排序后的序列中下标差值的绝对值等于 1）求一下 LCA，并把它加入虚树．</p>
+<p>我们的当务之急就是如何构造虚树．</p>
+<p>在提出方案之前，我们先确认一个事实——在虚树里，只要保证祖先后代的关系没有改变，就可以随意添加节点．</p>
+<p>也就是，如果我们乐意，我们可以把原树中所有的点都加入虚树中，也不会导致 WA（虽然会导致 TLE）．</p>
+<p>因此，我们为了方便，可以首先将 $1$ 号节点加入虚树中，并且并不会影响答案．</p>
+<h3 id="lca">第一种构造过程：二次排序 + LCA 连边</h3>
+<p>因为多个节点的 LCA 可能是同一个，所以我们不能多次将它加入虚树．</p>
+<p>非常直观的一个方法是：</p>
+<ul>
+<li>将关键点按 DFS 序排序；</li>
+<li>遍历一遍，任意两个相邻的关键点求一下 LCA，并且判重；</li>
+<li>然后根据原树中的祖先后代关系建树．</li>
+</ul>
+<p>具体实现上，在 <strong>关键点序列</strong> 上，枚举 <strong>相邻的两个数</strong>，两两求得 LCA 并且加入序列 $A$ 中．</p>
+<p>因为 DFS 序的性质，此时的序列 $A$ 已经包含了 <strong>虚树中的所有点</strong>，但是可能有重复．</p>
+<p>所以我们把序列 $A$ 按照 DFS 序 <strong>从小到大排序并去重</strong>．</p>
+<p>最后，在序列 $A$ 上，枚举 <strong>相邻</strong> 的两个 <strong>点编号</strong>  $x,y$，求得它们的 LCA 并且连接 $\operatorname{LCA}(x,y),y$，虚树就构造完成了．</p>
+<p>为什么连接 $\operatorname{LCA}(x,y)$ 和 $y$ 可以做到不重不漏呢？</p>
+<p>??? note "证明"
+    如果 $x$ 是 $y$ 的祖先，那么 $x$ 直接到 $y$ 连边．因为 DFS 序保证了 $x$ 和 $y$ 的 DFS 序是相邻的，所以 $x$ 到 $y$ 的路径上面没有关键点．</p>
+<pre><code>如果 $x$ 不是 $y$ 的祖先，那么就把 $\operatorname{LCA}(x,y)$ 当作 $y$ 的的祖先，根据上一种情况也可以证明 $\operatorname{LCA}(x,y)$ 到 $y$ 点的路径上不会有关键点．
+
+所以连接 $\operatorname{LCA}(x,y)$ 和 $y$，不会遗漏，也不会重复．
+
+另外第一个点没有被一个节点连接会不会有影响呢？因为第一个点一定是这棵树的根，所以不会有影响，所以总边数就是 $m-1$ 条．
+</code></pre>
+<p>因为至少要两个实点才能够召唤出来一个虚点，再加上一个根节点，所以虚树的点数就是实点数量的两倍．</p>
+<p>时间复杂度 $O(m\log n)$，其中 $m$ 为关键点数，$n$ 为总点数．</p>
+<h4 id="_4">实现</h4>
+<pre><code class="language-cpp">int dfn[MAXN];
+int h[MAXN], m, a[MAXN], len;  // 存储关键点
+
+bool cmp(int x, int y) {
+  return dfn[x] &lt; dfn[y];  // 按照 dfs 序排序
+}
+
+void build_virtual_tree() {
+  sort(h + 1, h + m + 1, cmp);  // 把关键点按照 dfs 序排序
+  for (int i = 1; i &lt; m; ++i) {
+    a[++len] = h[i];
+    a[++len] = lca(h[i], h[i + 1]);  // 插入 lca
+  }
+  a[++len] = h[m];
+  sort(a + 1, a + len + 1, cmp);  // 把所有虚树上的点按照 dfs 序排序
+  len = unique(a + 1, a + len + 1) - a - 1;  // 去重
+  for (int i = 1, lc; i &lt; len; ++i) {
+    lc = lca(a[i], a[i + 1]);
+    conn(lc, a[i + 1]);  // 连边，如有边权 就是 distance(lc,a[i+1])
+  }
+}
+</code></pre>
+<p>其实这样就足以构造一棵虚树了．</p>
+<h3 id="_5">第二种构造过程：使用单调栈</h3>
+<p>如何使用单调栈构造虚树？</p>
+<p>首先我们要明确一个目的——我们要用单调栈来维护一条虚树上的链．</p>
+<p>也就是一个栈里相邻的两个节点在虚树上也是相邻的，而且栈是从底部到栈首单调递增的（指的是栈中节点 DFS 序单调递增），说白了就是某个节点的父亲就是栈中它下面的那个节点．</p>
+<p>首先我们在栈中添加节点 $1$．</p>
+<p>然后接下来按照 DFS 序从小到大添加关键节点．</p>
+<p>假如当前的节点与栈顶节点的 LCA 就是栈顶节点的话，则说明它们是在一条链上的．所以直接把当前节点入栈就行了．</p>
+<p><img alt="vtree-7" src="../images/vtree-add1.svg" /></p>
+<p>假如当前节点与栈顶节点的 LCA 不是栈顶节点的话：</p>
+<p><img alt="vtree-8" src="../images/vtree-add2.svg" /></p>
+<p>这时，当前单调栈维护的链是：</p>
+<p><img alt="vtree-9" src="../images/vtree-add3.svg" /></p>
+<p>而我们需要把链变成：</p>
+<p><img alt="vtree-10" src="../images/vtree-add4.svg" /></p>
+<p>那么我们就把用虚线标出的结点弹栈即可，在弹栈前别忘了向它在虚树中的父亲连边．</p>
+<p><img alt="vtree-11" src="../images/vtree-add5.svg" /></p>
+<p>假如弹出以后发现栈首不是 LCA 的话要让 LCA 入栈．</p>
+<p>再把当前节点入栈就行了．</p>
+<p>下面给出一个具体的例子．假设我们要对下面这棵树的 4，6 和 7 号结点建立虚树：</p>
+<p><img alt="vtree-12" src="../images/vtree-construction1.svg" /></p>
+<p>那么步骤是这样的：</p>
+<ul>
+<li>将 3 个关键点 $6,4,7$ 按照 DFS 序排序，得到序列 $[4,6,7]$．</li>
+<li>将 $1$ 入栈．</li>
+</ul>
+<p><img alt="vtree-13" src="../images/vtree-construction2.svg" /></p>
+<p>我们用红色的点代表在栈内的点，青色的点代表从栈中弹出的点．</p>
+<ul>
+<li>取序列中第一个作为当前节点，也就是 $4$．再取栈顶元素，为 $1$．求 $1$ 和 $4$ 的 LCA：$LCA(1,4)=1$．</li>
+<li>发现 $LCA(1,4)=$ 栈顶元素，说明它们在虚树的一条链上，所以直接把当前节点 $4$ 入栈，当前栈为 $4,1$．</li>
+</ul>
+<p><img alt="vtree-14" src="../images/vtree-construction3.svg" /></p>
+<ul>
+<li>取序列第二个作为当前节点，为 $6$．再取栈顶元素，为 $4$．求 $6$ 和 $4$ 的 LCA：$LCA(6,4)=1$．</li>
+<li>发现 $LCA(6,4)\neq$ 栈顶元素，进入判断阶段．</li>
+<li>判断阶段：发现栈顶节点 $4$ 的 DFS 序是大于 $LCA(6,4)$ 的，但是次大节点（栈顶节点下面的那个节点）$1$ 的 DFS 序是等于 LCA 的（其实 DFS 序相等说明节点也相等），说明 LCA 已经入栈了，所以直接连接 $1\to4$ 的边，也就是 LCA 到栈顶元素的边．并把 $4$ 从栈中弹出．</li>
+</ul>
+<p><img alt="vtree-15" src="../images/vtree-construction4.svg" /></p>
+<ul>
+<li>结束了判断阶段，将 $6$ 入栈，当前栈为 $6,1$．</li>
+</ul>
+<p><img alt="vtree-16" src="../images/vtree-construction5.svg" /></p>
+<ul>
+<li>取序列第三个作为当前节点，为 $7$．再取栈顶元素，为 $6$．求 $7$ 和 $6$ 的 LCA：$LCA(7,6)=3$．</li>
+<li>发现 $LCA(7,6)\neq$ 栈顶元素，进入判断阶段．</li>
+<li>判断阶段：发现栈顶节点 $6$ 的 DFS 序是大于 $LCA(7,6)$ 的，但是次大节点（栈顶节点下面的那个节点）$1$ 的 DFS 序是小于 LCA 的，说明 LCA 还没有入过栈，所以直接连接 $3\to6$ 的边，也就是 LCA 到栈顶元素的边．把 $6$ 从栈中弹出，并且把 $LCA(6,7)$ 入栈．</li>
+<li>结束了判断阶段，将 $7$ 入栈，当前栈为 $1,3,7$．</li>
+</ul>
+<p><img alt="vtree-17" src="../images/vtree-construction6.svg" /></p>
+<ul>
+<li>发现序列里的 3 个节点已经全部加入过栈了，退出循环．</li>
+<li>此时栈中还有 3 个节点：$1,3,7$，很明显它们是一条链上的，所以直接链接：$1\to3$ 和 $3\to7$ 的边．</li>
+<li>虚树就建完啦！</li>
+</ul>
+<p><img alt="vtree-18" src="../images/vtree-construction7.svg" /></p>
+<p>我们接下来将那些没入过栈的点（非青色的点）删掉，对应的虚树长这个样子：</p>
+<p><img alt="vtree-19" src="../images/vtree-construction8.svg" /></p>
+<p>其中有很多细节，比如用邻接表存图的方式存虚树的话，需要清空邻接表．但是直接清空整个邻接表是很慢的，所以我们在 <strong>有一个从未入栈的元素入栈的时候清空该元素对应的邻接表</strong> 即可．</p>
+<p>时间复杂度同样为 $O(m\log n)$（因为有排序），其中 $m$ 为关键点数，$n$ 为总点数．</p>
+<h4 id="_6">实现</h4>
+<p>建立虚树的 C++ 代码大概长这样：</p>
+<p>???+ note "代码实现"
+    ```cpp
+    bool cmp(const int x, const int y) { return id[x] &lt; id[y]; }</p>
+<pre><code>void build() {
+  sort(h + 1, h + k + 1, cmp);
+  sta[top = 1] = 1, g.sz = 0, g.head[1] = -1;
+  // 1 号节点入栈，清空 1 号节点对应的邻接表，设置邻接表边数为 0
+  for (int i = 1, l; i &lt;= k; ++i)
+    if (h[i] != 1) {
+      // 如果 1 号节点是关键节点就不要重复添加
+      l = lca(h[i], sta[top]);
+      // 计算当前节点与栈顶节点的 LCA
+      if (l != sta[top]) {
+        // 如果 LCA 和栈顶元素不同，则说明当前节点不在当前栈所存的链上
+        while (id[l] &lt; id[sta[top - 1]])
+          // 当次大节点的 Dfs 序大于 LCA 的 Dfs 序
+          g.push(sta[top - 1], sta[top]), top--;
+        // 把与当前节点所在的链不重合的链连接掉并且弹出
+        if (id[l] &gt; id[sta[top - 1]])
+          // 如果 LCA 不等于次大节点（这里的大于其实和不等于没有区别）
+          g.head[l] = -1, g.push(l, sta[top]), sta[top] = l;
+        // 说明 LCA 是第一次入栈，清空其邻接表，连边后弹出栈顶元素，并将 LCA
+        // 入栈
+        else
+          g.push(l, sta[top--]);
+        // 说明 LCA 就是次大节点，直接弹出栈顶元素
+      }
+      g.head[h[i]] = -1, sta[++top] = h[i];
+      // 当前节点必然是第一次入栈，清空邻接表并入栈
+    }
+  for (int i = 1; i &lt; top; ++i)
+    g.push(sta[i], sta[i + 1]);  // 剩余的最后一条链连接一下
+  return;
+}
+```
+</code></pre>
+<p>于是我们就学会了虚树的建立了！</p>
+<p>对于消耗战这题，直接在虚树上跑最开始讲的那个 DP 就行了，我们等于利用了虚树排除了那些没用的非关键节点！仍然考虑 $i$ 的所有儿子 $v$：</p>
+<ul>
+<li>若 $v$ 不是关键点：$Dp(i)=Dp(i) + \min {Dp(v),w(i,v)}$</li>
+<li>若 $v$ 是关键点：$Dp(i)=Dp(i) + w(i,v)$</li>
+</ul>
+<p>于是这题很简单就过了．</p>
+<h2 id="_7">推荐习题</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2495">「SDOI2011」消耗战</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4103">「HEOI2014」大工程</a></li>
+<li><a href="http://codeforces.com/contest/613/problem/D/">CF613D Kingdom and its Cities</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3233">「HNOI2014」世界树</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1147 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="isdanni,xyf007">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/ds/pq-tree/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Pq tree - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pq tree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="构建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自底向上法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自底向上法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        冒泡阶段
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        减少阶段
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="减少阶段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        叶子结点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P 结点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q 结点
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自顶向下法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自顶向下法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P 结点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#q_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Q 结点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分裂函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码实现
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/ds/pq-tree.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Pq tree</h1>
+
+<p>PQ 树是一种基于树的数据结构，代表一组元素上的一系列排列，由 Kellogg S. Booth 和 George S. Lueker 于 1976 年发现命名，用来解决以下问题</p>
+<blockquote>
+<p>给出 $m$ 个集合 $S_i$，你要找到一个 $1\sim n$ 的排列，使得每个集合内的元素都相邻．</p>
+</blockquote>
+<p>PQ 树可以在 $O(n+\sum|S_i|)$ 时间内构建．本文中介绍的构建方法时间复杂度为 $O(nm)$．</p>
+<h2 id="_1">定义</h2>
+<p>PQ 树有三种结点：<strong>叶子结点</strong>、<strong>P 结点</strong> 和 <strong>Q 结点</strong>．其中叶子结点代表排列中的一个元素，P 结点表示它的子结点可以任意排列，Q 结点表示它的儿子顺序可以反转．所有非叶子结点都是 P 结点或 Q 结点中的一种．P 结点至少有 2 个儿子，Q 结点至少有 3 个儿子．<br />
+由于结点的定义，PQ 树本身代表了 <strong>所有的</strong> 合法方案，其先序遍历就是其中之一．<br />
+下图是一棵 PQ 树．<br />
+<img alt="" src="https://gregable.com/2008/11/i/pq-tree.webp" /><br />
+其先序遍历 1,2,3,4,5 代表了一个合法方案．如果 P 结点的儿子重排列为 4,2,3，我们得到了另一个合法方案 1,4,2,3,5．保持 P 结点儿子顺序不变，Q 结点的儿子顺序反转，得到了另一个合法方案 5,3,2,4,1．</p>
+<h2 id="_2">构建</h2>
+<p><strong>PQ 树使用儿子 - 兄弟表示法．</strong></p>
+<p>我们增量构建一棵 PQ 树．</p>
+<p>首先建立一棵树，其根为 P，总共 $n$ 个儿子，分别是 $1,2,\ldots,n$，代表没有任何限制时的 PQ 树．随着限制的不断加入，我们不断修改这棵树．</p>
+<p>当加入一个新的限制集合 $S$ 时，我们把所有属于这个集合的叶子结点标记为 <strong>黑色</strong>，不在这个集合内的叶子结点标记为 <strong>白色</strong>．对于所有非叶子结点，如果其所有儿子均为黑色，将其也标记为黑色；如果其所有儿子均为白色，将其也标记为白色；否则将其标记为 <strong>灰色</strong>．在下面的图中，黑色结点、白色结点、灰色结点分别用黑色、灰色、一半黑一半灰来表示．</p>
+<p>我们要求 PQ 树中的结点按照颜色排序．</p>
+<h3 id="_3">自底向上法</h3>
+<p>包含所有黑色结点的最小子树被称为 <strong>相关子树</strong>，相关子树的根（不一定是整棵树的根）被称为 <strong>相关根</strong>．</p>
+<p>添加一个限制的过程被称为 reduction．一次 reduction 分为两个阶段：冒泡阶段和减少阶段．</p>
+<h4 id="_4">冒泡阶段</h4>
+<p>冒泡阶段只处理相关子树．我们将相关子树中的所有结点标记为黑色或灰色，并为每个结点计算其拥有的相关子结点数量．为了高效地完成这个过程，我们从叶子往根处理相关子树．这需要记录每个点的父亲结点，但在减少阶段一个点的父亲结点经常要被修改．为了在线性时间内构造，只有 P 结点的儿子和 <strong>Q 结点的最后一个儿子</strong> 始终记录正确的父亲结点．对于 Q 结点的其他儿子，在冒泡阶段用最后一个儿子的父亲更新他们的父亲．</p>
+<p>当遇到一个中间的结点时，我们看一下它的兄弟是否已经有合法的父亲结点．如果没有，将其标记为 <strong>阻塞</strong> 的．如果后面它的兄弟有了合法的父亲，那么修改这个结点的父亲并且取消标记．如果在冒泡阶段结束时，仍然有一段连续的阻塞结点（如下面的情况 Q3），一个没有父结点的「伪结点」成为该块的父结点，并在减少阶段时被去除．</p>
+<h4 id="_5">减少阶段</h4>
+<p>减少阶段用一个队列来处理结点．首先将所有限制内的叶子结点加入队列．每次取出队首的结点 $u$ 并处理．如果 $u$ 的父亲也是相关子树内的结点，那么将 $\mathit{fa}_u$ 入队．<br />
+对于每一个结点 $u$，我们分情况讨论．如果不属于其中任何一种情况，则无解．</p>
+<h5 id="_6">叶子结点</h5>
+<p>将 $u$ 标记为黑色．</p>
+<h5 id="p">P 结点</h5>
+<p>如果所有儿子均为黑色，将 $u$ 标记为黑色．<br />
+<img alt="" src="https://gregable.com/2008/11/i/p1-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p1-replacement.png" /></p>
+<p>如果 $u$ 有黑色儿子和白色儿子，且 $u$ 是相关根，那么新建一个 P 结点 $v$ 成为它所有黑色儿子的根．<br />
+<img alt="" src="https://gregable.com/2008/11/i/p2-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p2-replacement.png" /></p>
+<p>如果 $u$ 有黑色儿子和白色儿子，且 $u$ 不是相关根，那么做以下操作：</p>
+<ul>
+<li>新建一个 P 结点 $f$ 成为所有黑色儿子的根．</li>
+<li>新建一个 P 结点 $e$ 成为所有白色儿子的根．</li>
+<li>如果 $e$（和/或 $f$）只有一个儿子，那么不要新建结点，而是将 $e$（和/或 $f$）直接赋值成那个儿子．</li>
+<li>将 $u$ 改成 Q 结点并把其儿子设为 $e$ 和 $f$，将其标记为灰色．</li>
+</ul>
+<p>注意到根据之前的定义，Q 结点至少有 3 个儿子，因此这里的 $u$ 被视为一个「伪结点」，并且将在后面被继续处理．<br />
+<img alt="" src="https://gregable.com/2008/11/i/p3-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p3-replacement.png" /></p>
+<p>如果 $u$ 有一个灰色儿子 $p$，且 $u$ 是相关根，那么新建一个 P 结点 $v$ 作为其所有黑色儿子的根，将 $v$ 的兄弟设为 $p$ 最后一个一个黑色儿子，然后把 $v$ 设为 $p$ 的最后一个儿子．<br />
+<img alt="" src="https://gregable.com/2008/11/i/p4-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p4-replacement.png" /></p>
+<p>如果 $u$ 有一个灰色儿子 $p$，且 $u$ 不是相关根，那么进行以下操作：</p>
+<ul>
+<li>新建一个 P 结点 $f$ 成为所有黑色儿子的根．</li>
+<li>新建一个 P 结点 $e$ 成为所有白色儿子的根．</li>
+<li>如果 $e$（和/或 $f$）只有一个儿子，那么不要新建结点，而是将 $e$（和/或 $f$）直接赋值成那个儿子．</li>
+<li>将 $e$ 的兄弟设为 $p$ 最后一个白色儿子，然后把 $e$ 设为 $p$ 的最后一个儿子．</li>
+<li>将 $f$ 的兄弟设为 $p$ 最后一个黑色儿子，然后把 $f$ 设为 $p$ 的最后一个儿子．</li>
+</ul>
+<p><img alt="" src="https://gregable.com/2008/11/i/p5-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p5-replacement.png" /></p>
+<p>如果 $u$ 恰有两个灰色儿子 $p_1,p_2$，那么进行以下操作：</p>
+<ul>
+<li>新建一个 P 结点 $f$ 成为所有黑色儿子的根．</li>
+<li>如果 $f$ 只有一个儿子，那么不要新建结点，而是将 $f$ 直接赋值成那个儿子．</li>
+<li>把 $p_1$ 的最后一个黑色儿子的兄弟设为 $f$．</li>
+<li>把 $f$ 的兄弟设为 $p_2$ 的最后一个黑色儿子．</li>
+<li>把 $p_2$ 的最后一个儿子设为 $p_2$ 的最后一个白色儿子．</li>
+</ul>
+<p>可以发现这样 $p_2$ 就被合并进了 $p_1$．<br />
+<img alt="" src="https://gregable.com/2008/11/i/p6-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/p6-replacement.png" /></p>
+<h5 id="q">Q 结点</h5>
+<p>如果 $u$ 只有黑色儿子，那么将 $u$ 标记成黑色．（下面的图的形状错了．）<br />
+<img alt="" src="https://gregable.com/2008/11/i/q1-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/q1-replacement.png" /></p>
+<p>如果 $u$ 有一个灰色儿子 $p$，且所有标记相同的儿子均连续出现，那么进行如下操作：</p>
+<ul>
+<li>设 $p_f$ 为 $p$ 最后一个黑色儿子，$p_e$ 为 $p$ 最后一个白色儿子，$f$ 为 $p$ 的黑色兄弟，$e$ 为 $p$ 的白色兄弟．</li>
+<li>将 $f$ 的兄弟设为 $p_f$，$e$ 的兄弟设为 $p_e$．</li>
+<li>如果 $p$ 没有一个白色兄弟或黑色兄弟，将 $u$ 的最后一个儿子设成 $p$ 的最后一个儿子．</li>
+<li>删除 $p$．</li>
+</ul>
+<p><img alt="" src="https://gregable.com/2008/11/i/q2-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/q2-replacement.png" /></p>
+<p>如果 $u$ 恰有两个灰色儿子 $p_1,p_2$，且所有标记相同的儿子均连续出现，那么对 $p_1,p_2$ 都进行上一种操作即可．<br />
+<img alt="" src="https://gregable.com/2008/11/i/q3-template.png" /><br />
+<img alt="" src="https://gregable.com/2008/11/i/q3-replacement.png" /></p>
+<p>该构建方法是原论文中的，但是实现较为不便．</p>
+<h3 id="_7">自顶向下法</h3>
+<p>目前 OI 中的实现大多采用该方法．其实方法类似，下面出现的情况基本都能在上面找到．</p>
+<p>注意到根据之前的染色过程，所有黑色和白色的点都已经满足条件，因此我们 <strong>只需要处理灰色结点</strong>．</p>
+<h4 id="p_1">P 结点</h4>
+<ul>
+<li>如果 $u$ 有多于两个灰色儿子，无解．</li>
+<li>如果 $u$ 只有一个灰色儿子，且没有黑色儿子，递归处理灰色儿子．</li>
+<li>否则先清空 $u$ 的儿子，然后加入所有的白色儿子．新建一个 Q 结点 $q_1$ 并成为 $u$ 的儿子．在 $q_1$ 中加入所有的灰色儿子．新建一个 P 结点 $p$ 作为所有黑色儿子的根，将 $p$ 插入 $q_1$ 的中间．（对应了自底向上法 P 结点的所有情况．）</li>
+</ul>
+<p>注意到我们会要求两个灰色节点白色全在左侧，黑色全在右侧（或相反），因此我们需要实现一个分裂函数 <code>split</code>，可以把这个子树的点分裂成黑白部分，并同时保留分裂成的子树的节点的 <strong>所有可能</strong>．</p>
+<h4 id="q_1">Q 结点</h4>
+<ul>
+<li>找到最左边和最右边的非白色节点位置 $l,r$．如果 $[l+1,r-1]$ 内有非黑色节点，无解．</li>
+<li>如果没有黑色节点，只有一个灰色节点，递归处理这个灰色节点，否则只需要将 $l$ 和 $r$ 位置的节点分裂．</li>
+</ul>
+<h4 id="_8">分裂函数</h4>
+<p>令要分裂的点为 $u$，我们想把 $u$ 分裂成左边全是白色，右边全是黑色的森林．如果 $u$ 不是灰色结点则直接返回子树．只考虑灰色结点的情况．
+如果 $u$ 是 P 类结点：</p>
+<ul>
+<li>如果 $u$ 有至少两个灰色儿子，则无解．</li>
+<li>否则左边是所有白色儿子，中间递归处理灰色儿子，右边是所有黑色儿子．注意到要保留所有的可能，因此要新建两个 P 结点分别作为白色儿子和黑色儿子的根．（对应自底向上法的 P4 情况．）</li>
+<li>删除 $u$．</li>
+</ul>
+<p>如果 $u$ 是 Q 类结点：</p>
+<ul>
+<li>如果正序和反序都不满足白 - 灰 - 黑，则无解．</li>
+<li>如果有至少两个灰色儿子，也无解．</li>
+<li>否则递归分裂灰色儿子即可．</li>
+<li>删除 $u$．</li>
+</ul>
+<p>最后把所有多余的结点（只有一个儿子的结点）删除．</p>
+<h2 id="_9">代码实现</h2>
+<pre><code class="language-cpp">class PQTree {
+ public:
+  PQTree() {}
+
+  void Init(int n) {
+    n_ = n, rt_ = tot_ = n + 1;
+    for (int i = 1; i &lt;= n; i++) g_[rt_].emplace_back(i);
+  }
+
+  void Insert(const std::string &amp;s) {
+    s_ = s;
+    Dfs0(rt_);
+    Work(rt_);
+    while (g_[rt_].size() == 1) rt_ = g_[rt_][0];
+    Remove(rt_);
+  }
+
+  std::vector&lt;int&gt; ans() {
+    DfsAns(rt_);
+    return ans_;
+  }
+
+  ~PQTree() {}
+
+ private:
+  int n_, rt_, tot_, pool_[100001], top_, typ_[100001] /* 0-P 1-Q */,
+      col_[100001] /* 0-black 1-white 2-grey */;
+  std::vector&lt;int&gt; g_[100001], ans_;
+  std::string s_;
+
+  void Fail() {
+    std::cout &lt;&lt; &quot;NO\n&quot;;
+    std::exit(0);
+  }
+
+  int NewNode(int ty) {
+    int x = top_ ? pool_[top_--] : ++tot_;
+    typ_[x] = ty;
+    return x;
+  }
+
+  void Delete(int u) { g_[u].clear(), pool_[++top_] = u; }
+
+  void Dfs0(int u) {  // get color of each node
+    if (u &gt;= 1 &amp;&amp; u &lt;= n_) {
+      col_[u] = s_[u] == '1';
+      return;
+    }
+    bool c0 = false, c1 = false;
+    for (auto &amp;&amp;v : g_[u]) {
+      Dfs0(v);
+      if (col_[v]) c1 = true;
+      if (col_[v] != 1) c0 = true;
+    }
+    if (c0 &amp;&amp; !c1)
+      col_[u] = 0;
+    else if (!c0 &amp;&amp; c1)
+      col_[u] = 1;
+    else
+      col_[u] = 2;
+  }
+
+  bool Check(const std::vector&lt;int&gt; &amp;v) {
+    int p2 = -1;
+    for (int i = 0; i &lt; static_cast&lt;int&gt;(v.size()); i++)
+      if (col_[v[i]] == 2) {
+        if (p2 != -1) return false;
+        p2 = i;
+      }
+    if (p2 == -1)
+      for (int i = 0; i &lt; static_cast&lt;int&gt;(v.size()); i++)
+        if (col_[v[i]]) {
+          p2 = i;
+          break;
+        }
+    for (int i = 0; i &lt; p2; i++)
+      if (col_[v[i]]) return false;
+    for (int i = p2 + 1; i &lt; static_cast&lt;int&gt;(v.size()); i++)
+      if (col_[v[i]] != 1) return false;
+    return true;
+  }
+
+  std::vector&lt;int&gt; Split(int u) {
+    if (col_[u] != 2) return {u};
+    std::vector&lt;int&gt; ng;
+    if (typ_[u]) {  // Q
+      if (!Check(g_[u])) {
+        std::reverse(g_[u].begin(), g_[u].end());
+        if (!Check(g_[u])) Fail();
+      }
+      for (auto &amp;&amp;v : g_[u])
+        if (col_[v] != 2) {
+          ng.emplace_back(v);
+        } else {
+          auto s = Split(v);
+          ng.insert(ng.end(), s.begin(), s.end());
+        }
+    } else {  // P
+      std::vector&lt;int&gt; son[3];
+      for (auto &amp;&amp;x : g_[u]) son[col_[x]].emplace_back(x);
+      if (son[2].size() &gt; 1) Fail();
+      if (!son[0].empty()) {
+        int n0 = NewNode(0);
+        g_[n0] = son[0];
+        ng.emplace_back(n0);
+      }
+      if (!son[2].empty()) {
+        auto s = Split(son[2][0]);
+        ng.insert(ng.end(), s.begin(), s.end());
+      }
+      if (!son[1].empty()) {
+        int n1 = NewNode(0);
+        g_[n1] = son[1];
+        ng.emplace_back(n1);
+      }
+    }
+    Delete(u);
+    return ng;
+  }
+
+  void Work(int u) {
+    if (col_[u] != 2) return;
+    if (typ_[u]) {  // Q
+      int l = 1e9, r = -1e9;
+      for (int i = 0; i &lt; static_cast&lt;int&gt;(g_[u].size()); i++)
+        if (col_[g_[u][i]]) checkmin(l, i), checkmax(r, i);
+      for (int i = l + 1; i &lt; r; i++)
+        if (col_[g_[u][i]] != 1) Fail();
+      if (l == r &amp;&amp; col_[g_[u][l]] == 2) {
+        Work(g_[u][l]);
+        return;
+      }
+      std::vector&lt;int&gt; ng;
+      for (int i = 0; i &lt; l; i++) ng.emplace_back(g_[u][i]);
+      auto s = Split(g_[u][l]);
+      ng.insert(ng.end(), s.begin(), s.end());
+      for (int i = l + 1; i &lt; r; i++) ng.emplace_back(g_[u][i]);
+      if (l != r) {
+        s = Split(g_[u][r]);
+        std::reverse(s.begin(), s.end());
+        ng.insert(ng.end(), s.begin(), s.end());
+      }
+      for (int i = r + 1; i &lt; static_cast&lt;int&gt;(g_[u].size()); i++)
+        ng.emplace_back(g_[u][i]);
+      g_[u] = ng;
+    } else {  // P
+      std::vector&lt;int&gt; son[3];
+      for (auto &amp;&amp;x : g_[u]) son[col_[x]].emplace_back(x);
+      if (son[1].empty() &amp;&amp; son[2].size() == 1) {
+        Work(son[2][0]);
+        return;
+      }
+      g_[u].clear();
+      if (son[2].size() &gt; 2) Fail();
+      g_[u] = son[0];
+      int n1 = NewNode(1);
+      g_[u].emplace_back(n1);
+      if (son[2].size() &gt;= 1) {
+        auto s = Split(son[2][0]);
+        g_[n1].insert(g_[n1].end(), s.begin(), s.end());
+      }
+      if (son[1].size()) {
+        int n2 = NewNode(0);
+        g_[n1].emplace_back(n2);
+        g_[n2] = son[1];
+      }
+      if (son[2].size() &gt;= 2) {
+        auto s = Split(son[2][1]);
+        std::reverse(s.begin(), s.end());
+        g_[n1].insert(g_[n1].end(), s.begin(), s.end());
+      }
+    }
+  }
+
+  void Remove(int u) {  // remove the nodes with only one child
+    for (auto &amp;&amp;v : g_[u]) {
+      int tv = v;
+      while (g_[tv].size() == 1) {
+        int t = tv;
+        tv = g_[tv][0];
+        Delete(t);
+      }
+      v = tv, Remove(v);
+    }
+  }
+
+  void DfsAns(int u) {
+    if (u &gt;= 1 &amp;&amp; u &lt;= n_) {
+      ans_.emplace_back(u);
+      return;
+    }
+    for (auto &amp;&amp;v : g_[u]) DfsAns(v);
+  }
+} T;
+</code></pre>
+<h2 id="_10">习题</h2>
+<ul>
+<li><a href="https://codeforces.com/problemset/problem/243/E">CF243E Matrix</a></li>
+<li><a href="https://codeforces.com/contest/1552/problem/I">CF1552I Organizing a Music Festival</a></li>
+</ul>
+<h2 id="_11">参考资料</h2>
+<ul>
+<li>Booth, Kellogg S. &amp; Lueker, George S. (1976).<a href="https://www.sciencedirect.com/science/article/pii/S0022000076800451?via%3Dihub">"Testing for the consecutive ones property, interval graphs, and graph planarity using PQ-tree algorithms"</a>.<em><a href="https://en.wikipedia.org/wiki/Journal_of_Computer_and_System_Sciences">Journal of Computer and System Sciences</a></em>.<strong>13</strong>(3): 335–379.<a href="https://en.wikipedia.org/wiki/Doi_%28identifier%29">doi</a>:<a href="https://doi.org/10.1016%2FS0022-0000%2876%2980045-1">10.1016/S0022-0000(76)80045-1</a>.</li>
+<li><a href="https://gregable.com/2008/11/pq-tree-algorithm.html">PQ Tree Algorithm and Consecutive Ones Problem</a></li>
+<li><a href="https://blog.aor.sd.cn/archives/1657/">CF243E Matrix PQTree - RainAir's Blog</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

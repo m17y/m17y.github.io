@@ -1,0 +1,1173 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="cesonic, Enter-tainer, Great-designer, Ir1d, ksyx, lychees, MegaOwIer, RUIN-RISE, wjy-yy, rsdbkhusky, ouuan, Menci, Tiphereth-A">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/linear-algebra/basis/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Basis - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正交基与单位正交基
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="构造方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        贪心法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高斯消元法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间复杂度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线性基合并
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线性基求交
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="线性基求交">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        朴素算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zassenhaus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zassenhaus 算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拓展：前缀线性基
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/linear-algebra/basis.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Basis</h1>
+
+<p>回想高中数学立体几何中基向量的概念，我们可以在三维欧氏空间中找到一组基向量 $\boldsymbol{i}$，$\boldsymbol{j}$，$\boldsymbol{k}$，之后空间中任意一个向量都可以由这组基向量表示．换句话说，我们可以 <strong>通过有限的基向量来描述无限的三维空间</strong>，这足以体现基向量的重要性．</p>
+<p>三维欧氏空间是特殊的 <a href="../vector-space/">线性空间</a>，三维欧氏空间的基向量在线性空间中就被推广为了线性基．</p>
+<p>OI 中有关线性基的应用一般只涉及两类线性空间：$n$ 维实线性空间 $\mathbf{R}^n$ 和 $n$ 维 <a href="https://en.wikipedia.org/wiki/Boolean_domain">布尔域</a> 线性空间 $\mathbf{Z}_2^n$，我们会在 <a href="#应用">应用</a> 一节中详细介绍．若您不熟悉线性代数，则推荐从应用部分开始阅读．</p>
+<p>以下会从一般的线性空间出发来介绍线性基，并给出线性基的常见性质．</p>
+<p>前置知识：<a href="../vector-space/">线性空间</a>．</p>
+<p>线性基是线性空间的一组基，是研究线性空间的重要工具．</p>
+<h2 id="_1">定义</h2>
+<p>称线性空间 $V$ 的一个极大线性无关组为 $V$ 的一组 <strong>Hamel 基</strong> 或 <strong>线性基</strong>，简称 <strong>基</strong>．</p>
+<p>规定线性空间 ${\theta}$ 的基为空集．</p>
+<p>可以证明任意线性空间均存在线性基[^existence_basis]，我们定义线性空间 $V$ 的 <strong>维数</strong> 为线性基的元素个数（或势），记作 $\dim V$．</p>
+<h2 id="_2">性质</h2>
+<ol>
+<li>
+<p>对于有限维线性空间 $V$, 设其维数为 $n$, 则：</p>
+<ol>
+<li>
+<p>$V$ 中的任意 $n+1$ 个向量线性相关．</p>
+</li>
+<li>
+<p>$V$ 中的任意 $n$ 个线性无关的向量均为 $V$ 的基．</p>
+</li>
+<li>
+<p>若 $V$ 中的任意向量均可被向量组 $a_1,a_2,\dots,a_n$ 线性表出，则其是 $V$ 的一个基．</p>
+<p>???+ note "证明"
+    任取 $V$ 中的一组基 $b_1,b_2,\dots,b_n$, 由已知条件，向量组 $b_1,b_2,\dots,b_n$ 可被 $a_1,a_2,\dots,a_n$ 线性表出，故</p>
+<pre><code>$$
+n=\operatorname{rank}\{b_1,b_2,\dots,b_n\}\leq\operatorname{rank}\{a_1,a_2,\dots,a_n\}\leq n
+$$
+
+因此 $\operatorname{rank}\{a_1,a_2,\dots,a_n\}=n$
+</code></pre>
+</li>
+<li>
+<p>$V$ 中任意线性无关向量组 $a_1,a_2,\dots,a_m$ 均可通过插入一些向量使得其变为 $V$ 的一个基．</p>
+</li>
+</ol>
+</li>
+<li>
+<p>（子空间维数公式）令 $V_1,V_2$ 是关于 $\Bbb{P}$ 的有限维线性空间，且 $V_1+V_2$ 和 $V_1\cap V_2$ 也是有限维的，则 $\dim V_1+\dim V_2=\dim(V_1+V_2)+\dim(V_1\cap V_2)$</p>
+<p>???+ note "证明"
+    设 $\dim V_1=n_1$,$\dim V_2=n_2$,$\dim(V_1\cap V_2)=m$.</p>
+<pre><code>取 $V_1\cap V_2$ 的一组基 $a_1,a_2,\dots,a_m$, 将其分别扩充为 $V_1$ 和 $V_2$ 中的基：$a_1,a_2,\dots,a_m,b_1,b_2,\dots,b_{n_1-m}$ 和 $a_1,a_2,\dots,a_m,c_1,c_2,\dots,c_{n_2-m}$.
+
+接下来只需证明向量组 $a_1,a_2,\dots,a_m,b_1,b_2,\dots,b_{n_1-m},c_1,c_2,\dots,c_{n_2-m}$ 线性无关即可．
+
+设 $\sum_{i=1}^m r_ia_i+\sum_{i=1}^{n_1-m} s_ib_i+\sum_{i=1}^{n_2-m} t_ic_i=\theta$.
+
+则 $\sum_{i=1}^{n_2-m} t_ic_i=-\sum_{i=1}^m r_ia_i-\sum_{i=1}^{n_1-m} s_ib_i$.
+
+注意到上式左边在 $V_2$ 中，右边在 $V_1$ 中，故两边均在 $V_1\cap V_2$ 中，因此 $\sum_{i=1}^{n_2-m} t_ic_i=\sum_{i=1}^m k_ia_i$
+
+故 $t_1=t_2=\dots=t_{n_2-m}=k_1=k_2=\dots=k_m=0$, 进而 $r_1=r_2=\dots=r_m=s_1=s_2=\dots=s_{n_1-m}=t_1=t_2=\dots=t_{n_2-m}=0$
+</code></pre>
+</li>
+<li>
+<p>令 $V_1,V_2$ 是关于 $\Bbb{P}$ 的有限维线性空间，且 $V_1+V_2$ 和 $V_1\cap V_2$ 也是有限维的，则下列诸款等价：</p>
+<ol>
+<li>
+<p>$V_1+V_2=V_1\oplus V_2$.</p>
+</li>
+<li>
+<p>$\dim V_1+\dim V_2=\dim(V_1+V_2)$.</p>
+</li>
+<li>
+<p>若 $a_1,a_2,\dots,a_n$ 是 $V_1$ 的一组基，$b_1,b_2,\dots,b_m$ 是 $V_2$ 的一组基，则 $a_1,a_2,\dots,a_n,b_1,b_2,\dots,b_m$ 是 $V_1+V_2$ 的一组基．</p>
+</li>
+</ol>
+<p>???+ note "Note"
+    1,3 两条可推广到无限维线性空间中</p>
+</li>
+</ol>
+<h2 id="_3">例子</h2>
+<p>考虑 $\Bbb{R}^2$ 的基．</p>
+<ol>
+<li>
+<p>如图</p>
+<p><img alt="" src="../images/basis-1.svg" /></p>
+<p>$u,v$ 是一组基．</p>
+</li>
+<li>
+<p>如图</p>
+<p><img alt="" src="../images/basis-2.svg" /></p>
+<p>$u,v$ 是一组基．</p>
+</li>
+<li>
+<p>如图</p>
+<p><img alt="" src="../images/basis-3.svg" /></p>
+<p>$u,v$ 不是一组基，因为 $u=-v$.</p>
+</li>
+<li>
+<p>如图</p>
+<p><img alt="" src="../images/basis-4.svg" /></p>
+<p>$u,v,w$ 不是一组基，因为 $u+4v+6w=\theta$.</p>
+</li>
+</ol>
+<h2 id="_4">正交基与单位正交基</h2>
+<p>若线性空间 $V$ 的一组基 $B$ 满足 $\forall b,b'\in B,~(b,b')\ne 0\iff b=b'$（即两两正交），则称这组基是 <strong>正交基</strong>．</p>
+<p>若线性空间 $V$ 的一组正交基 $B$ 还满足 $\forall b\in B,~|b|=\sqrt{(b,b)}=1$，则称这组基是 <strong>单位正交基</strong>．</p>
+<p>任意有限维线性空间 $V$ 的基都可以通过 <a href="https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process">Schmidt 正交化</a> 变换为正交基．</p>
+<h2 id="_5">应用</h2>
+<p>根据前文内容，我们可以利用线性基实现：</p>
+<ol>
+<li>求给定向量组的秩；</li>
+<li>对给定的向量组，找到一组极大线性无关组（或其张成的线性空间的一组基）；</li>
+<li>向给定的向量组插入某些向量，在插入操作后的向量组中找到一组极大线性无关组（或其张成的线性空间的一组基）；</li>
+<li>对找到的一组极大线性无关组（或基），判断某向量能否被其线性表出；</li>
+<li>对找到的一组极大线性无关组（或基），求其张成的线性空间中的特殊元素（如最大元、最小元等）．</li>
+</ol>
+<p>在 OI 中，我们一般将 $n$ 维实线性空间 $\mathbf{R}^n$ 下的线性基称为 <strong>实数线性基</strong>，$n$ 维布尔域线性空间 $\mathbf{Z}_2^n$ 下的线性基称为 <strong>异或线性基</strong>．</p>
+<p>???+ tip "Tip"
+    $\mathbf{Z}_2$ 中的加法为异或，乘法为与，可以证明 $\mathbf{Z}_2$ 是域．</p>
+<pre><code>可以证明代数系统 $(\mathbf{Z}_2^n,+,\cdot,\mathbf{Z}_2)$ 是线性空间，其中：
+
+$$
+(a_1,\dots,a_n)+(b_1,\dots,b_n):=(a_1+b_1,\dots,a_n+b_n),
+$$
+
+$$
+k\cdot(a_1,\dots,a_n):=(ka_1,\dots,ka_n).
+$$
+
+即加法是异或，数乘是与．
+</code></pre>
+<p>以异或线性基为例，我们可以根据给定的一组布尔序列 $X={x_1,\dots,x_m}$ 构造出一组异或线性基 $B={b_1,\dots,b_n}$，这组基有如下性质：</p>
+<ol>
+<li>$B$ 中任意非空子集的异或和不为 $0$；</li>
+<li>对 $X$ 中的任意元素 $x$，都可在 $B$ 中取出若干元素使其异或和为 $x$；</li>
+<li>对任意满足上两条的集合 $B'$，其元素个数不会小于 $B$ 的元素个数．</li>
+</ol>
+<p>我们可以利用异或线性基实现：</p>
+<ol>
+<li>判断一个数能否表示成某数集子集的异或和；</li>
+<li>求一个数表示成某数集子集异或和的方案数；</li>
+<li>求某数集子集的最大/最小/第 $k$ 大/第 $k$ 小异或和；</li>
+<li>求一个数在某数集子集异或和中的排名．</li>
+</ol>
+<h3 id="_6">构造方法</h3>
+<p>因为异或线性基与实数线性基没有本质差别，所以接下来以异或线性基为例，实数线性基版本的代码只需做一点简单修改即可．</p>
+<h4 id="_7">贪心法</h4>
+<p>对原集合的每个数 $p$ 转为二进制，从高位向低位扫，对于第 $x$ 位是 $1$ 的，如果 $a_x$ 不存在，那么令 $a_x \leftarrow p$ 并结束扫描，如果存在，令 $p\leftarrow p~\text{xor}~a_x$．</p>
+<p>查询原集合内任意几个元素 $\text{xor}$ 的最大值，只需将线性基从高位向低位扫，若 $\text{xor}$ 上当前扫到的 $a_x$ 答案变大，就把答案异或上 $a_x$．</p>
+<p>为什么能行呢？因为从高往低位扫，若当前扫到第 $i$ 位，意味着可以保证答案的第 $i$ 位为 $1$，且后面没有机会改变第 $i$ 位．</p>
+<p>查询原集合内任意几个元素 $\text{xor}$ 的最小值，就是线性基集合所有元素中最小的那个．</p>
+<p>查询某个数是否能被异或出来，类似于插入，如果最后插入的数 $p$ 被异或成了 $0$，则能被异或出来．</p>
+<p>??? example "代码（洛谷 P3812 <a href="https://www.luogu.com.cn/problem/P3812">【模板】线性基</a>）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/basis/basis_1.cpp"</code></p>
+<h4 id="_8">高斯消元法</h4>
+<p>高斯消元法相当于从线性方程组的角度去构造线性基，正确性显然．</p>
+<p>??? example "代码（洛谷 P3812 <a href="https://www.luogu.com.cn/problem/P3812">【模板】线性基</a>）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/basis/basis_2.cpp"</code></p>
+<h3 id="_9">性质</h3>
+<p>贪心法构造的线性基具有如下性质：</p>
+<ul>
+<li>线性基没有异或和为 $0$ 的子集．</li>
+<li>线性基中各数二进制最高位不同．</li>
+</ul>
+<p>高斯消元法构造出的线性基满足如下性质：</p>
+<ul>
+<li>
+<p>高斯消元后的矩阵是一个行简化阶梯形矩阵．</p>
+<blockquote>
+<p>该性质包含了贪心法构造的线性基满足的两条性质</p>
+</blockquote>
+<p>如果不理解这条性质的正确性，可以跳转 <a href="../../numerical/gauss/">高斯消元</a>．</p>
+</li>
+</ul>
+<p>提供一组样例：</p>
+<pre><code class="language-text">5
+633 211 169 841 1008
+</code></pre>
+<p>二进制表示：</p>
+<pre><code class="language-text">1001111001
+0011010011
+0010101001
+1101001001
+1111110000
+</code></pre>
+<p>贪心法生成的线性基：</p>
+<pre><code class="language-text">1001111001
+0100110000
+0011010011
+0001111010
+0000000000
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+</code></pre>
+<p>高斯消元法生成的线性基：</p>
+<pre><code class="language-text">1000000011
+0100100000
+0010101001
+0001101010
+0000010000
+0000000000
+0000000000
+0000000000
+0000000000
+0000000000
+</code></pre>
+<p>这是一条非常好的性质，能帮我们更方便的解决很多问题．比如：给定一些数，选其中一些异或起来，求异或最大值，如果用贪心法构造线性基，需要再做一遍贪心，如果 <code>ans</code> 的当前位是 <code>0</code>，那么异或一定会更优，否则当前位如果为 <code>1</code>，则一定不会更优；而使用高斯消元法构造线性基后直接将线性基中所有元素都异或起来输出即可．</p>
+<p>对于其他比较经典的问题（查询一个数能否被异或得到，查询能被异或得到的第 $k$ 大数等），高斯消元法得到的线性基也能更加方便地解决．</p>
+<h3 id="_10">时间复杂度</h3>
+<p>设向量长度为 $n$, 总数为 $m$, 则时间复杂度为 $O(nm)$. 其中高斯消元法的常数略大．</p>
+<p>若是实数线性基，则时间复杂度为 $O(n^2m)$.</p>
+<h3 id="_11">线性基合并</h3>
+<p>线性基的合并只需要暴力处理，即将要合并的一组线性基暴力地插入到另一组线性基即可．单次合并的时间复杂度是 $O(n^2)$（异或线性基）或 $O(n^3)$（实数线性基）．</p>
+<h3 id="_12">线性基求交</h3>
+<p>线性基求交，严格地说就是求它们张成的两个线性空间的交空间的一组线性基．本节介绍两种算法．这两种算法，单次求交的时间复杂度都是 $O(n^2)$（异或线性基）或 $O(n^3)$（实数线性基）．</p>
+<h4 id="_13">朴素算法</h4>
+<p>设要求交的线性基分别是 $\alpha$ 和 $\beta$．线性基求交的算法只需要对线性基暴力合并的算法做如下调整：（以异或线性基为例）</p>
+<ul>
+<li>将线性基 $\beta$ 中的向量 $\beta_j$ 利用 <a href="#贪心法">贪心法</a> 尝试插入到 $\alpha$ 中，并初始化线性基的交 $\gamma$ 为空集；</li>
+<li>在插入时，需要记录要插入的向量中，线性基 $\beta$ 中元素的贡献．具体地，维持一个新向量 $b$，初始化为 $\beta_j$，而且，如果正在插入的向量与线性基中第 $x$ 位的向量取了异或，那么贡献 $b$ 也要与第 $x$ 位记录的贡献 $b_x$ 取一次异或；</li>
+<li>如果插入成功，在线性基的第 $x$ 位插入了向量 $\beta_j'$，就将第 $x$ 位记录的 $b_x$ 改为得到 $\beta_j'$ 的过程中线性基 $\beta$ 中元素的贡献 $b$；</li>
+<li>如果插入不成功，就将过程中记录到的线性基 $\beta$ 中元素的贡献 $b$ 插入到 $\gamma$ 中．</li>
+</ul>
+<p>这样得到的线性基 $\gamma$ 就是所求的交，当然，该算法同时也求出了线性基的并．</p>
+<p>??? note "对算法的解释"
+    设合并后的线性基为 ${\alpha_1,\cdots,\alpha_m,\beta'<em>{j_1},\cdots,\beta'</em>{j_\ell}}$，其中，$\beta'<em>{j_k}$ 是插入 $\beta</em>{j_k}$ 时最后得到的向量．那么，${\alpha_1,\cdots,\alpha_m,\beta_{j_1},\cdots,\beta_{j_\ell}}$ 同样是一组合并后的线性基．记 $\beta^+$ 为集合 ${\beta_{j_1},\cdots,\beta_{j_\ell}}$，则合并后的基可以写作 $\alpha\cup\beta^+$．而且，和空间中的每个向量 $c$ 都可以唯一地表示成</p>
+<pre><code>$$
+c = a\oplus b
+$$
+
+的形式，其中，$a\in\operatorname{span}\alpha$ 且 $b\in\operatorname{span}\beta^+$．这个分解中的 $b$ 就是前文算法所 **试图** 记录的「线性基 $\beta$ 中元素的贡献」．严格地说，只是 $\beta$ 中最后成功插入的那些向量的贡献．
+
+对于成功的插入，最后记录的 $b$ 就是该分解中的 $b$ 项．设 $\beta_j\in\beta^+$．初始时，$\beta_j=0\oplus\beta_j$，已经是 $\beta_j$ 在基 $\alpha\cup\beta^+$ 上的正确的分解．在更新 $\beta'_j=a\oplus b$ 为 $\beta'_j\oplus c_x$ 时，因为 $\beta_j'\oplus c_x=(a\oplus a_x)\oplus(b\oplus b_x)$，所以，只需要更新 $b$ 为 $b\oplus b_x$，就可以保证分解依然正确．因此，归纳可知，最后插入 $\beta'_j$ 到合并后的线性基中时，记录的贡献 $b$ 就是上述分解中的 $b$ 项．
+
+对于不成功的插入，最后要插入的变量一定会变成 $0$，而此时的贡献 $b$ 要插入到 $\gamma$ 中．此时，如果重复上面的论证，会发现仍然能够保证在插入过程中总是有 $\beta_j'=a\oplus b$，且 $a\in\operatorname{span}\alpha$，只是 $b$ 不再属于 $\operatorname{span}\beta^+$．这是因为初始化时，$\beta_j=0\oplus\beta_j$ 中的 $\beta_j\notin\beta^+$．除此之外，贡献更新时异或的项都属于 $\operatorname{span}\beta^+$．所以，实际上，有 $b\oplus\beta_j\in\operatorname{span}\beta^+$．
+
+那么，为什么将这些插入不成功时的 $b$ 都插入到 $\gamma$ 中，就能得到交空间的线性基呢？首先，插入 $\beta_j$ 不成功，最后一定会得到 $0=a\oplus b$，其中，$a\in\operatorname{span}\alpha$ 且 $b\in\operatorname{span}(\beta^+\cup\{\beta_j\})\subseteq\operatorname{span}\beta$．因此，$b=a$ 必然位于交空间 $\operatorname{span}\alpha\cap\operatorname{span}\beta$ 中．反过来，设 $c$ 是交空间中的任意元素，因为 $c\in\operatorname{span}\beta$，所以 $c$ 可以表示为 $\beta$ 中元素的线性组合（异或和）：
+
+$$
+c = \bigoplus_{\beta_j\in\beta}\lambda_j\beta_j,
+$$
+
+其中，$\lambda_j\in\{0,1\}$．对于每一个 $\beta_j\notin\beta^+$，记相应的插入到 $\gamma$ 中的贡献为 $b_j$，就有
+
+$$
+c\oplus\bigoplus_{\beta_j\notin\beta^+}\lambda_jb_j = \bigoplus_{\beta_j\in\beta^+}\lambda_j\beta_j+\bigoplus_{\beta_j\notin\beta^+}\lambda_j(\beta_j\oplus b_j),
+$$
+
+注意到，$b_j$ 和 $c$ 都位于交空间中，因而左侧必然也位于交空间中，故而左侧可以写成 $\alpha$ 中元素的线性组合；同时，右侧所有项，要么 $\beta_j\in\beta^+$，要么 $\beta_j\notin\beta^+$ 且 $\beta_j\oplus b_j\in\beta^+$，故而，右侧实际上是 $\beta^+$ 中元素的线性组合．但是，$\alpha\cup\beta^+$ 线性无关，故而所有的系数都是 $0$，也就是说 $c=\bigoplus_{\beta_j\notin\beta^+}\lambda_jb_j\in\operatorname{span}\{b_1,\cdots,b_j\}$．这就说明了，这些无法插入的向量的贡献 $b$ 共同张成了交空间．
+
+根据这一解释，过程中维护贡献 $b$ 的目的，实际上是为了维护分解 $a\oplus b$；而且，最后向 $\gamma$ 插入贡献时也总有 $a=b$．所以，无论维护 $\alpha$ 还是 $\beta$ 中元素的贡献（即无论维护 $a$ 还是 $b$），得到的结果都是正确的．如果要维护线性基 $\alpha$ 中元素的贡献，只需要修改初始化时相应贡献的取值：每个 $\alpha$ 中的向量 $\alpha_i$ 初始就有贡献 $\alpha_i$，而插入的 $\beta_j$ 初始贡献为 $0$．
+</code></pre>
+<p>模板题代码如下：</p>
+<p>??? example "代码（Library Checker <a href="https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces">Intersection of $\mathbf F_2$ vector spaces</a>）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/basis/basis_intersect_1.cpp"</code></p>
+<h4 id="zassenhaus">Zassenhaus 算法</h4>
+<p>另一种等价的做法是 Zassenhaus 算法，它同样可以同时计算出两个线性基的并和交．复杂度和上文完全一致．</p>
+<p>具体步骤如下：</p>
+<ul>
+<li>初始化一个向量长度为 $2n$ 的线性基 $\gamma$ 为空，其中的向量写成 $(a,b)$ 的形式，且 $a$ 和 $b$ 长度均为 $n$；</li>
+<li>将 $\alpha$ 中的元素 $\alpha_i$ 以 $(\alpha_i,\alpha_i)$ 的形式插入 $\gamma$ 中；</li>
+<li>将 $\beta$ 中的元素 $\beta_j$ 以 $(\beta_j,0)$ 的形式插入 $\gamma$ 中；</li>
+<li>最后得到的线性基 $\gamma$ 中的所有非零元素 $(c_k,d_k)$ 中，$c_k$ 非零的那些向量中项 $c_k$ 的全体组成了 $\alpha$ 和 $\beta$ 的并的线性基，$c_k$ 为零的那些向量中项 $d_k$ 的全体组成了 $\alpha$ 和 $\beta$ 的交的线性基．</li>
+</ul>
+<p>算法中的构造线性基的方法可以是 <a href="#贪心法">贪心法</a> 或 <a href="#高斯消元法">高斯消元法</a>，只要保证 $\gamma$ 中的线性基组成行阶梯型矩阵即可．</p>
+<p>将 Zassenhaus 算法中的消元的步骤与上面的朴素算法相比较，很容易发现，基于贪心法的 Zassenhaus 算法相当于维护 $\alpha$ 中元素的贡献的朴素算法．如果转而先插入所有 $(\alpha_i,0)$，再插入所有 $(\beta_j,\beta_j)$，那么基于贪心法的 Zassenhaus 算法就相当于维护 $\beta$ 中元素贡献的朴素算法．根据消元步骤的等价性，Zassenhaus 算法的正确性也是成立的．</p>
+<p>除此之外，还可以再提供一个独立且更为一般的代数证明：</p>
+<p>??? note "正确性证明"
+    设 $V$ 为一线性空间，且有子空间 $U=\operatorname{span}\alpha$ 和 $W=\operatorname{span}\beta$．算法本身相当于通过化简为行阶梯型来求子空间</p>
+<pre><code>$$
+H = \operatorname{span}(\{(\alpha_i,\alpha_i):\alpha_i\in\alpha\}\cup\{(\beta_j,0):\beta_j\in\beta\})
+$$
+
+的一组基 $\gamma$．算法最后，$\gamma$ 中的元素 $(c_k,d_k)$ 根据 $c_k\neq 0$ 与否需要分为两类，所以不妨考察投影映射 $\pi:H\rightarrow V$ 且 $\pi(a,b)=a$．于是，$\pi(H)=U+W$ 且容易验证
+
+$$
+\begin{aligned}
+\ker\pi &amp;= H\cap(\{0\}\times V) = \{0\}\times(U\times W).
+\end{aligned}
+$$
+
+根据 [线性映射的相关定理](./linear-mapping.md#线性映射的核空间与像空间)，有 $\dim H = \dim\pi(H)+\dim\ker\pi = \dim(U+W)+\dim(U\cap W)$．
+
+行阶梯型矩阵的前几列仍然是行阶梯型矩阵，因而 $c_k\neq 0$ 的行的数目，恰好等于 $\alpha\cup\beta$ 的行秩，亦即 $\dim(U+W)$；而且，这些行中 $c_k$ 的集合就形成了 $U+W$ 的一组基．剩下的非零行恰好有 $\dim(U\cap W)$ 个，且都满足 $c_k=0$．对于这些行中的 $d_k$，因为有 $(0,d_k)\in\ker\pi$，所以 $d_k\in U\cap W$；而且，$(0,d_k)$ 作为行阶梯型矩阵的行，必然线性无关，这就说明这些 $d_k$ 都线性无关．综合起来，这些 $d_k$ 是交空间 $U\cap W$ 中大小为 $\dim(U\cap W)$ 的线性无关组，所以也必然是该空间的一组基．
+</code></pre>
+<p>模板题代码如下：</p>
+<p>??? example "代码（Library Checker <a href="https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces">Intersection of $\mathbf F_2$ vector spaces</a>）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/basis/basis_intersect_2.cpp"</code></p>
+<p>注意，输出时只需要考虑前 $n$ 位均为零的向量即可．</p>
+<h3 id="_14">拓展：前缀线性基</h3>
+<p>本节只讨论异或线性基的情形，并假设单个向量可以存储在 $O(1)$ 的空间内，且单次操作复杂度总是 $O(1)$ 的．</p>
+<p>对于需要多次查询区间异或最大值的情形，一种常见的做法是 <a href="../../../ds/cat-tree/">猫树</a> 配合线性基，时间复杂度为 $O(nm\log m+n^2q)$，其中，$n$ 是向量长度，$m$ 是序列长度，$q$ 是询问次数．另一种可行的做法是利用前缀线性基（或称时间戳线性基），可以将复杂度降低到 $O(n(m+q))$．</p>
+<p>前缀线性基允许对于序列的每个前缀，都维护该前缀的所有后缀的线性基，这样就可以支持查询每个区间的线性基．注意到序列的某个前缀 $[1,i]$ 的所有后缀 $[j,i]$ 的线性基是相互包含的，即 $[j,i]$ 的线性基总是包含着 $[j+1,i]$ 的线性基，所以，这些后缀的线性基中互不相同的至多只有 $n$ 种，而且总是可以通过向空集中逐步添加新的向量来得到自 $[i,i]$ 到 $[1,i]$ 所有这些后缀的线性基．因此，利用这个单调性，只需要为添加的每个向量 $v$，都标记它出现的最大下标 $t$，就可以在 $O(n)$ 的空间内存储所有后缀的线性基．而且，查询区间 $[j,i]$ 对应的线性基时，只需要在 $i$ 处的前缀线性基中仅保留标记 $t\ge j$ 的那些向量即可．</p>
+<p>不妨将每个向量 $v$ 的标记 $t$ 称为它的时间戳．线性基中的向量 $v$ 总是可以表示为原序列中某些元素的异或和，比如 $v_{i_1}\oplus v_{i_2}\oplus\cdots\oplus v_{i_k}$．而在所有这样的可能的表示中，最小下标的最大值就是 $t$，即</p>
+<p>$$
+t(v) = \max{j:\exists i_1,\cdots,i_k\in[j,i]\text{ s.t. }v=v_{i_1}\oplus v_{i_2}\oplus\cdots\oplus v_{i_k}}.
+$$</p>
+<p>这个表达式不过是将上一段的叙述用形式的语言写出来而已．它给我们带来的启发是，要维护线性基中每个向量 $v$ 的时间戳，只需要贪心地选取尽可能新的向量替换掉旧的向量即可．</p>
+<p>基于上文提到的 <a href="#贪心法">贪心法</a> 构造线性基，前缀线性基在构造过程中做了如下调整：</p>
+<ul>
+<li>为线性基中保留的每个向量 $a_x$ 都保存一个时间戳 $t_x$，初始时均设为 $0$；</li>
+<li>要添加序列中第 $i$ 个向量 $v$，仍然从高位向低位扫，但同时需要记录当前时间 $i$；</li>
+<li>如果 $v$ 的第 $x$ 位是一，就比较线性基中已有的向量 $a_x$ 的时间戳 $t_x$ 和当前时间 $i$：<ul>
+<li>如果 $i&gt;t_x$，即要添加的向量时间更晚，就将 $a_x$ 设为 $v$，并更新时间戳为 $i$，并将旧的 $a_x$ 异或 $v$ 的结果 $a_x\oplus v$ 按照之前记录的时间 $t_x$ 继续添加过程；</li>
+<li>如果 $i&lt;t_x$，即要添加的向量时间更早，不更新 $a_x$ 和 $t_x$，将 $v$ 异或 $a_x$ 后继续添加即可．</li>
+</ul>
+</li>
+</ul>
+<p>也就是说，如果当前位可以通过较新的向量表示，就直接用较新的向量；否则，保留原来的向量．在更新位置 $x$ 的向量时，不能将异或的结果 $a_x\oplus v$ 存入位置 $x$，因为异或的结果 $a_x\oplus v$ 的时间戳为 $\min{t(a_x)=t(v)}=t(a_x)$，小于要添加的变量 $v$ 的时间戳 $t(v)$．同样的原因，<a href="#高斯消元法">高斯消元法</a> 构造线性基的过程中向上更新时可能会破坏时间戳的性质，所以不再适用于构造前缀线性基．</p>
+<p>模板题代码如下：</p>
+<p>??? example "代码（Codeforces <a href="https://codeforces.com/problemset/problem/1100/F">1100F Ivan and Burgers</a>）"
+    <code>cpp
+    --8&lt;-- "docs/math/code/basis/prefix_basis.cpp"</code></p>
+<p>如果需要在线询问，也可以用 $O(mn)$ 的空间将每个前缀处的前缀线性基都存下来再查询，这可以看作是一种「可持久化」线性基．如果需要用到高斯消元法得到的线性基的性质，可以在查询时另行处理．</p>
+<h3 id="_15">练习题</h3>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P3812">Luogu P3812【模板】线性基</a></li>
+<li><a href="https://www.acwing.com/problem/content/description/3167">Acwing 3164. 线性基</a></li>
+<li><a href="https://codeforces.com/problemsets/acmsguru/problem/99999/275">SGU 275 to xor or not xor</a></li>
+<li><a href="https://acm.hdu.edu.cn/showproblem.php?pid=3949">HDU 3949 XOR</a></li>
+<li><a href="https://acm.hdu.edu.cn/showproblem.php?pid=6579">HDU 6579 Operation</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4151">Luogu P4151 [WC2011] 最大 XOR 和路径</a></li>
+<li><a href="https://judge.yosupo.jp/problem/intersection_of_f2_vector_spaces">Library Checker - Intersection of $\mathbf F_2$ vector spaces</a></li>
+<li><a href="https://atcoder.jp/contests/agc045/tasks/agc045_a">AtCoder Grand Contest 045 A - Xor Battle</a></li>
+<li><a href="https://codeforces.com/problemset/problem/1100/F">Codeforces 1100F Ivan and Burgers</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3292">Luogu P3292 [SCOI2016] 幸运数字</a></li>
+</ul>
+<h2 id="_16">参考资料与注释</h2>
+<ol>
+<li>丘维声，高等代数（下）．清华大学出版社．</li>
+<li><a href="https://en.wikipedia.org/wiki/Basis_%28linear_algebra%29">Basis (linear algebra) - Wikipedia</a></li>
+<li><a href="https://mathworld.wolfram.com/VectorBasis.html">Vector Basis -- from Wolfram MathWorld</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zassenhaus_algorithm">Zassenhaus algorithm - Wikipedia</a></li>
+</ol>
+<p>[^existence_basis]: <a href="https://en.wikipedia.org/wiki/Basis_%28linear_algebra%29#Proof_that_every_vector_space_has_a_basis">Proof that every vector space has a basis</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1209 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/lang/lambda/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Lambda - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lambda" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lambda
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda 表达式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda 表达式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        statement 函数体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        capture 捕获子句
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="capture 捕获子句">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalized-capture-c14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generalized capture 带初始化的捕获（C++14）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        parameters 参数列表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="parameters 参数列表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显式对象形参（C++23）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mutable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mutable 可变规范
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        return-type 返回类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambdac14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        泛型 Lambda（C++14）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda 中的递归
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda 表达式的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda 表达式的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        作为标准库算法的 Predicate（谓词）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        控制中间变量的生命周期
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考文献
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/lang/lambda.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Lambda</h1>
+
+<p><strong>注意</strong>：考虑到算法竞赛的实际情况，本文将不会全面研究语法，只会讲述在算法竞赛中可能会应用到的部分．</p>
+<p>本文语法参照 <strong>C++11</strong> 标准，其他高版本的标准语法视情况提及并会特别标注．</p>
+<h2 id="lambda">Lambda 表达式</h2>
+<p>Lambda 表达式因数学中的 $\lambda$ 演算得名，直接对应于其中的 lambda 抽象．编译器在编译时会根据语法生成一个匿名的 <a href="../new/#函数对象"><strong>函数对象</strong></a>，以捕获的变量作为其成员，参数和函数体用于实现 <code>operator()</code> 重载．</p>
+<p>??? note "函数对象（Function Object）"
+    函数对象是一种类对象，一般通过重载 <code>operator()</code> 实现，所以能像函数一样调用．相较于使用普通的函数，函数对象有很多优点，例如可以保存状态，可以作为参数传递给其他函数等．</p>
+<p>以下是 lambda 的一种语法：</p>
+<pre><code class="language-text">[capture] (parameters) mutable -&gt; return-type {statement}
+</code></pre>
+<p>Lambda 表达式本身是一个类，展开后如以下形式：</p>
+<!-- scripts.linter.preprocess.fix_details off -->
+
+<pre><code class="language-text">class Lambda_1 {
+ private:
+  Lambda_1() : capture-list(init-value) { }
+
+ public:
+  return-type operator()(parameters) const { statement }
+
+ private:
+  mutable capture-list
+};
+</code></pre>
+<!-- scripts.linter.preprocess.fix_details on -->
+
+<p>空的 capture 可以隐式转换为函数指针，例如：</p>
+<pre><code class="language-cpp">void (*f)(int, int) = [](int, int) -&gt; void {};
+</code></pre>
+<p>下面我们分别对语法中的各部分进行介绍．</p>
+<h3 id="statement">statement 函数体</h3>
+<p>函数体与普通函数函数体类似，除了能访问参数和全局变量等，还可访问 <a href="#capture-捕获子句">捕获</a> 的变量．</p>
+<h3 id="capture">capture 捕获子句</h3>
+<p>lambda 以 capture 子句开头，它指定哪些变量被捕获，捕获列表可为空，或指定捕获方式：有 <code>&amp;</code> 符号前缀的变量通过 <a href="../reference/">引用</a> 访问，没有该前缀的变量通过值访问．</p>
+<p>我们也可以使用默认捕获模式，捕获 Lambda 中提及的所有变量：<code>&amp;</code> 表示捕获到的所有变量都通过引用访问，<code>=</code> 表示捕获到的所有变量都通过值访问．</p>
+<p>在默认捕获之后，仍然可以为特定的变量 <strong>显式</strong> 指定捕获模式．</p>
+<p>如果需要引用访问外部变量 <code>a</code>，并通过值访问外部变量 <code>b</code>，那么以下捕获子句都可以做到：</p>
+<ul>
+<li><code>[&amp;a, b]</code></li>
+<li><code>[b, &amp;a]</code></li>
+<li><code>[&amp;, b]</code></li>
+<li><code>[b, &amp;]</code></li>
+<li><code>[=, &amp;a]</code></li>
+</ul>
+<p>同时捕获列表也可以用于声明变量，类型由初始化器推导，类似于使用 <code>auto</code> 声明变量．</p>
+<p>以下是一些常见的例子：</p>
+<pre><code class="language-cpp">int a = 0;
+auto f0 = []() { return a * 9; };   // Error, 无法访问 'a'
+auto f1 = [a]() { return a * 9; };  // OK, 'a' 被值「捕获」
+auto f2 = [&amp;a]() { return a++; };   // OK, 'a' 被引用「捕获」
+auto f3 = [v = a + 1]() {
+  return v + 1;
+};  // OK, 使用初始化器声明变量 v，类型与 a 相同
+
+// 注意，使用引用捕获时，请保证被调用时 a 没有被销毁
+auto b = f2();  // f2 从捕获列表里获得 a 的值，无需通过参数传入 a
+</code></pre>
+<h4 id="generalized-capture-c14">generalized capture 带初始化的捕获（C++14）</h4>
+<p>自 C++14 起，capture 不仅可以用来捕获外部变量，还可用于声明新的变量并初始化，例如：</p>
+<pre><code class="language-cpp">auto f1 = [val = 520]() {
+  return val;
+};  // OK, 定义 val 类型为 int，初始值为 520，返回值类型 int
+
+auto f2 = [val = 520LL]() {
+  return val;
+};  // OK, 定义 val 类型为 long long，初始值为 520，返回值类型 long long
+
+auto f3 = [val = &quot;520&quot;]() {
+  return val;
+};  // OK, 定义 val 类型为 const char*，初始值为 &quot;520&quot;，返回值类型 const char*
+
+auto f4 = [val = &quot;520&quot;s]() {
+  return val;
+};  // OK, C++14 起，需要 using namespace std; 或 using namespace std::literals;
+    // 定义 val 类型为 std::string，初始值为 std::string(&quot;520&quot;)，返回值类型
+    // std::string
+
+auto f5 = [val = std::string(&quot;520&quot;)]() {
+  return val;
+};  // OK, 定义 val 类型为 std::string，初始值为 std::string(&quot;520&quot;)，返回值类型
+    // std::string
+
+auto f6 = [val = std::vector&lt;int&gt;(3, 6)]() {
+  return val;
+};  // OK, 定义 val 类型为 std::vector&lt;int&gt;，大小为 3，元素填充 6，返回值类型
+    // std::vector&lt;int&gt;
+
+auto f7 = [val = 520]() -&gt; int {
+  return val;
+};  // OK, 定义 val 类型为 int，初始值为 520，返回值类型 int
+
+auto f8 = [val = 520]() -&gt; long long {
+  return val;
+};  // OK, 定义 val 类型为 int，初始值为 520，返回值类型 long long
+</code></pre>
+<p>定义新的变量不可以省略初始值，变量的类型由初始值的类型决定，相当于：</p>
+<pre><code class="language-text">auto val = init-value;
+</code></pre>
+<p>以下是错误的写法：</p>
+<pre><code class="language-cpp">auto f = [val]() { return val; };  // Error: 'val' was not declared in this
+                                   // scope, identifier &quot;val&quot; is undefined
+</code></pre>
+<p>初始化值也可以是外部变量，例如：</p>
+<pre><code class="language-cpp">int value = 520;
+auto f = [val = value]() { return val; };
+std::cout &lt;&lt; f();  // Output: 520
+</code></pre>
+<p><code>val</code> 也可以是一个引用类型，可以引用一个外部变量，通过这种方式可以为通过引用捕获的外部变量取个别名，例如：</p>
+<pre><code class="language-cpp">int value = 520;
+
+auto f = [&amp;val = value]() {
+  return val;
+};  // OK, 定义 val 类型为 int&amp;，返回值类型 int，相当于 int&amp; val = value;
+
+std::cout &lt;&lt; f() &lt;&lt; '\n';  // Output: 520
+
+value = 1314;
+
+std::cout &lt;&lt; f() &lt;&lt; '\n';  // Output: 1314
+</code></pre>
+<p>捕获外部变量和定义新变量可以同时使用．</p>
+<p>如果你想在 Lambda 表达式内修改 capture 中定义的新变量，需要使用 <code>mutable</code> 关键字，如果是引用则不需要，例如：</p>
+<pre><code class="language-cpp">int value = 520;
+
+{
+  auto f = [val = value]() mutable -&gt; int {
+    return val = 1314;
+  };  // 需要 mutable
+  auto val_f = f();
+  std::cout &lt;&lt; value &lt;&lt; ' ' &lt;&lt; val_f &lt;&lt; std::endl;  // Output: 520 1314
+}
+
+{
+  auto f = [&amp;val = value]() -&gt; int { return val = 1314; };  // 不需要 mutable
+  auto val_f = f();
+  std::cout &lt;&lt; value &lt;&lt; ' ' &lt;&lt; val_f &lt;&lt; std::endl;  // Output: 1314 1314
+}
+</code></pre>
+<p>详见 <a href="#mutable-可变规范">mutable 可变规范</a>．</p>
+<p>在 capture 中定义的变量的生命周期跟随 Lambda 表达式的接收方，在以上几个示例中为变量 $f$，因为 Lambda 本身其实是一个类，capture 中的所有内容都是这个类的 <code>private</code> 成员变量，例如：</p>
+<pre><code class="language-cpp">int main() {
+  auto f = [val = 0]() mutable -&gt; int { return ++val; };  // val 被构造和初始化
+
+  std::cout &lt;&lt; f() &lt;&lt; '\n';  // Output: 1
+  std::cout &lt;&lt; f() &lt;&lt; '\n';  // Output: 2
+  std::cout &lt;&lt; f() &lt;&lt; '\n';  // Output: 3
+}  // val 跟随 f 被销毁
+</code></pre>
+<h3 id="parameters">parameters 参数列表</h3>
+<p>大多数情况下类似于函数的参数列表，例如：</p>
+<pre><code class="language-cpp">int x[] = {5, 1, 7, 6, 1, 4, 2};
+std::sort(x, x + 7, [](int a, int b) { return (a &gt; b); });
+for (auto i : x) std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+</code></pre>
+<p>这将打印出 <code>x</code> 数组从大到小排序后的结果．</p>
+<p>由于 <strong>parameters 参数列表</strong> 是可选的，如果不将参数传递给 lambda，并且其声明不包含 <a href="#mutable-可变规范">mutable</a>，且没有后置返回值类型，则可以省略空括号．</p>
+<p>??? note "使用 <code>auto</code> 声明的参数"
+    <strong>C++14</strong> 后，若参数使用 <code>auto</code> 声明类型，那么会构造一个 <a href="#泛型-lambdac14">泛型 Lambda 表达式</a>．</p>
+<h4 id="c23">显式对象形参（C++23）</h4>
+<p><strong>C++23</strong> 起，<a href="https://zh.cppreference.com/w/cpp/language/function#.E5.BD.A2.E5.8F.82.E5.88.97.E8.A1.A8">显式对象形参</a> 可以在 lambda 的参数中使用．</p>
+<pre><code class="language-cpp">auto nth_fibonacci = [](this auto self, unsigned n) -&gt; unsigned {
+  return n &lt; 2 ? n : self(n - 1) + self(n - 2);
+};
+
+cout &lt;&lt; nth_fibonacci(10u);
+</code></pre>
+<h3 id="mutable">mutable 可变规范</h3>
+<p>使得函数体可以修改通过值捕获的变量．</p>
+<pre><code class="language-cpp">int a = 0;
+auto by_value = [a]() mutable { ++a; };
+auto by_ref = [&amp;a] { ++a; };
+
+by_value();
+by_ref();
+</code></pre>
+<p>在执行完 <code>by_value()</code> 后，<code>by_value</code> 的捕获成员 <code>a</code> 为 1，但外部的变量 <code>a</code> 依然为 0．
+而在执行完 <code>by_ref()</code> 后，外部 <code>a</code> 的值变为 1．</p>
+<h3 id="return-type">return-type 返回类型</h3>
+<p>用于指定 lambda 表达式的返回类型．如果省略，则返回类型将被自动推断（行为与用 <code>auto</code> 声明返回值的函数一致）．</p>
+<p>多个 <code>return</code> 语句且推导类型不一致时，将产生编译错误．</p>
+<pre><code class="language-cpp">auto lam = [](int a, int b) -&gt; int { return 0; };
+
+auto x1 = [](int i) { return i; };
+
+auto x2 = [](bool condition) {
+  if (condition) return 1;
+  return 1.0;
+};  // Error, 推导类型不一致
+</code></pre>
+<h3 id="lambdac14">泛型 Lambda（C++14）</h3>
+<p>使用 <code>auto</code> 作为参数类型，可以构造泛型 lambda．</p>
+<pre><code class="language-cpp">auto add = [](auto a, auto b) { return a + b; };
+</code></pre>
+<p>在 <a href="https://cppinsights.io">cpp insights</a> 中可以观察到编译器生成的 <code>lambda</code> 类定义：</p>
+<pre><code class="language-cpp">class add_lambda {
+ public:
+  template &lt;class T, class U&gt;
+  auto operator()(T a, U b) const {
+    return a + b;
+  }
+};
+
+add_lambda add{};
+</code></pre>
+<p><code>add</code> 两个参数声明均使用了 <code>auto</code>，对应为 <code>add_lambda</code> 类的 <code>operator()</code> 函数模板的两个模板参数 <code>T</code> 和 <code>U</code>．</p>
+<h3 id="lambda_1">Lambda 中的递归</h3>
+<p>先来看一个编译失败的例子：</p>
+<pre><code class="language-cpp">int n = 10;
+
+auto dfs = [&amp;](int i) -&gt; void {
+  if (i == n)
+    return;
+  else
+    dfs(i + 1);  // Error: a variable declared with an auto type specifier
+                 // cannot appear in its own initializer
+};
+</code></pre>
+<p>我们这里尝试在捕获列表中捕获 $dfs$，但是有一个问题，$dfs$ 的类型为 <code>auto</code>，要等待等号右边的类型推导完成后才会推导出 $dfs$ 的类型，而 Lambda 要捕获 $dfs$ 就必须要确定 $dfs$ 的类型后才能创建它的引用变量，好，这会陷入了一个套娃过程．</p>
+<p>怎么解决这个问题呢？</p>
+<ol>
+<li>
+<p>显式指定 $dfs$ 的类型，可以使用 <code>std::function</code> 替代．</p>
+<p>???+ example "修改如上代码为："
+    ```cpp
+    int n = 10;</p>
+<pre><code>std::function&lt;void(int)&gt; dfs = [&amp;](int i) -&gt; void {
+  if (i == n)
+    return;
+  else
+    dfs(i + 1);  // OK
+};
+
+dfs(1);
+```
+</code></pre>
+<p>??? warning "不建议使用 <a href="../new/#stdfunction"><code>std::function</code></a> 实现的递归"
+    <code>std::function</code> 的类型擦除通常需要分配额外内存，同时间接调用带来的寻址操作会进一步降低性能．</p>
+<pre><code>在 [Benchmark](https://quick-bench.com/q/U5qf_dHHKsSyVU83jmt0p_U541c) 测试中，使用 Clang 17 编译器，libc++ 作为标准库，`std::function` 实现比 lambda 实现的递归慢了约 2.5 倍．
+
+??? note "测试代码"
+    ```cpp
+    #include &lt;algorithm&gt;
+    #include &lt;functional&gt;
+    #include &lt;numeric&gt;
+    #include &lt;random&gt;
+
+    using namespace std;
+
+    const auto&amp; nums = [] {
+      random_device rd;
+      mt19937 gen{rd()};
+      array&lt;unsigned, 32&gt; arr{};
+
+      std::iota(arr.begin(), arr.end(), 0u);
+      ranges::shuffle(arr, gen);
+
+      return arr;
+    }();
+
+    static void std_function_fib(benchmark::State&amp; state) {
+      std::function&lt;int(int)&gt; fib;
+
+      fib = [&amp;](int n) { return n &lt;= 2 ? 1 : fib(n - 1) + fib(n - 2); };
+
+      unsigned i = 0;
+
+      for (auto _ : state) {
+        auto res = fib(nums[i]);
+        benchmark::DoNotOptimize(res);
+
+        ++i;
+
+        if (i == nums.size()) i = 0;
+      }
+    }
+
+    BENCHMARK(std_function_fib);
+
+    static void template_lambda_fib(benchmark::State&amp; state) {
+      auto n_fibonacci = [](const auto&amp; self, int n) -&gt; int {
+        return n &lt;= 2 ? 1 : self(self, n - 1) + self(self, n - 2);
+      };
+
+      unsigned i = 0;
+
+      for (auto _ : state) {
+        auto res = n_fibonacci(n_fibonacci, nums[i]);
+        benchmark::DoNotOptimize(res);
+
+        ++i;
+
+        if (i == nums.size()) i = 0;
+      }
+    }
+
+    BENCHMARK(template_lambda_fib);
+    ```
+</code></pre>
+<ol>
+<li>不通过捕获的方式获取 $dfs$，而是通过函数传参的方式．</li>
+</ol>
+<p>???+ example "修改如上代码为："
+    ```cpp
+    int n = 10;</p>
+<pre><code>// 参数列表中有参数类型为 auto，则这个 Lambda 类中的 operator()
+// 函数将被定义为模板函数，模板函数可以在稍后被调用时再进行实例化
+auto dfs = [&amp;](auto&amp; self,
+               int i) -&gt; void  // [&amp;] 只会捕获用到的变量，所以不会捕获 auto dfs
+{
+  if (i == n)
+    return;
+  else
+    self(self, i + 1);  // OK
+};
+
+dfs(dfs, 1);
+```
+</code></pre>
+<p>???+ note "<code>auto self</code>、<code>auto&amp; self</code> 和 <code>auto&amp;&amp; self</code> 的区别："
+    <code>auto&amp; self</code> 和 <code>auto&amp;&amp; self</code> 理论上都只会使用 $8$ 个字节（指针的大小）用作传参，不会发生其他的拷贝．具体要看编译器对 Lambda 的实现方式和对应的优化．
+    而使用 <code>auto self</code> 会发生对象拷贝，拷贝的大小取决于捕获列表中的元素，因为它们都是这个 Lambda 类中的私有成员变量．
+3.  可以通过手动展开 Lambda 类，或使用类似写法，这样可以直接声明 $dfs$ 的类型．</p>
+<p>???+ example "修改如上代码为："
+    ```cpp
+    int n = 10;</p>
+<pre><code>class Lambda_1 {
+ public:
+  auto operator()(int i) const -&gt; void {
+    if (i == n)
+      return;
+    else
+      (*this)(i + 1);  // OK
+  }
+
+  explicit Lambda_1(int&amp; __n) : n(__n) {}
+
+ private:
+  int&amp; n;
+} dfs(n);
+
+dfs(1);
+```
+</code></pre>
+<ol>
+<li>如果 lambda 没有捕获任何变量，我们也可以利用函数指针．</li>
+</ol>
+<p>如果 lambda 没有捕获任何变量，那么它可以隐式转换为函数指针．同时 lambda 此时也可以声明为 <code>static</code>，函数指针类型也可以声明为 <code>static</code>．如此依赖，lambda 可以不需要捕获就能访问函数指针，从而实现递归．</p>
+<p>???+ example "示例"
+    ```cpp
+    static unsigned (*fptr)(unsigned);</p>
+<pre><code>static const auto lambda = [](const unsigned a) {
+  return a &lt; 2 ? a : (*fptr)(a - 2) + (*fptr)(a - 1);
+};
+
+static auto init = [] {
+  fptr = +lambda;
+  // Or
+  // fptr = static_cast&lt;unsigned (*)(unsigned)&gt;(lambda);
+  return 0;
+}();
+
+cout &lt;&lt; lambda(10);
+```
+</code></pre>
+</li>
+</ol>
+<h3 id="lambda_2">Lambda 表达式的应用</h3>
+<h4 id="predicate">作为标准库算法的 Predicate（谓词）</h4>
+<p>从大到小排序：</p>
+<pre><code class="language-cpp">std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+std::sort(v.begin(), v.end(), [](int a, int b) { return a &gt; b; });
+</code></pre>
+<p>使用 <a href="https://zh.cppreference.com/w/cpp/algorithm/find">std::find_if</a> 查找第一个大于 3 的元素：</p>
+<pre><code class="language-cpp">std::vector&lt;int&gt; v = {1, 2, 3, 4, 5};
+auto it = std::find_if(v.begin(), v.end(), [](int a) { return a &gt; 3; });
+</code></pre>
+<h4 id="_1">控制中间变量的生命周期</h4>
+<p>在算法竞赛中，我们会遇到这样的场景：一个变量的初始化需要使用之前声明的变量，其初始化过程又生成占用空间较大的中间变量．</p>
+<p>我们希望能尽快析构这些中间变量，以降低内存消耗．此时，我们可以使用 lambda 来控制这些中间变量的生命周期．</p>
+<pre><code class="language-cpp">void solution(const vector&lt;int&gt;&amp; input) {
+  int b = [&amp;] {
+    vector&lt;int&gt; large_objects(input.size());
+    int c = 0;
+
+    for (int i = 0; i &lt; large_objects.size(); ++i)
+      large_objects[i] = i + input[i];
+
+    for (int i = 0; i &lt; input.size(); ++i) c += large_objects[input[i]];
+
+    return c;
+  }();
+
+  // ...
+}
+</code></pre>
+<p>相较于使用块作用域，lambda 可以允许我们使用返回值，使得代码更加简洁；相较于函数，我们不需要额外起名和声明被捕获的各种参数，使得代码更加紧凑．</p>
+<h2 id="_2">参考文献</h2>
+<ul>
+<li><a href="https://en.cppreference.com/w/cpp/language/lambda">cppreference-lambda</a></li>
+<li><a href="https://stackoverflow.com/a/33881130/11120338">Stackoverflow: Overhead with std::function</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

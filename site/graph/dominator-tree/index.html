@@ -1,0 +1,1283 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/graph/dominator-tree/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Dominator tree - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dominator tree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前言
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支配关系
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="支配关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求解支配关系
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="求解支配关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结点删除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数据流迭代法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        支配树
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求解支配树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="求解支配树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根据 dom 求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        树上的特例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DAG 上的特例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lengauertarjan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lengauer–Tarjan 算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lengauer–Tarjan 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        约定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        半支配点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求解直接支配点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="求解直接支配点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dag_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转化为 DAG
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通过半支配点求解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p5180" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        洛谷 P5180【模板】支配树
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zjoi2012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ZJOI2012 灾难
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/graph/dominator-tree.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Dominator tree</h1>
+
+<h2 id="_1">前言</h2>
+<p>1959 年，「支配」这一概念由 Reese T. Prosser 在 <a href="http://portal.acm.org/ft_gateway.cfm?id=1460314&amp;type=pdf&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=79528182&amp;CFTOKEN=33765747">一篇关于网络流的论文</a> 中提出，但并未提出具体的求解算法；直到 1969 年，Edward S. Lowry 和 C. W. Medlock 才首次提出了 <a href="http://portal.acm.org/ft_gateway.cfm?id=362838&amp;type=pdf&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=79528182&amp;CFTOKEN=33765747">有效的求解算法</a>．而目前使用最为广泛的 Lengauer–Tarjan 算法则由 Lengauer 和 Tarjan 于 1979 年在 <a href="https://www.cs.princeton.edu/courses/archive/fall03/cs528/handouts/a%20fast%20algorithm%20for%20finding.pdf">一篇论文</a> 中提出．</p>
+<p>在 OI 界中，支配树的概念最早在 <a href="https://www.luogu.com.cn/problem/P2597">ZJOI2012 灾难</a> 中被引入，当时也被称为「灭绝树」；陈孙立也在 2020 年的国家集训队论文中介绍了这一算法．</p>
+<p>目前支配树在竞赛界并不流行，其相关习题并不多见；但支配树在工业上，尤其是编译器相关领域，已有广泛运用．</p>
+<p>本文将介绍支配树的概念及几种求解方法．</p>
+<h2 id="_2">支配关系</h2>
+<p>我们在任意的一个有向图上钦定一个入口结点 $s$，对于一个结点 $u$，若从 $s$ 到 $u$ 的每一条路径都经过某一个结点 $v$，那么我们称 $v$  <strong>支配</strong>  $u$，也称 $v$ 是 $u$ 的一个 <strong>支配点</strong>，记作 $v\ dom\ u$．</p>
+<p>对于从 $s$ 出发无法到达的结点，讨论其支配关系是没有意义的，因此在没有特殊说明的情况下，本文默认 $s$ 能到达图上任何一个结点．</p>
+<p><img alt="" src="../images/dom-tree1.png" /></p>
+<p>例如这张有向图中，$2$ 被 $1$ 支配，$3$ 被 $1, 2$ 支配，4 被 $1, 2, 3$ 支配，5 被 $1, 2$ 支配，etc．</p>
+<h3 id="_3">引理</h3>
+<p>在下文的引理中，默认 $u, v, w\ne s$</p>
+<p><strong>引理 1：</strong> $s$ 是其所有结点的支配点；任意一个结点都是其自身的支配点．</p>
+<p><strong>证明：</strong> 显然任何一条从 $s$ 到 $u$ 的路径都必须经过 $s$ 和 $u$ 这两个结点．</p>
+<p><strong>引理 2：</strong> 仅考虑简单路径得出的支配关系与考虑所有路径得出的关系相同．</p>
+<p><strong>证明：</strong> 对于非简单路径，我们设两次经过某个结点之间经过的所有结点的点集为 $S$，若将 $S$ 中的结点删去，便能将每个非简单路径与一个简单路径对应．</p>
+<p>在 $S$ 中，在非简单路径而不在简单路径上的点一定不可能成为支配点，因为至少有一条 $s$ 到 $u$ 的简单路径不包括这个点；同时在简单路径和非简单路径上的点只需在简单路径上讨论即可．</p>
+<p>综上，删去非简单路径对支配关系没有影响．</p>
+<p><strong>引理 3：</strong> 如果 $u$  $dom$  $v$，$v$  $dom$  $w$，则 $u$  $dom$  $w$．</p>
+<p><strong>证明：</strong> 经过 $w$ 的路径必定经过 $v$，经过 $v$ 的路径必定经过 $u$，因此经过 $w$ 的路径必定经过 $u$，即 $u \ dom \ w$．</p>
+<p><strong>引理 4：</strong> 如果 $u \ dom \ v$，$v \ dom\ u$，则 $u=v$．</p>
+<p><strong>证明：</strong> 假设 $u \ne v$，则任意一个到达 $v$ 的路径都已经到达过 $u$，同时任意一个到达 $u$ 的路径都已经到达过 $v$，矛盾．</p>
+<p><strong>引理 5：</strong> 若 $u \ne v \ne w$,$u \ dom \ w$ 且 $v \ dom \ w$，则有 $u \ dom \ v$ 或 $v \ dom \ u$．</p>
+<p><strong>证明：</strong> 考虑一条 $s \rightarrow \dots \rightarrow u \rightarrow \dots \rightarrow v \rightarrow \dots \rightarrow w$ 的路径，若 $u$,$v$ 不存在支配关系，则一定存在一条不经过 $u$ 的从 $s$ 到 $v$ 的路径，即存在一条 $s \rightarrow \dots \rightarrow v \rightarrow \dots \rightarrow w$ 的路径，与 $u\ dom\ w$ 矛盾．</p>
+<h3 id="_4">求解支配关系</h3>
+<h4 id="_5">结点删除法</h4>
+<p>一个和定义等价的结论：如果我们删去图中的某一个结点后，有一些结点变得不可到达，那么这个被删去的结点支配这些变得不可到达的结点．</p>
+<p>因此我们只要尝试将每一个结点删去后 dfs 即可，代码复杂度为 $O(n^3)$．下面给出核心代码．</p>
+<pre><code class="language-cpp">// 假设图中有 n 个结点, 起始点 s = 1
+std::bitset&lt;N&gt; vis;
+std::vector&lt;int&gt; edge[N];
+std::vector&lt;int&gt; dom[N];
+
+void dfs(int u, int del) {
+  vis[u] = true;
+  for (int v : edge[u]) {
+    if (v == del or vis[v]) {
+      continue;
+    }
+    dfs(v, del);
+  }
+}
+
+void getdom() {
+  for (int i = 2; i &lt;= n; ++i) {
+    vis.reset();
+    dfs(1, i);
+    for (int j = 1; j &lt;= n; ++j) {
+      if (!vis[j]) {
+        dom[j].push_back(i);
+      }
+    }
+  }
+}
+</code></pre>
+<h4 id="_6">数据流迭代法</h4>
+<p>数据流迭代法也是 OI 中不常见的一个知识点，这里先做简要介绍．</p>
+<p>数据流分析是编译原理中的概念，用于分析数据如何在程序执行路径上的流动；而数据流迭代法是在程序的流程图的结点上列出方程并不断迭代求解，从而求得程序的某些点的数据流值的一种方法．这里我们就是把有向图看成了一个程序流程图．</p>
+<p>这个问题中，方程为：</p>
+<p>$$
+dom(u)={u} \cup \left(\bigcap_{v\in pre(u)}{dom(v)}\right)
+$$</p>
+<p>其中 $pre(u)$ 定义为 $u$ 的前驱结点组成的点集．这个方程可以通过引理 3 得到．</p>
+<p>翻译成人话就是，一个点的支配点的点集为它所有前驱结点的支配点集的交集，再并上它本身．根据这个方程将每个结点上的支配点集不断迭代直至答案不变即可．</p>
+<p>为了提高效率，我们希望每轮迭代时，当前迭代的结点的所有前驱结点尽可能都已经执行完了这次迭代，因此我们要利用深度优先排序得出这个图的逆后序，根据这个顺序进行迭代．</p>
+<p>下面给出核心代码的参考实现．这里需要预先处理每个点的前驱结点集和图的逆后序，但这不是本文讨论的主要内容，故这里不提供参考实现．</p>
+<pre><code class="language-cpp">std::vector&lt;int&gt; pre[N];  // 每个结点的前驱结点
+std::vector&lt;int&gt; ord;     // 图的逆后序
+std::bitset&lt;N&gt; dom[N];
+std::vector&lt;int&gt; Dom[N];
+
+void getdom() {
+  dom[1][1] = true;
+  flag = true;
+  while (flag) {
+    flag = false;
+    for (int u : ord) {
+      std::bitset&lt;N&gt; tmp;
+      tmp[u] = true;
+      for (int v : pre[u]) {
+        tmp &amp;= dom[v];
+      }
+      if (tmp != dom[u]) {
+        dom[u] = tmp;
+        flag = true;
+      }
+    }
+  }
+  for (int i = 2; i &lt;= n; ++i) {
+    for (int j = 1; j &lt;= n; ++j) {
+      if (dom[i][j]) {
+        Dom[i].push_back(j);
+      }
+    }
+  }
+}
+</code></pre>
+<p>不难看出上述算法的复杂度为 $O(n^2)$．</p>
+<h2 id="_7">支配树</h2>
+<p>上一节我们发现，除 $s$ 外，一个点的支配点至少有两个，$s$ 和其自身．</p>
+<p>我们将任意一个结点 $u$ 的支配点中，除自身外与自己距离最近的结点 $v$ 称作 $u$ 的直接支配点，记作 $idom(u) = v$．显然除了 $s$ 没有直接支配点外，每个结点都有唯一一个直接支配点．</p>
+<p>我们考虑对于除 $s$ 外每一个结点 $u$ 从 $idom(u)$ 向 $u$ 连边，便构成了一个有 $n$ 个结点，$n - 1$ 条边的有向图．根据引理 3 和引理 4，我们知道支配关系一定不会构成循环，也就是这些边一定不构成环，因此我们得到的图事实上是一棵树．我们称这颗树为原图的 <strong>支配树</strong>．</p>
+<h2 id="_8">求解支配树</h2>
+<h3 id="dom">根据 dom 求解</h3>
+<p>不妨考虑某个结点的支配点集 ${s_1, s_2, \dots, s_k}$，则一定存在一条路径 $s \rightarrow \dots \rightarrow s_1 \rightarrow \dots \rightarrow s_2 \rightarrow \dots \rightarrow \dots \rightarrow s_k \rightarrow\dots \rightarrow u$．显然 $u$ 的直接支配点为 $s_k$．因此直接支配点的定义等价于：</p>
+<p>对于一个结点 $u$ 的支配点集 $S$，若 $v \in S$ 满足 $\forall w \in S\setminus{u,v}, w\ dom \ v$，则 $idom(u)=v$．</p>
+<p>因此，利用前文所述的算法得到每个结点的支配点集之后，我们根据上述定义便能很轻松地得到每个点的直接支配点，从而构造出支配树．下面给出参考代码．</p>
+<pre><code class="language-cpp">std::bitset&lt;N&gt; dom[N];
+std::vector&lt;int&gt; Dom[N];
+int idom[N];
+
+void getidom() {
+  for (int u = 2; u &lt;= n; ++u) {
+    for (int v : Dom[u]) {
+      std::bitset&lt;N&gt; tmp = (dom[v] &amp; dom[u]) ^ dom[u];
+      if (tmp.count() == 1 and tmp[u]) {
+        idom[u] = v;
+        break;
+      }
+    }
+  }
+  for (int u = 2; u &lt;= n; ++u) {
+    e[idom[u]].push_back(u);
+  }
+}
+</code></pre>
+<h3 id="_9">树上的特例</h3>
+<p>显然树型图的支配树就是它本身．</p>
+<h3 id="dag">DAG 上的特例</h3>
+<p>我们发现 DAG 有一个很好的性质：根据拓扑序求解，先求得的解不会对后续的解产生影响．我们可以利用这个特点快速求得 DAG 的支配树．</p>
+<p>???+ warning "提醒"
+    值得注意的是此处的 DAG 只能有一个起点，如果有多个起点，受起点支配的点在支配树上出现有多个父亲的情况，从而使支配关系不能简单的用支配树来表达．</p>
+<p><strong>引理 6：</strong> 在有向图上，$v\ dom\ u$ 当且仅当 $\forall w \in pre(u), v\ dom \ w$．</p>
+<p><strong>证明：</strong> 首先来证明充分性．考虑任意一条从 $s$ 到 $u$ 的路径都一定经过一个结点 $w \in pre(u)$，而 $v$ 支配这个结点，因此任意一条从 $s$ 到 $u$ 的路径都一定经过 $v$，因此我们得到 $v \ dom \ u$．</p>
+<p>然后是必要性．如果 $\exists w\in pre(u)$，$v$ 不支配 $w$，则一定有一条不经过 $v$ 的路径 $s \rightarrow \cdots \rightarrow w \rightarrow \cdots \rightarrow u$，因此 $v$ 不支配 $u$．</p>
+<p>我们发现，$u$ 的支配点一定是其所有前驱结点在支配树上的公共祖先，那么显然 $u$ 的直接支配点是所有前驱结点在支配树上的 LCA．考虑倍增求解 LCA 可以支持每次添加一个结点，上述算法显然是可行的．</p>
+<p>下面给出参考实现：</p>
+<pre><code class="language-cpp">std::stack&lt;int&gt; sta;
+std::vector&lt;int&gt; e[N], g[N], tree[N];  // g 是原图的反图，tree 是支配树
+int n, s, in[N], tpn[N], dep[N], idom[N];  // n 为总点数，s 为起始点，in 为入度
+int fth[N][17];
+
+void topo(int s) {
+  sta.push(s);
+  while (!sta.empty()) {
+    int u = sta.top();
+    sta.pop();
+    tpn[++tot] = u;
+    for (int v : e[u]) {
+      --in[v];
+      if (!in[v]) {
+        sta.push(v);
+      }
+    }
+  }
+}
+
+int lca(int u, int v) {
+  if (dep[u] &lt; dep[v]) {
+    std::swap(u, v);
+  }
+  for (int i = 15; i &gt;= 0; --i) {
+    if (dep[fth[u][i]] &gt;= dep[v]) {
+      u = fth[u][i];
+    }
+  }
+  if (u == v) {
+    return u;
+  }
+  for (int i = 15; i &gt;= 0; --i) {
+    if (fth[u][i] != fth[v][i]) {
+      u = fth[u][i];
+      v = fth[v][i];
+    }
+  }
+  return fth[u][0];
+}
+
+void build() {
+  topo(s);
+  for (int i = 1; i &lt;= n; ++i)
+    for (int j = 0; j &lt;= 15; ++j) fth[i][j] = s;
+  for (int i = 1; i &lt;= n; ++i) {
+    int u = tpn[i];
+    if (g[u].size()) {
+      int v = g[u][0];
+      for (int j = 1, q = g[u].size(); j &lt; q; ++j) {
+        v = lca(v, g[u][j]);
+      }
+      tree[v].push_back(u);
+      fth[u][0] = v;
+      dep[u] = dep[v] + 1;
+      for (int i = 1; i &lt;= 15; ++i) {
+        fth[u][i] = fth[fth[u][i - 1]][i - 1];
+      }
+    }
+  }
+}
+
+</code></pre>
+<h3 id="lengauertarjan">Lengauer–Tarjan 算法</h3>
+<p>Lengauer–Tarjan 算法是求解支配树最有名的算法之一，可以在 $O(n\alpha(n, m))$ 的时间复杂度内求出一个有向图的支配树．这一算法引入了 <strong>半支配点</strong> 的概念，并通过半支配点辅助求得直接支配点．</p>
+<h4 id="_10">约定</h4>
+<p>首先，我们从 $s$ 出发对这个有向图进行 dfs，所经过的点和边形成了一颗树 $T$．我们称走过的边为树边，其余的为非树边；令 $dfn(u)$ 表示结点 $u$ 被第几个遍历到；定义 $u&lt;v$ 当且仅当 $dfn(u) &lt; dfn(v)$．</p>
+<h4 id="_11">半支配点</h4>
+<p>一个结点 $u$ 的半支配点，是满足从这个结点 $v$ 出发有一条路径，路径上除了 $u, v$ 之外每个结点都大于 $u$ 的结点中最小的那一个．形式化的说，$u$ 的半支配点 $sdom(u)$ 定义为：</p>
+<p>$sdom(u) = \min(v|\exists v=v_0 \rightarrow v_1 \rightarrow\dots \rightarrow v_k = u, \forall 1\le i\le k - 1, v_i &gt; u)$</p>
+<p>我们发现半支配点有一些有用的性质：</p>
+<p><strong>引理 7：</strong> 对于任意结点 $u$，$sdom(u) &lt; u$．</p>
+<p><strong>证明：</strong> 根据定义不难发现，$u$ 在 $T$ 上的父亲 $fa(u)$ 也满足成为半支配点的条件，且 $fa(u) &lt; u$，因此任何大于 $u$ 的结点都不可能成为其半支配点．</p>
+<p><strong>引理 8：</strong> 对于任意结点 $u$，$idom(u)$ 是其在 $T$ 上的祖先．</p>
+<p><strong>证明：</strong> $T$ 上从 $s$ 到 $u$ 的路径对应了原图上的一条路径，则 $idom(u)$ 必定在这个路径上．</p>
+<p><strong>引理 9：</strong> 对于任意结点 $u$，$sdom(u)$ 是其在 $T$ 上的祖先．</p>
+<p><strong>证明：</strong> 假设 $sdom(u)$ 不是 $u$ 的祖先，那么 $sdom(u)$ 不可能连向任何 $\mathrm{dfs}$ 序大于等于 $u$ 的结点（否则这个点应在 $sdom(u)$ 的子树内而非其他子树内），矛盾．</p>
+<p><strong>引理 10：</strong> 对于任意结点 $u$，$idom(u)$ 是 $sdom(u)$ 的祖先．</p>
+<p><strong>证明：</strong> 考虑可以从 $s$ 到 $sdom(u)$ 再从定义中的路径走到 $u$．根据定义，$sdom(u)$ 到 $u$ 的路径上的点均不支配 $u$，故 $idom(u)$ 一定是 $sdom(u)$ 的祖先．</p>
+<p><strong>引理 11：</strong> 对于任意结点 $u \ne v$ 满足 $v$ 是 $u$ 的祖先，则要么有 $v$ 是 $idom(u)$ 的祖先，要么 $idom(u)$ 是 $idom(v)$ 的祖先．</p>
+<p><strong>证明：</strong> 对于任意在 $v$ 和 $idom(v)$ 之间的结点 $w$，根据直接支配点的定义，一定存在一条不经过 $w$ 的，从 $s$ 到 $idom(v)$ 再到 $v$ 的路径．因此这些结点 $w$ 一定不是 $idom(u)$，因此 $idom(u)$ 要么是 $v$ 的后代，要么是 $idom(v)$ 的祖先．</p>
+<p>根据以上引理，我们可以得到以下定理：</p>
+<p><strong>定理 1：</strong> 一个点 $u$ 的半支配点是其前驱与其支配点在 $T$ 上的，大于 $u$ 的所有祖先的半支配点中最小的节点．形式化地说，$sdom(u)=\min({v|\exists v \rightarrow u, v &lt; u } \cup {sdom(w) | w &gt; u\ and\ \exists w \rightarrow \dots \rightarrow v \rightarrow u })$．</p>
+<p><strong>证明：</strong> 令 $x$ 等于上式右侧．</p>
+<p>我们首先证明 $sdom(u) \le x$．根据引理 7 我们知道这个命题等价于证明上述的两种都满足成为半支配点的条件．$x$ 是 $u$ 的前驱时的情况是显然的，对于后半部分，我们考虑将半支配点定义中所述路径 $x=v_0\rightarrow\dots\rightarrow v_j=w$ 和 $T$ 上的一条满足 $\forall i\in[j, k-1], v_i\ge w &gt; u$ 的路径 $w=v_j \rightarrow\dots\rightarrow v_k=v$ 以及路径 $v \rightarrow u$ 拼接，从而我们构造出一条满足半支配点定义的路径．</p>
+<p>然后我们证明 $sdom(u)\ge x$．考虑 $u$ 到其半支配点的定义中所述路径 $sdom(u)=v_0\rightarrow v_1 \rightarrow\dots\rightarrow v_k=u$．不难看出 $k=1$ 和 $k &gt; 1$ 分别对应了定义中的两个选取方法．若 $k = 1$，则存在有向边 $sdom(u) \rightarrow u$，根据引理 7 即可得证；若 $k&gt;1$，令 $j$ 是满足 $j \ge 1$ 且 $v_j$ 是 $v_{k-1}$ 在 $T$ 上祖先的最小数．考虑到 $k$ 满足上述条件，这样的 $j$ 一定存在．</p>
+<p>考虑证明 $v_0 \rightarrow \dots \rightarrow v_j$ 是满足成为 $v_j$ 半支配点条件的一条路径，即证明 $\forall i \in [1, j), v_i&gt;v_j$．若不是，则令 $i$ 为满足 $v_i &lt; v_j$ 中使 $v_i$ 最小的数，根据引理 11 我们知道 $v_i$ 是 $v_j$ 的祖先，这和 $j$ 的定义矛盾．于是 $sdom(v_j)\le sdom(u)$．综上 $sdom(u) \le x$，故 $x=sdom(u)$．</p>
+<p>根据定理 1 我们便可以求出每个点的半支配点了．不难发现计算半支配点的复杂度瓶颈在第二种情况上，我们考虑利用带权并查集优化，每次路径压缩时更新最小值即可．</p>
+<pre><code class="language-cpp">void dfs(int u) {
+  dfn[u] = ++dfc;
+  pos[dfc] = u;
+  for (int i = h[0][u]; i; i = e[i].x) {
+    int v = e[i].v;
+    if (!dfn[v]) {
+      dfs(v);
+      fth[v] = u;
+    }
+  }
+}
+
+int find(int x) {
+  if (fa[x] == x) {
+    return x;
+  }
+  int tmp = fa[x];
+  fa[x] = find(fa[x]);
+  if (dfn[sdm[mn[tmp]]] &lt; dfn[sdm[mn[x]]]) {
+    mn[x] = mn[tmp];
+  }
+  return fa[x];
+}
+
+void getsdom() {
+  dfs(1);
+  for (int i = 1; i &lt;= n; ++i) {
+    mn[i] = fa[i] = sdm[i] = i;
+  }
+  for (int i = dfc; i &gt;= 2; --i) {
+    int u = pos[i], res = INF;
+    for (int j = h[1][u]; j; j = e[j].x) {
+      int v = e[j].v;
+      if (!dfn[v]) {
+        continue;
+      }
+      find(v);
+      if (dfn[v] &lt; dfn[u]) {
+        res = std::min(res, dfn[v]);
+      } else {
+        res = std::min(res, dfn[sdm[mn[v]]]);
+      }
+    }
+    sdm[u] = pos[res];
+    fa[u] = fth[u];
+  }
+}
+
+</code></pre>
+<h4 id="_12">求解直接支配点</h4>
+<h5 id="dag_1">转化为 DAG</h5>
+<p>可是我还是不知道半支配点有什么用！</p>
+<p>我们考虑在 $T$ 上对每一个 $u$ 加入 $sdom(u) \rightarrow u$ 的有向边．根据引理 9，新得到的这张图 $G$ 一定是有向无环图；又根据引理 10，我们还发现这样加边不会改变支配关系，因此我们把原图转化为了一张 DAG，利用上文的算法求解即可．</p>
+<h5 id="_13">通过半支配点求解</h5>
+<p>建一堆图也太不优雅了！</p>
+<p><strong>定理 2：</strong> 对于任意节点 $u$，若 $T$ 上从 $sdom(u)$ 到 $w$ 的路径上的任意节点 $v$ 都满足 $sdom(v)\ge sdom(w)$，则 $idom(u) =sdom(u)$．</p>
+<p><strong>证明：</strong> 根据引理 10 我们知道 $idom(u)$ 是 $sdom(u)$ 或其祖先，因此只需证明 $sdom(u) \ dom \ u$．</p>
+<p>考虑任意一条 $s$ 到 $u$ 的路径 $P$，我们需要证明 $sdom(u)$ 一定在 $P$ 中．令 $v$ 为 $P$ 中最后一个满足 $v&lt;sdom(u)$ 的节点．如果 $v$ 不存在则必有 $sdom(u)=idom(u) =s$，否则令 $w$ 是 $P$ 中 $v$ 之后在 DFS 树中从 $sdom(u)$ 到 $u$ 的路径上的第一个点．</p>
+<p>我们接下来证明 $sdom(w)\le v &lt;sdom(v)$．考虑 $T$ 上 $v$ 到 $w$ 的路径 $v = v_0 \rightarrow \dots v_k = w$，若不成立，则存在 $i\in[1, k- 1], v_i &lt; w$．此时一定存在某个 $j\in [i, k - 1]$ 满足 $v_j$ 是 $w$ 的祖先．由 $v$ 的取值可知 $sdom(u)\le v_j$，于是 $v_j$ 也在 DFS 树中从 $sdom(u)$ 到 $u$ 的路径上，与 $w$ 的定义矛盾，因此 $sdom(w)\le v &lt; sdom(v)$，结合定理的条件有 $y=sdom(u)$，即路径 $P$ 包含 $sdom(u)$．</p>
+<p><strong>定理 3：</strong> 对于任意节点 $u$，$T$ 上从 $sdom(u)$ 到 $u$ 的路径上的所有节点中半支配点最小的节点 $v$ 一定满足 $sdom(v)\le sdom(u)$ 和 $idom(v) = idom(u)$．</p>
+<p><strong>证明：</strong> 考虑到 $u$ 本身也满足 $v$ 的条件，因此 $sdom(v)\le sdom(u)$．</p>
+<p>由于 $idom(u)$ 是 $v$ 在 $T$ 上的祖先，由引理 11 可知 $idom(u)$ 也是 $idom(v)$ 的祖先，因此只需证明 $idom(v)$ 支配 $u$．</p>
+<p>考虑任意一条 $s$ 到 $u$ 的路径 $P$，我们需要证明 $sdom(u)$ 一定在 $P$ 中．令 $x$ 为 $P$ 中最后一个满足 $x&lt;sdom(u)$ 的节点．如果 $x$ 不存在则必有 $sdom(u)=idom(u) =s$，否则令 $y$ 是 $P$ 中 $x$ 之后在 DFS 树中从 $sdom(u)$ 到 $u$ 的路径上的第一个点．</p>
+<p>与定理 2 的证明过程同理，我们可以得到 $sdom(y) \le x$．根据引理 10 有 $sdom(y)\le x&lt;idom(v) \le sdom(v)$．至此，由 $v$ 的定义可知 $y$ 不能是 $sdom(u)$ 的后代；另一方面，$y$ 不能既是 $idom(v)$ 的后代也是 $v$ 的祖先，否则沿 DFS 树从 $s$ 到 $sdom(y)$ 再沿 P 走到 $y$，最后沿 DFS 树走到 $v$ 的这条路径不经过 $idom(v)$，与支配点的定义矛盾．因此 $y=idom(v)$，即 $P$ 包含 $idom(v)$．</p>
+<p>根据以上两个定理我们能够得到 $sdom(u)$ 与 $idom(u)$ 之间的关系．</p>
+<p>令 $v$ 是满足 $v$ 在 $sdom(u)$ 与 $u$ 之间的结点的所有节点中，$sdom(v)$ 最小的一个节点，那么：</p>
+<p>$$
+idom(u) =
+\left{ 
+\begin{aligned} 
+&amp; sdom(u), &amp;\text{if}\ sdom(u) = sdom(v)
+\
+&amp;idom(v), &amp;\text{otherwise}
+\end{aligned}
+\right.
+$$</p>
+<p>只要对上面求解半支配点的代码稍作修改即可．</p>
+<pre><code class="language-cpp">struct E {
+  int v, x;
+} e[MAX * 4];
+
+int h[3][MAX * 2];
+
+int dfc, tot, n, m, u, v;
+int fa[MAX], fth[MAX], pos[MAX], mn[MAX], idm[MAX], sdm[MAX], dfn[MAX],
+    ans[MAX];
+
+void add(int x, int u, int v) {
+  e[++tot] = {v, h[x][u]};
+  h[x][u] = tot;
+}
+
+void dfs(int u) {
+  dfn[u] = ++dfc;
+  pos[dfc] = u;
+  for (int i = h[0][u]; i; i = e[i].x) {
+    int v = e[i].v;
+    if (!dfn[v]) {
+      dfs(v);
+      fth[v] = u;
+    }
+  }
+}
+
+int find(int x) {
+  if (fa[x] == x) {
+    return x;
+  }
+  int tmp = fa[x];
+  fa[x] = find(fa[x]);
+  if (dfn[sdm[mn[tmp]]] &lt; dfn[sdm[mn[x]]]) {
+    mn[x] = mn[tmp];
+  }
+  return fa[x];
+}
+
+void tar(int st) {
+  dfs(st);
+  for (int i = 1; i &lt;= n; ++i) {
+    fa[i] = sdm[i] = mn[i] = i;
+  }
+  for (int i = dfc; i &gt;= 2; --i) {
+    int u = pos[i], res = INF;
+    for (int j = h[1][u]; j; j = e[j].x) {
+      int v = e[j].v;
+      if (!dfn[v]) {
+        continue;
+      }
+      find(v);
+      if (dfn[v] &lt; dfn[u]) {
+        res = std::min(res, dfn[v]);
+      } else {
+        res = std::min(res, dfn[sdm[mn[v]]]);
+      }
+    }
+    sdm[u] = pos[res];
+    fa[u] = fth[u];
+    add(2, sdm[u], u);
+    u = fth[u];
+    for (int j = h[2][u]; j; j = e[j].x) {
+      int v = e[j].v;
+      find(v);
+      if (sdm[mn[v]] == u) {
+        idm[v] = u;
+      } else {
+        idm[v] = mn[v];
+      }
+    }
+    h[2][u] = 0;
+  }
+  for (int i = 2; i &lt;= dfc; ++i) {
+    int u = pos[i];
+    if (idm[u] != sdm[u]) {
+      idm[u] = idm[idm[u]];
+    }
+  }
+}
+
+</code></pre>
+<h2 id="_14">例题</h2>
+<h3 id="p5180"><a href="https://www.luogu.com.cn/problem/P5180">洛谷 P5180【模板】支配树</a></h3>
+<p>可以仅求解支配关系，求解过程中记录各个点支配了多少节点，也可以建出支配树求解每个节点的 size．</p>
+<p>这里给出后一种解法的代码．</p>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/graph/code/dom-tree/dom-tree_1.cpp"</code></p>
+<h3 id="zjoi2012"><a href="https://www.luogu.com.cn/problem/P2597">ZJOI2012 灾难</a></h3>
+<p>在 DAG 上求支配树然后求节点 size 即可．</p>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/graph/code/dom-tree/dom-tree_2.cpp"</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1964 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="kexplorning, Ir1d, lvneg1">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/lang/pas-cpp/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Pas cpp - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#c" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pas cpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 快速安装与环境配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ 快速安装与环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 IDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 代码编辑器 + 编译器 + 调试器
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 语法快速提要
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ 语法快速提要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hello-world-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hello World：第一个 C++ 程序
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hello World：第一个 C++ 程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简要解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简单练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ab-problem-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A+B Problem：第二个 C++ 程序
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A+B Problem：第二个 C++ 程序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简要解释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简单练习
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结束语与下一步
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本数据类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量声明
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运算符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        if 语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        case 与 switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="循环">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        while 循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        for 循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeat-until-do-while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        repeat until 与 do while 循环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数组与字符串
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数组与字符串">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不定长数组：标准库类型 Vector
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串：标准库类型 String
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C 风格数组
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要不同之处
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="重要不同之处">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变量作用域：全局变量与局部变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 可以自动转换类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 很多语句有返回值：以如何实现读取数量不定数据为例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在函数中传递参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 标准库与参考资料
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ 标准库与参考资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 标准库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        错误排查与技巧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 语言资料
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        后记
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="后记">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pascal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        本文 Pascal 语言的参考文献
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pascal-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        附录：Pascal 与 C++ 运算符与数学函数语法对比表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="附录：Pascal 与 C++ 运算符与数学函数语法对比表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本算术
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逻辑
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        赋值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自增/自减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/lang/pas-cpp.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Pas cpp</h1>
+
+<h2 id="c">C++ 快速安装与环境配置</h2>
+<p>以下过程均在 Windows 系统中操作．</p>
+<h3 id="ide">使用 IDE</h3>
+<p>可以参考如下页面中内容：</p>
+<ul>
+<li><a href="../../tools/editor/devcpp/">Dev-C++</a></li>
+<li><a href="../../tools/editor/codeblocks/">Code::Blocks</a></li>
+</ul>
+<h3 id="_1">使用 代码编辑器 + 编译器 + 调试器</h3>
+<p>可以参考 <a href="../../tools/editor/vscode/">VS Code</a> 页面中内容．Visual Studio Code 官方网站上有文档解释如何进行 C++ 的配置．一般而言 VS Code 搭配插件使用更方便，见 <a href="https://code.visualstudio.com/">VS Code 的官方网站</a>．</p>
+<h2 id="c_1">C++ 语法快速提要</h2>
+<p>C++ 程序都是从 <code>main</code> 这个部分开始运行的．</p>
+<p>大括号表示块语句的开始与结束：<code>{</code> 就相当于 Pascal 里面的 <code>begin</code>，而 <code>}</code> 就相当于 <code>end</code>．</p>
+<p>注意，和 Pascal 一样，C++ 每句话结束要加分号 <code>;</code>，不过大括号结尾不需要有分号，而且程序结束末尾不用打句号 <code>.</code>．</p>
+<p>对于注释，<code>//</code> 表示行内注释，<code>/* */</code> 表示块注释．</p>
+<p>按照惯例，看看 Hello World 吧．</p>
+<h3 id="hello-world-c">Hello World：第一个 C++ 程序</h3>
+<pre><code class="language-cpp">#include &lt;iostream&gt;  // 导入 iostream 库
+
+int main()  // main 部分
+{
+  std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+<p>然后编译运行一下，看看结果．</p>
+<h4 id="_2">简要解释</h4>
+<p>第一行，<code>#include &lt;iostream&gt;</code> 的意思是，导入 <code>iostream</code> 这个库．</p>
+<p>??? note "Pascal 的库文件"
+    Pascal 其实是有库文件的，只不过，很多同学从来都没有用过……</p>
+<p>看到第三行的 <code>main</code> 吗？程序从 <code>main</code> 开始执行．</p>
+<p>接下来最重要的一句话是</p>
+<pre><code class="language-cpp">std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
+</code></pre>
+<p><code>std::cout</code> 是输出命令．你可能看过有些 C++ 程序中直接写的是 <code>cout</code>．</p>
+<p>??? note "有关 std:: 前缀"
+    有关 <code>std::</code> 这个前缀的问题，请见 <a href="../basic/#cin-与-cout">这节</a> 底下的注释「什么是 std？」．</p>
+<p>中间的 <code>&lt;&lt;</code> 很形象地表示流动，其实它就是表示输出怎么「流动」的．这句代码的意思就是，<code>"Hello World!"</code> 会先被推到输出流，之后 <code>std::endl</code> 再被推到输出流．</p>
+<p>而 <code>std::endl</code> 是 <strong>输出</strong> 换行命令，这与 Pascal 的 <code>writeln</code> 类似，不过 C++ 里面可没有 <code>coutln</code>．Pascal 与 C++ 的区别在于，<code>write('Hello World!')</code> 等价于 <code>std::cout &lt;&lt; "Hello World!"</code>，而 <code>writeln('Hello World!')</code> 等价于 <code>std::cout &lt;&lt; "Hello World!" &lt;&lt; std::endl</code>．</p>
+<p>此处 <code>"Hello World!"</code> 是字符串，Pascal 中字符串都是用单引号 <code>'</code> 不能用双引号，而 C++ 的字符串必须用双引号．C++ 中单引号包围的字符会有别的含义，后面会再提及的．</p>
+<p>好了，到这里 Hello World 应该解释的差不多了．</p>
+<p>可能有同学会问，后面那个 <code>return 0</code> 是什么意思？那个 <code>int main()</code> 是啥意思？<strong>先别管它</strong>，一开始写程序的时候先把它当作模板来写吧（这里也是用模板写的）．因为入门时并不会用到 <code>main</code> 中参数，所以不需要写成 <code>int main(int argc, char const *argv[])</code>．</p>
+<h4 id="_3">简单练习</h4>
+<ol>
+<li>试着换个字符串输出．</li>
+<li>试着了解转义字符．</li>
+</ol>
+<h3 id="ab-problem-c">A+B Problem：第二个 C++ 程序</h3>
+<p>经典的 A+B Problem．</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+  int a, b, c;
+
+  std::cin &gt;&gt; a &gt;&gt; b;
+
+  c = a + b;
+
+  std::cout &lt;&lt; c &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+<p>注：代码空行较多，若不习惯可去掉空行．</p>
+<h4 id="_4">简要解释</h4>
+<p><code>std::cin</code> 是读入（<code>cin</code> 即 C-in），<code>&gt;&gt;</code> 也与输出语法的类似．</p>
+<p>这里多出来的语句中最重要的是两个，一个是变量声明语句．</p>
+<pre><code class="language-cpp">int a, b, c;
+</code></pre>
+<p>你可能习惯于 Pascal 里面的声明变量：</p>
+<pre><code class="language-pas">var
+a, b, c: integer;
+</code></pre>
+<p>C++ 的声明是直接以数据类型名开头的，在这里，<code>int</code>（整型）开头表示接下来要声明变量．</p>
+<p>接着一个最重要的语句就是赋值语句．</p>
+<pre><code class="language-cpp">c = a + b;
+</code></pre>
+<p>这是 Pascal 与 C++ 语法较大的不同：Pascal 的赋值是 <code>:=</code>，C++ 是 <code>=</code>；而 C++ 判断相等是 <code>==</code>．</p>
+<p>C++ 也可直接在声明时进行变量初始化赋值．</p>
+<pre><code class="language-cpp">int a = 0, b = 0, c = 0;
+</code></pre>
+<h4 id="_5">简单练习</h4>
+<ol>
+<li>重写一遍代码，提交到 OJ 上，并且 AC．</li>
+<li>更多的输入输出语法参考 <a href="../basic/#scanf-与-printf">这节内容</a>，并试着了解 C++ 的格式化输出．</li>
+</ol>
+<h3 id="_6">结束语与下一步</h3>
+<p>好了，到现在为止，你已经掌握了一些最基本的东西了，剩下就是找 Pascal 和 C++ 里面对应的语法和不同的特征．</p>
+<p>不过在此之前，强烈建议先看 <a href="#变量作用域全局变量与局部变量">变量作用域：全局变量与局部变量</a>．</p>
+<p>请善用<kbd>Alt</kbd>+<kbd>←</kbd>与<kbd>Alt</kbd>+<kbd>→</kbd>返回跳转．</p>
+<h2 id="_7">语法</h2>
+<h3 id="_8">变量</h3>
+<h4 id="_9">基本数据类型</h4>
+<p>C++ 与 Pascal 基本上差不多，常见的有</p>
+<ul>
+<li><code>bool</code>：布尔类型</li>
+<li><code>int</code>：整型</li>
+<li><code>float</code>：单精度浮点型</li>
+<li><code>double</code>：双精度浮点型</li>
+<li><code>char</code>：字符型</li>
+<li><code>void</code>：无类型</li>
+</ul>
+<p>C++ 的单引号是专门用于表示单个字符的（字符型），比如 <code>'a'</code>，而字符串（字符型数组）必须要用双引号．</p>
+<p>C++ 还要很多额外的数据类型，请参考 <a href="https://zh.cppreference.com/w/cpp/language/types">基础类型 - cppreference.com</a>．</p>
+<h4 id="_10">常量声明</h4>
+<pre><code class="language-cpp">const double PI = 3.1415926;
+</code></pre>
+<p>若不清楚有关宏展开的问题，建议使用常量，而不用宏定义．</p>
+<h3 id="_11">运算符</h3>
+<p>请直接参考 <a href="../op/">运算</a> 一文中内容．附录中也提供了运算符与数学函数语法对比表．</p>
+<h3 id="_12">条件</h3>
+<h4 id="if"><code>if</code> 语句</h4>
+<pre><code class="language-pas">if (a = b) and (a &gt; 0) and (b &gt; 0) then
+    begin
+        b := a;
+    end
+else
+    begin
+        a := b;
+    end;
+</code></pre>
+<pre><code class="language-cpp">if (a == b &amp;&amp; a &gt; 0 &amp;&amp; b &gt; 0) {
+  b = a;
+} else {
+  a = b;
+}
+</code></pre>
+<p>布尔运算与比较</p>
+<ul>
+<li><code>and -&gt; &amp;&amp;</code></li>
+<li><code>or -&gt; ||</code></li>
+<li><code>not -&gt; !</code></li>
+<li><code>= -&gt; ==</code></li>
+<li><code>&lt;&gt; -&gt; !=</code></li>
+</ul>
+<p>注释：</p>
+<ol>
+<li>Pascal 中 <code>and</code> 与 C++ 中 <code>&amp;&amp;</code> 优先级不同，C++ 不需要给判断条件加括号．</li>
+<li>Pascal 中判断相等是 <code>=</code>，赋值是 <code>:=</code>；C++ 中判断相等是 <code>==</code>，赋值是 <code>=</code>．</li>
+<li>如果在 <code>if</code> 语句的括号内写了 <code>a = b</code> 而不是 <code>a == b</code>，程序不会报错，而是会把 <code>b</code> 赋值给 <code>a</code>，并使赋值表达式 <code>a = b</code> 整体具有 <code>a</code> 在赋值操作完成后的值．</li>
+<li>C++ 不需要思考到底要不要在 <code>end</code> 后面加分号．</li>
+<li>C++ 布尔运算中，非布尔值可以自动转化为布尔值．</li>
+</ol>
+<p>???+ warning "易错提醒"
+    特别注意：<strong>不要把 <code>==</code> 写成 <code>=</code>！</strong></p>
+<pre><code>由于 C/C++ 比 Pascal 语法灵活，如果在判断语句中写了 `if (a=b)`，那么程序会顺利运行下去，因为 C++ 中 `a=b` 是有返回值的．
+</code></pre>
+<h4 id="case-switch"><code>case</code> 与 <code>switch</code></h4>
+<p>用到得不多，此处不详细展开．</p>
+<p>需要注意：C++ 没有 <code>1..n</code>，也没有连续不等式（比如 <code>1 &lt; x &lt; 2</code>）．</p>
+<h3 id="_13">循环</h3>
+<p>以下三种循环、六份代码实现的功能是一样的．</p>
+<h4 id="while"><code>while</code> 循环</h4>
+<p><code>while</code> 很相似．（C++ 此处并非完整程序，省略一些框架模板，后同）</p>
+<pre><code class="language-pas">var i: integer;
+
+begin
+    i := 1;
+    while i &lt;= 10 do
+        begin
+            write(i,' ');
+            inc(i); // 或者 i := i + 1;
+        end;
+end.
+</code></pre>
+<pre><code class="language-cpp">int i = 1;
+while (i &lt;= 10) {
+  std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+  i++;
+}
+</code></pre>
+<h4 id="for"><code>for</code> 循环</h4>
+<p>C++ 的 <code>for</code> 语句非常不同．</p>
+<pre><code class="language-pas">var i: integer;
+
+begin
+    for i:= 1 to 10 do
+        begin
+            write(i, ' ');
+        end;
+end.
+</code></pre>
+<pre><code class="language-cpp">for (int i = 1; i &lt;= 10; i++) {
+  std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+}
+</code></pre>
+<p>注释：</p>
+<ol>
+<li><code>for (int i = 1; i &lt;= 10; i++){</code> 这一行语句很多，<code>for</code> 中有三个语句．</li>
+<li>第一个语句 <code>int i = 1;</code> 此时声明一局部变量 <code>i</code> 并初始化．（这个设计比 Pascal 要合理得多．）</li>
+<li>第二个语句 <code>i &lt;= 10;</code> 作为判断循环是否继续的标准．</li>
+<li>第三个语句 <code>i++</code>，在每次循环结尾执行，意思大约就是 Pascal 中的 <code>inc(i)</code>，此处写成 <code>++i</code> 也是一样的．<code>i++</code> 与 <code>++i</code> 的区别请参考其他资料．</li>
+</ol>
+<h4 id="repeat-until-do-while"><code>repeat until</code> 与 <code>do while</code> 循环</h4>
+<p>注意，<code>repeat until</code> 与 <code>do while</code> 是不同的，请对比以下代码</p>
+<pre><code class="language-pas">var i: integer;
+
+begin
+    i := 1;
+    repeat
+        write(i, ' ');
+        inc(i);
+    until i = 11;
+end.
+</code></pre>
+<pre><code class="language-cpp">int i = 1;
+do {
+  std::cout &lt;&lt; i &lt;&lt; &quot; &quot;;
+  i++;
+} while (i &lt;= 10);
+</code></pre>
+<h4 id="_14">循环控制</h4>
+<p>C++ 中 <code>break</code> 的作用与 Pascal 是一样的，退出循环．</p>
+<p>而 <code>continue</code> 也是一样的，跳过当前循环，进入下一次循环（回到开头）．</p>
+<h3 id="_15">数组与字符串</h3>
+<h4 id="vector">不定长数组：标准库类型 Vector</h4>
+<p>请参考 <a href="../csl/sequence-container/">序列式容器</a> 页面中内容．</p>
+<p>C++ 标准库中提供了 <code>vector</code>，相当于不定长数组，调用前需导入库文件．</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;  // 导入 vector 库
+
+int main() {
+  std::vector&lt;int&gt; a;  // 声明 vector a 并定义 a 为空 vector 对象
+  int n;
+
+  std::cin &gt;&gt; n;
+  // 读取 a
+  for (int i = 0; i &lt; n; i++) {
+    int t;
+    std::cin &gt;&gt; t;
+    a.push_back(t);  // 将读入的数字 t，放到 vector a 的末尾；该操作复杂度 O(1)
+    /* 这里不能使用下标访问来赋值，因为声明时，a 大小依然为空，
+    此处使用 `a[i] = t;` 是错误做法．
+    */
+  }
+
+  // 将读入到 a 中的所有数打印出
+  for (int i = 0; i &lt; n; i++) {
+    std::cout &lt;&lt; a[i] &lt;&lt; &quot;, &quot;;  // !注意，a 中第一个数是 a[0]；
+    // 如果下标越界，它会返回一个未知的值（溢出），而不会报错
+  }
+  std::cout &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+<p>C++ 访问数组成员，与 Pascal 类似，不过有很重要的区别：数组的第一项是 <code>a[0]</code>，而 Pascal 中是可以自行指定的．</p>
+<h4 id="string">字符串：标准库类型 String</h4>
+<p>请参考 <a href="../csl/string/">string</a> 页面中内容．</p>
+<p>C++ 标准库中提供了 <code>string</code>，与 <code>vector</code> 可以进行的操作有些相同，同样需要导入库文件．</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+  std::string s;  // 声明 string s
+
+  std::cin &gt;&gt; s;  // 读入 s；
+  // 读入时会忽略开头所有空格符（空格、换行符、制表符），读入的字串直到下一个空格符为止．
+
+  std::cout &lt;&lt; s &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+<h4 id="c_2">C 风格数组</h4>
+<p>请参考 <a href="../array/">数组</a> 页面中内容．</p>
+<p>如果要用不定长的数组请用 <code>vector</code>，不要用 C 风格的数组．</p>
+<p>C 风格的数组与指针有密切关系，所以此处不多展开．</p>
+<h2 id="_16">重要不同之处</h2>
+<h3 id="_17">变量作用域：全局变量与局部变量</h3>
+<p>C++ 几乎可以在 <strong>任何地方</strong> 声明变量．请参考 <a href="../var/#变量作用域">变量作用域</a>．</p>
+<p>在写 Pascal 过程/函数时，容易忘记声明局部变量 <code>i</code> 或者 <code>j</code>，而一般主程序里会有循环，于是大部分情况下 <code>i</code> 与 <code>j</code> 都是全局变量，于是，在这种情况下，过程/函数中对 <code>i</code> 操作极易出错．更要命的是，如果忘记声明这种局部变量，编译器编译不报错，程序可以运行．（有很多难找的 bug 就是这么来的．）</p>
+<p>所以，在使用 C++ 时，声明变量，比如循环中使用的 <code>i</code>，<strong>不要用全局变量，能用局部变量就用局部变量</strong>．如果这么做，不用担心函数中变量名（比如 <code>i</code>）冲突．</p>
+<p>??? note "额外注"
+    Pascal 可在某种程度上避免这个问题，仿照 C++ 的方法，主程序只有调用过程/函数，不声明 <code>i</code>，<code>j</code> 这类极易名称冲突的全局变量，如果需要循环，另写一个过程进行调用．</p>
+<h3 id="c_3">C++ 可以自动转换类型</h3>
+<pre><code class="language-cpp">int i = 2;
+if (i) {  // i = 0 会返回 false，其余返回 true
+  std::cout &lt;&lt; &quot;true&quot;;
+} else {
+  std::cout &lt;&lt; &quot;false&quot;;
+}
+</code></pre>
+<p>不光是 <code>int</code> 转成 <code>bool</code>，还有 <code>int</code> 与 <code>float</code> 相互转换．在 Pascal 中可以把整型赋给浮点型，但不能反过来．C++ 没有这个问题．</p>
+<pre><code class="language-cpp">int a;
+a = 3.2;      // 此时 a = 3
+float b = a;  // 此时 b = 3.0
+</code></pre>
+<p>区分 <code>/</code> 是整除还是浮点除法，是通过除数与被除数的类型判断的</p>
+<pre><code class="language-cpp">float a = 32 / 10;    // 32/10 的结果是 3（整除）；a = 3.0
+float b = 32.0 / 10;  // 32.0/10 的结果是 3.2；b = 3.2
+</code></pre>
+<p><code>pow(a, b)</code> 计算 $a^b$，该函数返回的是浮点型，如果直接用来计算整数的幂，由于有自动转换，不需要担心它会报错</p>
+<pre><code class="language-cpp">int a = pow(2, 3);  // 计算 2^3
+</code></pre>
+<p>还有 <code>char</code> 与 <code>int</code> 之间相互转换．</p>
+<pre><code class="language-cpp">char a = 48;              // ASCII 48 是 '0'
+int b = a + 1;            // b = 49
+std::cout &lt;&lt; (a == '0');  // true 输出 1
+</code></pre>
+<p>其实 C++ 中的 <code>char</code> 与 <code>bool</code> 本质上是整型．</p>
+<p>详细内容请参考 <a href="https://zh.cppreference.com/w/cpp/language/implicit_conversion">隐式转换 - cppreference.com</a> 一文．</p>
+<h3 id="c_4">C++ 很多语句有返回值：以如何实现读取数量不定数据为例</h3>
+<p>有些时候需要读取到数据结束，比如，求一组不定数量的数之和（数据可以多行），直到文件末尾，实现方式是</p>
+<p>??? note "文件末尾 EOF"
+    EOF，文件末尾标识符，在命令行中 Windows 上以<kbd>Ctrl</kbd>+<kbd>Z</kbd>输入（还需按<kbd>Enter</kbd>），Unix-like 系统以<kbd>Ctrl</kbd>+<kbd>D</kbd>输入．</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+int main() {
+  int sum = 0, a = 0;
+
+  while (std::cin &gt;&gt; a) {
+    sum += a;
+  }
+  std::cout &lt;&lt; sum &lt;&lt; std::endl;
+
+  return 0;
+}
+</code></pre>
+<p>实现原理：<code>while (std::cin &gt;&gt; a)</code> 中 <code>std::cin &gt;&gt; a</code> 若在输入有问题或遇到文件结尾时，会返回 <code>false</code>，使得循环中断．</p>
+<h3 id="_18">函数</h3>
+<p>C++ 只有函数没有过程但有 <code>void</code>，没有函数值变量但有 <code>return</code>．</p>
+<p>Pascal 函数与 C++ 函数对比示例：</p>
+<pre><code class="language-pas">function abs(x:integer):integer;
+begin
+    if x &lt; 0 then
+        begin
+            abs := -x;
+        end
+    else
+        begin
+            abs := x;
+        end;
+end;
+</code></pre>
+<pre><code class="language-cpp">int abs(int x) {
+  if (x &lt; 0) {
+    return -x;
+  } else {
+    return x;
+  }
+}
+</code></pre>
+<p>C++ 中函数声明 <code>int abs</code>，就定义了 <code>abs()</code> 函数且返回值为 <code>int</code> 型（整型），函数的返回值就是 <code>return</code> 语句给出的值．</p>
+<p>如果不想有返回值（即 Pascal 的「过程」），就用 <code>void</code>．<code>void</code> 即「空」，什么都不返回．</p>
+<pre><code class="language-pas">var ans: integer;
+
+procedure printAns(ans:integer);
+begin
+    writeln(ans);
+end;
+
+begin
+    ans := 10;
+    printAns(ans);
+end.
+</code></pre>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void printAns(int ans) {
+  std::cout &lt;&lt; ans &lt;&lt; std::endl;
+
+  return;
+}
+
+int main() {
+  int ans = 10;
+  printAns(ans);
+
+  return 0;
+}
+</code></pre>
+<p>C++ 的 <code>return</code> 与 Pascal 中给函数变量赋值有一点非常大的不同．C++ 的 <code>return</code> 即返回一个值，执行完这个语句，函数就执行结束了；而 Pascal 中给函数变量赋值并不会跳出函数本身，而是继续执行．于是，如果 Pascal 需要某处中断函数/过程，就需要一个额外的命令，即 <code>exit</code>．而 C++ 则不需要，如果需要在某处中断，可以直接使用 <code>return</code>．比如（由于实在想不出来简短且实用的代码，所以就先这样）</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+void printWarning(int x) {
+  if (x &gt;= 0) {
+    return;  // 该语句在此处相当于 Pascal 中的 `exit;`
+  }
+  std::cout &lt;&lt; &quot;Warning: input a negative number.&quot;;
+}
+
+int main() {
+  int a;
+
+  std::cin &gt;&gt; a;
+  printWarning(a);
+
+  return 0;
+}
+</code></pre>
+<p>而在某种意义上，前面的 <code>abs</code> 函数，这样才是严格等效的</p>
+<pre><code class="language-pas">function abs(x:integer):integer;
+begin
+    if x &lt; 0 then
+        begin
+            abs := -x; exit; // !注意此处
+        end
+    else
+        begin
+            abs := x;  exit; // !注意此处
+        end;
+end;
+</code></pre>
+<pre><code class="language-cpp">int abs(int x) {
+  if (x &lt; 0) {
+    return -x;
+  } else {
+    return x;
+  }
+}
+</code></pre>
+<p>???+ note "特别提醒"
+    C++ 中 <code>exit</code> 是退出程序；不要顺手把 <code>exit</code> 打上去，要用 <code>return</code>！</p>
+<p>C++ 把函数和过程统统视作函数，连 <code>main</code> 都不放过，比如写 <code>int main</code>，C++ 视 <code>main</code> 为一个整型的函数，这里返回值是 <code>0</code>．它是一种习惯约定，返回 <code>0</code> 代表程序正常退出．</p>
+<p>也许你已经猜到了，<code>main(int argc, char const *argv[])</code> 中的参数就是 <code>int argc</code> 与 <code>char const *argv[]</code>，不过意义请参考其他资料．</p>
+<h3 id="_19">在函数中传递参数</h3>
+<p>C++ 中没有 Pascal 的 <code>var</code> 关键字可以改变传递的参数，但是 C++ 可以使用引用和指针达到同样的效果．</p>
+<pre><code class="language-pas">var a, b: integer;
+
+procedure swap(var x,y:integer);
+var temp:integer;
+begin
+    temp := x;
+    x := y;
+    y := temp;
+end;
+
+begin
+    a := 10; b:= 20;    
+    swap(a, b);
+    writeln(a, ' ', b);
+end.
+</code></pre>
+<pre><code class="language-cpp">// 使用指针的代码
+#include &lt;iostream&gt;
+
+void swap(int* x, int* y) {
+  int temp;
+  temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+int main() {
+  int a = 10, b = 20;
+  swap(&amp;a, &amp;b);
+  std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b;
+
+  return 0;
+}
+</code></pre>
+<p>注意，此处 C++ 代码 <strong>涉及指针问题</strong>．指针问题还是很麻烦的，建议去阅读相关资料．</p>
+<pre><code class="language-cpp">// 使用引用的代码
+#include &lt;iostream&gt;
+
+void swap(int&amp; x, int&amp; y) {
+  int temp;
+  temp = x;
+  x = y;
+  y = temp;
+}
+
+int main(int argc, char const* argv[]) {
+  int a = 10, b = 20;
+  swap(a, b);
+  std::cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b;
+
+  return 0;
+}
+</code></pre>
+<p>注意，此处 C++ 代码涉及 <strong>引用相关类型问题</strong>．在用引用调用一些 STL 库、模板库的时候可能会遇到一些问题，这时候需要手动声明别类型．具体资料可以在《C++ Primer》第五版或者网络资料中自行查阅．</p>
+<p>C++ 中函数传递参数还有其他方法，其中一种是 <strong>直接使用全局变量传递参数</strong>，如果不会用指针，可以先用这种方法．但是这种方法的缺陷是没有栈保存数据，<strong>没有办法在递归函数中传参</strong>．（除非手写栈，注意，手写栈也是一种突破系统栈限制的方法．）</p>
+<h2 id="c_5">C++ 标准库与参考资料</h2>
+<p>千万不要重复造轮子（除非为了练习），想要自己动手写一个功能出来之前，先去看看有没有这个函数或者数据结构．</p>
+<h3 id="c_6">C++ 标准库</h3>
+<p>C++ 标准库中 <code>&lt;algorithm&gt;</code> 有很多有用的函数比如快排、二分查找等，可以直接调用．请参考 <a href="../csl/algorithm/">STL 算法</a> 页面．</p>
+<p>还有 STL 容器，比如数组、向量（可变大小的数组）、队列、栈等，附带很多函数．请参考 <a href="../csl/container/">STL 容器简介</a> 页面．</p>
+<p>如果要找关于字符串操作的函数见</p>
+<ul>
+<li><a href="https://zh.cppreference.com/w/cpp/string/basic_string">std::basic_string - cppreference.com</a></li>
+<li><a href="https://www.cplusplus.com/reference/string/"><code>&lt;string&gt;</code>- C++ Reference</a></li>
+</ul>
+<p>C/C++ 的指针是很灵活的东西，可以参考 <a href="../pointer/">指针</a> 页面．如果想要彻底理解指针，建议找本书或者参考手册仔细阅读．</p>
+<h3 id="_20">错误排查与技巧</h3>
+<ul>
+<li><a href="../../contest/common-mistakes/">常见错误</a></li>
+<li><a href="../../contest/common-tricks/">常见技巧</a></li>
+</ul>
+<h3 id="c_7">C++ 语言资料</h3>
+<ul>
+<li><a href="../../contest/resources/">学习资源</a></li>
+<li><a href="https://zh.cppreference.com/">cppreference.com</a>：最重要的 C/C++ 参考资料</li>
+<li><a href="https://www.runoob.com/cplusplus/cpp-tutorial.html">C++ 教程 - 菜鸟教程</a></li>
+<li><a href="https://www.cplusplus.com/doc/tutorial/">C++ Language - C++ Tutorials</a></li>
+<li><a href="https://www.cplusplus.com/reference/">Reference - C++ Reference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library">C++ Standard Library - Wikipedia</a></li>
+<li><a href="https://www.gitbook.com/book/alexastva/the-ultimate-question-of-programming-refactoring-/details">The Ultimate Question of Programming, Refactoring, and Everything</a></li>
+<li><a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a></li>
+</ul>
+<h2 id="_21">后记</h2>
+<p>写到这里，很多同学会觉得这一点都不急救啊，有很多东西没有提到啊．那也是没办法的事情．</p>
+<p>虽然是为了急救，但很多东西像怎么把字符串转化为数字，怎么搜索字符串中的字符，这些东西也不适合一篇精悍短小的急救帖，如果把这些都写出来，那就是 C++ 入门教程，所以请充分利用本 Wiki、参考手册与搜索引擎．</p>
+<p>需要指出的一点是，上面说 C++ 的语法，其实有很多语法是从 C 语言来的，标题这么写比较好——《Pascal 转 C/C++ 急救帖》．</p>
+<p>Pascal 在上个世纪后半叶是门很流行的语言，它早于 C 语言，不过随着 UNIX 系统的普及，微软使用 C 语言，现在 Pascal 已经成为历史了．Pascal 后期发展也是有的，比如 Free Pascal 这个开源编译器项目，增加面向对象的特性（Delphi 语言）．Pascal 目前的用处除了在信息竞赛外，有一个特点是其他语言没有的——编译支持非常非常多老旧机器，比如 Gameboy 这种上个世纪的任天堂游戏机，还有一个用处就是以伪代码的形式（Pascal 风格的伪代码）出现在各种教科书中．</p>
+<p>最后，Pascal 的圈子其实很小，C/C++ 的圈子很大，帮助手册与教程很多很全，一定要掌握好英语．世界上还有很多很多编程语言，而计算机这门学科与技术不光是信息竞赛和编程语言．</p>
+<h3 id="pascal">本文 Pascal 语言的参考文献</h3>
+<ul>
+<li><a href="https://wiki.freepascal.org/">Lazarus wiki</a></li>
+<li><a href="https://freepascal.org/docs-html/current/ref/ref.html">Free Pascal Reference guide</a></li>
+</ul>
+<h2 id="pascal-c">附录：Pascal 与 C++ 运算符与数学函数语法对比表</h2>
+<p>仅包括最常用的运算符与函数．</p>
+<h3 id="_22">基本算术</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加法</td>
+<td><code>a + b</code></td>
+<td><code>a + b</code></td>
+</tr>
+<tr>
+<td>减法</td>
+<td><code>a - b</code></td>
+<td><code>a - b</code></td>
+</tr>
+<tr>
+<td>乘法</td>
+<td><code>a * b</code></td>
+<td><code>a * b</code></td>
+</tr>
+<tr>
+<td>整除</td>
+<td><code>a div b</code></td>
+<td><code>a / b</code></td>
+</tr>
+<tr>
+<td>浮点除法</td>
+<td><code>a / b</code></td>
+<td><code>a / b</code></td>
+</tr>
+<tr>
+<td>取模</td>
+<td><code>a mod b</code></td>
+<td><code>a % b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">逻辑</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>非</td>
+<td><code>not(a)</code></td>
+<td><code>!a</code></td>
+</tr>
+<tr>
+<td>且</td>
+<td><code>a and b</code></td>
+<td><code>a &amp;&amp; b</code></td>
+</tr>
+<tr>
+<td>或</td>
+<td><code>a or b</code></td>
+<td><code>a || b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_24">比较</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相等</td>
+<td><code>a = b</code></td>
+<td><code>a == b</code></td>
+</tr>
+<tr>
+<td>不等</td>
+<td><code>a &lt;&gt; b</code></td>
+<td><code>a != b</code></td>
+</tr>
+<tr>
+<td>大于</td>
+<td><code>a &gt; b</code></td>
+<td><code>a &gt; b</code></td>
+</tr>
+<tr>
+<td>小于</td>
+<td><code>a &lt; b</code></td>
+<td><code>a &lt; b</code></td>
+</tr>
+<tr>
+<td>大于等于</td>
+<td><code>a &gt;= b</code></td>
+<td><code>a &gt;= b</code></td>
+</tr>
+<tr>
+<td>小于等于</td>
+<td><code>a &lt;= b</code></td>
+<td><code>a &lt;= b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">赋值</h3>
+<table>
+<thead>
+<tr>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a := b</code></td>
+<td><code>a = b</code></td>
+</tr>
+<tr>
+<td><code>a := a + b</code></td>
+<td><code>a += b</code></td>
+</tr>
+<tr>
+<td><code>a := a - b</code></td>
+<td><code>a -= b</code></td>
+</tr>
+<tr>
+<td><code>a := a * b</code></td>
+<td><code>a *= b</code></td>
+</tr>
+<tr>
+<td><code>a := a div b</code> 或 <code>a := a / b</code></td>
+<td><code>a /= b</code></td>
+</tr>
+<tr>
+<td><code>a := a mod b</code></td>
+<td><code>a %= b</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_26">自增/自减</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>自增</td>
+<td><code>inc(a)</code></td>
+<td><code>a++</code></td>
+</tr>
+<tr>
+<td>自增</td>
+<td><code>inc(a)</code></td>
+<td><code>++a</code></td>
+</tr>
+<tr>
+<td>自减</td>
+<td><code>dec(a)</code></td>
+<td><code>a--</code></td>
+</tr>
+<tr>
+<td>自减</td>
+<td><code>dec(a)</code></td>
+<td><code>--a</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_27">数学函数</h3>
+<p>使用需要导入 <code>&lt;cmath&gt;</code> 库．</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Pascal</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>绝对值</td>
+<td><code>abs(a)</code></td>
+<td><code>abs(a)</code>（整数）</td>
+</tr>
+<tr>
+<td>绝对值</td>
+<td><code>abs(a)</code></td>
+<td><code>fabs(a)</code>（浮点数）</td>
+</tr>
+<tr>
+<td>$a^b$</td>
+<td>N/A[^ref1]</td>
+<td><code>pow(a, b)</code></td>
+</tr>
+<tr>
+<td>截断取整</td>
+<td><code>trunc(a)</code></td>
+<td><code>trunc(a)</code></td>
+</tr>
+<tr>
+<td>近似取整</td>
+<td><code>round(a)</code></td>
+<td><code>round(a)</code></td>
+</tr>
+</tbody>
+</table>
+<p>[^ref1]: Extended Pascal 中有 <code>a**b</code>，不过需要导入 <code>Math</code> 库．</p>
+<p>其他函数请参考：</p>
+<ul>
+<li><a href="https://zh.cppreference.com/w/cpp/numeric/math">常用数学函数 - cppreference.com</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

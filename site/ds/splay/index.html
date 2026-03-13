@@ -1,0 +1,1283 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/ds/splay/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Splay - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Splay
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本结构与操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本结构与操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        维护信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        辅助操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        伸展操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间复杂度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        平衡树操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="平衡树操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按照值查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按照排名访问
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        合并操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插入操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询排名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询前驱
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查询后继
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        序列操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="序列操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        根据序列建树
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        区间翻转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        懒标记管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考实现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/ds/splay.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Splay</h1>
+
+<p>本页面将简要介绍如何用 Splay 维护二叉查找树．</p>
+<h2 id="_1">定义</h2>
+<p><strong>Splay 树</strong>，或 <strong>伸展树</strong>，是一种平衡二叉查找树，它通过 <strong>伸展（splay）操作</strong> 不断将某个节点旋转到根节点，使得整棵树仍然满足二叉查找树的性质，能够在均摊 $O(\log N)$ 时间内完成插入、查找和删除操作，并且保持平衡而不至于退化为链．</p>
+<p>Splay 树由 Daniel Sleator 和 Robert Tarjan 于 1985 年发明．</p>
+<h2 id="_2">基本结构与操作</h2>
+<p>本节讨论 Splay 树的基本结构和它的核心操作，其中最为重要的是伸展操作．</p>
+<p>Splay 树是一棵二叉查找树，查找某个值时满足性质：左子树任意节点的值 $&lt;$ 根节点的值 $&lt;$ 右子树任意节点的值．</p>
+<h3 id="_3">维护信息</h3>
+<p>本文使用数组模拟指针来实现 Splay 树，需要维护如下信息：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">rt</th>
+<th style="text-align: center;">id</th>
+<th style="text-align: center;">fa[i]</th>
+<th style="text-align: center;">ch[i][0/1]</th>
+<th style="text-align: center;">val[i]</th>
+<th style="text-align: center;">cnt[i]</th>
+<th style="text-align: center;">sz[i]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">根节点编号</td>
+<td style="text-align: center;">已使用节点个数</td>
+<td style="text-align: center;">父亲</td>
+<td style="text-align: center;">左右儿子编号</td>
+<td style="text-align: center;">节点权值</td>
+<td style="text-align: center;">权值出现次数</td>
+<td style="text-align: center;">子树大小</td>
+</tr>
+</tbody>
+</table>
+<p>初始化时，所有信息都置零即可．</p>
+<h3 id="_4">辅助操作</h3>
+<p>首先是一些简单的辅助操作：</p>
+<ul>
+<li><code>dir(x)</code>：判断节点 $x$ 是父亲节点的左儿子还是右儿子；</li>
+<li><code>push_up(x)</code>：在改变节点位置后，根据子节点信息更新节点 $x$ 的信息．</li>
+</ul>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:aux"</code></p>
+<h3 id="_5">旋转操作</h3>
+<p>为了使 Splay 保持平衡，需要进行旋转操作．旋转的作用是将某个节点上移一个位置．</p>
+<p>旋转需要保证：</p>
+<ul>
+<li>整棵 Splay 的中序遍历不变（不能破坏二叉查找树的性质）；</li>
+<li>受影响的节点维护的信息依然正确有效；</li>
+<li><code>rt</code> 必须指向旋转后的根节点．</li>
+</ul>
+<p>在 Splay 中旋转分为两种：左旋和右旋．</p>
+<p><img alt="" src="../images/splay-rotate.svg" /></p>
+<p>观察图示可知，如果要通过旋转将节点 $x$（左旋时的 $1$ 和右旋时的 $2$）上移，则旋转的方向由该节点是其父节点的左节点还是右节点唯一确定．因此，实现旋转操作时，只需要将要上移的节点 $x$ 传入即可．</p>
+<p>具体分析旋转步骤：（假设需要上移的节点为 $x$，以右旋为例）</p>
+<ol>
+<li>首先，记录节点 $x$ 的父节点 $y$，以及 $y$ 的父节点 $z$（可能为空），并记录 $x$ 是 $y$ 的左子节点还是右子节点；</li>
+<li>按照旋转后的树中自下向上的顺序，依次更新 $y$ 的左子节点为 $x$ 的右子节点，$x$ 的右子节点为 $y$，以及若 $z$ 非空，$z$ 的子节点为 $x$；</li>
+<li>按照同样的顺序，依次更新当前 $y$ 的左子节点（若存在）的父节点为 $y$，$y$ 的父节点为 $x$，以及 $x$ 的父节点为 $z$；</li>
+<li>自下而上维护节点信息．</li>
+</ol>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:rotate"</code></p>
+<p>在所有函数的实现时，都应注意不要修改节点 $0$ 的信息．</p>
+<h3 id="_6">伸展操作</h3>
+<p>Splay 树要求每访问一个节点 $x$ 后都要强制将其旋转到根节点．该操作也称为伸展操作．</p>
+<p>设刚访问的节点为 $x$．要做伸展操作，就是要对 $x$ 做一系列的 <strong>伸展步骤</strong>．每次对 $x$ 做一次伸展步骤，$x$ 到根节点的距离都会更近．定义 $p$ 为 $x$ 的父节点．伸展步骤有三种：</p>
+<ol>
+<li>
+<p><strong>zig</strong>: 在 $p$ 是根节点时操作．Splay 树会根据 $x$ 和 $p$ 间的边旋转．<strong>zig</strong> 存在是用于处理奇偶校验问题，仅当 $x$ 在伸展操作开始时具有奇数深度时作为伸展操作的最后一步执行．</p>
+<p><img alt="splay-zig" src="../images/splay-zig.svg" /></p>
+<p>即直接将 $x$ 右旋或左旋（图 1, 2）．</p>
+<p><img alt="图 1" src="../images/splay-rotate1.svg" /><img alt="图 2" src="../images/splay-rotate2.svg" /></p>
+</li>
+<li>
+<p><strong>zig-zig</strong>: 在 $p$ 不是根节点且 $x$ 和 $p$ 都是右侧子节点或都是左侧子节点时操作．下方例图显示了 $x$ 和 $p$ 都是左侧子节点时的情况．Splay 树首先按照连接 $p$ 与其父节点 $g$ 边旋转，然后按照连接 $x$ 和 $p$ 的边旋转．</p>
+<p><img alt="splay-zig-zig" src="../images/splay-zig-zig.svg" /></p>
+<p>即首先将 $p$ 右旋或左旋，然后将 $x$ 右旋或左旋（图 3, 4）．</p>
+<p><img alt="图 3" src="../images/splay-rotate3.svg" /><img alt="图 4" src="../images/splay-rotate4.svg" /></p>
+</li>
+<li>
+<p><strong>zig-zag</strong>: 在 $p$ 不是根节点且 $x$ 和 $p$ 一个是右侧子节点一个是左侧子节点时操作．Splay 树首先按 $p$ 和 $x$ 之间的边旋转，然后按 $x$ 和 $g$ 新生成的结果边旋转．</p>
+<p><img alt="splay-zig-zag" src="../images/splay-zig-zag.svg" /></p>
+<p>即将 $x$ 先左旋再右旋或先右旋再左旋（图 5, 6）．</p>
+<p><img alt="图 5" src="../images/splay-rotate5.svg" /><img alt="图 6" src="../images/splay-rotate6.svg" /></p>
+</li>
+</ol>
+<p>???+ tip "Tip"
+    请读者尝试自行模拟 $6$ 种旋转情况，以理解伸展操作的基本思想．</p>
+<p>比较三种伸展步骤可知，要区分此时应使用哪种操作，关键是要判断 $x$ 是否是根节点的子节点，以及 $x$ 和它父节点是否在各自的父节点同侧．</p>
+<p>此处提供的实现，可以指定任意根节点 $z$，并将它的子树内任意节点 $x$ 上移至 $z$ 处：</p>
+<ol>
+<li>首先记录根节点 $z$ 的父节点 $w$，从而可以利用 <code>fa[x] == w</code> 判断 $x$ 已经位于根结点处；</li>
+<li>记录 $x$ 当前的父节点 $y$，如果 $y$ 和 $w$ 相同，说明 $x$ 已经到达根节点；</li>
+<li>否则，利用 <code>fa[y] == w</code> 判断 $y$ 是否是根节点．如果是，直接做 zig 操作将 $x$ 旋转；如果不是，利用 <code>dir(x) == dir(y)</code> 判断使用 zig-zig 还是 zig-zag，前者先旋转 $y$ 再旋转 $x$，后者直接旋转两次 $x$．</li>
+</ol>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:splay"</code></p>
+<p>伸展操作是 Splay 树的核心操作，也是它的时间复杂度能够得到保证的关键步骤．请务必保证每次向下访问节点后，都进行一次伸展操作．</p>
+<p>另外，伸展操作会将当前节点 $x$ 到根节点 $z$ 的路径上的所有节点信息自下而上地更新一遍．正是因为这一点，才可以修改非根节点，再通过伸展操作将它上移至根来完成整个树的信息更新．</p>
+<h3 id="_7">时间复杂度</h3>
+<p>对大小为 $n$ 的 Splay 树做 $m$ 次伸展操作的复杂度是 $O((n+m)\log n)$ 的，单次均摊复杂度是 $O(\log n)$ 的．</p>
+<p>??? note "基于势能分析的复杂度证明"
+    为此只需分析 <strong>zig</strong>、<strong>zig-zig</strong> 和 <strong>zig-zag</strong> 三种操作的复杂度．为此，我们采用 <strong>势能分析法</strong>，通过研究势能的变化来推导操作的均摊复杂度．假设对一棵包含 $n$ 个节点的 Splay 树进行了 $m$ 次伸展操作，可以通过如下方式进行分析：</p>
+<pre><code>**定义**：
+
+1.  **单个节点的势能**：$w(x) = \log(\text{size}(x))$，其中 $\text{size}(x)$ 表示以节点 $x$ 为根的子树大小．
+2.  **整棵树的势能**：$\varphi = \sum w(x)$，即树中所有节点势能的总和，初始势能满足 $\varphi_0 \leq n \log n$．
+3.  **第 $i$ 次操作的均摊成本**：$c_i = t_i + \varphi_i - \varphi_{i-1}$，其中 $t_i$ 为实际操作代价，$\varphi_i$ 和 $\varphi_{i-1}$ 分别为操作后和操作前的势能．
+
+**性质**：
+
+1.  如果 $p$ 是 $x$ 的父节点，则有 $w(p) \geq w(x)$，即父节点的势能不小于子节点的势能．
+
+2.  由于根节点的子树大小在操作前后保持不变，因此根节点的势能在操作过程中不变．
+
+3.  如果 $\text{size}(p)\ge\text{size}(x)+\text{size}(y)$，那么有 $2w(p) - w(x) - w(y) \geq 2$．
+
+??? note "性质 3 的证明"
+    根据均值不等式可知
+
+    $$
+    \begin{aligned}
+    2w(p) - w(x) - w(y) 
+    &amp;= \log\dfrac{\text{size}(p)^2}{\text{size}(x)\cdot\text{size}(y)} \\
+    &amp;&gt; \log\dfrac{\left(\text{size}(x)+\text{size}(y)\right)^2}{\text{size}(x)\cdot\text{size}(y)} \\
+    &amp;\ge \log 4 \\
+    &amp;= 2.
+    \end{aligned}
+    $$
+
+接下来，分别对 **zig**、**zig-zig** 和 **zig-zag** 操作进行势能分析．设操作前后的节点 $x$ 的势能分别是 $w(x)$ 和 $w'(x)$．节点的记号与 [上文](#伸展操作) 一致．
+
+**zig**：根据性质 1 和 2，有 $w(p) = w'(x)$，且 $w'(x) \geq w'(p)$．由此，均摊成本为
+
+$$
+\begin{aligned}
+c_i &amp;= 1 + w'(x) + w'(p) - w(x) - w(p)\\
+&amp;= 1 + w'(p) - w(x)\\
+&amp;\leq 1 + w'(x) - w(x).
+\end{aligned}
+$$
+
+**zig-zig**：根据性质 1 和 2，有 $w(g) = w'(x)$，且 $w'(x) \geq w'(p)$，$w(x) \leq w(p)$．因为
+
+$$
+\begin{aligned}
+\text{size}'(x) 
+&amp;= 3 + \text{size}(A) + \text{size}(B) + \text{size}(C) + \text{size}(D) \\
+&amp;&gt; (1 + \text{size}(A) + \text{size}(B)) + (1 + \text{size}(C) + \text{size}(D)) \\
+&amp;= \text{size}(x) + \text{size}'(g),
+\end{aligned}
+$$
+
+根据性质 3 可得
+
+$$
+2 w'(x) - w(x) - w'(g) \geq 2.
+$$
+
+由此，均摊成本为
+
+$$
+\begin{aligned}
+c_i &amp;= 2 + w'(x) + w'(p) + w'(g) - w(x) - w(p) - w(g) \\
+&amp;= 2 + w'(p) + w'(g) - w(x) - w(p) \\
+&amp;\le (2 w'(x) - w(x) - w'(g)) + w'(p) + w'(g) - w(x) - w(p) \\
+&amp;= 2(w'(x)-w(x)) + w'(p) - w(p) \\
+&amp;\le 3(w'(x)-w(x)).
+\end{aligned}
+$$
+
+**zig-zag**：根据性质 1 和 2，有 $w(g) = w'(x)$，且 $w(p) \geq w(x)$．因为 $\text{size}'(x)&gt;\text{size}'(p)+\text{size}'(g)$，根据性质 3，可得
+
+$$
+2 \cdot w'(x) - w'(g) - w'(p) \geq 2.
+$$
+
+由此，均摊成本为
+
+$$
+\begin{aligned}
+c_i &amp;= 2 + w'(x) + w'(p) + w'(g) - w(x) - w(p) - w(g) \\
+&amp;= 2 + w'(p) + w'(g) - w(x) - w(p) \\
+&amp;\le (2w'(x) - w'(g) - w'(p)) + w'(p) + w'(g) - w(x) - w(p) \\
+&amp;= 2w'(x) - w(x) - w(p) \\
+&amp;\le 2(w'(x) - w(x)).
+\end{aligned}
+$$
+
+**单次伸展操作**：
+
+令 $w^{(n)}(x)=(w^{(n-1)})'(x)$ 且 $w^{(0)}(x)=w(x)$．假设一次伸展操作依次访问了 $x_{1}, x_{2}, \cdots, x_{n}$ 等节点，最终 $x_{1}$ 成为根节点．这必然经过若干次 **zig-zig** 和 **zig-zag** 操作和至多一次 **zig** 操作，前两种操作的均摊成本均不超过 $3(w'(x)-w(x))$，而最后一次操作的均摊成本不超过 $3(w'(x) - w(x))+1$，所以总的均摊成本不超过
+
+$$
+3(w^{(n)}(x_1) - w^{(0)}(x_1)) + 1 \le 3\log n + 1.
+$$
+
+因此，一次伸展操作的均摊复杂度是 $O(\log n)$ 的．从而，基于伸展的插入、查询、删除等操作的时间复杂度也为均摊 $O(\log n)$．
+
+**结论**：
+
+在进行 $m$ 次伸展操作之后，实际成本
+
+$$
+\begin{aligned}
+\sum_{i=1}^m t_i &amp;= \sum_{i=1}^m \left(c_i + \varphi_{i-1} - \varphi_i \right) \\
+&amp;= \sum_{i=1}^m c_i + \varphi_0 - \varphi_m \\
+&amp;\le m(3\log n+1) + n\log n.
+\end{aligned}
+$$
+
+因此，$m$ 次伸展操作的实际时间复杂度为 $O((m+n)\log n)$．
+</code></pre>
+<p>??? info "为什么 Splay 树的再平衡操作可以获得 $O(\log n)$ 的均摊复杂度？"
+    朴素的再平衡思路就是对节点反复进行旋转操作使其上升，直到它成为根节点．这种朴素思路的问题在于，对于所有子节点都是左（右）节点的链状树来说，它相当于反复进行 <strong>zig</strong> 操作，因而 <strong>zig</strong> 操作的均摊复杂度中的常数项 $1$ 会不断累积，造成最终的均摊复杂度达到 $O(\log n+n)$ 级别．Splay 树的再平衡操作的设计，避免了连续 <strong>zig</strong> 的情形中的常数累积，使得一次完整的伸展操作中，至多进行一次单独的 <strong>zig</strong> 操作，从而优化了时间复杂度．</p>
+<h2 id="_8">平衡树操作</h2>
+<p>本节讨论基于 Splay 树实现平衡树的常见操作的方法．其中，较为重要的是按照值或排名查找元素，它们可以将某个特定的元素找到，并上移至根节点处，以便后续处理．</p>
+<p>作为例子，本节将讨论模板题目 <a href="https://loj.ac/problem/104">普通平衡树</a> 的实现．</p>
+<h3 id="_9">按照值查找</h3>
+<p>作为二叉查找树，可以通过值 $v$ 查找到相应的节点，只需要将待查找的值 $v$ 和当前节点的值比较即可，找到后将该元素上移至根部即可．</p>
+<p>应注意，经常存在树中不存在相应的节点的情形．对于这种情形，要记录最后一个访问的节点（即实现中的 $y$），并将 $y$ 上移至根部．此时，节点 $y$ 存储的值必然要么是所有小于 $v$ 的元素中最大的（即 $v$ 的前驱），要么是所有大于 $v$ 的元素中最小的（即 $v$ 的后继）．这是因为查找过程保证，左子树总是存储小于 $v$ 的值，而右子树总是存储大于 $v$ 的值．</p>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:find"</code></p>
+<p>该实现允许指定任何节点 $z$ 作为根节点，并在它的子树内按值查找．</p>
+<h3 id="_10">按照排名访问</h3>
+<p>因为记录了子树大小信息，所以 Splay 树还可以通过排名访问元素，即查找树中第 $k$ 小的元素．</p>
+<p>设 $k$ 为剩余排名，具体步骤如下：</p>
+<ul>
+<li>如果左子树非空且剩余排名 $k$ 不大于左子树的大小，那么向左子树查找；</li>
+<li>否则，如果 $k$ 不大于左子树加上根的大小，那么根节点就是要寻找的；</li>
+<li>否则，将 $k$ 减去左子树的和根的大小，继续向右子树查找；</li>
+<li>将最终找到的元素上移至根部．</li>
+</ul>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:loc"</code></p>
+<p>该实现需要保证排名 $k$ 不超过根 $z$ 处的树大小．</p>
+<p>模板题目中操作 $4$ 要求按照排名返回值，直接调用该方法，并返回值即可．</p>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:find-kth"</code></p>
+<h3 id="_11">合并操作</h3>
+<p>有些时候需要合并两棵 Splay 树．</p>
+<p>设两棵树的根节点分别为 $x$ 和 $y$，那么为了保证结果仍是二叉查找树，需要要求 $x$ 树中的最大值小于 $y$ 树中的最小值．这条件通常都可以满足，因为两棵树往往是从更大的子树中分裂出的．</p>
+<p>合并操作如下：</p>
+<ul>
+<li>如果 $x$ 和 $y$ 其中之一或两者都为空树，直接返回不为空的那一棵树的根节点或空树；</li>
+<li>否则，通过 <code>loc(y, 1)</code> 将 $y$ 树中的最小值上移至根 $y$ 处，再将它的左节点（此时必然为空）设置为 $x$，并更新节点信息，返回节点 $y$．</li>
+</ul>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:merge"</code></p>
+<p>分裂操作类似．因而，Splay 树可以模拟 <a href="../treap/#无旋-treap">无旋 treap</a> 的思路做各种操作，包括区间操作．<a href="#序列操作">后文</a> 会介绍更具有 Splay 树风格的区间操作处理方法．</p>
+<h3 id="_12">插入操作</h3>
+<p>插入操作是一个比较复杂的过程．具体步骤如下：（假设插入的值为 $v$）</p>
+<ul>
+<li>类似按值查找的过程，根据 $v$ 向下查找到存储 $v$ 的节点或者空节点，过程中记录父节点 $y$；</li>
+<li>如果存在存储 $v$ 的节点 $x$，直接更新信息，否则就新建节点 $x$；</li>
+<li>做伸展操作，将最后一个节点 $x$ 上移至根部．</li>
+</ul>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:insert"</code></p>
+<p>该实现允许直接向空树内插入值．若不想处理空树，可以在树中提前插入哑节点．</p>
+<h3 id="_13">删除操作</h3>
+<p>删除操作也是一个比较复杂的操作．具体步骤如下：（假设删除的值为 $v$）</p>
+<ul>
+<li>首先按照值 $v$ 查找存储它的节点，并上移至根部；</li>
+<li>如果不存在存储它的节点，直接返回；（上一步已经做了伸展操作）</li>
+<li>否则，更新节点信息；</li>
+<li>如果得到的根节点为空节点，就合并左右子树作为新的根节点，注意合并前需要更新两个子树的根的父节点为空．</li>
+</ul>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:remove"</code></p>
+<h3 id="_14">查询排名</h3>
+<p>直接按照值 $v$ 访问节点（并上移至根），然后返回相应的值即可．</p>
+<p>注意，当 $v$ 不存在时，方法 <code>find(rt, v)</code> 返回的根和 $v$ 的大小关系无法确定，需要单独讨论．</p>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:find-rank"</code></p>
+<h3 id="_15">查询前驱</h3>
+<p>前驱定义为小于 $v$ 的最大的数．具体步骤如下：</p>
+<ul>
+<li>按照值 $v$ 访问节点（并上移至根部）；</li>
+<li>如果根部的值小于 $v$，那么它必然是最大的那个，直接返回；</li>
+<li>否则，在左子树中找到最大值，并上移至根部．</li>
+</ul>
+<p>最后一步相当于直接调用 <code>loc(ch[rt][0], sz[ch[rt][0]])</code>，只是省去了不必要的判断．</p>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:find-prev"</code></p>
+<p>该实现允许前驱不存在，此时返回 $-1$．</p>
+<h3 id="_16">查询后继</h3>
+<p>后继定义为大于 $x$ 的最小的数．查询方法和前驱类似，只是将左子树的最大值换成了右子树的最小值，即调用 <code>loc(ch[rt][1], 1)</code>．</p>
+<p>???+ example "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:find-next"</code></p>
+<h3 id="_17">参考实现</h3>
+<p>本节的最后，给出模板题目 <a href="https://loj.ac/problem/104">普通平衡树</a> 的参考实现．</p>
+<p>??? example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-1.cpp:full-text"</code></p>
+<h2 id="_18">序列操作</h2>
+<p>Splay 树也可以运用在序列上，用于维护区间信息．与线段树对比，Splay 树常数较大，但是支持更复杂的序列操作，如区间翻转等．上文提到 Splay 树同样支持分裂和合并操作，因而可以模拟 <a href="../treap/#无旋-treap">无旋 treap</a> 进行区间操作，在此不再过多讨论．本节主要讨论基于伸展操作的区间操作实现方法．</p>
+<p>将序列建成的 Splay 树有如下性质：</p>
+<ul>
+<li>Splay 树的中序遍历相当于原序列从左到右的遍历；</li>
+<li>Splay 树上的一个节点代表原序列的一个元素；</li>
+<li>Splay 树上的一颗子树，代表原序列的一段区间．</li>
+</ul>
+<p>因为有伸展操作，可以快速提取出代表某个区间的 Splay 子树．</p>
+<p>作为例子，本节将讨论模板题目 <a href="https://loj.ac/problem/105">文艺平衡树</a> 的实现．</p>
+<h3 id="_19">根据序列建树</h3>
+<p>在操作之前，需要根据所给的序列先把 Splay 树建出来．根据 Splay 树的特性，直接建出一颗只有左儿子的链即可．时间复杂度是 $O(n)$ 的．</p>
+<p>???+ example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-2.cpp:build"</code></p>
+<p>最后的伸展操作自下而上地更新了节点信息．为了后文区间操作方便，序列左右两侧添加了两个哨兵节点．</p>
+<h3 id="_20">区间翻转</h3>
+<p>以区间翻转为例，可以理解区间操作的方法：（设区间为 $[L,R]$）</p>
+<ul>
+<li>首先将节点 $L-1$ 上移到根节点，再在其右子树中，将节点 $R+1$ 上移到右子树的根节点；</li>
+<li>此时，设 $x$ 为根节点的右子节点的左子节点，则以 $x$ 为根的子树就对应着区间 $[L,R]$；</li>
+<li>在 $x$ 处对区间 $[L,R]$ 做操作，并打上懒标记；</li>
+<li>在 $x$ 处将标记下传一次，然后利用伸展操作将 $x$ 上移到根．</li>
+</ul>
+<p>第一步需要的操作就是前文平衡树操作中的「按照排名访问」，因为元素的标号就是它的排名．因为涉及懒标记的管理，它的实现与上文略有不同．</p>
+<p>???+ example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-2.cpp:reverse"</code></p>
+<p>最后一步的伸展操作并非为了保证复杂度正确，而是为了更新节点信息．因为伸展操作涉及到节点 $x$ 的左右子节点，所以之前需要将节点 $x$ 处的标记先下传一次．当然，仅对于区间翻转操作而言，子区间的翻转不会对祖先节点产生影响，所以省去这一步骤也是正确的．此处实现保留这两行，是为了说明一般的情形下的操作方法．</p>
+<h3 id="_21">懒标记管理</h3>
+<p>首先，需要辅助函数 <code>lazy_reverse(x)</code> 和 <code>push_down(x)</code>．前者交换左右节点，并更新懒标记；后者将标记下传．</p>
+<p>???+ example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-2.cpp:push-down"</code></p>
+<p>然后，只需要在向下经过节点时下传标记即可．模板题要求的操作比较简单，只有按照排名寻找的操作（即 <code>loc</code>）涉及向下访问节点．注意，需要在函数每次访问一个新的节点 <strong>前</strong> 下传标记．</p>
+<p>???+ example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-2.cpp:push-down-lazy"</code></p>
+<p>因为向下访问节点时已经移除了经过的路径的所有懒标记，所以利用伸展操作上移节点时不再需要处理懒标记．但是，对于区间操作的那一个节点要谨慎处理：因为它同样位于伸展操作的路径上，但是刚刚操作完，可能存在尚未下传的标记，需要首先下传再做伸展操作，正如同上文所做的那样．</p>
+<h3 id="_22">参考实现</h3>
+<p>本节的最后，给出模板题目 <a href="https://loj.ac/problem/105">文艺平衡树</a> 的参考实现．</p>
+<p>??? example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/splay/splay-2.cpp:full-text"</code></p>
+<h2 id="_23">习题</h2>
+<p>这些题目都是裸的 Splay 树维护二叉查找树：</p>
+<ul>
+<li><a href="https://loj.ac/problem/104">【模板】普通平衡树</a></li>
+<li><a href="https://loj.ac/problem/105">【模板】文艺平衡树</a></li>
+<li><a href="https://loj.ac/problem/10143">「HNOI2002」营业额统计</a></li>
+<li><a href="https://loj.ac/problem/10144">「HNOI2004」宠物收养所</a></li>
+</ul>
+<p>Splay 树还出现在更复杂的应用场景中：</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4402">「Cerc2007」robotic sort 机械排序</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3215">「HNOI2011」括号修复/「JSOI2011」括号序列</a></li>
+<li><a href="https://loj.ac/problem/106">二逼平衡树（树套树）</a></li>
+<li><a href="https://hydro.ac/p/bzoj-P2827">BZOJ 2827 千山鸟飞绝</a></li>
+<li><a href="https://hydro.ac/p/bzoj-P4923">「Lydsy1706 月赛」K 小值查询</a></li>
+<li><a href="http://poj.org/problem?id=3580">POJ3580 SuperMemo</a></li>
+</ul>
+<h2 id="_24">参考资料与注释</h2>
+<p>本文部分内容引用于 algocode 算法博客，特别鸣谢！</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

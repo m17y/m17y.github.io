@@ -1,0 +1,1336 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/number-theory/basic/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Basic - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整除
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="整除">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        约数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        带余数除法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最大公约数与最小公倍数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最大公约数与最小公倍数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        互素
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        辗转相除法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        素数与合数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算术基本定理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同余
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同余类与剩余系
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="同余类与剩余系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        剩余系的复合
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数论函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数论函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        积性函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="积性函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        加性函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="加性函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        取整函数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/number-theory/basic.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Basic</h1>
+
+<p>本文对于数论的开头部分做一个简介．</p>
+<h2 id="_1">整除</h2>
+<p>???+ note "定义"
+    设 $a,b\in\mathbf{Z}$，$a\ne 0$．如果 $\exists q\in\mathbf{Z}$，使得 $b=aq$，那么就说 $b$ 可被 $a$  <strong>整除</strong>，记作 $a\mid b$；$b$ 不被 $a$ 整除记作 $a\nmid b$．</p>
+<p>整除的性质：</p>
+<ul>
+<li>$a\mid b\iff-a\mid b\iff a\mid-b\iff|a|\mid|b|$</li>
+<li>$a\mid b\land b\mid c\implies a\mid c$</li>
+<li>$a\mid b\land a\mid c\iff\forall x,y\in\mathbf{Z}, a\mid(xb+yc)$</li>
+<li>$a\mid b\land b\mid a\implies b=\pm a$</li>
+<li>设 $m\ne0$，那么 $a\mid b\iff ma\mid mb$．</li>
+<li>设 $b\ne0$，那么 $a\mid b\implies|a|\le|b|$．</li>
+<li>设 $a\ne0,b=qa+c$，那么 $a\mid b\iff a\mid c$．</li>
+</ul>
+<h3 id="_2">约数</h3>
+<p>???+ note "定义"
+    若 $a\mid b$，则称 $b$ 是 $a$ 的 <strong>倍数</strong>，$a$ 是 $b$ 的 <strong>约数</strong>．</p>
+<p>$0$ 是所有非 $0$ 整数的倍数．对于整数 $b\ne0$，$b$ 的约数只有有限个．</p>
+<p>平凡约数（平凡因数）：对于整数 $b\ne0$，$\pm1$、$\pm b$ 是 $b$ 的平凡约数．当 $b=\pm1$ 时，$b$ 只有两个平凡约数．</p>
+<p>对于整数 $b\ne 0$，$b$ 的其他约数称为真约数（真因数、非平凡约数、非平凡因数）．</p>
+<p>约数的性质：</p>
+<ul>
+<li>设整数 $b\ne0$．当 $d$ 遍历 $b$ 的全体约数的时候，$\dfrac{b}{d}$ 也遍历 $b$ 的全体约数．</li>
+<li>设整数 $b\gt 0$，则当 $d$ 遍历 $b$ 的全体正约数的时候，$\dfrac{b}{d}$ 也遍历 $b$ 的全体正约数．</li>
+</ul>
+<p>在具体问题中，<strong>如果没有特别说明，约数总是指正约数．</strong></p>
+<h2 id="_3">带余数除法</h2>
+<p>???+ note "余数"
+    设 $a,b$ 为两个给定的整数，$a\ne0$．设 $d$ 是一个给定的整数．那么，一定存在唯一的一对整数 $q$ 和 $r$，满足 $b=qa+r,d\le r&lt;|a|+d$．</p>
+<p>无论整数 $d$ 取何值，$r$ 统称为余数．$a\mid b$ 等价于 $a\mid r$．</p>
+<p>一般情况下，$d$ 取 $0$，此时等式 $b=qa+r,0\le r&lt;|a|$ 称为带余数除法（带余除法）．这里的余数 $r$ 称为最小非负余数．</p>
+<p>余数往往还有两种常见取法：</p>
+<ul>
+<li>绝对最小余数：$d$ 取 $a$ 的绝对值的一半的相反数．即 $b=qa+r,-\dfrac{|a|}{2}\le r&lt;|a|-\dfrac{|a|}{2}$．</li>
+<li>最小正余数：$d$ 取 $1$．即 $b=qa+r,1\le r&lt;|a|+1$．</li>
+</ul>
+<p>带余数除法的余数只有最小非负余数．<strong>如果没有特别说明，余数总是指最小非负余数．</strong></p>
+<p>余数的性质：</p>
+<ul>
+<li>任一整数被正整数 $a$ 除后，余数一定是且仅是 $0$ 到 $(a-1)$ 这 $a$ 个数中的一个．</li>
+<li>相邻的 $a$ 个整数被正整数 $a$ 除后，恰好取到上述 $a$ 个余数．特别地，一定有且仅有一个数被 $a$ 整除．</li>
+</ul>
+<h2 id="_4">最大公约数与最小公倍数</h2>
+<p>关于公约数、公倍数、最大公约数与最小公倍数，四个名词的定义，见 <a href="../gcd/">最大公约数</a>．</p>
+<p>???+ warning "Warning"
+    一些作者认为 $0$ 和 $0$ 的最大公约数无定义，其余作者一般将其视为 $0$．C++ STL 的实现中采用后者，即认为 $0$ 和 $0$ 的最大公约数为 $0$[^gcdcpp]．</p>
+<p>最大公约数有如下性质：</p>
+<ul>
+<li>$(a_1,\dots,a_n)=(|a_1|,\dots,|a_n|)$；</li>
+<li>$(a,b)=(b,a)$；</li>
+<li>若 $a\ne 0$，则 $(a,0)=(a,a)=|a|$；</li>
+<li>$(bq+r,b)=(r,b)$；</li>
+<li>$(a_1,\dots,a_n)=((a_1,a_2),a_3,\dots,a_n)$．进而 $\forall 1&lt;k&lt;n-1,~(a_1,\dots,a_n)=((a_1,\dots,a_k),(a_{k+1},\dots,a_n))$；</li>
+<li>对不全为 $0$ 的整数 $a_1,\dots,a_n$ 和非零整数 $m$，$(ma_1,\dots,ma_n)=|m|(a_1,\dots,a_n)$；</li>
+<li>对不全为 $0$ 的整数 $a_1,\dots,a_n$，若 $(a_1,\dots,a_n)=d$，则 $(a_1/d,\dots,a_n/d)=1$；</li>
+<li>$(a^n,b^n)=(a,b)^n$．</li>
+</ul>
+<p>最大公约数还有如下与互素相关的性质：</p>
+<ul>
+<li>若 $b|ac$ 且 $(a,b)=1$，则 $b\mid c$；</li>
+<li>若 $b|c$、$a|c$ 且 $(a,b)=1$，则 $ab\mid c$；</li>
+<li>若 $(a,b)=1$，则 $(a,bc)=(a,c)$；</li>
+<li>若 $(a_i,b_j)=1,~\forall 1\leq i\leq n,1\leq j\leq m$，则 $\left(\prod_i a_i,\prod_j b_j\right)=1$．特别地，若 $(a,b)=1$，则 $(a^n,b^m)=1$；</li>
+<li>对整数 $a_1,\dots,a_n$，若 $\exists v\in \mathbf{Z},~\prod_i a_i=v^m$，且 $(a_i,a_j)=1,~\forall i\ne j$，则 $\forall 1\leq i\leq n,~\sqrt[m]{a_i}\in\mathbf{Z}$．</li>
+</ul>
+<p>最小公倍数有如下性质：</p>
+<ul>
+<li>$[a_1,\dots,a_n]=[|a_1|,\dots,|a_n|]$；</li>
+<li>$[a,b]=[b,a]$；</li>
+<li>若 $a\ne 0$，则 $[a,1]=[a,a]=|a|$；</li>
+<li>若 $a\mid b$，则 $[a,b]=|b|$；</li>
+<li>$[a_1,\dots,a_n]=[[a_1,a_2],a_3,\dots,a_n]$．进而 $\forall 1&lt;k&lt;n-1,~[a_1,\dots,a_n]=[[a_1,\dots,a_k],[a_{k+1},\dots,a_n]]$；</li>
+<li>若 $a_i\mid m,~\forall 1\leq i\leq n$，则 $[a_1,\dots,a_n]\mid m$；</li>
+<li>$[ma_1,\dots,ma_n]=|m|[a_1,\dots,a_n]$；</li>
+<li>$[a,b,c][ab,bc,ca]=[a,b][b,c][c,a]$；</li>
+<li>$[a^n,b^n]=[a,b]^n$．</li>
+</ul>
+<p>最大公约数和最小公倍数可以组合出很多奇妙的等式，如：</p>
+<ul>
+<li>$(a,b)[a,b]=|ab|$；</li>
+<li>$(ab,bc,ca)[a,b,c]=|abc|$；</li>
+<li>$\dfrac{(a,b,c)^2}{(a,b)(b,c)(a,c)}=\dfrac{[a,b,c]^2}{[a,b][b,c][a,c]}$．</li>
+</ul>
+<p>这些性质均可通过定义或 <a href="#算术基本定理">唯一分解定理</a> 证明，其中使用唯一分解定理的证明更容易理解．</p>
+<h3 id="_5">互素</h3>
+<p>???+ note "定义"
+    若 $(a_1,a_2)=1$，则称 $a_1$ 和 $a_2$  <strong>互素</strong>（<strong>既约</strong>）．</p>
+<pre><code>若 $(a_1,\ldots,a_k)=1$，则称 $a_1,\ldots,a_k$  **互素**（**既约**）．
+</code></pre>
+<p>多个整数互素，不一定两两互素．例如 $6$、$10$ 和 $15$ 互素，但是任意两个都不互素．</p>
+<p>互素的性质与最大公约数理论：裴蜀定理（Bézout's identity）．见 <a href="../bezouts/">裴蜀定理</a>．</p>
+<h3 id="_6">辗转相除法</h3>
+<p>辗转相除法是一种算法，也称 Euclid 算法．见 <a href="../gcd/">最大公约数</a>．</p>
+<h2 id="_7">素数与合数</h2>
+<p>关于素数的算法见 <a href="../prime/">素数</a>．</p>
+<p>???+ note "定义"
+    设整数 $p\ne0,\pm1$．如果 $p$ 除了平凡约数外没有其他约数，那么称 $p$ 为 <strong>素数</strong>（<strong>不可约数</strong>）．</p>
+<pre><code>若整数 $a\ne0,\pm 1$ 且 $a$ 不是素数，则称 $a$ 为 **合数**．
+</code></pre>
+<p>$p$ 和 $-p$ 总是同为素数或者同为合数．<strong>如果没有特别说明，素数总是指正的素数．</strong></p>
+<p>整数的因数是素数，则该素数称为该整数的素因数（素约数）．</p>
+<p>素数与合数的简单性质：</p>
+<ul>
+<li>大于 $1$ 的整数 $a$ 是合数，等价于 $a$ 可以表示为整数 $d$ 和 $e$（$1&lt;d,e&lt;a$）的乘积．</li>
+<li>如果素数 $p$ 有大于 $1$ 的约数 $d$，那么 $d=p$．</li>
+<li>大于 $1$ 的整数 $a$ 一定可以表示为素数的乘积．</li>
+<li>对于合数 $a$，一定存在素数 $p\le\sqrt{a}$ 使得 $p\mid a$．</li>
+<li>素数有无穷多个．</li>
+<li>所有大于 $3$ 的素数都可以表示为 $6n\pm 1$ 的形式[^ref1]．</li>
+</ul>
+<h2 id="_8">算术基本定理</h2>
+<p>???+ note "算术基本引理"
+    设 $p$ 是素数，$p\mid a_1a_2$，那么 $p\mid a_1$ 和 $p\mid a_2$ 至少有一个成立．</p>
+<p>算术基本引理的逆命题稍加修改也可以得到素数的另一种定义．</p>
+<p>???+ note "素数的另一种定义"
+    对整数 $p\ne 0,\pm 1$，若对任意满足 $p\mid a_1a_2$ 的整数 $a_1,a_2$ 均有 $p\mid a_1$ 或 $p\mid a_2$ 成立，则称 $p$ 是素数．</p>
+<p>??? tip "Tip"
+    这个定义的动机可以从 <a href="../../algebra/ring-theory/#素理想">素理想</a> 中找到．</p>
+<p>???+ note "算术基本定理（唯一分解定理）"
+    设正整数 $a$，那么必有表示：</p>
+<pre><code>$$
+a=p_1p_2\cdots p_s
+$$
+
+其中 $p_j(1\le j\le s)$ 是素数．并且在不计次序的意义下，该表示唯一．
+</code></pre>
+<p>???+ note "标准素因数分解式"
+    将上述表示中，相同的素数合并，可得：</p>
+<pre><code>$$
+a={p_1}^{\alpha_1}{p_2}^{\alpha_2}\cdots{p_s}^{\alpha_s},p_1&lt;p_2&lt;\cdots&lt;p_s
+$$
+
+称为正整数 $a$ 的标准素因数分解式．
+</code></pre>
+<p>算术基本定理和算术基本引理，两个定理是等价的．</p>
+<h2 id="_9">同余</h2>
+<p>???+ note "定义"
+    设整数 $m\ne0$．若 $m\mid(a-b)$，称 $m$ 为 <strong>模数</strong>（<strong>模</strong>），$a$ 同余于 $b$ 模 $m$，$b$ 是 $a$ 对模 $m$ 的 <strong>剩余</strong>．记作 $a\equiv b\pmod m$．</p>
+<pre><code>否则，$a$ 不同余于 $b$ 模 $m$，$b$ 不是 $a$ 对模 $m$ 的剩余．记作 $a\not\equiv b\pmod m$．
+
+这样的等式，称为模 $m$ 的同余式，简称 **同余式**．
+</code></pre>
+<p>根据整除的性质，上述同余式也等价于 $a\equiv b\pmod{(-m)}$．</p>
+<p>后文中，如果没有特别说明，模数总是 <strong>正整数</strong>．</p>
+<p>式中的 $b$ 是 $a$ 对模 $m$ 的剩余，这个概念与余数完全一致．通过限定 $b$ 的范围，相应的有 $a$ 对模 $m$ 的最小非负剩余、绝对最小剩余、最小正剩余．</p>
+<p>同余的性质：</p>
+<ul>
+<li>同余是 <a href="../../order-theory/#二元关系">等价关系</a>，即同余具有<ul>
+<li>自反性：$a\equiv a\pmod m$．</li>
+<li>对称性：若 $a\equiv b\pmod m$，则 $b\equiv a\pmod m$．</li>
+<li>传递性：若 $a\equiv b\pmod m,b\equiv c\pmod m$，则 $a\equiv c\pmod m$．</li>
+</ul>
+</li>
+<li>线性运算：若 $a,b,c,d\in\mathbf{Z},m\in\mathbf{N}^*,a\equiv b\pmod m,c\equiv d\pmod m$ 则有：<ul>
+<li>$a\pm c\equiv b\pm d\pmod m$．</li>
+<li>$a\times c\equiv b\times d\pmod m$．</li>
+</ul>
+</li>
+<li>设 $f(x)=\sum_{i=0}^n a_ix^i$ 和 $g(x)=\sum_{i=0}^n b_ix^i$ 是两个整系数多项式，$m\in\mathbf{N}^*$，且 $a_i\equiv b_i\pmod m,~0\leq i\leq n$，则对任意整数 $x$ 均有 $f(x)\equiv g(x)\pmod m$．进而若 $s\equiv t\pmod m$，则 $f(s)\equiv g(t)\pmod m$．</li>
+<li>若 $a,b\in\mathbf{Z},k,m\in\mathbf{N}^*,a\equiv b\pmod m$, 则 $ak\equiv bk\pmod{mk}$．</li>
+<li>若 $a,b\in\mathbf{Z},d,m\in\mathbf{N}^*,d\mid a,d\mid b,d\mid m$，则当 $a\equiv b\pmod m$ 成立时，有 $\dfrac{a}{d}\equiv\dfrac{b}{d}\left(\bmod\;{\dfrac{m}{d}}\right)$．</li>
+<li>若 $a,b\in\mathbf{Z},d,m\in\mathbf{N}^*,d\mid m$，则当 $a\equiv b\pmod m$ 成立时，有 $a\equiv b\pmod d$．</li>
+<li>若 $a,b\in\mathbf{Z},d,m\in\mathbf{N}^*$，则当 $a\equiv b\pmod m$ 成立时，有 $(a,m)=(b,m)$．若 $d$ 能整除 $m$ 及 $a,b$ 中的一个，则 $d$ 必定能整除 $a,b$ 中的另一个．</li>
+</ul>
+<p>还有性质是乘法逆元．见 <a href="../inverse/">乘法逆元</a>．</p>
+<h2 id="_10">同余类与剩余系</h2>
+<p>为方便讨论，对集合 $A,B$ 和元素 $r$，我们引入如下记号：</p>
+<ul>
+<li>$r+A:={r+a:a\in A}$；</li>
+<li>$rA:={ra:a\in A}$；</li>
+<li>$A+B:={a+b:a\in A,b\in B}$；</li>
+<li>$AB:={ab:a\in A,b\in B}$．</li>
+</ul>
+<p>???+ note "同余类"
+    对非零整数 $m$，把全体整数分成 $|m|$ 个两两不交的集合，且同一个集合中的任意两个数模 $m$ 均同余，我们把这 $|m|$ 个集合均称为模 $m$ 的 <strong>同余类</strong> 或 <strong>剩余类</strong>．用 $r\bmod m$ 表示含有整数 $r$ 的模 $m$ 的同余类．</p>
+<pre><code>不难证明对任意非零整数 $m$，上述划分方案一定存在且唯一．
+</code></pre>
+<p>由同余类的定义可知：</p>
+<ul>
+<li>$r\bmod m={r+km:k\in\mathbf{Z}}$；</li>
+<li>$r\bmod m=s\bmod m\iff r\equiv s\pmod m$；</li>
+<li>对任意 $r,s\in\mathbf{Z}$，要么 $r\bmod m=s\bmod m$，要么 $(r\bmod m)\cap (s\bmod m)=\varnothing$；</li>
+<li>若 $m_1\mid m$，则对任意整数 $r$ 均有 $r+m\mathbf{Z}\subseteq r+m_1\mathbf{Z}$．</li>
+</ul>
+<p>注意到同余是等价关系，所以同余类即为同余关系的等价类．</p>
+<p>我们把模 $m$ 的同余类全体构成的集合记为 $\mathbf{Z}_m$，即</p>
+<p>$$
+\mathbf{Z}_m:={r\bmod m:0\leq r&lt;m}
+$$</p>
+<p>不难发现：</p>
+<ul>
+<li>对任意整数 $a$，$a+\mathbf{Z}_m=\mathbf{Z}_m$；</li>
+<li>对任意与 $m$ 互质的整数 $b$，$b\mathbf{Z}_m=\mathbf{Z}_m$．</li>
+</ul>
+<p>由 <a href="../../algebra/group-theory/#商群">商群</a> 的定义可知 $\mathbf{Z}_m=\mathbf{Z}/m\mathbf{Z}$，所以有时我们也会用 $\mathbf{Z}/m\mathbf{Z}$ 表示 $\mathbf{Z}_m$．</p>
+<p>由 <a href="../../combinatorics/drawer-principle/">抽屉原理</a> 可知：</p>
+<ul>
+<li>任取 $m+1$ 个整数，必有两个整数模 $m$ 同余．</li>
+<li>存在 $m$ 个两两模 $m$ 不同余的整数．</li>
+</ul>
+<p>由此我们给出完全剩余系的定义：</p>
+<p>???+ note "（完全）剩余系"
+    对 $m$ 个整数 $a_1,a_2,\dots,a_m$，若对任意的数 $x$，有且仅有一个数 $a_i$ 使得 $x$ 与 $a_i$ 模 $m$ 同余，则称这 $m$ 个整数 $a_1,a_2,\dots,a_m$ 为模 $m$ 的 <strong>完全剩余系</strong>，简称 <strong>剩余系</strong>．</p>
+<p>我们还可以定义模 $m$ 的：</p>
+<ul>
+<li>最小非负（完全）剩余系：$0,\dots,m-1$；</li>
+<li>最小正（完全）剩余系：$1,\dots,m$；</li>
+<li>绝对最小（完全）剩余系：$-\lfloor m/2\rfloor,\dots,-\lfloor -m/2\rfloor-1$；</li>
+<li>最大非正（完全）剩余系：$-m+1,\dots,0$；</li>
+<li>最大负（完全）剩余系：$-m,\dots,-1$．</li>
+</ul>
+<p>若无特殊说明，一般我们只用最小非负剩余系．</p>
+<p>我们注意到如下命题成立：</p>
+<ul>
+<li>在模 $m$ 的任意一个同余类中，任取两个整数 $a_1,a_2$ 均有 $(a_1,m)=(a_2,m)$．</li>
+</ul>
+<p>考虑同余类 $r\bmod m$，若 $(r,m)=1$，则该同余类的所有元素均与 $m$ 互质，这说明我们也许可以通过类似方式得知所有与 $m$ 互质的整数构成的集合的结构．</p>
+<p>???+ note "既约同余类"
+    对同余类 $r\bmod m$，若 $(r,m)=1$，则称该同余类为 <strong>既约同余类</strong> 或 <strong>既约剩余类</strong>．</p>
+<pre><code>我们把模 $m$ 既约剩余类的个数记作 $\varphi(m)$，称其为 [Euler 函数](./euler-totient.md)．
+</code></pre>
+<p>我们把模 $m$ 的既约同余类全体构成的集合记为 $\mathbf{Z}_m^*$，即</p>
+<p>$$
+\mathbf{Z}_m^*:={r\bmod m:0\leq r&lt;m,(r,m)=1}
+$$</p>
+<p>???+ warning "Warning"
+    对于任意的整数 $a$ 和与 $m$ 互质的整数 $b$，$b\mathbf{Z}_m^<em>=\mathbf{Z}_m^</em>$，但是 $a+\mathbf{Z}_m^<em>$ 不一定为 $\mathbf{Z}_m^</em>$．这一点与 $\mathbf{Z}_m$ 不同．</p>
+<p>由 <a href="../../combinatorics/drawer-principle/">抽屉原理</a> 可知：</p>
+<ul>
+<li>任取 $\varphi(m)+1$ 个与 $m$ 互质的整数，必有两个整数模 $m$ 同余．</li>
+<li>存在 $\varphi(m)$ 个与 $m$ 互质且两两模 $m$ 不同余的整数．</li>
+</ul>
+<p>由此我们给出既约剩余系的定义：</p>
+<p>???+ note "既约剩余系"
+    对 $t=\varphi(m)$ 个整数 $a_1,a_2,\dots,a_t$，若 $(a_i,m)=1,~\forall 1\leq i\leq t$，且对任意满足 $(x,m)=1$ 的数 $x$，有且仅有一个数 $a_i$ 使得 $x$ 与 $a_i$ 模 $m$ 同余，则称这 $t$ 个整数 $a_1,a_2,\dots,a_t$ 为模 $m$ 的 <strong>既约剩余系</strong>、<strong>缩剩余系</strong> 或 <strong>简化剩余系</strong>．</p>
+<p>类似地，我们也可以定义最小非负既约剩余系等概念．</p>
+<p>若无特殊说明，一般我们只用最小非负既约剩余系．</p>
+<h3 id="_11">剩余系的复合</h3>
+<p>对正整数 $m$，我们有如下定理：</p>
+<ul>
+<li>
+<p>若 $m=m_1m_2,~1\leq m_1,m_2$，令 $Z_{m_1},Z_{m_2}$ 分别为模 $m_1,m_2$ 的 <strong>完全</strong> 剩余系，则对任意与 $m_1$ 互质的 $a$ 均有：</p>
+<p>$$
+Z_m=aZ_{m_1}+m_1Z_{m_2}.
+$$</p>
+<p>为模 $m$ 的 <strong>完全</strong> 剩余系．进而，若 $m=\prod_{i=1}^k m_i,~1\leq m_1,m_2,\dots,m_k$，令 $Z_{m_1},\dots,Z_{m_k}$ 分别为模 $m_1,\dots,m_k$ 的 <strong>完全</strong> 剩余系，则：</p>
+<p>$$
+Z_m=\sum_{i=1}^k\left(\prod_{j=1}^{i-1}m_j\right)Z_{m_i}.
+$$</p>
+<p>为模 $m$ 的 <strong>完全</strong> 剩余系．</p>
+</li>
+</ul>
+<p>???+ note "证明"
+    只需证明对任意满足 $ax+m_1y\equiv ax'+m_1y'\pmod{m_1m_2}$ 的 $x,x'\in Z_{m_1}$，$y,y'\in Z_{m_2}$，都有：</p>
+<pre><code>$$
+ax+m_1y=ax'+m_1y'.
+$$
+
+实际上，由 $m_1\mid m_1m_2$，我们有 $ax+m_1y\equiv ax'+m_1y'\pmod{m_1}$，进而 $ax\equiv ax'\pmod{m_1}$，由 $(a,m_1)=1$ 可知 $x\equiv x'\pmod{m_1}$，进而有 $x=x'$．
+
+进一步，$m_1y\equiv m_1y'\pmod{m_1m_2}$，则 $y\equiv y'\pmod{m_2}$，即 $y=y'$．
+
+因此，
+
+$$
+ax+m_1y=ax'+m_1y'.
+$$
+</code></pre>
+<ul>
+<li>
+<p>若 $m=m_1m_2,~1\leq m_1,m_2,(m_1,m_2)=1$，令 $Z_{m_1}^<em>,Z_{m_2}^</em>$ 分别为模 $m_1,m_2$ 的 <strong>既约</strong> 剩余系，则：</p>
+<p>$$
+Z_m^<em>=m_2Z_{m_1}^</em>+m_1Z_{m_2}^*.
+$$</p>
+<p>为模 $m$ 的 <strong>既约</strong> 剩余系．</p>
+</li>
+</ul>
+<p>???+ tip "Tip"
+    该定理等价于证明 Euler 函数为 <a href="#积性函数">积性函数</a>．</p>
+<p>???+ note "证明"
+    令 $Z_{m_1},Z_{m_2}$ 分别为模 $m_1,m_2$ 的完全剩余系，我们已经证明了</p>
+<pre><code>$$
+Z_m=m_2Z_{m_1}+m_1Z_{m_2}
+$$
+
+为模 $m$ 的完全剩余系．令 $M=\{a\in Z_m:(a,m)=1\}\subseteq Z_m$，显然 $M$ 为模 $m$ 的既约剩余系，所以我们只需证明 $M=Z_m^*$ 即可．
+
+显然 $Z_m^*\subseteq Z_m$．
+
+任取 $m_2x+m_1y\in M$，其中 $x\in Z_{m_1}$ 且 $y\in Z_{m_2}$，有 $(m_2x+m_1y,m_1m_2)=1$，由 $(m_1,m_2)=1$ 可得
+
+$$
+1=(m_2x+m_1y,m_1)=(m_2x,m_1)=(x,m_1),
+$$
+
+$$
+1=(m_2x+m_1y,m_2)=(m_1y,m_2)=(y,m_2).
+$$
+
+因此可得 $x\in Z_{m_1}^*$ 且 $y\in Z_{m_2}^*$，即 $M\subseteq Z_m^*$．
+
+任取 $m_2x+m_1y\in Z_m^*$，其中 $x\in Z_{m_1}^*$ 且 $y\in Z_{m_2}^*$，有 $(x,m_1)=1$ 且 $(y,m_2)=1$，由 $(m_1,m_2)=1$ 可得
+
+$$
+(m_2x+m_1y,m_1)=(m_2x,m_1)=(x,m_1)=1,
+$$
+
+$$
+(m_2x+m_1y,m_2)=(m_1y,m_2)=(x,m_2)=1,
+$$
+
+因此可得 $(m_2x+m_1y,m_1m_2)=1$，即 $Z_m^*\subseteq M$．
+
+综上所述，
+
+$$
+Z_m^*=m_2Z_{m_1}^*+m_1Z_{m_2}^*.
+$$
+
+为模 $m$ 的 **既约** 剩余系．
+</code></pre>
+<h2 id="_12">数论函数</h2>
+<p>数论函数（也称算术函数）指定义域为正整数的函数．数论函数也可以视作一个数列．</p>
+<h3 id="_13">积性函数</h3>
+<p>???+ note "定义"
+    在数论中，若函数 $f(n)$ 满足 $f(1)=1$，且 $f(xy)=f(x)f(y)$ 对任意互质的 $x, y \in\mathbf{N}^<em>$ 都成立，则 $f(n)$ 为 </em><em>积性函数</em>*．</p>
+<pre><code>在数论中，若函数 $f(n)$ 满足 $f(1)=1$ 且 $f(xy)=f(x)f(y)$ 对任意的 $x, y \in\mathbf{N}^*$ 都成立，则 $f(n)$ 为 **完全积性函数**．
+</code></pre>
+<h4 id="_14">性质</h4>
+<p>若 $f(x)$ 和 $g(x)$ 均为积性函数，则以下函数也为积性函数：</p>
+<p>$$
+\begin{aligned}
+h(x)&amp;=f(x^p)\
+h(x)&amp;=f^p(x)\
+h(x)&amp;=f(x)g(x)\
+h(x)&amp;=\sum_{d\mid x}f(d)g\left(\dfrac{x}{d}\right)
+\end{aligned}
+$$</p>
+<p>对正整数 $x$，设其唯一质因数分解为 $x=\prod p_i^{k_i}$，其中 $p_i$ 为质数．</p>
+<p>若 $F(x)$ 为积性函数，则有 $F(x)=\prod F(p_i^{k_i})$．</p>
+<p>若 $F(x)$ 为完全积性函数，则有 $F(x)=\prod F(p_i^{k_i})=\prod F(p_i)^{k_i}$．</p>
+<h4 id="_15">例子</h4>
+<ul>
+<li>单位函数：$\varepsilon(n)=[n=1]$．（完全积性）</li>
+<li>恒等函数：$\operatorname{id}<em>k(n)=n^k$，$\operatorname{id}</em>{1}(n)$ 通常简记作 $\operatorname{id}(n)$．（完全积性）</li>
+<li>常数函数：$1(n)=1$．（完全积性）</li>
+<li>除数函数：$\sigma_{k}(n)=\sum_{d\mid n}d^{k}$．$\sigma_{0}(n)$ 通常简记作 $d(n)$ 或 $\tau(n)$，$\sigma_{1}(n)$ 通常简记作 $\sigma(n)$．</li>
+<li>欧拉函数：$\varphi(n)=\sum_{i=1}^n[(i,n)=1]$．</li>
+<li>莫比乌斯函数：$\mu(n)=\begin{cases}1&amp;n=1\0&amp;\exists d&gt;1,d^{2}\mid n\(-1)^{\omega(n)}&amp;\text{otherwise}\end{cases}$，其中 $\omega(n)$ 表示 $n$ 的本质不同质因子个数．</li>
+</ul>
+<h3 id="_16">加性函数</h3>
+<p>???+ note "定义"
+    在数论中，若函数 $f(n)$ 满足 $f(1)=0$ 且 $f(xy)=f(x)+f(y)$ 对任意互质的 $x, y \in\mathbf{N}^<em>$ 都成立，则 $f(n)$ 为 </em><em>加性函数</em>*．</p>
+<pre><code>在数论中，若函数 $f(n)$ 满足 $f(1)=0$ 且 $f(xy)=f(x)+f(y)$ 对任意的 $x, y \in\mathbf{N}^*$ 都成立，则 $f(n)$ 为 **完全加性函数**．
+</code></pre>
+<p>???+ warning "加性函数"
+    本节中的加性函数指数论上的加性函数 (Additive function)，应与代数中的 Additive map 做区分．</p>
+<h4 id="_17">性质</h4>
+<p>对正整数 $x$，设其唯一质因数分解为 $x=\prod p_i^{k_i}$，其中 $p_i$ 为质数．</p>
+<p>若 $F(x)$ 为加性函数，则有 $F(x)=\sum F(p_i^{k_i})$．</p>
+<p>若 $F(x)$ 为完全加性函数，则有 $F(x)=\sum F(p_i^{k_i})=\sum F(p_i)\cdot k_i$．</p>
+<h4 id="_18">例子</h4>
+<p>为方便叙述，令所有质数组成的集合为 $\mathbf P$.</p>
+<ul>
+<li>素因数分解中 $p$ 的重数：$\nu_p(n) = \max{k\in\mathbf N: p^k\mid n}$，其中，$p\in\mathbf P$．（完全加性）</li>
+<li>所有质因子数目：$\Omega(n)=\sum_{p \in\mathbf P} \nu_p(n)$．（完全加性）</li>
+<li>相异质因子数目：$\omega(n)=\sum_{p \in\mathbf P} [p \mid n]$．</li>
+<li>所有质因子之和：$a_0(n)=\sum_{p \in\mathbf P} \nu_p(n)\cdot p$．（完全加性）</li>
+<li>相异质因子之和：$a_1(n)=\sum_{p \in\mathbf P} [p \mid n] \cdot p$．</li>
+</ul>
+<h2 id="_19">取整函数</h2>
+<p>对于实数 $x$，定义 <strong>下取整函数</strong>（floor function）和 <strong>上取整函数</strong>（ceiling function）分别为</p>
+<p>$$
+\lfloor x\rfloor = \max{k\in\mathbf Z:k\le x},~\lceil x\rceil = \min{k\in\mathbf Z:k\ge x}.
+$$</p>
+<p>利用下取整函数，一个实数可以分解为整数部分和小数部分：$x = \lfloor x\rfloor + {x}$．其中，${x}$ 表示 $x$ 的小数部分．</p>
+<p>取整函数有如下基本性质：（$x\in\mathbf R,~n\in\mathbf Z$）</p>
+<ul>
+<li>$x\in\mathbf Z \iff x = \lfloor x\rfloor = \lceil x\rceil$．</li>
+<li>$\lceil x\rceil - \lfloor x\rfloor = [x\notin\mathbf Z]$．</li>
+<li>$x - 1 &lt; \lfloor x\rfloor \le x \le \lceil x\rceil &lt; x + 1$．</li>
+<li>$\lfloor -x\rfloor = -\lceil x\rceil,~\lceil -x\rceil = -\lfloor x\rfloor$．</li>
+<li>$\lfloor x + n\rfloor = \lfloor x\rfloor + n,~\lceil x + n\rceil = \lceil x \rceil + n$．</li>
+<li>$\lfloor x\rfloor$ 和 $\lceil x\rceil$ 都是关于 $x$ 的单调弱增函数．</li>
+</ul>
+<p>证明关于下（上）取整函数的等式经常用到如下等价形式：（$x\in\mathbf R,~n\in\mathbf Z$）</p>
+<ul>
+<li>$\lfloor x\rfloor = n \iff n \le x &lt; n + 1 \iff x - 1 &lt; n \le x$．</li>
+<li>$\lceil x\rceil = n \iff n - 1 &lt; x \le n \iff x \le n &lt; x + 1$．</li>
+</ul>
+<p>证明关于下（上）取整函数的不等式经常用到如下等价形式：（$x\in\mathbf R,~n\in\mathbf Z$）</p>
+<ul>
+<li>$x &lt; n \iff \lfloor x\rfloor &lt; n$．</li>
+<li>$n &lt; x \iff n &lt; \lceil x\rceil$．</li>
+<li>$x \le n \iff \lceil x\rceil \le n$．</li>
+<li>$n \le x \iff n \le \lfloor x\rfloor$．</li>
+</ul>
+<p>涉及和、差的性质如下：（$x,y\in\mathbf R$）</p>
+<ul>
+<li>$\lfloor x\rfloor + \lfloor y\rfloor \le \lfloor x + y\rfloor \le \lfloor x\rfloor + \lfloor y\rfloor + 1$，且恰有一个等号成立．</li>
+<li>$\lceil x\rceil +\lceil y\rceil -1\leq \lceil x+y\rceil \leq \lceil x\rceil +\lceil y\rceil$，且恰有一个等号成立．</li>
+<li>$\lfloor|x - y|\rfloor \le |\lfloor x\rfloor - \lfloor y\rfloor| \le \lceil|x - y|\rceil$．</li>
+<li>$\lfloor|x - y|\rfloor \le |\lceil x\rceil - \lceil y\rceil| \le \lceil|x-y|\rceil$．</li>
+</ul>
+<p>涉及商的性质如下：（$x\in\mathbf R,~n\in\mathbf Z,~m\in\mathbf Z_+$）</p>
+<ul>
+<li>$\left\lceil\dfrac{n}{m}\right\rceil = \left\lfloor\dfrac{n+m-1}{m}\right\rfloor,~\left\lfloor\dfrac{n}{m}\right\rfloor = \left\lceil\dfrac{n-m+1}{m}\right\rceil$．</li>
+<li>$\left\lfloor\dfrac{x + n}{m} \right\rfloor = \left\lfloor\dfrac{\lfloor x\rfloor + n}{m} \right\rfloor,~\left\lceil\dfrac{x + n}{m} \right\rceil = \left\lceil\dfrac{\lceil x\rceil + n}{m} \right\rceil$．</li>
+<li>$\left\lfloor\dfrac{\lfloor x/n\rfloor}{m}\right\rfloor = \left\lfloor\dfrac{x}{nm}\right\rfloor,~\left\lceil\dfrac{\lceil x/n\rceil}{m}\right\rceil = \left\lceil\dfrac{x}{nm}\right\rceil$．</li>
+<li>对于 $x &gt; 0$，有 $\displaystyle\left\lfloor\dfrac{x}{m}\right\rfloor = \sum_{k=1}^{\lfloor x\rfloor}[m\mid k]$．</li>
+</ul>
+<p>其中，第二条和第三条性质都可以看作是如下结论的直接推论：</p>
+<ul>
+<li>
+<p>设 $f$ 为连续单增函数，且只要 $f(x)\in\mathbf Z$，就有 $x\in\mathbf Z$，那么</p>
+<p>$$
+\lfloor f(x)\rfloor = \lfloor f(\lfloor x\rfloor)\rfloor,~ \lceil f(x)\rceil = \lceil f(\lceil x\rceil)\rceil.
+$$</p>
+<p>??? note "证明"
+    由对称性，只需要证明第一个等式．如果 $x$ 是整数，那么命题显然．否则，$\lfloor x\rfloor &lt; x$．由 $f$ 和下取整函数的单调性可知，$\lfloor f(x)\rfloor \ge \lfloor f(\lfloor x\rfloor)\rfloor$．如果等号不成立，那么设 $y = \lfloor f(x)\rfloor$，它满足 $\lfloor f(\lfloor x\rfloor)\rfloor &lt; y \le \lfloor f(x)\rfloor$，这等价于 $f(\lfloor x\rfloor) &lt; y \le f(x)$．由 $f$ 的连续性可知，存在 $\lfloor x\rfloor &lt; x_0 \le x$ 使得 $f(x_0)=y$．因为 $y\in\mathbf Z$，所以 $x_0\in\mathbf Z$，这与 $\lfloor x\rfloor$ 的定义矛盾．故而，等号成立，即 $\lfloor f(x)\rfloor = \lfloor f(\lfloor x\rfloor)\rfloor$．</p>
+</li>
+</ul>
+<p>最后是一组关于带有取整函数的求和式的结论：（$x\in\mathbf R,~n\in\mathbf Z,~m\in\mathbf Z_+$）</p>
+<ul>
+<li>$n = \left\lfloor\dfrac{n}{2}\right\rfloor + \left\lceil\dfrac{n}{2}\right\rceil$．</li>
+<li>$n = \left\lfloor\dfrac{n}{m} \right\rfloor + \left\lfloor\dfrac{n+1}{m} \right\rfloor + \cdots + \left\lfloor\dfrac{n+m-1}{m} \right\rfloor$．</li>
+<li>$n = \left\lceil\dfrac{n}{m} \right\rceil + \left\lceil\dfrac{n-1}{m} \right\rceil + \cdots + \left\lceil\dfrac{n-m+1}{m} \right\rceil$．</li>
+<li>$\lfloor mx\rfloor = \lfloor x\rfloor + \left\lfloor x+\dfrac{1}{m}\right\rfloor + \cdots + \left\lfloor x+\dfrac{m-1}{m}\right\rfloor$．</li>
+<li>$\lceil mx\rceil = \lceil x\rceil + \left\lceil x - \dfrac{1}{m}\right\rceil + \cdots + \left\lceil x - \dfrac{m-1}{m}\right\rceil$．</li>
+<li>当 $m\perp n$ 时，$\displaystyle\sum_{k=1}^{m-1}\left\lfloor\dfrac{kn}{m}\right\rfloor=\dfrac{1}{2}(n-1)(m-1)$．</li>
+<li>当 $m\perp n$ 时，$\displaystyle\sum_{k=1}^{m-1}\left\lceil\dfrac{kn}{m}\right\rceil=\dfrac{1}{2}(n+1)(m-1)$．</li>
+</ul>
+<p>这些乃至更一般的类似形式求和式的推导可以参考 <a href="../euclidean/">类欧几里得算法</a> 页面．</p>
+<p>取整函数的更多性质以及应用可以参考如下页面：</p>
+<ul>
+<li>取模运算：$n\bmod m = n - \left\lfloor\dfrac{n}{m}\right\rfloor m$．它可以用于 <a href="../mod-arithmetic/#相关算法">优化整数取模运算</a>．</li>
+<li>利用 Gauss 引理证明 <a href="../quad-residue/#二次互反律">二次互反律</a>．</li>
+<li><a href="../sqrt-decomposition/">数论分块</a>，尤其是它的性质证明部分．</li>
+<li>计算阶乘中素数因子幂次的 <a href="../factorial/#legendre-公式">Legendre 公式</a>．</li>
+<li><a href="../../game-theory/impartial-game/#wythoff-游戏">Beatty 数列</a>、Rayleigh 定理以及 Wythoff 博弈．</li>
+</ul>
+<h2 id="_20">参考资料与注释</h2>
+<ul>
+<li>潘承洞，潘承彪．初等数论．北京大学出版社．</li>
+<li><a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions">Floor and ceiling functions - Wikipedia</a></li>
+<li>Graham, Ronald L., Donald E. Knuth, and Oren Patashnik. "Concrete mathematics: a foundation for computer science." (1989).</li>
+</ul>
+<p>[^ref1]: <a href="https://primes.utm.edu/notes/faq/six.html">Are all primes (past 2 and 3) of the forms 6n+1 and 6n-1?</a></p>
+<p>[^gcdcpp]: <a href="https://en.cppreference.com/w/cpp/numeric/gcd">std::gcd - cppreference.com</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

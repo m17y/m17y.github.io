@@ -1,0 +1,1528 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/tools/editor/sublime/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Sublime - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sublime
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插件与自定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="插件与自定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        汉化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="汉化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装插件管理器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装汉化插件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整字体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装插件与主题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vi-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开启 Vi Mode
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="开启 Vi Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开启方式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相关配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 Vi 的不同
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#st" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置 ST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置插件
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改与添加
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编辑
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编辑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动补全
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多重选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查找与替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        演示
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="演示">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        热启动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多重选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查找与替换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        宏录制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译与运行
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译与运行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改编译选项
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调试
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        杂项
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/tools/editor/sublime.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Sublime</h1>
+
+<h2 id="_1">简介</h2>
+<p>Sublime Text（以下简称 ST，后附数字作为版本区分，如无则各版本都适用）是一款轻量级的文本编辑器，支持多种语言的语法高亮及代码补全．具有高度的可拓展性以及 Vim 模式，特别的热启动模式大幅减小了文件丢失的可能．</p>
+<p>新版 NOI Linux 中支持版本为 ST3 最后一个版本 3.2.2[^ref1]，故这里以 ST3 为主．目前 ST4 正式版已经发布[^ref2]，现在如仍使用 ST3 会提示更新．</p>
+<p>ST4 与 ST3 的重要差别会有额外补充，在介绍中如果提及某项在 ST3 已有翻译则使用中文，否则为 ST4 中的英文．</p>
+<h2 id="_2">安装</h2>
+<p>ST4 的安装方法参见 <a href="https://www.sublimetext.com/download">Sublime Text 4 的下载页面</a>．</p>
+<p>ST3 的安装方法参见 <a href="https://www.sublimetext.com/3">Sublime Text 3 的下载页面</a>．</p>
+<p>???+ note "提示购买"
+    ST 是收费软件，但有一个无限期的试用，试用并不会带来功能上的缺失，但会不时弹出弹窗提示激活．</p>
+<h2 id="_3">插件与自定义</h2>
+<h3 id="_4">汉化</h3>
+<p>ST 并不支持中文，如需中文需要安装汉化插件．</p>
+<h4 id="_5">安装插件管理器</h4>
+<p>打开 ST 后键入<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>唤出命令框，输入 <code>Install</code> 后回车（完整命令是 <code>Install Package Control</code>，不区分大小写），此时应该会看到左下角有一个 <code>=</code> 在不停的左右移动．Package Control 安装完成（或失败）后会有弹窗提示，具体的加载时间取决于网络．</p>
+<p>如果完成的弹窗显示安装失败（与网络有关），则需要手动下载 <a href="https://packagecontrol.io/Package%20Control.sublime-package">Package Control</a> 并将下载好的文件放到 ST 的数据目录下的 <code>\Installed Packages</code> 文件夹中．稍作等待，ST 会自动识别该插件（有时需要重启 ST）．</p>
+<p>???+ note "ST 数据目录的路径"
+    Windows 下，如果在 ST 的 <strong>安装目录</strong> 下存在 <code>\data</code> 文件夹，会自动使用（或初始化）该文件夹作为数据目录．</p>
+<pre><code>ST3 的路径一般为 `C:\Users\用户名\AppData\Roaming\Sublime Text 3`，ST4 一般为 `C:\Users\用户名\AppData\Roaming\Sublime Text`，ST 会先寻找对应版本的路径，如不存在则寻找更低版本的路径，如都不存在则新建并初始化．
+
+在以 NOI Linux 所使用的 Ubuntu 20.04.1 中，ST3 的数据目录为 `$HOME/.config/sublime-text-3`，ST4 的数据目录为 `$HOME/.config/sublime-text`，使用的具体规则同 Windows 环境．
+
+可以使用 `首选项-&gt;浏览插件目录...` 快速查看数据文件夹路径下的 `\Packages` 文件夹．
+</code></pre>
+<h4 id="_6">安装汉化插件</h4>
+<p>再次按下<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>输入 <code>Install</code> 后回车（完整命令是 <code>Package Contrl:Install Package</code>），等待加载完成，接下来应该是这个界面：</p>
+<p><img alt="" src="../images/sublime3-1.png" /></p>
+<p>输入 <code>Chinese</code> 选择 ChineseLocalizations 并回车，等待安装完毕，完成后界面会自动切换为中文（如是 ST4，因为汉化插件未更新，会少一些新增的菜单项，但一般对编辑无影响）．</p>
+<h3 id="_7">调整字体</h3>
+<p>进入 <code>首选项-&gt;设置</code>，在右边的用户设置中的花括号中添加一行 <code>"font_face": "字体名",</code>，ST 的设置使用 JSON 格式储存．修改完成后保存，如果系统安装了对应字体会自动切换．</p>
+<p>一般而言，如果单论对中文的显示的话，Microsoft Yahei Consolas 和 Microsoft YaHei Mono 是比较好的选择．</p>
+<p>???+ warning "Warning"
+    注意任何设置（包括插件设置）即使能也不要在左边的的默认设置中修改，这是不被推荐的，如果软件（或插件）更新，默认设置会被重置．</p>
+<h3 id="_8">安装插件与主题</h3>
+<p>安装插件与主题的方法与安装汉化插件一致．</p>
+<p>输入<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>输入 <code>Install</code> 后回车，然后搜索插件/主题/配色即可．</p>
+<p>插件推荐：</p>
+<ul>
+<li>BracketHighlighter : 对原版的括号高亮进行了增强，必备．</li>
+<li>C++ Snippets : ST 自带有 C++ 代码补全，格式为大括号不换行．如果不习惯自带大括号换行的码风可以安装这个插件，同时增加了一部分补全．</li>
+<li>C++ 11 : 支持 C++ 11 标准高亮（ST4 中不需要）．</li>
+<li>SublimeAstyleFormatter : Astyle，用于格式化代码．</li>
+<li>Diffy : 按<kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>D</kbd>即可快速比较第一视窗与第二视窗打开的文件的不同，比较方式为逐行比较．</li>
+<li>ConvertToUTF8 : 自动识别文件编码，并支持编码转换．</li>
+<li>SideBarEnhancements : 侧边栏增强，较为推荐．</li>
+<li>Transparency : 窗口透明化．</li>
+</ul>
+<p>有其他需要可以尝试搜索．</p>
+<p>一些主题：[^ref3]</p>
+<p>1337（单配色方案）、3024（单配色方案）、Grandson-of-Obsidian（单配色方案）、Seti_UI（单主题，额外包含 git 等格式的高亮，较为推荐）、Material Theme、Predawn、Agila、Materialize．</p>
+<p>如果要编辑自己的配色方案，可以访问 <a href="http://tmtheme-editor.herokuapp.com/">tmTheme Editor</a>．</p>
+<p>如是 ST4 则可以在 <code>Preferences-&gt;Customize Color Scheme</code> 中调整配色方案或 <code>Preferences-&gt;Customize Scheme</code> 中调整主题．</p>
+<h3 id="vi-mode">开启 Vi Mode</h3>
+<p>ST 的开发者为 Vi 使用者提供了一个可选插件 Vintage，可模拟 Vi 的大部分功能．</p>
+<h4 id="_9">开启方式</h4>
+<p>Vintage 插件默认是禁用的．可以通过 <code>首选项-&gt;设置</code> 在用户设置中，将 <code>"ignored_packages"</code> 一项中的 Vintage 删除并保存（不要整个删除，只删除 Vintage），ST 的状态栏左边就会出现 <code>INSERT MODE</code>，此时 Vintage 插件已开启．</p>
+<p>或者按<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>，然后输入 <code>Enable</code> 选择 <code>Package Control: Enable Package</code> 并回车，选择 Vintage 即可，该方法需要 Package Control．</p>
+<h4 id="_10">相关配置</h4>
+<p>如果想让上下左右键失效，可以在 <code>首选项-&gt;快捷键设置</code> 中添加：</p>
+<pre><code class="language-JSON">{ &quot;keys&quot;: [&quot;left&quot;], &quot;command&quot;: &quot;&quot;},
+{ &quot;keys&quot;: [&quot;right&quot;], &quot;command&quot;: &quot;&quot;},
+{ &quot;keys&quot;: [&quot;up&quot;], &quot;command&quot;: &quot;&quot;},
+{ &quot;keys&quot;: [&quot;down&quot;], &quot;command&quot;: &quot;&quot;},
+</code></pre>
+<p>如要使 ST 以命令模式启动，则可以在 <code>首选项-&gt;设置</code> 中添加：</p>
+<pre><code class="language-json">&quot;vintage_start_in_command_mode&quot;: true,
+</code></pre>
+<p>也可以通过快捷键设置将进入命令模式设置成任意键（具体详见 <a href="#设置快捷键">设置快捷键</a>）．</p>
+<h4 id="vi">与 Vi 的不同</h4>
+<p>ST 的 Vintage 插件与 Vi 有一定不同，部分列于此处：</p>
+<ul>
+<li>在插入模式下用选中不会进入可视模式，这时输入不会被识别为命令而是直接替换文本．可视模式只有命令模式下才能进入．</li>
+<li><code>r</code>、<code>R</code>、<code>zA</code>、<code>za</code>、<code>zi</code>、<code>z=</code>、<code>@</code> 与使用<kbd>[</kbd>、<kbd>]</kbd>或<kbd>"</kbd>键的命令不存在．</li>
+<li>使用<kbd>Ctrl</kbd>、<kbd>Shift</kbd>和<kbd>Alt</kbd>键的快捷键会保留为 ST 设置的快捷键，如<kbd>Ctrl</kbd>+<kbd>V</kbd>不会进入可视模式而是正常粘贴．</li>
+<li>命令行模式只保留了 <code>:e</code>、<code>:0</code>、<code>:$</code>、<code>:s</code>．</li>
+<li>使用 <code>\</code> 与 <code>?</code> 命令会自动唤出搜索框，而不是直接在命令中键入单词进行搜索．同时，数字将无法生效．</li>
+<li><code>q</code> 宏录制命令会启动 ST 自带的宏录制，按<kbd>Q</kbd>后需要再按一个键启动录制，但录制的宏不会与该键绑定，需要按<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Q</kbd>才能启动．如果需要保存，需要 <code>工具-&gt;保存宏</code>，快捷键需要设置．</li>
+<li>无法使用 <code>数字+.</code> 的组合．</li>
+</ul>
+<h3 id="_11">设置</h3>
+<h4 id="st">设置 ST</h4>
+<p>在 <code>首选项-&gt;设置</code> 中设置，这里列举部分较有用的选项：</p>
+<pre><code class="language-JSON">{
+  //字体大小
+  &quot;font_size&quot;: 11,
+
+  //字体，可以不设置，默认为 Consolas
+  &quot;font_face&quot;: &quot;&quot;,
+
+  //Tab自动转换为空格
+  &quot;translate_tabs_to_spaces&quot;: true,
+
+  //缩进宽度
+  &quot;tab_size&quot;: 4,
+
+  //行高亮
+  &quot;highlight_line&quot;: true,
+
+  //保存时自动在文件尾增加换行
+  &quot;trim_trailing_white_space_on_save&quot;: true,
+
+  //在选择时查找自动只查找选择范围
+  &quot;auto_find_in_selection&quot;: true,
+
+  //禁用了OI中不太可能用到的插件，可以自己调整
+  &quot;ignored_packages&quot;: [
+    &quot;ActionScript&quot;, &quot;AppleScript&quot;, &quot;ASP&quot;, &quot;Batch File&quot;, &quot;C#&quot;, 
+    &quot;Clojure&quot;, &quot;CSS&quot;, &quot;D&quot;, &quot;Diff&quot;, &quot;Erlang&quot;, &quot;Git Formats&quot;, 
+    &quot;Go&quot;, &quot;Graphviz&quot;, &quot;Groovy&quot;, &quot;Haskell&quot;, &quot;HTML&quot;, &quot;Java&quot;, 
+    &quot;LaTeX&quot;, &quot;Lisp&quot;, &quot;Lua&quot;, &quot;Makefile&quot;, &quot;Matlab&quot;, 
+    &quot;Objective-C&quot;, &quot;OCaml&quot;, &quot;Perl&quot;, &quot;PHP&quot;, &quot;Python&quot;, 
+    &quot;R&quot;,&quot;Rails&quot;, &quot;RestructuredText&quot;, &quot;Ruby&quot;, &quot;Rust&quot;, 
+    &quot;Scala&quot;, &quot;ShellScript&quot;, &quot;SQL&quot;, &quot;TCL&quot;, &quot;Textile&quot;, &quot;XML&quot;, 
+  ],
+
+  //相对行号，可配合 Vintage 插件快速跳转
+  &quot;relative_line_numbers&quot;: false,
+}
+</code></pre>
+<h4 id="_12">设置快捷键</h4>
+<p>在 <code>首选项-&gt;快捷键设置</code> 中设置，在左边找到需要修改的功能，然后复制到右边并修改按键即可．</p>
+<p>例如，如果要把<kbd>Ctrl</kbd>+<kbd>B</kbd>的编译改为<kbd>F9</kbd>（如果不令原有的快捷键失效，实际是增加一个触发方式），则可以在 <code>首选项-&gt;快捷键设置</code> 中添加：</p>
+<pre><code class="language-JSON">//将build命令改为f9
+{ &quot;keys&quot;: [&quot;f9&quot;], &quot;command&quot;: &quot;build&quot; },
+
+//将原有的f9对应的行排序功能的快捷键改为shift+f9，由于大部分时候这个功能用不到，这一行也可以不添加
+{ &quot;keys&quot;: [&quot;shift+f9&quot;], &quot;command&quot;: &quot;sort_lines&quot;, &quot;args&quot;: {&quot;case_sensitive&quot;: false} },
+</code></pre>
+<h4 id="_13">设置插件</h4>
+<p>插件的设置可以在 <code>首选项-&gt;Package Setting-&gt;插件名</code> 中找到，做修改时请注意不要修改默认设置．</p>
+<p>例如，这里给出 BracketHighlighter 的一些设置，在 <code>首选项-&gt;Package Setting-&gt;BracketHighlighter-&gt;Bracket Setting</code> 中修改：</p>
+<pre><code class="language-JSON">{
+  //在匹配的括号之间行的行首显示一条线，可以快速找到括号的范围
+  &quot;content_highlight_bar&quot;: true,
+
+  //在小地图中显示匹配的括号
+  &quot;show_in_minimap&quot;: true,
+
+  //忽略匹配范围限制
+  &quot;ignore_threshold&quot;: true,
+
+  //style高亮样式，bold为块高亮，underline为加粗下划线，outline为外围一圈
+  //color为颜色，默认设置中已经包含了所有支持的颜色
+  //icon为在侧边栏显示的标志
+  &quot;bracket_styles&quot;: {
+    &quot;default&quot;: {&quot;icon&quot;: &quot;dot&quot;, &quot;color&quot;: &quot;region.yellowish&quot;, &quot;style&quot;: &quot;bold&quot;,},
+    &quot;unmatched&quot;: {&quot;icon&quot;: &quot;question&quot;, &quot;color&quot;: &quot;region.redish&quot;, &quot;style&quot;: &quot;outline&quot;,},
+    &quot;curly&quot;: {&quot;icon&quot;: &quot;curly_bracket&quot;, &quot;color&quot;: &quot;region.purplish&quot;,},
+    &quot;round&quot;: {&quot;icon&quot;: &quot;round_bracket&quot;, &quot;color&quot;: &quot;region.yellowish&quot;,},
+    &quot;square&quot;: {&quot;icon&quot;: &quot;square_bracket&quot;, &quot;color&quot;: &quot;region.bluish&quot;,},
+    &quot;angle&quot;: {&quot;icon&quot;: &quot;angle_bracket&quot;, &quot;color&quot;: &quot;region.orangish&quot;,},
+    &quot;tag&quot;: {&quot;icon&quot;: &quot;tag&quot;, &quot;color&quot;: &quot;region.orangish&quot;,},
+    &quot;c_define&quot;: {&quot;icon&quot;: &quot;hash&quot;, &quot;color&quot;: &quot;region.yellowish&quot;,},
+    &quot;single_quote&quot;: {&quot;icon&quot;: &quot;single_quote&quot;, &quot;color&quot;: &quot;region.greenish&quot;,},
+    &quot;double_quote&quot;: {&quot;icon&quot;: &quot;double_quote&quot;, &quot;color&quot;: &quot;region.greenish&quot;,},
+    &quot;regex&quot;: {&quot;icon&quot;: &quot;star&quot;, &quot;color&quot;: &quot;region.greenish&quot;,}
+  }
+}
+</code></pre>
+<h3 id="_14">修改与添加</h3>
+<p>有时候，插件的某些地方可能并不尽如人意，或想对插件进行汉化，这时就需要对插件做一些修改．</p>
+<p>插件存放的位置是数据目录下的 <code>\Installed Packages</code> 文件夹．</p>
+<p>里面的文件以 <code>.sublime-package</code> 为后缀，实际上为 <code>.zip</code> 格式，可以使用解压缩软件打开．</p>
+<p>例如，如果要修改自动补全，可以打开 ST 的 <strong>安装目录</strong> <code>\Packages\C++</code> 插件中的 <code>\Snippets\*.sublime-snippet</code> 文件修改，如要 <strong>增添</strong> 自动补全，可以安装 C++ Snippets 并在其中修改或添加文件（或新建一个插件，但不能直接添加进自带的 C++ 插件，否则无法被识别）．保存任何修改时 <strong>必须</strong> 关闭 ST，且请提前做好备份，否则可能出现文件丢失．</p>
+<p>当然，任何增添都可以放在数据目录路径下的 <code>\Packages\User\</code> 下，这总是被支持的．</p>
+<p>例如，一个文件模板的补全可以这么写：</p>
+<pre><code class="language-XML">&lt;snippet&gt;
+  &lt;description&gt;template_code&lt;/description&gt; &lt;!-- 这里的内容是补全内容的预览 --&gt;
+  &lt;content&gt;&lt;![CDATA[#include &lt;cstdio&gt;
+using namespace std;
+
+int main() {
+  freopen(&quot;${1:file name}.in&quot;, &quot;r&quot;, stdin);
+  freopen(&quot;$1.out&quot;, &quot;w&quot;, stdout);
+  ${0:/* code */}
+  fclose(stdin);
+  fclose(stdout);
+  return 0;
+}]]&gt;&lt;/content&gt;
+  &lt;tabTrigger&gt;code&lt;/tabTrigger&gt; &lt;!-- 这里的内容是补全的触发文本 --&gt;
+  &lt;scope&gt;source.c++&lt;/scope&gt; &lt;!-- 这里的内容是补全适用语言 --&gt;
+&lt;/snippet&gt;
+</code></pre>
+<p>以下列出部分文件后缀以及其用途，具体的插件开发教程详见 <a href="https://docs.sublimetext.io/guide/extensibility/plugins/">社区文档</a> 和 <a href="https://www.sublimetext.com/docs/3/">官方文档</a>：</p>
+<table>
+<thead>
+<tr>
+<th>后缀名</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.sublime-build</td>
+<td>编译系统文件</td>
+</tr>
+<tr>
+<td>.sublime-completions</td>
+<td>文件名补全列表（一般为头文件）</td>
+</tr>
+<tr>
+<td>.sublime-syntax</td>
+<td>语法高亮文件</td>
+</tr>
+<tr>
+<td>.sublime-settings</td>
+<td>设置文件</td>
+</tr>
+<tr>
+<td>.tmPreferences</td>
+<td>首选项中的列表文件</td>
+</tr>
+<tr>
+<td>.sublime-keymap</td>
+<td>快捷键设置文件</td>
+</tr>
+<tr>
+<td>.sublime-snippet</td>
+<td>代码补全文件</td>
+</tr>
+<tr>
+<td>.sublime-commands</td>
+<td>命令定义文件</td>
+</tr>
+<tr>
+<td>.sublime-menu</td>
+<td>ST UI 文件，包括侧边栏以及顶部菜单栏（汉化的主要对象）</td>
+</tr>
+</tbody>
+</table>
+<p>由于插件更新会直接覆盖原文件，所以建议备份更改的文件．</p>
+<h2 id="_15">编辑</h2>
+<h3 id="_16">设置语法</h3>
+<p>按<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>后输入语法即可，或者按右下角的 <code>Plain Text</code> 然后修改为需要的语言，同时在 <code>视图-&gt;语法</code> 中也可以设置．</p>
+<p><img alt="" src="../images/sublime3-2.png" /></p>
+<h3 id="_17">快捷键</h3>
+<p>ST 有复合快捷键，如<kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>Backspace</kbd>表示先按<kbd>Ctrl</kbd>+<kbd>K</kbd>再按<kbd>Ctrl</kbd>+<kbd>Backspace</kbd>．</p>
+<p>部分快捷键：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>X</kbd></td>
+<td>剪切当前行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd></td>
+<td>删除行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td>
+<td>在下方插入行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Enter</kbd></td>
+<td>在上方插入行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Up</kbd></td>
+<td>行上移</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Down</kbd></td>
+<td>行下移</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>L</kbd></td>
+<td>选择行，重复以向下选择多行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>D</kbd></td>
+<td>选择词，重复以选择多个相同词，并进入多重选择模式（用于快速批量更改）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>M</kbd></td>
+<td>跳转到匹配的括号</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td>
+<td>选择括号内的内容（不包括括号），重复以包括括号</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>K</kbd></td>
+<td>删至行尾（复合快捷键，建议使用 Vim 模式代替）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td>
+<td>删至行首（复合快捷键，建议使用 Vim 模式代替）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>]</kbd></td>
+<td>缩进当前（选择的）行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>[</kbd></td>
+<td>取消缩进当前（选择的）行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd></td>
+<td>复制当前行，并插入在下一行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>J</kbd></td>
+<td>合并下一行与当前行</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td>
+<td>粘贴并缩进（用于整段粘贴代码）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd></td>
+<td>从历史粘贴（复合快捷键，建议修改为<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>V</kbd>）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Down</kbd></td>
+<td>光标下移，并保留当前行光标（进入多重选择模式）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Up</kbd></td>
+<td>光标上移，并保留当前行光标（进入多重选择模式）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>R</kbd></td>
+<td>跳至文件中的任意符号（函数或类型定义）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd></td>
+<td>跳至项目中的任意符号（函数或类型定义）</td>
+</tr>
+<tr>
+<td><kbd>Ctrl</kbd>+<kbd>P</kbd></td>
+<td>跳至任意文件（曾经打开过或在项目中且存在的文件）</td>
+</tr>
+<tr>
+<td><kbd>\~</kbd></td>
+<td>转换选择内容的大小写</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_18">自动补全</h3>
+<p>ST 有丰富的补全功能，可能的补全内容会在光标下方显示，按<kbd>Tab</kbd>或<kbd>Enter</kbd>进行补全（ST4 中，如进行一个非 Snippet 类型的补全，接下来再按<kbd>Tab</kbd>可继续选择为以该补全为子串的补全）．</p>
+<p>Snippet 类型的补全一般会有一些编辑块，补全后会自动选择为替换文本，如果是 <code>for</code> 等含有多个编辑块的复杂补全，编辑完成后再次按<kbd>Tab</kbd>完成下一个编辑块，此时要在编辑块中触发补全需要使用<kbd>Enter</kbd>（在 ST4 中可继续使用<kbd>Tab</kbd>）．</p>
+<p>如果没有自动补全，请如下修复：</p>
+<ol>
+<li>
+<p>检查是否切换了语言，ST 默认新建文件为 Plain Text．</p>
+</li>
+<li>
+<p>进入 <code>首选项-&gt;设置</code> 然后添上两行：</p>
+</li>
+</ol>
+<pre><code class="language-JSON">&quot;auto_complete&quot;: true,
+&quot;auto_match_enabled&quot;: true,
+</code></pre>
+<h3 id="_19">多重选择</h3>
+<p>按住<kbd>Ctrl</kbd>并用鼠标单击即可在屏幕上增加光标，<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Up</kbd>或<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Down</kbd>可以在相邻两行直接增加光标，任何编辑性质的操作会同时应用至所有光标．</p>
+<h3 id="_20">查找与替换</h3>
+<p><kbd>Ctrl</kbd>+<kbd>F</kbd>为查找，<kbd>F3</kbd>为查找下一个<kbd>Shift</kbd>+<kbd>F3</kbd>为查找上一个，<kbd>Ctrl</kbd>+<kbd>H</kbd>为替换．</p>
+<p>五个查找选项分别为正则表达式匹配、大小写敏感、全字匹配、循环查找、在选段中查找．</p>
+<p>建议在首选项中将 <code>"auto_find_in_selection"</code> 设置为 <code>true</code>．这样在选择超过一个词时使用查找会自动只在选段中查找．</p>
+<h2 id="_21">演示</h2>
+<h3 id="_22">热启动</h3>
+<p>尝试在 ST 中键入一些内容，并直接把整个 ST 关闭，ST 会直接关闭且没有任何提示，再打开 ST 时只要不对电脑进行数据还原就不会丢失任何数据．</p>
+<h3 id="_23">多重选择</h3>
+<p>如果要把以下代码中的所有 <code>bok</code> 改为 <code>book</code>，只需将光标放置在任意一个 <code>bok</code> 中，长按<kbd>Ctrl</kbd>+<kbd>D</kbd>即可快速选中．</p>
+<pre><code class="language-cpp">int check() {
+  book[1] = 1, book[2] = 1, book[3] = 1, bok[1] = 1, bok[2] = 1, bok[3] = 1,
+  bok[4] = 1, bok[5] = 1;
+}
+</code></pre>
+<p>如果要将下列文件中的所有等号后面改成 <code>"good"</code>，只需在将光标放置于第一行的 <code>aaa</code> 前，并按五次<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Down</kbd>，再然后按下<kbd>Ctrl</kbd>+<kbd>D</kbd>并键入 <code>good</code> 即可．</p>
+<p>或选中 <code>"a</code> 并按住<kbd>Ctrl</kbd>+<kbd>D</kbd>，然后按<kbd>Right</kbd>、<kbd>Ctrl</kbd>+<kbd>D</kbd>，之后键入即可．</p>
+<pre><code class="language-cpp">s[1] = &quot;aaa&quot;;
+s[2] = &quot;aab&quot;;
+s[3] = &quot;aac&quot;;
+s[4] = &quot;good&quot;;
+s[5] = &quot;aae&quot;;
+s[6] = &quot;aaf&quot;;
+</code></pre>
+<p>如要为下列所有 <code>a + b</code> 加上括号，只需选择一个 <code>a + b</code>，按住<kbd>Ctrl</kbd>+<kbd>D</kbd>并键入<kbd>(</kbd>即可（如选择一定区域，则任意左括号键入会为该区域两边添加匹配的括号）．</p>
+<pre><code class="language-plain">a + b*a + b*a + b
+</code></pre>
+<h3 id="_24">查找与替换</h3>
+<p>如果要将下列文件中的所有等号后面改成 <code>"good"</code>，也可以用<kbd>Ctrl</kbd>+<kbd>H</kbd>使用替换，打开正则，输入 <code>".*"</code>，并替换成 <code>"good"</code> 即可．</p>
+<pre><code class="language-cpp">s[1] = &quot;aaa&quot;;
+s[2] = &quot;aab&quot;;
+s[3] = &quot;aac&quot;;
+s[4] = &quot;good&quot;;
+s[5] = &quot;aae&quot;;
+s[6] = &quot;aaf&quot;;
+</code></pre>
+<p>如要为以下代码添加分号，只需使用选择区域替换，打开正则，输入 <code>\n</code>，并替换成 <code>;\n</code> 即可．</p>
+<pre><code class="language-plain">int main() {  int a, b  cin &gt;&gt; a &gt;&gt; b  cout &lt;&lt; a + b  return 0}
+</code></pre>
+<h3 id="_25">宏录制</h3>
+<p>如要为以下代码添加分号，可以按<kbd>Ctrl</kbd>+<kbd>q</kbd>启动宏录制接下来依次按<kbd>End</kbd>、<kbd>;</kbd>、<kbd>Down</kbd>再按<kbd>Ctrl</kbd>+<kbd>q</kbd>结束宏录制（中途左下角不会全程显示正在录制，但确实在录制），接下来重复<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>q</kbd>即可．</p>
+<pre><code class="language-plain">int main() {
+  int a, b
+  cin &gt;&gt; a &gt;&gt; b
+  cout &lt;&lt; a + b
+  return 0
+}
+</code></pre>
+<p>??? note "如已开启 Vintage 插件"
+    执行一次<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>q</kbd>后，可以<kbd>Esc</kbd>进入命令模式，输入 <code>..</code> 即可（<code>.</code> 命令可以重复 ST3 命令）</p>
+<p>关于宏的保存与绑定按键详见 <a href="https://docs.sublimetext.io/guide/extensibility/macros.html">社区文档</a>．</p>
+<h2 id="_26">编译与运行</h2>
+<p>ST 的编译环境已经配置好了，可以直接使用．</p>
+<p>Windows 环境下需要将 g++ 所在目录添加到环境变量中，并重启 ST．</p>
+<h3 id="_27">编译</h3>
+<p>直接按<kbd>Ctrl</kbd>+<kbd>B</kbd>编译，第一次使用会需要选择编译系统，选择 <code>C++ Single File</code>（编译）或 <code>C++ Single File - Run</code>（编译并运行）．</p>
+<h4 id="_28">修改编译选项</h4>
+<p>ST 默认的编译选项为 <code>g++ "${file}" -o "${file_path}/${file_base_name}"</code>，如果要修改编译选项，可以新建一个编译系统．</p>
+<p>进入 <code>工具-&gt;编译系统-&gt;新建编译系统…</code> 然后在大括号中间输入：</p>
+<pre><code class="language-JSON">// 编译选项可以自己调整
+// 编译并运行
+&quot;shell_cmd&quot;: &quot;g++ -Wall \&quot;${file}\&quot; -o \&quot;${file_path}/${file_base_name}.exe\&quot; &amp;&amp; \&quot;${file_path}/${file_base_name}.exe\&quot;&quot;,
+
+// 这一行可以让ST3图形化显示报错，如果习惯了看g++返回的信息可以去掉
+&quot;file_regex&quot;: &quot;^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$&quot;,
+</code></pre>
+<p>保存后按<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>切换编译系统就可以使用了，这里的配置是编译并在外部 CMD 运行．</p>
+<p>保存的文件为数据目录路径下的 <code>\Packages\User\编译系统名.sublime-build</code> 可以反复修改．</p>
+<h3 id="_29">运行</h3>
+<p>如果编译时选择 <code>C++ Single File - Run</code>（即编译后运行）或配置了自动运行，那么在下方弹出的编译信息窗口应该不会有任何显示（除非编译错误），因为 ST 的编译信息窗口实际上是一个终端，可以直接输入数据．</p>
+<p>运行结束后会提示程序的运行时间，其计时为从按下<kbd>Ctrl</kbd>+<kbd>B</kbd>到全部 CMD 命令运行结束的时间，也就是说包括编译的时间和输入的时间，以及如果在外部 CMD 运行还包括 CMD 开启关闭的时间．</p>
+<p>???+ warning "Warning"
+    这个窗口无法输入<kbd>F6</kbd>或<kbd>Ctrl</kbd>+<kbd>Z</kbd>，如果运行读入到文件末尾的程序请使用文件输入，或配置在外部 CMD 运行．</p>
+<h3 id="_30">调试</h3>
+<p>可以安装插件使 ST 支持图形化 gdb 调试，但不建议依赖插件进行 gdb 调试．</p>
+<p>更好的做法是在配置编译系统时加上相关命令启动 gdb，在外部进行命令行调试．</p>
+<h2 id="_31">杂项</h2>
+<ul>
+<li>把文件夹拖进 ST 中并按<kbd>Ctrl</kbd>+<kbd>K</kbd>&amp;<kbd>Ctrl</kbd>+<kbd>B</kbd>开启侧边栏，从而快速切换文件．</li>
+<li>善用跳转功能，尤其是<kbd>Ctrl</kbd>+<kbd>P</kbd>进行文件间跳转与<kbd>Ctrl</kbd>+<kbd>R</kbd>进行函数跳转．</li>
+<li>ST 支持 git[^ref4]．</li>
+<li>ST 的所有配置储存在数据目录下，可以随意打包，但注册信息无法在多台电脑上使用．</li>
+</ul>
+<h2 id="_32">外部链接</h2>
+<ul>
+<li><a href="../../cmd/">使用命令行调试</a></li>
+<li><a href="https://www.sublimetext.com/docs/3/">Sublime Text 3 官方文档</a></li>
+<li><a href="https://docs.sublimetext.io/">Sublime Text 社区文档</a></li>
+</ul>
+<h2 id="_33">参考资料与注释</h2>
+<p>[^ref1]: <a href="https://www.noi.cn/gynoi/jsgz/2021-07-16/732450.shtml">NOI Linux 2.0 发布</a></p>
+<p>[^ref2]: <a href="https://www.sublimetext.com/blog/articles/sublime-text-4">Sublime Text 4 发布</a></p>
+<p>[^ref3]: <a href="https://www.luogu.com.cn/blog/acking/sublime">便捷清新的文本编辑器 sublime</a></p>
+<p>[^ref4]: <a href="https://www.sublimetext.com/docs/git_integration.html">Sublime Text Git 集成</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

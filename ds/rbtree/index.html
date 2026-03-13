@@ -1,0 +1,1131 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="0x03A6, abc1763613206, auuuu4, CCXXXI, Conless, Enter-tainer, fanenr, happyZYM, hsfzLZH1, iamtwz, LeverImmy, leverimmy, Lhcfl, Marcythm, RIvance, Tiphereth-A, trudbot, Xeniume, Xeonacid, YBYCS, yuhuoji">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/ds/rbtree/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Rbtree - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Rbtree
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        红黑树类的定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插入后的平衡维护
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="插入后的平衡维护">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insert-case-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insert case 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-case-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insert case 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-case-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insert case 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除后的平衡维护
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="删除后的平衡维护">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delete-case-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete case 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-case-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete case 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-case-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete case 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-case-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete case 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考代码
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与 2-3-4 树的关系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际工程项目中的使用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实际工程项目中的使用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nginx
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openjdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenJDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/ds/rbtree.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Rbtree</h1>
+
+<p>红黑树是一种自平衡的二叉搜索树．每个节点额外存储了一个 color 字段 ("RED" or "BLACK")，用于确保树在插入和删除时保持平衡．</p>
+<p>红黑树是 4 阶 B 树（<a href="https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree">2-3-4 树</a>）的变体．[^gilbas1978]</p>
+<h2 id="_1">性质</h2>
+<p>一棵合法的红黑树必须遵循以下四条性质：</p>
+<ol>
+<li>节点为红色或黑色</li>
+<li>NIL 节点（空叶子节点）为黑色</li>
+<li>红色节点的子节点为黑色</li>
+<li>从根节点到 NIL 节点的每条路径上的黑色节点数量相同</li>
+</ol>
+<p>下图为一棵合法的红黑树：</p>
+<p><img alt="rbtree-example" src="../images/rbtree-example.svg" /></p>
+<p>???+ note "Note"
+    部分资料中还加入了第五条性质，即根节点必须为黑色，这条性质要求完成插入操作后若根节点为红色则将其染黑，但由于将根节点染黑的操作也可以延迟至删除操作时进行，因此，该条性质并非必须满足（本文给出的代码实现中满足该性质）．为严谨起见，这里同时引用 <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree#Properties">维基百科原文</a> 进行说明：</p>
+<pre><code>&gt; Some authors, e.g. Cormen &amp; al.,[^cite_note-cormen2009-18]claim "the root is black" as fifth requirement; but not Mehlhorn &amp; Sanders[^cite_note-mehlhorn2008-17]or Sedgewick &amp; Wayne.[^cite_note-algs4-16]Since the root can always be changed from red to black, this rule has little effect on analysis. This article also omits it, because it slightly disturbs the recursive algorithms and proofs.
+</code></pre>
+<h2 id="_2">红黑树类的定义</h2>
+<pre><code class="language-cpp">--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:class-node1&quot;
+  // ...
+--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:class-node2&quot;
+</code></pre>
+<p>???+ note "Note"
+    在红黑树节点的存储中，用数组来存储子节点指针可以提高代码复用率．</p>
+<h2 id="_3">操作</h2>
+<p>???+ note "Note"
+    红黑树的插入/删除有多种实现方式，本文采用《算法导论》的实现方式，将插入后的平衡维护分为 3 种情况，删除后的平衡维护分为 4 种情况．</p>
+<p>红黑树的遍历、查找最小/最大值、搜索元素、求元素的排名、根据排名反查元素、查找前驱/后继等操作和 <a href="../bst/">二叉搜索树</a> 一致，此处不再赘述．</p>
+<p>另外，在下文插入/删除平衡维护的代码注释中，我们作如下约定：</p>
+<ul>
+<li>用 <code>p</code> 表示节点 <code>p</code> 为黑色；</li>
+<li>用 <code>[p]</code> 表示节点 <code>p</code> 为红色；</li>
+<li>用 <code>{p}</code> 表示节点 <code>p</code> 为红色或黑色；</li>
+<li>用 <code>|p|</code> 表示节点 <code>p</code> 为 NIL 节点或颜色为黑色．</li>
+</ul>
+<h3 id="_4">旋转</h3>
+<p>旋转操作是多数平衡树能够维持平衡的关键，它能在不改变一棵合法 BST 中序遍历结果的情况下改变局部节点的深度．</p>
+<p><img alt="rbtree-rotations" src="../images/rbtree-rotate.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:rotate"</code></p>
+<h3 id="_5">插入</h3>
+<p>红黑树的插入操作与普通的 BST 类似，对于红黑树来说，新插入的节点初始为红色，完成插入后需根据插入节点及相关节点的状态进行修正以满足上文提到的四条性质．</p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert"
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-leaf"
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-fixup1"
+        // ...
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-fixup2"</code></p>
+<h3 id="_6">插入后的平衡维护</h3>
+<p>???+ note "Note"
+    为加深理解，请读者自行验证平衡维护后是否满足性质 4．</p>
+<p>由于插入的节点若不为根节点则必为红色，所以插入后可能违反性质 3，需要维护平衡性．</p>
+<p>令插入的节点为 $n$，其父节点为 $p$，祖父节点为 $g$，叔节点为 $u$．由性质 3 可知 $g$ 必为黑色．</p>
+<p>我们从插入的位置开始向上递归维护，若 $p$ 为黑色即可终止，否则分为 3 种情况．</p>
+<pre><code class="language-cpp">--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:insert-aux1&quot;
+      // ...
+--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:insert-aux2&quot;
+</code></pre>
+<h4 id="insert-case-1">Insert case 1</h4>
+<p>$p$ 和 $u$ 均为红色．此时我们只需重新染色即可．</p>
+<p><img alt="" src="../images/rbtree-insert-case1.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-case1"</code></p>
+<h4 id="insert-case-2">Insert case 2</h4>
+<p>$p$ 为红色，$u$ 为黑色，$p$ 的方向和 $n$ 的方向不同．</p>
+<p>此时我们需要旋转 $p$ 节点来转为第三种情况．</p>
+<p><img alt="" src="../images/rbtree-insert-case2.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-case2"</code></p>
+<h4 id="insert-case-3">Insert case 3</h4>
+<p>$p$ 为红色，$u$ 为黑色，$p$ 的方向和 $n$ 的方向相同．</p>
+<p>此时我们需要旋转 $g$ 节点以将 $p$ 转为子树的根，之后交换 $p$ 和 $g$ 的颜色即可．</p>
+<p><img alt="" src="../images/rbtree-insert-case3.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:insert-case3"</code></p>
+<h3 id="_7">删除</h3>
+<p>红黑树的删除操作与普通的 BST 相比要多一些步骤．具体而言：</p>
+<ul>
+<li>若待删除的节点 $n$ 有两个子节点，则交换 $n$ 和右子树中最小节点 $s$ 的数据，并将 $n$ 设为 $s$．此时 $n$ 不可能有两个子节点．</li>
+<li>若待删除的节点 $n$ 有一个子节点 $s$．由性质 4 可知 $s$ 必为红色，再由性质 3 可知 $n$ 必为黑色．所以只需将 $n$ 在父节点 $p$ 中对应的指针替换为 $s$ 的地址，以及将 $s$ 的父节点指针替换为 $p$ 的地址，之后再将 $s$ 染黑即可．</li>
+<li>若待删除的节点 $n$ 没有子节点．若 $n$ 是根节点或 $n$ 是红色节点，则直接删除即可，否则直接删除会违反性质 4，需要维护平衡性．</li>
+</ul>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete"
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-leaf"
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-fixup1"
+        // ...
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-fixup2"</code></p>
+<h3 id="_8">删除后的平衡维护</h3>
+<p>???+ note "Note"
+    为加深理解，请读者自行验证平衡维护后是否满足性质 4．</p>
+<p>由上文讨论可知 $n$ 是黑色叶子节点且不为根节点．我们设 $n$ 的父节点为 $p$，兄弟节点为 $s$，侄节点分别为 $c$ 和 $d$．</p>
+<p>删除的维护也是从 $n$ 开始向上递归维护，若 $n$ 是根或 $n$ 为红色即可终止，否则分为 4 种情况．</p>
+<pre><code class="language-cpp">--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:delete-aux1&quot;
+      // Delete case 1
+      // ...
+      // Other cases
+--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:delete-aux2&quot;
+      // ...
+--8&lt;-- &quot;docs/ds/code/rbtree/rbtree.hpp:delete-aux3&quot;
+</code></pre>
+<h4 id="delete-case-1">Delete case 1</h4>
+<p>$s$ 为红色．</p>
+<p>此时我们旋转 $p$，将 $s$ 转为子树根节点，之后交换 $s$ 和 $p$ 的颜色来转为其余三种情况之一．</p>
+<p><img alt="" src="../images/rbtree-remove-case1.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-case1"</code></p>
+<h4 id="delete-case-2">Delete case 2</h4>
+<p>$p$ 的颜色不确定，$s$、$c$、$d$ 均为黑色．</p>
+<p>此时只需将 $s$ 染红即可．</p>
+<p><img alt="" src="../images/rbtree-remove-case2.svg" /></p>
+<p>需要注意的是，若 $p$ 为红色则会违反性质 3，但是若 $p$ 为红色则会直接退出循环，所以我们在最后将其染黑．</p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-case2"</code></p>
+<h4 id="delete-case-3">Delete case 3</h4>
+<p>$p$ 的颜色不确定，$s$、$d$ 均为黑色，$c$ 为红色．</p>
+<p>此时需要旋转 $s$ 使 $c$ 为原来 $s$ 对应子树的根节点，并交换 $s$ 和 $c$ 的颜色转为第四种情况即可．</p>
+<p><img alt="" src="../images/rbtree-remove-case3.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-case3"</code></p>
+<h4 id="delete-case-4">Delete case 4</h4>
+<p>$p$、$c$ 的颜色不确定，$s$ 为黑色，$d$ 为红色．</p>
+<p>此时需要旋转 $p$ 使 $s$ 为子树的根节点，交换 $s$ 和 $p$ 的颜色，并将 $d$ 染黑即可终止维护平衡．</p>
+<p><img alt="" src="../images/rbtree-remove-case4.svg" /></p>
+<p>???+ note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:delete-case4"</code></p>
+<h2 id="_9">参考代码</h2>
+<p>下面的代码是用红黑树实现的 set：</p>
+<p>??? note "实现"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:full"</code></p>
+<p>??? note "例题：<a href="https://www.luogu.com.cn/problem/P3369">Luogu P3369【模板】普通平衡树</a> 与 <a href="https://www.luogu.com.cn/problem/P6136">Luogu P6136【模板】普通平衡树（数据加强版）</a>"
+    <code>cpp
+    --8&lt;-- "docs/ds/code/rbtree/rbtree.hpp:class"
+    --8&lt;-- "docs/ds/code/rbtree/rbtree_1.cpp:main"</code></p>
+<h2 id="2-3-4">与 2-3-4 树的关系</h2>
+<p>2-3-4 树是 4 阶 B 树，与一般的 B 树一样，2-3-4 树可以实现在 $O(\log n)$ 时间内进行搜索、插入和删除操作．2-3-4 树的节点分为三种，2 节点、3 节点和 4 节点，分别包含一个、两个或三个数据元素．所有的叶子节点都处于同一深度（最底层），所有数据都有序存储．</p>
+<p>2-3-4 树和红黑树是同构的，任意一棵红黑树都唯一对应一棵 2-3-4 树．在 2-3-4 树上的插入和删除操作导致节点的扩展、分裂和合并，相当于红黑树中的变色和旋转．下图是 2-3-4 树的 2 节点、3 节点和 4 节点对应的红黑树节点．注意到 2-3-4 树的 3 节点对应红黑树中红色节点左偏和右偏两种情况，所以一棵红黑树可能对应多棵 2-3-4 树．</p>
+<p><img alt="2-3-4-tree-rbt-1" src="../images/2-3-4-tree-rbt-1.svg" /></p>
+<p>下图是一棵红黑树和与之对应的 2-3-4 树．将红黑树中的红色节点上移到父节点的左右两侧，形成一个 B 树节点，就可以得到与之对应的 2-3-4 树．可以发现，红黑树的节点数等于 2-3-4 树的节点个数．</p>
+<p><img alt="2-3-4-tree-rbt" src="../images/2-3-4-tree-rbt-2.svg" /></p>
+<p>可以通过对比 2-3-4 树来理解红黑树的插入和删除操作．[^234-vs-rbt]</p>
+<h2 id="_10">实际工程项目中的使用</h2>
+<p>由于红黑树是目前主流工业界综合效率最高的内存型平衡树，其在实际的工程项目中有着广泛的使用，这里列举几个实际的使用案例并给出相应的源码链接，以便读者进行对比学习．</p>
+<h3 id="linux">Linux</h3>
+<p>源码：</p>
+<ul>
+<li><a href="https://elixir.bootlin.com/linux/latest/source/lib/rbtree.c"><code>linux/lib/rbtree.c</code></a></li>
+</ul>
+<p>Linux 中的红黑树所有操作均使用循环迭代进行实现，保证效率的同时又增加了大量的注释来保证代码可读性，十分建议读者阅读学习．Linux 内核中的红黑树使用非常广泛，这里仅列举几个经典案例．</p>
+<ul>
+<li>
+<p><a href="https://www.kernel.org/doc/html/latest/scheduler/sched-design-CFS.html">CFS 非实时任务调度</a></p>
+<p>Linux 的稳定内核版本在 2.6.24 之后，使用了新的调度程序 CFS，所有非实时可运行进程都以虚拟运行时间为键值用一棵红黑树进行维护，以完成更公平高效地调度所有任务．CFS 弃用 active/expired 数组和动态计算优先级，不再跟踪任务的睡眠时间和区别是否交互任务，而是在调度中采用基于时间计算键值的红黑树来选取下一个任务，根据所有任务占用 CPU 时间的状态来确定调度任务优先级．</p>
+</li>
+<li>
+<p><a href="https://man7.org/linux/man-pages/man7/epoll.7.html">epoll</a></p>
+<p>epoll 全称 event poll，是 Linux 内核实现 IO 多路复用 (IO multiplexing) 的一个实现，是原先 poll/select 的改进版．Linux 中 epoll 的实现选择使用红黑树来储存文件描述符．</p>
+</li>
+</ul>
+<h3 id="nginx">Nginx</h3>
+<p>源码：</p>
+<ul>
+<li><a href="https://github.com/nginx/nginx/blob/master/src/core/ngx_rbtree.h"><code>nginx/src/core/ngx_rbtree.h</code></a></li>
+<li><a href="https://github.com/nginx/nginx/blob/master/src/core/ngx_rbtree.c"><code>nginx/src/core/ngx_rbtree.c</code></a></li>
+</ul>
+<p>nginx 中的用户态定时器是通过红黑树实现的．在 nginx 中，所有 timer 节点都由一棵红黑树进行维护，在 worker 进程的每一次循环中都会调用 <code>ngx_process_events_and_timers</code> 函数，在该函数中就会调用处理定时器的函数 <code>ngx_event_expire_timers</code>，每次该函数都不断的从红黑树中取出时间值最小的，查看他们是否已经超时，然后执行他们的函数，直到取出的节点的时间没有超时为止．</p>
+<p>关于 nginx 中红黑树的源码分析公开资源很多，读者可以自行查找学习．</p>
+<h3 id="c">C++</h3>
+<p>源码：</p>
+<ul>
+<li>
+<p>GNU libstdc++</p>
+<ul>
+<li><a href="https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/stl_tree.h"><code>libstdc++-v3/include/bits/stl_tree.h</code></a></li>
+<li><a href="https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/src/c%2B%2B98/tree.cc"><code>libstdc++-v3/src/c++98/tree.cc</code></a></li>
+</ul>
+<p>另外，<code>libstdc++</code> 在 <code>&lt;ext/rb_tree&gt;</code> 中提供了 <a href="https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/ext/rb_tree"><code>__gnu_cxx::rb_tree</code></a>，其继承了 <code>std::_Rb_tree</code>，可以认为是供外部使用的类型别名．需要注意的是，该头文件 <strong>不是</strong> C++ 标准的一部分，所以非必要不推荐使用．</p>
+<p><code>libstdc++</code> 的 <a href="../../lang/pb-ds/tree/"><code>pb_ds</code></a> 中也提供了红黑树．</p>
+</li>
+<li>
+<p>LLVM libcxx</p>
+<ul>
+<li><a href="https://github.com/llvm/llvm-project/blob/main/libcxx/include/__tree"><code>libcxx/include/__tree</code></a></li>
+</ul>
+</li>
+<li>
+<p>Microsoft STL</p>
+<ul>
+<li><a href="https://github.com/microsoft/STL/blob/main/stl/inc/xtree"><code>stl/inc/xtree</code></a></li>
+</ul>
+</li>
+</ul>
+<p>大多数 STL 中的 <code>std::set</code> 和 <code>std::map</code> 的内部数据结构就是红黑树（例如上面提到的这些）．不过值得注意的是，C++ 标准并未规定必须以红黑树实现 <code>std::set</code> 和 <code>std::map</code>，所以不应该在工程项目中直接使用 <code>std::set</code> 和 <code>std::map</code> 的内部数据结构．</p>
+<h3 id="openjdk">OpenJDK</h3>
+<p>源码：</p>
+<ul>
+<li><a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/TreeMap.java"><code>java.util.TreeMap&lt;K, V&gt;</code></a></li>
+<li><a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/TreeSet.java"><code>java.util.TreeSet&lt;K, V&gt;</code></a></li>
+<li><a href="https://github.com/openjdk/jdk/blob/master/src/java.base/share/classes/java/util/HashMap.java"><code>java.util.HashMap&lt;K, V&gt;</code></a></li>
+</ul>
+<p>JDK 中的 <code>TreeMap</code> 和 <code>TreeSet</code> 都是使用红黑树作为底层数据结构的．同时在 JDK 1.8 之后 <code>HashMap</code> 内部哈希表中每个表项的链表长度超过 8 时也会自动转变为红黑树以提升查找效率．</p>
+<h2 id="_11">参考资料</h2>
+<ul>
+<li>Cormen, T. H., Leiserson, C. E., Rivest, R. L., &amp; Stein, C. (2022).<em>Introduction to algorithms</em>. MIT press.</li>
+<li><a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">Red-Black Tree - Wikipedia</a></li>
+<li><a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">Red-Black Tree Visualization</a></li>
+</ul>
+<p>[^gilbas1978]: L. J. Guibas and R. Sedgewick, "A dichromatic framework for balanced trees,"<em>19th Annual Symposium on Foundations of Computer Science (sfcs 1978)</em>, Ann Arbor, MI, USA, 1978, pp. 8-21, doi:<a href="https://doi.org/10.1109%2FSFCS.1978.3">10.1109/SFCS.1978.3</a>.</p>
+<p>[^cite_note-algs4-16]: <a href="https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Algs4-16">https://en.wikipedia.org/wiki/Red–black_tree#cite_note-Algs4-16</a>: 432–447</p>
+<p>[^234-vs-rbt]: <a href="https://www.cnblogs.com/zhenbianshu/p/8185345.html">这篇博文</a> 提供了详细的描述．</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

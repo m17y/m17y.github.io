@@ -1,0 +1,855 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="Ir1d, Marcythm, LucienShui, Anguei, H-J-Granger, CornWorld, ttzc">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/graph/tree-centroid/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Tree centroid - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tree centroid
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="求法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DFS 统计子树大小
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        换根 DP 统计深度和
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/graph/tree-centroid.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Tree centroid</h1>
+
+<p>本文介绍树的重心的概念和基本性质．</p>
+<h2 id="_1">定义</h2>
+<p>如果在树 $T$ 中删去某个结点 $v$ 后，得到的图 $T\setminus{v}$ 中每个连通分量的大小均不超过原树结点数的一半，就称这个结点 $v$ 为整棵树的 <strong>重心</strong>（centroid）．删去某一结点后得到的最大连通分量的大小也称为该结点的 <strong>重量</strong>（weight）．利用这一概念，重心的定义可以叙述为重量不超过树结点数的一半的结点．</p>
+<p>???+ info "「子树」"
+    本文可能同时涉及无根树、有根树，以及将有根树换根到非根结点得到的树．为了避免混淆，本文将用 $T$ 表示无根树，用 $T^{(v)}$ 表示以结点 $v$ 为根的有根树．本文中提到的「子树」均是指 <strong>有根树</strong> 中，一个结点及其所有子孙结点构成的树．有根树 $T^{(v)}$ 中，结点 $u$ 对应子树记为 $T^{(v)}_u$．这样定义的子树当然包括整棵树本身．如果要明确不包括整棵树本身，将称呼它为「真子树」．</p>
+<pre><code>无根树中的「子树」通常指它的一个连通子图．在讨论重心时，部分作者会用「子树」一词特指不包含某结点的极大连通子图，或者特指将某条边删去后得到的两个连通分量之一．容易验证，这两种方式定义得到的「子树」集合是一致的，且不包括整棵树自身．由于它和有根树的子树集合并不一致，本文将避免对无根树使用「子树」概念．
+
+在实际求解重心或处理某些问题时，通常存在一个默认的树根．此时，将非根结点 $v$ 删掉得到的连通分量中，除了该结点的子结点对应子树外，还有一棵「向上」的子树．此时，设结点 $v$ 的父结点为 $u$，这棵「向上」的子树就是 $T_u^{(v)}$．本文在提及这类子图时，会显式地称呼它为「向上」的子树．若无特殊说明，本文提及的子树均不包括这类「向上」的子树．
+</code></pre>
+<p>注意到，得到的这些连通分量同样是无根树．通过删去树的重心，一棵树将变为若干棵至多原树一半大小的树．重心的这一特性使得在树上应用分治思想解决问题成为可能．这就是 <a href="../tree-divide/#点分治">点分治</a>，也称为树的重心分解．</p>
+<h2 id="_2">性质</h2>
+<p>本节讨论重心的性质．首先，树的重心有如下等价定义：</p>
+<p>???+ note "等价定义"
+    树 $T$ 中的结点 $v$ 是它的重心，当且仅当以下任意一条成立：</p>
+<pre><code>=== "无根树版本"
+    1.  在树中删去结点 $v$ 后，得到的图 $T\setminus\{v\}$ 中每个连通分量的大小均不超过原树结点数的一半．
+    2.  在所有删去某个结点后得到的最大连通分量大小中，删去结点 $v$ 时所得到的值最小．
+    3.  树中所有结点到某个结点的距离和中，到结点 $v$ 的距离和最小．
+
+=== "有根树版本"
+    1.  当树以结点 $v$ 为根时，任一真子树的大小均不超过原树结点数的一半．
+    2.  在所有以某个结点为根时的最大真子树大小中，以结点 $v$ 为根时所得到的值最小．
+    3.  在所有以某个结点为根时所有结点的深度和中，以结点 $v$ 为根时深度和最小．
+</code></pre>
+<p>??? note "证明"
+    首先，引入一些记号．有根树和无根树两个版本的表述显然是等价的．定义 $W(x)=\max_{u\sim x}|T_u^{(x)}|$，其中，$u\sim x$ 表示 $u$ 和 $x$ 相邻．定义 $S(x)=\sum_{u\in T}d(u,x)$，其中，$d(u,x)$ 表示结点 $u$ 和 $x$ 之间的距离．那么，定义 1 相当于要求 $W(v)\le |T|/2$，定义 2 相当于要求 $v\in\arg\min_{x\in T}W(x)$，定义 3 相当于要求 $v\in\arg\min_{x\in T}S(x)$．需要证明的是，这三个条件是等价的．</p>
+<pre><code>将 $S(x)$ 理解为以 $x$ 为根时的结点深度和，考虑它在树根从结点 $v$ 换为相邻结点 $u$ 时发生的变化．注意到，在树中删去边 $(v,u)$ 后，得到的两个连通分量分别是子树 $T_v^{(u)}$ 和 $T_u^{(v)}$．在换根前后，子树 $T_v^{(u)}$ 中每个结点深度都增加 $1$，子树 $T_u^{(v)}$ 中每个结点深度都减少 $1$，所以，深度和的变化为
+
+$$
+\Delta S_{v\to u} = S(u) - S(v) = |T_v^{(u)}| - |T_u^{(v)}| = |T| - 2|T_u^{(v)}|.
+$$
+
+所以，定义 1 的条件相当于要求 $\Delta S_{v\to u}\le 0$ 对 $v$ 的所有相邻结点 $u$ 都成立，也就是说，$v$ 是 $S(x)$ 的极小值点．
+
+转而设 $v$ 是 $S(x)$ 的（一个）最小值点（即定义 3），它必然存在，且一定是极小值点．考虑以 $v$ 为根的有根树 $T^{(v)}$．设 $u\neq v$ 是一个非根结点，且从 $v$ 到 $u$ 的有向路径上，结点 $v$ 的后一个结点为 $y$（可能就是 $u$），结点 $u$ 的前一个结点为 $x$（可能就是 $v$）．那么，因为 $T_u^{(x)}\subseteq T_y^{(v)}$，所以有
+
+$$
+2|T_x^{(u)}| = 2|T| - 2|T_u^{(x)}| \ge 2|T| - 2|T_y^{(v)}| \ge |T|.
+$$
+
+其中，最后一步用到 $v$ 是 $S(x)$ 的极小值点这一事实．此时，有两种情形：
+
+-   存在结点 $u$ 使得 $2|T_x^{(u)}|=|T|$ 成立．此时，根据上述不等式，必然有 $(x,u)=(v,y)$，且 $|T_v^{(u)}|=|T_{u}^{(v)}| = |T|/2$．也就是说，使得等式成立的结点 $u$ 只能有一个，且它必然与 $v$ 相邻．此时，对于所有其他结点 $u'\neq u,v$，必然存在 $x'\sim u'$ 使得 $|T_{x'}^{(u')}| &gt; |T|/2$ 成立．满足条件 1 的结点集合为 $\{v,u\}$．
+
+    注意到，删去任何结点时，得到的连通分量大小之和总是 $|T|-1$，所以，只要有一个连通分量大小不小于 $|T|/2$，它就必然是最大连通分量．因此，对于这种情形，$W(v)=W(u)=|T|/2$，且对于所有 $u'\neq u,v$ 都有 $W(u') &gt; |T|/2$．因此，满足条件 2 的结点集合为 $\arg\min W(x) = \{v,u\}$．
+
+    又因为 $\Delta S_{v\to u} = 0$，所以 $S(v)=S(u)$．因为 $v$ 是最小值点，$u$ 也一定是最小值点．而对于 $u'\neq u,v$ 都存在 $x'\sim u'$ 使得 $|T_{x'}^{(u')}| &gt; |T|/2$，这违反了极小值点需要满足的条件，所以，$u'$ 一定也不是最小值点．因此，满足条件 3 的结点集合为 $\arg\min S(x) = \{v,u\}$．
+-   不存在结点 $u$ 使得 $2|T_x^{(u)}|=|T|$ 成立．此时，对于所有结点 $u\neq v$，都存在结点 $x\sim u$ 使得 $|T_x^{(u)}| &gt; |T|/2$．重复前文分析可知，对于所有结点 $u\neq v$，都有 $W(u) &gt; |T|/2$，且 $u$ 不是 $S(x)$ 的极小值点．因此，满足条件 1 的结点只有 $v$，且 $\arg\min W(x)=\arg\min S(x) = \{v\}$．
+
+无论在哪一情形中，满足三个条件的集合都是相同的．这就证明了三个定义是等价的．
+</code></pre>
+<p>除了这些等价定义外，树的重心还有如下常见性质：</p>
+<p>???+ note "性质"
+    1.  树的重心如果不唯一，则恰有两个．这两个重心相邻．而且，删去它们的连边后，树将变为两个大小相同的连通分量．
+    2.  在一棵树上添加或删除一个叶子，那么它的重心最多只移动一条边的距离．
+    3.  把两棵树通过一条边相连得到一棵新的树，那么新树的重心在连接原来两棵树的重心的路径上．
+    4.  一棵有根树的重心一定在根结点所在的重链上．一棵树的重心一定是该树根结点重子结点对应子树的重心的祖先．</p>
+<p>??? note "证明"
+    性质 1 可以从对重心等价定义的证明中得到．</p>
+<pre><code>性质 2 只需要考虑添加一个叶子结点的情形．这进一步分为两种情形：
+
+-   树 $T$ 只有一个重心 $v$．设 $x$ 为新添加的叶子结点，且在新树中删去结点 $v$ 得到的图 $T\cup\{x\}\setminus\{v\}$ 中，$x$ 所在连通分量为 $B\cup\{x\}$．因为 $v$ 是树 $T$ 的唯一重心，所以 $2|B| &lt; |T|$，也就是 $2|B|+1\le |T|$．进而，有
+
+    $$
+    2|B\cup\{x\}| = 2(|B|+1) \le |T| + 1 = |T\cup\{x\}|.
+    $$
+
+    因此，$v$ 仍然是新树 $T\cup\{x\}$ 的重心．即使新树的重心不唯一，它也必然是 $v$ 的相邻结点．因此，重心至多移动一条边．
+-   树 $T$ 有两个重心 $u,v$．此时，删去 $(u,v)$ 得到的两个连通分量 $T_u^{(v)}$ 和 $T_v^{(u)}$ 大小相等，均为 $|T|/2$．不妨设新添加的叶子结点 $x$ 连接在 $v$ 所在的连通分量 $T_v^{(u)}$ 上．那么，因为
+
+    $$
+    |T_v^{(u)}\cup\{x\}| = |T|/2 + 1 &gt; (|T|+1)/2 = |T\cup\{x\}|/2,
+    $$
+
+    所以 $u$ 不再是新树的重心．反过来，因为删去 $v$ 后，仍然有大小为 $|T|/2$ 的连通分量 $T_u^{(v)}$，而其他连通分量的大小之和为
+
+    $$
+    |T\cup\{x\}| - 1 - |T_u^{(v)}| = |T|/2 \le |T_u^{(v)}|,
+    $$
+
+    所以，$v$ 仍然是新树的重心．因为新树的结点数是奇数，重心必然唯一．所以，重心也至多移动一条边．
+
+总结两种情形的分析可以发现，新树的重心一定在旧树的重心与新添加的叶子结点的路径上．
+
+性质 3 可以通过归纳法说明．设 $T$ 和 $T'$ 连接时，新添加的边为 $(x,y)$，且 $x\in T,y\in T'$．不妨设新树的（一个）重心在 $T$ 中．考虑从树 $T$ 开始，将树 $T'$ 中结点逐一添加为其叶子结点的过程．可以归纳地证明，树的（一个）重心始终在连接树 $T$ 的重心与结点 $x$ 的路径上．归纳起点显然．假设直到某一时刻为止，命题仍然成立．设此时重心为 $v$．由性质 2 的分析可知，新树的重心必然在连接新添加结点和当前重心 $v$ 的路径上，又因为它不会移动到树 $T$ 外，所以，只需要考虑路径与树 $T$ 的公共部分，即连接当前重心 $v$ 和结点 $x$ 的路径上．根据归纳假设，$v$ 就在连接树 $T$ 的重心和结点 $x$ 的路径上，所以，新树重心也必然在连接当前重心 $v$ 和结点 $x$ 的路径上．由归纳法可知，命题成立．
+
+性质 4 只需要结合 [重链剖分性质](./hld.md#重链剖分的性质) 即可说明．设树 $T$ 的（一个）重心为 $v$．结点 $v$ 是根结点时，命题显然成立．下面设 $v$ 是非根结点，$u$ 是它的父结点．因为 $|T_u^{(v)}| \le |T|/2$，所以，$v$ 所在子树大小至少是 $|T|/2$．但是，只要它到根结点的路径上经过一次轻边，它所在子树大小将严格小于 $|T|/2$，矛盾．所以，它必然在根结点所在重链上．进而，根据重链的定义，根结点重子结点对应子树中根结点所在重链就是原树中根结点所在重链的一部分；而且，根据性质 3，在重子结点对应子树上添加重子结点及其所有轻子结点对应子树后，重心位置将沿着当前重心和根结点路径移动，所以新重心必然是旧重心的祖先．
+</code></pre>
+<h2 id="_3">求法</h2>
+<p>根据重心的等价定义，有两种方法可以在 $O(n)$ 时间内求出树的所有重心，其中，$n$ 为树的大小．</p>
+<h3 id="dfs">DFS 统计子树大小</h3>
+<p>通过 DFS 计算每个子树的大小．对每个结点，记录它的所有子结点对应子树的大小，并利用总结点数减去当前子树大小得到「向上」的子树的大小，然后就可以依据定义找到重心了．</p>
+<p>??? example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/graph/code/tree-centroid/tree-centroid-2.cpp:core"</code></p>
+<h3 id="dp">换根 DP 统计深度和</h3>
+<p>还可以通过换根 DP 计算出以不同结点为根时，所有结点的深度和（即到当前根结点的距离和）．根据定义，只需要找到使得这一深度和最小的结点即可．</p>
+<p>??? example "参考实现"
+    <code>cpp
+    --8&lt;-- "docs/graph/code/tree-centroid/tree-centroid-3.cpp:core"</code></p>
+<h2 id="_4">例题</h2>
+<p>???+ example "<a href="https://codeforces.com/problemset/problem/685/B">Codeforces Round 359 (Div. 1) B. Kay and Snowflake</a>"
+    给定一棵有根树，求出每一棵子树的重心．</p>
+<p>??? note "解题思路"
+    根据性质 3，对于一棵以点 $u$ 为根的子树，其重心一定在所有以 $u$ 的直接子结点为根的子树的重心到点 $u$ 的路径上．</p>
+<pre><code>类似于上文提到的 DFS 求重心方法，对于每棵以结点 $u$ 为根的子树，先求出所有以其直接子结点为根的子树的重心（叶子结点的重心是其本身），然后向上判断路径上的结点是不是重心即可．
+
+在 $O(n)$ 时间内可以求出所有子树的重心．
+</code></pre>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/graph/code/tree-centroid/tree-centroid-1.cpp"</code></p>
+<h2 id="_5">习题</h2>
+<ul>
+<li><a href="https://codeforces.com/gym/101649/problem/G">Gym 101649G Godfather</a></li>
+<li><a href="http://poj.org/problem?id=1655">POJ 1655 Balancing Art</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1364">洛谷 P1364 医院设置</a></li>
+<li><a href="https://codeforces.com/contest/1406/problem/C">Codeforces 1406C Link Cut Centroids</a></li>
+<li><a href="https://codeforces.com/problemset/problem/708/C">Codeforces 708C Centroids</a></li>
+</ul>
+<h2 id="_6">参考资料</h2>
+<ul>
+<li><a href="https://web.archive.org/web/20181122041458/http://fanhq666.blog.163.com/blog/static/81943426201172472943638">树的 "重心" 的一些性质及动态维护 - fanhq666</a>（<a href="https://www.cnblogs.com/qlky/p/5781081.html">博客园转载</a>）</li>
+<li><a href="https://www.cnblogs.com/zinthos/p/3899075.html">树的直径、树的重心与树的点分治 - cyendra</a></li>
+<li><a href="https://www.cnblogs.com/suxxsfe/p/13543253.html">树的重心的性质及其证明 - suxxsfe</a></li>
+<li>《信息学奥林匹克辞典》2.4.7.11 章 1. 树的重心</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

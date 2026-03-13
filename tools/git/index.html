@@ -1,0 +1,1300 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/tools/git/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Git - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        设置用户信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置编辑器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        显示配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        仓库操作基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仓库操作基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新建 Git 仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        跟踪文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        查看提交记录
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分支管理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="分支管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分支的创建
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分支的合并
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解决合并冲突
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        其他合并方式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="其他合并方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#squash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Squash（压缩）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebase（变基）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        管理远程仓库
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="管理远程仓库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远程仓库的查看
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        远程仓库的配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从远程仓库获取更改
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        将更改推送到远程仓库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        追踪远程分支
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用 ssh 连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-gui-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git GUI Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/tools/git.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Git</h1>
+
+<p>???+ note "Note"
+    本页面将着重介绍 Git 这一版本控制系统，与 GitHub 相关的内容，请参考 <a href="https://docs.github.com/cn">GitHub 帮助</a> 和 <a href="../../intro/htc/">如何参与 - OI Wiki</a>．</p>
+<p>Git 是目前使用最广泛的版本控制系统之一．<strong>OI Wiki</strong> 也使用了 Git 作为版本控制系统．</p>
+<h2 id="_1">安装</h2>
+<p>参见 <a href="https://git-scm.com/downloads">Git - Downloads</a>．</p>
+<h2 id="_2">配置</h2>
+<p>Git 根据配置文件的应用范围，将配置文件分为不同的等级，其中较常用的有两个级别[^note1]：</p>
+<ol>
+<li>适用于当前用户的全局配置文件，该用户操作本系统上的所有仓库时都会查询该配置文件．</li>
+<li>适用于当前仓库的配置文件．</li>
+</ol>
+<p>当多个配置文件对同一个选项作出设置的时候，局部设置会自动覆盖全局设置．因此如果需要在某个仓库应用特定的设置的话，只需更改该仓库下的特定设置即可，不会对全局设置造成影响．</p>
+<p>修改配置文件需要用到 <code>git config</code> 命令．</p>
+<h3 id="_3">设置用户信息</h3>
+<p>安装 Git 后，第一件事情就是设置你的用户名和邮箱．这些信息在每次提交时都会用到．</p>
+<pre><code class="language-console">$ git config --global user.name &quot;OI Wiki&quot;
+$ git config --global user.email oi-wiki@example.com
+</code></pre>
+<p>???+ note "Note"
+    这里给出的用户名和邮箱仅供演示．您在根据本页面的内容配置时，请记得将这里的用户名和邮箱改成自己的信息．</p>
+<p>这里的 <code>--global</code> 表示修改的是全局配置，即该设置对当前用户下的所有仓库均有效．如果不添加 <code>--global</code> 选项，则会默认修改当前仓库下的配置文件．</p>
+<p>如果想要修改某个仓库的特定设置，只需在该仓库下执行不带 <code>--global</code> 的命令即可．</p>
+<h3 id="_4">配置编辑器</h3>
+<pre><code class="language-console">$ git config --global core.editor emacs
+</code></pre>
+<p>执行如上命令可以将编辑器更改为 <a href="../editor/emacs/">Emacs</a>．</p>
+<p>在 Windows 下，Git 的默认编辑器可以在安装 Git 时选择（见前文）．之后若要修改，在 Git Bash 里输入如上命令，将编辑器名换成编辑器的绝对路径，运行命令即可．</p>
+<h3 id="_5">显示配置</h3>
+<p>可以通过 <code>git config -l</code> 列出当前已经设置的所有配置参数．使用 <code>git config --global -l</code> 可以列出所有全局配置．</p>
+<h2 id="_6">仓库操作基础</h2>
+<h3 id="git">新建 Git 仓库</h3>
+<p>新建一个 Git 仓库非常简单，只需在想要建立仓库的文件夹输入如下命令：</p>
+<pre><code class="language-console">$ git init
+</code></pre>
+<p>Git 将在当前文件夹新建一个 <code>.git</code> 文件夹，一个仓库就这样建好了．</p>
+<p>如果想把一个仓库克隆到自己的电脑上（比如将 <strong>OI Wiki</strong> 的代码拷贝到本地上进行编辑），采用 <code>git clone</code> 命令即可．</p>
+<pre><code class="language-console">$ git clone https://github.com/OI-wiki/OI-wiki
+</code></pre>
+<p>???+ note "远程仓库的链接"
+    这里给出的仓库链接是 HTTP(S) 链接，也即我们采用了 HTTP(S) 方式连接到远程仓库．</p>
+<pre><code>事实上，连接到远程仓库的方式还有多种．其中使用 ssh 连接到远程仓库的方法更为方便和安全，在「远程仓库的管理」部分我们会简单介绍使用 ssh 连接到远程仓库的方法．
+</code></pre>
+<p>这样，被克隆的仓库的内容就会被储存到当前文件夹下一个与仓库同名的新文件夹．在本例中，当前文件夹下会出现一个名为 <code>OI-wiki</code> 的新文件夹．</p>
+<h3 id="_7">跟踪文件</h3>
+<p>在对仓库的文件做出了一些更改后，这些更改需要被纳入到版本管理当中去．</p>
+<p>使用 <code>git status</code> 命令可以查看当前仓库文件的状态．</p>
+<p>举个例子，在一个空仓库中新增了一个 <code>README.md</code> 文件后，执行 <code>git status</code> 命令的效果如下：</p>
+<!-- scripts.linter.preprocess.fix_details off -->
+
+<pre><code class="language-console">$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        README.md
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre>
+<!-- scripts.linter.preprocess.fix_details on -->
+
+<p>这里的 Untracked files 指的是 Git 之前没有纳入版本跟踪的文件．如果文件没有纳入版本跟踪，对该文件的更改不会被 Git 记录．</p>
+<p>执行 <code>git add &lt;文件&gt;</code> 命令可以将指定的文件纳入到版本跟踪中．</p>
+<!-- scripts.linter.preprocess.fix_details off -->
+
+<pre><code class="language-console">$ git add README.md # 将这个文件纳入到版本跟踪中
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+        new file:   README.md
+</code></pre>
+<!-- scripts.linter.preprocess.fix_details on -->
+
+<p>这时 <code>README.md</code> 已经纳入了版本跟踪，放入了暂存区．接下来只需执行 <code>git commit</code> 命令就可以提交这次更改了．</p>
+<p>但在进行这一工作之前，让我们先对 <code>README.md</code> 做点小更改．</p>
+<!-- scripts.linter.preprocess.fix_details off -->
+
+<pre><code class="language-console">$ vim README.md # 随便更改点东西
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+        new file:   README.md
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   README.md
+</code></pre>
+<!-- scripts.linter.preprocess.fix_details on -->
+
+<p>你会发现 <code>README.md</code> 同时处于暂存区和非暂存区．实际上，是否处于暂存区是对于更改而言的，而不是对于文件而言的，所以对 <code>README.md</code> 的前一次更改已被纳入暂存区，而后一次更改还没有．如果这时候执行 <code>git commit</code> 命令，只有处于暂存区的更改会被提交，而非暂存区的更改，则不会被提交．</p>
+<p>Git 给了一条提示，执行 <code>git add README.md</code> 就可以将非暂存区的更改放入暂存区了．</p>
+<p>???+ note "一次性将所有更改放入暂存区"
+    <code>git add</code> 命令会将对指定的文件的更改放入暂存区中．</p>
+<pre><code>在多数情况下，用户更期望一次性将所有更改都放入暂存区中，这时候可以应用 `git add -A` 命令．该命令会将所有更改（包括未被纳入版本跟踪的文件，不包括被忽略的文件）放入暂存区．
+
+如果只需更新已被纳入版本跟踪的文件，而不将未纳入版本跟踪的文件加入暂存区，可以使用 `git add -u`．
+</code></pre>
+<p>???+ note "忽略文件"
+    有些时候我们并不希望将一些文件（如可执行文件等）纳入到版本跟踪中．这时候可以在仓库根目录下创建 <code>.gitignore</code> 文件，在该文件里写下想要忽略的文件．Git 将不会将这些文件纳入到版本跟踪中．</p>
+<pre><code>例如，`*.exe` 将自动忽略仓库里的所有扩展名为 `.exe` 的文件．
+</code></pre>
+<p>现在将非暂存区的文件加入暂存区，将所有更改一并提交（commit）．</p>
+<pre><code class="language-console">$ git add README.md
+$ git commit # 接下来会弹出编辑器页面，你需要写下 commit 信息
+[master (root-commit) f992763] initial commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+</code></pre>
+<p>现在重点观察一下这一次 commit 的信息．</p>
+<p><code>master</code> 表示当前位于 <code>master</code> 分支（关于分支的问题，下文将会详细介绍），<code>f992763</code> 表示本次提交的 SHA-1 校验和的前几位，后面则是本次提交的信息．</p>
+<p>需要特别关注的是这里的 SHA-1 校验码，每个校验码都与某个时刻仓库的一个快照相对应．利用这一特性我们可以访问历史某个时刻的仓库快照，并在该快照上进行更改．</p>
+<p>接下来两行则详细说明了本次更新涉及的文件更改．</p>
+<p>另外，commit 过程中可以利用几个参数来简化提交过程：</p>
+<ul>
+<li><code>-a</code>：在提交前将所有已跟踪的文件的更改放入暂存区．需要注意的是未被跟踪的文件（新创建的文件）不会被自动加入暂存区，需要用 <code>git add</code> 命令手动添加．</li>
+<li><code>-m</code>：该参数后跟提交信息，表示以该提交信息提交本次更改．例如 <code>git commit -m "fix: typo"</code> 会创建一条标题为 <code>fix: typo</code> 的 commit．</li>
+</ul>
+<h3 id="_8">查看提交记录</h3>
+<p>使用 <code>git log</code> 命令可以查看仓库的提交历史记录．</p>
+<p>可以看到，提交历史里记录了每次提交时的 SHA-1 校验和，提交的作者，提交时间和 commit 信息．</p>
+<pre><code class="language-console">$ git log
+commit ae9dd3768a405b348bc6170c7acb8b6cb5fe333e (HEAD -&gt; master)
+Author: OI Wiki &lt;oi-wiki@example.com&gt;
+Date:   Sun Sep 13 00:30:18 2020 +0800
+
+    feat: update README.md
+
+commit f99276362a3c260d439364c505a7a06859f34bf9
+Author: OI Wiki &lt;oi-wiki@example.com&gt;
+Date:   Sun Sep 13 00:06:07 2020 +0800
+
+    initial commit
+</code></pre>
+<h2 id="_9">分支管理</h2>
+<p>为什么版本管理中需要分支管理呢？答案主要有两点：</p>
+<ol>
+<li>直接更改主分支不仅会使历史记录混乱，也可能会造成一些危险的后果．</li>
+<li>通过分支，我们可以专注于当前的工作．如果我们需要完成两个不同的工作，只需开两个分支即可，两个分支间的工作互不干扰．</li>
+</ol>
+<p>在 Git 中，简单来说，分支就是指向某个快照的指针．每次提交时，Git 都会为这次提交创建一个快照，并将当前分支的指针移动到该快照．</p>
+<p>另外还有一个 HEAD 指针，它指向当前所在的分支．</p>
+<p>切换分支的过程，简单来说就是将 HEAD 指针，从指向当前所在的分支，改为指向另外一个分支．在这一过程中，Git 会自动完成文件的更新，使得切换分支后仓库的状态与目标分支指向的快照一致．</p>
+<h3 id="_10">分支的创建</h3>
+<p>利用 <code>git branch</code> 命令可以创建分支，<code>git switch</code> 命令可以切换分支，<code>git switch -c</code> 命令可以创建分支并切换到这个新分支．</p>
+<pre><code class="language-console">$ git switch -c dev # 创建一个叫做 dev 的新分支并切换当前分支到 dev
+Switched to branch 'dev'
+$ git branch # 查看分支列表
+  master
+* dev
+</code></pre>
+<p><code>dev</code> 前面的星号代表该仓库的当前分支为 <code>dev</code>，接下来对这个仓库的更改都将记录在这个分支上．</p>
+<p>试着创建一个新文件 <code>aplusb.cpp</code>．</p>
+<pre><code class="language-console">$ vim aplusb.cpp
+$ git add aplusb.cpp
+$ git commit -m &quot;feat: add A+B Problem code&quot;
+[dev 5da093b] feat: add A+B Problem code
+ 1 file changed, 7 insertions(+)
+ create mode 100644 aplusb.cpp
+</code></pre>
+<p>现在切换回 <code>master</code> 分支，这时候文件夹中没有了 <code>aplusb.cpp</code>，一切都回到了刚刚创建 <code>dev</code> 分支时的状态．这时候可以在 <code>master</code> 分支上继续完成其他的工作．</p>
+<pre><code class="language-console">$ git switch master
+Switched to branch 'master'
+$ vim README.md # 对 README 做些小改动
+$ git commit -a -m &quot;feat: update README.md&quot;
+[master 5ca15f0] feat: update README.md
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<p>下面用一张图来解释刚才的操作过程．</p>
+<p><img alt="" src="../images/git1.svg" /></p>
+<p><code>master</code> 分支被标红，表明在这几次操作后，它是当前分支（即 HEAD 指向的位置）．</p>
+<ul>
+<li>最开始时 <code>master</code> 指向 <code>ae9dd37</code> 这一快照．</li>
+<li>接下来在 <code>master</code> 所在的位置创建了一个新的 dev 分支，该分支一开始和 master 指向相同位置．</li>
+<li>在 <code>dev</code> 分支上作了一些更改（创建了 <code>aplusb.cpp</code>），进行了一次提交，本次提交后，<code>dev</code> 分支指向 <code>5da093b</code> 这一快照．</li>
+<li>切换回 <code>master</code> 分支后，因为 <code>master</code> 分支还指向 <code>ae9dd37</code>，还没有创建 <code>aplusb.cpp</code>，因此仓库中没有这一文件．</li>
+<li>接下来在 <code>master</code> 分支上进行更改（更新了 <code>README.md</code>），进行了一次提交，<code>master</code> 分支指向了 <code>5ca15f0</code> 这一快照．</li>
+</ul>
+<h3 id="_11">分支的合并</h3>
+<p>当一个分支上的工作已经完成，就可以将这些工作合并到另外一个分支上去．</p>
+<p>还是接着上面这个例子，<code>dev</code> 分支的工作已经完成，通过 <code>git merge</code> 命令可以将该分支合并到当前分支（<code>master</code>）上：</p>
+<pre><code class="language-console">$ git merge dev
+Merge made by the 'recursive' strategy.
+ aplusb.cpp | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 aplusb.cpp
+</code></pre>
+<p><img alt="" src="../images/git2.svg" /></p>
+<p>这次合并具体是怎么执行的呢？</p>
+<p>在合并之前，<code>master</code> 指向 <code>5ca15f0</code>，而 <code>dev</code> 指向 <code>5da093b</code>，这两个状态并不在一条链上．</p>
+<p>Git 会找到这两个状态的最近公共祖先（在上图中是 <code>ae9dd37</code>），并对这三个快照进行一次合并．三个快照合并的结果作为一个新的快照，并将当前分支指向这一快照．</p>
+<p>合并过程本身也是一次提交，不过与常规提交不同的是，合并提交有不止一个前驱提交，它是多个提交状态合并后的结果．</p>
+<p>在合并完成后，<code>dev</code> 分支就完成了它的使命，这时候可以利用下面的命令删除 <code>dev</code> 分支：</p>
+<pre><code class="language-console">$ git branch -d dev # 对于未合并的分支，可以使用 -D 参数强制删除
+</code></pre>
+<p>不过合并过程并非总是这么顺利，在某些情况下，合并过程可能会出现冲突，这个问题接下来会讲到．</p>
+<h3 id="_12">解决合并冲突</h3>
+<p>如果在两个分支中，对同一个文件的同一部分进行了不同的更改，Git 就无法自动合并这两个分支，也就是发生了合并冲突．</p>
+<p>接着上面的例子，假如你在合并后的 <code>master</code> 分支的基础上，新开了一个 <code>readme-refactor</code> 分支，准备重写一份自述文件．但因为一些疏忽，你同时更改了 <code>readme-refactor</code> 和 <code>master</code> 分支的自述文件．</p>
+<p>刚开始自述文件是这样的：</p>
+<pre><code class="language-markdown"># This is a test repo.
+
+This repo includes some c++ codes.
+</code></pre>
+<p>在 <code>readme-refactor</code> 分支下的自述文件是这样的：</p>
+<pre><code class="language-markdown"># Code Library
+
+This repo includes some c++ codes.
+</code></pre>
+<p>在 <code>master</code> 分支下的自述文件是这样的：</p>
+<pre><code class="language-markdown"># This is a code library.
+
+This repo includes some c++ codes.
+</code></pre>
+<p>这时候运行 <code>git merge readme-refactor</code> 命令，Git 提示出现了合并冲突．</p>
+<p>执行一下 <code>git status</code> 命令，可以查看是哪些文件引发了冲突．</p>
+<!-- scripts.linter.preprocess.fix_details off -->
+
+<pre><code class="language-console">$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+    both modified:      README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<!-- scripts.linter.preprocess.fix_details on -->
+
+<p>如何解决冲突？对于每个发生了合并冲突的文件，Git 都会在这些文件中加入标准的冲突解决标记．比如这个例子中的 <code>README.md</code> 文件，打开后它长这个样子：</p>
+<pre><code class="language-markdown">&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+# This is a code library.
+======
+# Code Library
+&gt;&gt;&gt;&gt;&gt;&gt; readme-refactor
+
+This repo includes some c++ codes.
+</code></pre>
+<p><code>======</code> 作为分界线将两个分支的内容隔开，<code>&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> 标记和 <code>======</code> 之间的部分是 HEAD 指针（<code>master</code> 分支）的内容，而 <code>======</code> 和 <code>&gt;&gt;&gt;&gt;&gt;&gt; readme-refactor</code> 标记之间的部分是 <code>readme-refactor</code> 分支的内容．</p>
+<p>通过编辑文本来处理冲突，删除这些冲突标记，保存文件，将这些文件纳入暂存区后提交，就可以解决合并冲突了．</p>
+<pre><code class="language-console">$ git add README.md # 将发生冲突的文件纳入暂存区
+$ git commit
+[master fe92c6b] Merge branch readme-refactor into master
+</code></pre>
+<h3 id="_13">其他合并方式</h3>
+<p>默认情况下，Git 采用 Merge（合并）的方式合并两个分支．使用该方法将分支 B 并入分支 A 时，会将 B 分支的所有 commit 并入 A 分支的提交历史中．</p>
+<p>除此以外，Git 还提供了两种合并分支的方式：Squash（压缩）和 Rebase（变基）．</p>
+<h4 id="squash">Squash（压缩）</h4>
+<p>使用 Squash 方式将分支 B 并入分支 A 时，在 B 分支上的所有更改会被合并为一次 commit 提交到 A 分支．</p>
+<p>在 <code>git merge</code> 中加入 <code>--squash</code> 参数即可使用 Squash 方式进行分支合并．</p>
+<pre><code class="language-console">$ git merge &lt;branch&gt; --squash
+</code></pre>
+<p>需要注意的是，在执行上述命令后，Git 只会将 B 分支的所有更改存入 A 分支的缓冲区内，接下来还需要执行一次 <code>git commit</code> 命令完成合并工作．</p>
+<p>使用 Squash 方式合并可以简化 commit 记录，但是会丢失具体到每一次 commit 的信息（每次 commit 的提交者，每次 commit 的更改等等），只留下合并为一个整体的信息（每次 commit 的提交者会以 "Co-authored-by" 的形式在提交信息中列出）．但如果是在 GitHub 上进行 Squash and Merge，原有的信息都可以在 Pull Request 中查看．</p>
+<h4 id="rebase">Rebase（变基）</h4>
+<p>使用 Rebase 方式将分支 B 并入分支 A 时，在 B 分支上的每一次 commit 都会单独添加到 A 分支，而不再像 Merge 方式那样创建一个合并 commit 来合并两个分支的内容[^note2]．</p>
+<p>首先，切换到 B 分支，接下来将 B 分支变基到 A 分支：</p>
+<pre><code class="language-console">$ git checkout B
+$ git rebase A
+</code></pre>
+<p>现在切回到 A 分支，再执行一次 <code>git merge</code> 命令，即可完成将 B 分支的内容合并到 A 分支的工作．</p>
+<pre><code class="language-console">$ git checkout A
+$ git merge B
+</code></pre>
+<p>使用 Rebase 完成合并可以让提交历史线性化，在适当的场景下正确地使用 Rebase 可以达到比 Merge 更好的效果．但是这样做会改变提交历史，在进行 Rebase 时和 Rebase 后再进行相关合并操作时都会增加出现冲突的可能，如果操作不当可能反而会使提交历史变得杂乱．因此，如果对 Rebase 操作没有充分的了解，不建议使用．</p>
+<h2 id="_14">管理远程仓库</h2>
+<p>在本地完成更改后，你可能会需要将这些更改推送到 GitHub 等 Git 仓库托管平台上．托管在这些平台上的仓库就归属于远程仓库的范畴——你可以从这些仓库中获取信息，也可以将你作出的更改推送到远程仓库上．与其他人的协作往往离不开远程仓库，因此学会管理远程仓库很有必要．</p>
+<h3 id="_15">远程仓库的查看</h3>
+<p>使用 <code>git remote</code> 命令可以查看当前仓库的远程仓库列表．</p>
+<p>如果当前仓库是克隆来的，那么应该会有一个叫做 origin 的远程仓库，它的链接就是克隆时用的链接．</p>
+<pre><code class="language-console">$ git remote
+origin
+</code></pre>
+<p>如果要查看某个远程仓库的详细信息的话，可以这样操作：</p>
+<pre><code class="language-console">$ git remote show origin
+* remote origin
+  Fetch URL: git@github.com:OI-wiki/OI-wiki.git
+  Push  URL: git@github.com:OI-wiki/OI-wiki.git
+  HEAD branch: master
+  Remote branches:
+    git             tracked
+    master          tracked
+  ...
+</code></pre>
+<h3 id="_16">远程仓库的配置</h3>
+<p>执行 <code>git remote add &lt;name&gt; &lt;url&gt;</code> 命令可以添加一个名字为 <code>name</code>，链接为 <code>url</code> 的远程仓库．</p>
+<p>执行 <code>git remote rename &lt;oldname&gt; &lt;newname&gt;</code> 可以将名字为 <code>oldname</code> 的远程仓库改名为 <code>newname</code>．</p>
+<p>执行 <code>git remote rm &lt;name&gt;</code> 可以删除名字为 <code>name</code> 的远程仓库．</p>
+<p>执行 <code>git remote get-url &lt;name&gt;</code> 可以查看名字为 <code>name</code> 的远程仓库的链接．</p>
+<p>执行 <code>git remote set-url &lt;name&gt; &lt;newurl&gt;</code> 可以将名字为 <code>name</code> 的远程仓库的链接更改为 <code>newurl</code>．</p>
+<h3 id="_17">从远程仓库获取更改</h3>
+<p>在远程仓库中，其他人可能会推送一些更改，执行 <code>git fetch</code> 命令可以将这些更改获取到本地．</p>
+<pre><code class="language-console">$ git fetch &lt;remote-name&gt; # 获取 &lt;remote-name&gt; 的更改
+</code></pre>
+<p>需要注意的是，<code>git fetch</code> 命令只会获取远程仓库的更改，而不会将这些更改合并到本地仓库中．如果需要将这些更改进行合并，可以使用 <code>git pull</code> 命令．在默认情况下，<code>git pull</code> 相当于 <code>git fetch</code> 后 <code>git merge FETCH_HEAD</code>．</p>
+<pre><code class="language-console">$ git pull &lt;remote-name&gt; &lt;branch&gt; # 获取 &lt;remote-name&gt; 的更改，然后将这些更改合并到 HEAD
+</code></pre>
+<h3 id="_18">将更改推送到远程仓库</h3>
+<p>当你完成了一些更改之后，使用 <code>git push</code> 命令可以将这些更改推送到远程仓库．</p>
+<pre><code class="language-console">$ git push &lt;remote&gt; &lt;from&gt;:&lt;to&gt; # 将本地 &lt;from&gt; 分支的更改推送至 &lt;remote&gt; 的 &lt;to&gt; 分支
+</code></pre>
+<p>根据远程仓库的要求，可能会要求你输入远程仓库账户的用户名和密码．</p>
+<p>需要注意的是，你的更改能成功推送，需要满足两个条件：你拥有向这个仓库（分支）的写入权限，且你的这个分支比远程仓库的相应分支新（可以理解为没有人在你进行更改的这段时间进行了推送）．当远程分支有当前分支没有的新更改时，可以执行 <code>git pull</code> 命令完成合并再提交．</p>
+<p>如果你需要强制将本地分支的更改推送到远程仓库的话，可以加入 <code>-f</code> 参数．此时 <strong>远程仓库的提交历史会被本地的提交历史覆盖</strong>，因此该命令应谨慎使用．更好的选择是使用 <code>--force-with-lease</code> 参数，该参数仅在远程仓库没有更新时才会进行覆盖．需要注意的是，此处「更新」是相对于上一次 fetch 而言的，如果使用了 VS Code 提供的 Auto Fetch 功能，可能会没有注意到更新而使 <code>--force-with-lease</code> 和 <code>-f</code> 一样危险．</p>
+<h3 id="_19">追踪远程分支</h3>
+<p>通过将一个本地分支设定为追踪远程分支，可以方便地查看本地分支与远程分支的差别，并能简化与远程分支交互时的操作．</p>
+<p>在开始追踪前，你需要先执行 <code>git fetch &lt;remote-name&gt;</code> 将远程仓库的信息抓取到本地．</p>
+<p>接下来执行 <code>git switch &lt;remote-branch&gt;</code>，会在本地自动创建名字为 <code>&lt;remote-branch&gt;</code> 的新分支，并设定该分支自动追踪相应的远程分支．</p>
+<p>???+ note "Note"
+    需要注意，只有当本地不存在该分支，且恰好只有一个远程分支的名字与该分支匹配时，Git 才会自动创建该分支且设定其追踪相应的远程分支．</p>
+<p>这时候执行 <code>git status</code> 命令，会提示当前分支与远程分支之间的差别．</p>
+<p>因为设定了本地分支追踪的远程分支，向远程分支推送的命令也被简化了．只需要执行 <code>git push</code> 命令，在本地分支上作出的更改就能被推送至其追踪的远程分支．</p>
+<p>对于本地已有的分支，设定其对应的远程追踪分支也很容易．只需在当前分支下执行 <code>git branch -u &lt;remote-name&gt;/&lt;remote-branch&gt;</code>，就可以设定当前的本地分支追踪 <code>&lt;remote-name&gt;/&lt;remote-branch&gt;</code> 这一远程分支．</p>
+<h3 id="ssh">使用 ssh 连接</h3>
+<p>与 HTTP(S) 相比，使用 ssh 连接到远程仓库更为方便安全．</p>
+<p>在使用 ssh 连接到远程仓库之前，需要先在本地添加 ssh 密钥．接下来需要将本地添加的 ssh 密钥的 <strong>公钥</strong> 上传到远程仓库账户．</p>
+<p>考虑到本文主要是给 <strong>OI Wiki</strong> 的贡献者提供一个使用 Git 的教程，这里直接给出 <a href="https://docs.github.com/cn/github/authenticating-to-github/connecting-to-github-with-ssh">GitHub Docs 提供的教程</a>，供各位读者参考．</p>
+<p>完成以上步骤后，你就可以通过 ssh 连接到远程仓库了．下面就是一条通过 ssh 连接 clone <strong>OI Wiki</strong> 仓库的命令：</p>
+<pre><code class="language-console">$ git clone git@github.com:OI-wiki/OI-wiki.git
+</code></pre>
+<p>将更改推送至远程仓库的过程与使用 HTTP(S) 连接类似．但使用 ssh 连接可以免去验证远程仓库帐号密码的过程．</p>
+<h2 id="git-gui-tools">Git GUI Tools</h2>
+<p>对于不熟悉命令行的同学，纯命令行的 Git 的上手难度可能会偏高，而借助 GUI 工具可以一定程度上降低 Git 的上手难度．此外，相比于命令行，GUI 工具在查看 diff 以及 log 时在体验上有一定程度的提高．</p>
+<p>Git 本身自带有 GUI，市面上也有很多优秀的 Git GUI 工具，例如针对 Windows 用户的 TortoiseGit<a href="[TortoiseGit](https://tortoisegit.org/)">^note3</a>，支持 Windows 和 Mac 的 Sourcetree<a href="[Sourcetree](https://www.sourcetreeapp.com/)">^note4</a>等．</p>
+<p>这里简单介绍一下 TortoiseGit 的使用．下载并安装好 TortoiseGit 之后，在本地仓库的目录下，单击鼠标右键，在右键菜单中就可以看到 Git 的各个功能．</p>
+<p><img alt="TortoiseGit Example" src="../images/git11.png" /></p>
+<p>详细的使用方法这里不再赘述，可以参考官网里的使用文档或者通过搜索引擎学习，例如 <a href="https://tortoisegit.org/docs/tortoisegit/index.html">TortoiseGit Manual</a>．</p>
+<p>很多 GUI 工具都有官方中文支持，例如 Git Desktop 以及 TortoiseGit．但是还是会有部分翻译看起来较为变扭，推荐使用英文版本．</p>
+<h2 id="_20">外部链接</h2>
+<ul>
+<li><a href="https://git-scm.com/docs">Git Reference</a></li>
+<li><a href="https://git-scm.com/book/zh/v2">Pro Git Book</a></li>
+<li><a href="https://learngitbranching.js.org/">Learn Git Branching</a></li>
+</ul>
+<h2 id="_21">参考资料与注释</h2>
+<p>[^note1]: 事实上 Git 还有一个针对系统上每一个用户及系统上所有仓库的通用配置文件，该配置文件覆盖范围最广，等级在用户配置文件之上．因为该配置实践中较少使用，这里不再展开．</p>
+<p>[^note2]: <a href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA">Pro Git Book</a> 中提供了可视化的 Rebase 过程图，借助图片读者可以更好地理解 Rebase 的机制．</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

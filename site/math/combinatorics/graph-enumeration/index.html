@@ -1,0 +1,1199 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/combinatorics/graph-enumeration/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Graph enumeration - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Graph enumeration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有标号树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有标号树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有标号连通图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有标号连通图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#poj-1737connected-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「POJ 1737」Connected Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2013" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「集训队作业 2013」城市规划
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题「集训队作业 2013」城市规划">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法一：分治 FFT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法二：多项式求逆
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法三：多项式 exp
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有标号欧拉图、二分图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="有标号欧拉图、二分图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spoj-kpgraphscounting-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「SPOJ KPGRAPHS」Counting Graphs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题「SPOJ KPGRAPHS」Counting Graphs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法一：算两次
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法二：连通化递推
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方法三：多项式 exp
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#riddells-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riddell's Formula
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无标号树
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="无标号树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spoj-pt07dlet-us-count-1-2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「SPOJ PT07D」Let us count 1 2 3
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题「SPOJ PT07D」Let us count 1 2 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有根树
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无根树
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#luogu-p5900" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「Luogu P5900」无标号无根树计数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无标号简单图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="无标号简单图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sgu-282-isomorphismisomorphism" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题「SGU 282. Isomorphism」Isomorphism
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/combinatorics/graph-enumeration.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Graph enumeration</h1>
+
+<p>在组合数学中，图论计数（Graph Enumeration）是研究满足特定性质的图的计数问题的分支．<a href="../../poly/intro/">生成函数</a>、<a href="../polya/">波利亚计数定理</a> 与 <a href="../../poly/symbolic-method/#%E9%9B%86%E5%90%88%E7%9A%84-cycle-%E6%9E%84%E9%80%A0">符号化方法</a> 和 <a href="https://oeis.org/">OEIS</a> 是解决这类问题时最重要的数学工具．图论计数可分为有标号和无标号两大类问题，大多数情况下[^1]有标号版本的问题都比其对应的无标号问题更加简单，因此我们将先考察有标号问题的计数．</p>
+<p>[^1]: 也许无标号二叉树是一个反例，在结构简单的情况下，对应的置换群是恒等群（Identity Group），此时有标号版本可以直接通过乘以 $n!$ 得到．</p>
+<h2 id="_1">有标号树</h2>
+<p>即 Cayley 公式，参见 <a href="../../../graph/prufer/">Prüfer 序列</a> 一文，我们也可以使用 <a href="../../../graph/matrix-tree/">Kirchhoff 矩阵树定理</a> 或 <a href="../../poly/intro/#生成函数">生成函数</a> 和 <a href="https://codeforces.com/blog/entry/104184">拉格朗日定理</a> 得到这一结果．</p>
+<h3 id="_2">习题</h3>
+<ul>
+<li><a href="https://vjudge.net/problem/HihoCoder-1047">Hihocoder 1047. Random Tree</a></li>
+</ul>
+<h2 id="_3">有标号连通图</h2>
+<h3 id="poj-1737connected-graph">例题「POJ 1737」Connected Graph</h3>
+<p>???+ note "例题 <a href="http://poj.org/problem?id=1737">「POJ 1737」Connected Graph</a>"
+    题目大意：求有 $n$ 个结点的有标号连通图的方案数（$n \leq 50$）．</p>
+<p>这类问题最早出现于楼教主的男人八题系列中，我们设 $g_n$ 为 $n$ 个点有标号图的方案数，$c_n$ 为待求序列．$n$ 个点的图至多有 $\binom{n}{2}$ 条边，每条边根据其出现与否有两种状态，每种状态之间独立，因而有 $g_n = 2^{\binom{n}{2}}$．我们固定其中一个节点，枚举其所在连通块的大小，那么还需要从剩下的 $n-1$ 个节点中选择 $i-1$ 个节点组成一个连通块．连通块之外的节点可以任意连边，因而有如下递推关系：</p>
+<p>$$
+\begin{align}
+\sum_{i=1}^{n} \binom{n-1}{i-1} c_i g_{n-i} &amp;= g_n \
+c_n &amp;= g_n - \sum_{i=1}^{n-1} \binom{n-1}{i-1} c_i g_{n-i} 
+\end{align}
+$$</p>
+<p>移项得到 $c_n$ 序列的 $O(n^2)$ 递推公式，可以通过此题．</p>
+<h3 id="2013">例题「集训队作业 2013」城市规划</h3>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P4841">「集训队作业 2013」城市规划</a>"
+    题目大意：求有 $n$ 个结点的有标号连通图的方案数（$n \leq 130000$）．</p>
+<p>对于数据范围更大的序列问题，往往我们需要构造这些序列的生成函数，以使用高效的多项式算法．</p>
+<h4 id="fft">方法一：分治 FFT</h4>
+<p>上述的递推式可以看作一种自卷积形式，因而可以使用分治 FFT 进行计算，复杂度 $O(n\log^2n)$．</p>
+<h4 id="_4">方法二：多项式求逆</h4>
+<p>我们将上述递推式中的组合数展开，并进行变形：</p>
+<p>$$
+\begin{align}
+\sum_{i=1}^{n} \binom{n-1}{i-1} c_i g_{n-i} &amp;= g_n \
+\sum_{i=1}^{n} \frac{c_i}{(i-1)!} \frac{g_{n-i}}{(n-i)!} &amp;= \frac{g_n}{(n-1)!}
+\end{align}
+$$</p>
+<p>构造多项式：</p>
+<p>$$
+\begin{align}
+C(x) &amp;= \sum_{n=1} \frac{c_n}{(n-1)!} x^n \
+G(x) &amp;= \sum_{n=0} \frac{g_n}{n!} x^n \
+H(x) &amp;= \sum_{n=1} \frac{g_n}{(n-1)!} x^n
+\end{align}
+$$</p>
+<p>代换进上式得到 $CG = H$，使用 <a href="../../poly/elementary-func/#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86">多项式求逆</a> 后再卷积解出 $C(x)$ 即可．</p>
+<h4 id="exp">方法三：多项式 exp</h4>
+<p>另一种做法是使用 <a href="../../poly/egf/#egf-%E4%B8%AD%E5%A4%9A%E9%A1%B9%E5%BC%8F-exp-%E7%9A%84%E7%BB%84%E5%90%88%E6%84%8F%E4%B9%89">EGF 中多项式 exp 的组合意义</a>，我们设有标号连通图和简单图序列的 EGF 分别为 $C(x)$ 和 $G(x)$，那么它们将有下列关系：</p>
+<p>$$
+\begin{align}
+\exp(C(x)) &amp;= G(x) \
+C(x) &amp;= \ln(G(x))
+\end{align}
+$$</p>
+<p>使用 <a href="../../poly/elementary-func/#多项式对数函数--指数函数">多项式 ln</a> 解出 $C(x)$ 即可．</p>
+<h2 id="_5">有标号欧拉图、二分图</h2>
+<h3 id="spoj-kpgraphscounting-graphs">例题「SPOJ KPGRAPHS」Counting Graphs</h3>
+<p>???+ note "例题 <a href="http://www.spoj.com/problems/KPGRAPHS/">「SPOJ KPGRAPHS」Counting Graphs</a>"
+    题目大意：求有 $n$ 个结点的分别满足下列性质的有标号图的方案数（$n \leq 1000$）．</p>
+<pre><code>-   连通图 [A001187](https://oeis.org/A001187)．
+-   欧拉图 [A033678](https://oeis.org/A033678)．
+-   二分图 [A047864](https://oeis.org/A047864)．
+</code></pre>
+<p>本题限制代码长度，因而无法直接使用多项式模板，但生成函数依然可以帮助我们进行分析．</p>
+<p>连通图问题在之前的例题中已被解决，考虑欧拉图．注意到上述对连通图计数的几种方法，均可以在满足任意性质的有标号连通图进行推广．例如我们可以将连通图递推公式中的 $g_n$，从任意图替换成满足顶点度数均为偶数的图，此时得到的 $c_n$ 即为欧拉图．</p>
+<p>我们将 POJ 1737 的递推过程封装成连通化函数，</p>
+<pre><code class="language-cpp">void ln(Int C[], Int G[]) {
+  for (int i = 1; i &lt;= n; ++i) {
+    C[i] = G[i];
+    for (int j = 1; j &lt;= i - 1; ++j)
+      C[i] -= binom[i - 1][j - 1] * C[j] * G[i - j];
+  }
+}
+</code></pre>
+<p>前两问即可轻松解决：</p>
+<pre><code class="language-cpp">for (int i = 1; i &lt;= n; ++i) G[i] = pow(2, binom[i][2]);
+ln(C, G);
+for (int i = 1; i &lt;= n; ++i) G[i] = pow(2, binom[i - 1][2]);
+ln(E, G);
+</code></pre>
+<p>注意到这里的连通化递推过程其实等价于对其 EGF 求多项式 ln，同理我们也可以写出逆连通化函数，它等价于对其 EGF 求多项式 exp．</p>
+<pre><code class="language-cpp">void exp(Int G[], Int C[]) {
+  for (int i = 1; i &lt;= n; ++i) {
+    G[i] = C[i];
+    for (int j = 1; j &lt;= i - 1; ++j)
+      G[i] += binom[i - 1][j - 1] * C[j] * G[i - j];
+  }
+}
+</code></pre>
+<p>下面讨论有标号二分图计数，</p>
+<p>我们设 $b_n$ 表示 n 个结点的二分图方案数，$g_n$ 表示 $n$ 个结点对结点进行 2 染色，满足相同颜色的结点之间不存在边的图的方案数．枚举其中一种颜色节点的数量，有[^2]：</p>
+<p>$$
+g_n = \sum_{i=0}^{n} \binom{n}{i}2^{i(n-i)}
+$$</p>
+<p>[^2]: <a href="https://www.luogu.com.cn/blog/PinkRabbit/solution-sp4420">粉兔的 blog</a> 告诉我们，这个序列也可以使用 <a href="../../poly/czt/">Chirp Z-Transform</a> 优化．</p>
+<p>接下来我们用两种不同的方法建立 $g_n$ 与 $b_n$ 之间的关系．</p>
+<h4 id="_6">方法一：算两次</h4>
+<p>我们设 $c_{n, k}$ 表示有 k 个连通分量的二分图方案数，那么不难得到如下关系：</p>
+<p>$$
+\begin{align}
+b_n &amp;= \sum_{i=1}^{n} c_{n, i} \
+g_n &amp;= \sum_{i=1}^{n} c_{n, i} 2^i 
+\end{align}
+$$</p>
+<p>比较两种 $g_n$ 的表达式，展开得：</p>
+<p>$$
+\begin{align}
+\sum_{i=0}^{n} \binom{n}{i}2^{i(n-i)} &amp;= \sum_{i=1}^{n} c_{n, i} 2^i \
+c_{n, i} &amp;= \sum_{i=0}{n-1} \binom{n-1}{i-1} c_{n, 1}c_{n-i,k-1}
+\end{align}
+$$</p>
+<p>不难得到 $b_n$ 的递推关系，复杂度 $O(n^3)$，进一步使用容斥原理，可以优化到 $O(n^2)$ 通过本题．</p>
+<h4 id="_7">方法二：连通化递推</h4>
+<p>方法二和方法三均使用连通二分图 $b1_n$  <a href="https://oeis.org/A001832">A001832</a> 来建立 $g_n$ 与 $b_n$ 之间的桥梁．</p>
+<p>注意到对于每个连通二分图，我们恰好有两种不同的染色方法，对应到两组不同的连通 2 染色图，
+因而对 $g_n$ 进行连通化，得到的序列恰好是 $b1_n$ 的两倍，而 $b_n$ 则由 $b1_n$ 进行逆连通化得到．</p>
+<p>因此：</p>
+<pre><code class="language-cpp">for (int i = 1; i &lt;= n; ++i) {
+  G[i] = 0;
+  for (int j = 0; j &lt; i + 1; ++j) G[i] += binom[i][j] * pow(2, j * (i - j));
+}
+ln(B1, G);
+for (int i = 1; i &lt;= n; ++i) B1[i] /= 2;
+exp(B, B1);
+</code></pre>
+<p>两种递推的过程复杂度均为 $O(n^2)$，可以通过本题．</p>
+<h4 id="exp_1">方法三：多项式 exp</h4>
+<p>我们注意到也可以使用 EGF 理解上面的递推过程．</p>
+<p>设 $G(x)$ 为 $g_n$ 的 EGF，$B1(x)$ 为 $b1_n$ 的 EGF，$B(x)$ 为 $b_n$ 的 EGF，应用做法二的方法，我们有：</p>
+<p>$$
+\begin{align}
+G(x) &amp;= \exp(2B1(x)) \
+B(x) &amp;= \exp(B1(x))  \
+     &amp;= \exp(\frac{\ln{G(x)}}{2}) \
+     &amp;= \sqrt{G}
+\end{align}
+$$</p>
+<p>我们可以对等式两边分别进行求导并比较两边系数，以得到易于编码的递推公式，通过此题．
+注意到做法二与做法三本质相同，且一般情况下做法三可以得到更优的时间复杂度．</p>
+<p>$$
+\begin{align}
+B_n^2 &amp;= G  \
+2B_nB_n' &amp;= G' 
+\end{align}
+$$</p>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/math/code/combinatorics/graph-enumeration/graph-enumeration_1.cpp"</code></p>
+<h3 id="_8">习题</h3>
+<ul>
+<li><a href="https://uoj.ac/contest/50/problem/498">UOJ Goodbye Jihai D. 新年的追逐战</a></li>
+<li><a href="https://hydro.ac/p/bzoj-P3864">BZOJ 3864. 大朋友和多叉树</a></li>
+<li><a href="https://hydro.ac/p/bzoj-P2863">BZOJ 2863. 愤怒的元首</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P6295">Luogu P6295. 有标号 DAG 计数</a></li>
+<li><a href="https://loj.ac/p/6569">LOJ 6569. 仙人掌计数</a></li>
+<li><a href="https://loj.ac/p/6570">LOJ 6570. 毛毛虫计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5434">Luogu P5434. 有标号荒漠计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3343">Luogu P3343. [ZJOI2015] 地震后的幻想乡</a></li>
+<li><a href="https://acm.hdu.edu.cn/showproblem.php?pid=5279">HDU 5279. YJC plays Minecraft</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P7364">Luogu P7364. 有标号二分图计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5827">Luogu P5827. 点双连通图计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5828">Luogu P5827. 边双连通图计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P6596">Luogu P6596. How Many of Them</a></li>
+<li><a href="https://www.luogu.com.cn/problem/U152448">Luogu U152448. 有标号强连通图计数</a></li>
+<li><a href="https://projecteuler.net/problem=434">Project Euler 434. Rigid graphs</a></li>
+</ul>
+<h2 id="riddells-formula">Riddell's Formula</h2>
+<p>上述关于 EGF 的 exp 的用法，有时又被称作 Riddell's formula for labeled graphs，生成函数的 <a href="../../poly/symbolic-method/#%E9%9B%86%E5%90%88%E7%9A%84-multiset-%E6%9E%84%E9%80%A0">欧拉变换</a>，有时也被称为 Riddell's formula for unlabeled graphs，后者最早出现在欧拉对分拆数的研究中，除了解决图论计数问题之外，也在完全背包问题中出现．</p>
+<p>对于给定序列 $a_i$，和对应的 OGF $A(x)$，定义 $A(x)$ 的欧拉变换为：</p>
+<p>$$
+\begin{align}
+\mathcal{E}(A(x)) &amp;= \prod_{i} (1-x^i)^{-a_i}  \
+                  &amp;= \exp (\sum_{i} \frac{A(x^i)}{i})<br />
+\end{align}
+$$</p>
+<p>设 $\mathcal{E}(A(x))$ 的各项系数为 $b_i$，定义辅助数组 $c_i = \sum_{d|n} d a_d$，则有递推公式</p>
+<p>$$
+n b_n = c_n + \sum_{i=1}^{n-1} c_i b_{n-i}
+$$</p>
+<h2 id="_9">无标号树</h2>
+<h3 id="spoj-pt07dlet-us-count-1-2-3">例题「SPOJ PT07D」Let us count 1 2 3</h3>
+<p>???+ note "例题 <a href="https://www.spoj.com/problems/PT07D/">「SPOJ PT07D」Let us count 1 2 3</a>"
+    题目大意：求有 n 个结点的分别满足下列性质的树的方案数．</p>
+<pre><code>-   有标号有根树 [A000169](https://oeis.org/A000169)．
+-   有标号无根树 [A000272](https://oeis.org/A000272)．
+-   无标号有根树 [A000081](https://oeis.org/A000081)．
+-   无标号无根树 [A000055](https://oeis.org/A000055)．
+</code></pre>
+<h4 id="_10">有根树</h4>
+<p>有标号情况以在前文中解决，下面考察无标号有根树，设其 OGF 为 $F(x)$，应用欧拉变换，可得：</p>
+<p>$$
+F(x) = x\mathcal{E}(F(x))
+$$</p>
+<p>取出系数即可．</p>
+<h4 id="_11">无根树</h4>
+<p>考虑容斥，我们用有根树的方案中减去根不是重心的方案，并对 $n$ 的奇偶性进行讨论．</p>
+<p>当 $n$ 是奇数时：</p>
+<p>必然存在一棵子树大小 $\geq \left\lceil \frac{n}{2}\right\rceil$，枚举这棵子树的大小有．</p>
+<p>$$
+g_n = f_n - \sum_{i=\left\lceil\frac{n}{2}\right\rceil}^{n-1} f_i f_{n-i}
+$$</p>
+<p>当 $n$ 是偶数时：</p>
+<p>注意到当有两个重心的情况时，上面的过程只会减去一次，因此还需要减去</p>
+<p>$$
+g_n = f_n - \sum_{i=\left\lceil\frac{n}{2}\right\rceil}^{n-1} f_i f_{n-i} - \binom{f_{\frac{n}{2}}}{2}
+$$</p>
+<h3 id="luogu-p5900">例题「Luogu P5900」无标号无根树计数</h3>
+<p>???+ note "例题 <a href="https://www.luogu.com.cn/problem/P5900">「Luogu P5900」无标号无根树计数</a>"
+    题目大意：求有 n 个结点的无标号无根树的方案数（$n \leq 200000$）．</p>
+<p>对于数据范围更大的情况，做法同理，欧拉变换后使用多项式模板即可．</p>
+<h2 id="_12">无标号简单图</h2>
+<h3 id="sgu-282-isomorphismisomorphism">例题「SGU 282. Isomorphism」Isomorphism</h3>
+<p>???+ note "例题 <a href="https://codeforces.com/problemsets/acmsguru/problem/99999/282">「SGU 282. Isomorphism」Isomorphism</a>"
+    题目大意：求有 n 个结点的无标号完全图的边进行 m 染色的方案数．</p>
+<p>注意到当 m = 2 时，所求对象就是无标号简单图 <a href="https://oeis.org/A000088">A000088</a>，考察波利亚计数定理，</p>
+<p>$$
+\frac{1}{|G|}\sum_{g\in G} m^{c(g)}
+$$</p>
+<p>本题中置换群 $G$ 为顶点的 $n$ 阶对称群生成的边集置换群，但暴力做法的枚举量为 $O(n!)$，无法通过此题．</p>
+<p>考虑根据按照置换的循环结构进行分类，每种循环结构对应一种数的分拆，我们用 dfs() 生成分拆，那么问题即转化为求每一种分拆 $p$ 所对应的置换数目 $w(p)$ 和每一类置换中的循环个数 $c(p)$，答案为</p>
+<p>$$
+\frac{1}{|G|} \sum_{p \in P} w(p) m^{c(p)}
+$$</p>
+<p>考虑 $w(p)$，每一个分拆对应一个循环排列，同时同一种大小的分拆之间的顺序无关，因而我们有：</p>
+<p>$$
+w(p) = \frac{n!}{\prod_{i}(p_i)\prod_{i}(q_i!)} 
+$$</p>
+<p>这里 $q_i$ 表示大小为 $i$ 的分拆在 $p$ 中出现的次数．</p>
+<p>考虑 $c(p)$，$p$ 所影响的点集的循环即为 $|p|$，但题目考察的是边染色，所以还需要考察点置换所生成的边置换，</p>
+<p>如果一条边关联的顶点处在同一个循环内，设该循环大小为 $p_i$，那么边所生成的循环数恰好为 $\left\lfloor \frac{p_i}{2} \right\rfloor$．</p>
+<p>如果一条边关联的顶点处在两个不同的循环中，设分别为 $p_i$,$p_j$，每个循环节的长度均为 $\operatorname{lcm}(p_i,p_j)$，因而边所生成的循环数恰好为 $\frac{p_i p_j}{\operatorname{lcm}(p_i,p_j)} = \gcd(p_i, p_j)$．</p>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/math/code/combinatorics/graph-enumeration/graph-enumeration_2.cpp"</code></p>
+<h2 id="_13">习题</h2>
+<ul>
+<li><a href="https://codeforces.com/problemset/problem/438/E">CodeForces 438 E. The Child and Binary Tree</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5448">Luogu P5448. [THUPC2018] 好图计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5818">Luogu P5818. [JSOI2011] 同分异构体计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P6597">Luogu P6597. 烯烃计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P6598">Luogu P6598. 烷烃计数</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4128">Luogu P4128. [SHOI2006] 有色图</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4727">Luogu P4727. [HNOI2009] 图的同构计数</a></li>
+<li><a href="https://atcoder.jp/contests/abc222/tasks/abc222_h">AtCoder Beginner Contest 222 H. Binary Tree</a></li>
+<li><a href="https://atcoder.jp/contests/abc284/tasks/abc284_h">AtCoder Beginner Contest 284 Ex. Count Unlabeled Graphs</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P4708">Luogu P4708. 画画</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P7592">Luogu P7592. 数树（2021 CoE-II E）</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5206">Luogu P5206. [WC2019] 数树</a></li>
+</ul>
+<h2 id="_14">参考资料与注释</h2>
+<ol>
+<li><a href="https://github.com/lychees/ACM-Training/blob/master/Note/%E5%86%AC%E4%BB%A4%E8%90%A5/2015/%E9%A1%BE%E6%98%B1%E6%B4%B2%E8%90%A5%E5%91%98%E4%BA%A4%E6%B5%81%E8%B5%84%E6%96%99%20Graphical%20Enumeration.pdf">WC2015, 顾昱洲营员交流资料 Graphical Enumeration</a></li>
+<li><a href="https://github.com/lychees/ACM-Training/tree/master/Note/%E5%86%AC%E4%BB%A4%E8%90%A5/2019/d4">WC2019, 生成函数，多项式算法与图的计数</a></li>
+<li><a href="https://cp-algorithms.com/combinatorics/counting_labeled_graphs.html">Counting labeled graphs - Algorithms for Competitive Programming</a></li>
+<li><a href="https://github.com/lychees/ACM-Training/blob/master/Note/Book/">Graphical Enumeration Paperback, Frank Harary, Edgar M. Palmer</a></li>
+<li><a href="https://github.com/lychees/ACM-Training/blob/master/Note/Book/The%20encyclopedia%20of%20integer%20sequences%20(N.%20J.A.%20Sloane%2C%20Simon%20Plouffe).pdf">The encyclopedia of integer sequences, N. J. A. Sloane, Simon Plouffe</a></li>
+<li><a href="https://github.com/lychees/ACM-Training/blob/master/Note/Book/Combinatorial%20Problems%20and%20Exercises_L%C3%A1szl%C3%B3%20Lov%C3%A1sz.pdf">Combinatorial Problems and Exercises, László Lovász</a></li>
+<li><a href="https://yufeizhao.com/gtacbook/">Graph Theory and Additive Combinatorics</a></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

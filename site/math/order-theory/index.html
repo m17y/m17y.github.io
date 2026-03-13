@@ -1,0 +1,1167 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/order-theory/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Order theory - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Order theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二元关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关系间的运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        偏序集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hasse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        偏序集的可视化表示：Hasse 图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        链与反链
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预序集中的特殊元素
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有向集与格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对偶
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dilworth-mirsky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dilworth 定理与 Mirsky 定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Dilworth 定理与 Mirsky 定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 中的应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与拓展阅读
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/order-theory.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Order theory</h1>
+
+<h2 id="_1">引入</h2>
+<p>序理论是利用二元关系来将「次序」这一概念严格化的数学分支，下面将介绍这一分支的基本定义．</p>
+<h2 id="_2">定义</h2>
+<h3 id="_3">二元关系</h3>
+<p>???+ note "定义"
+    集合 $X$ 和集合 $Y$ 上的一个 <strong>二元关系</strong>（binary relation）$R$ 定义为元组 $(X,Y,G(R))$，其中 $X$ 称为定义域（domain），$Y$ 称为陪域（codomain），$G(R)\subseteq X\times Y={(x,y):x\in X,y\in Y}$ 称为二元关系 $R$ 的图（graph）．$xRy$ 成立当且仅当 $(x,y)\in G(R)$．</p>
+<pre><code>若 $X=Y$，则称该二元关系为齐次二元关系（homogeneous relation）或内关系（endorelation）．
+
+若没有特别说明，下文中的二元关系均为齐次二元关系．
+</code></pre>
+<p>例如 $\mathbf{N}_+$ 上的整除 $\mid$ 和小于等于 $\leq$ 均为二元关系．</p>
+<p>我们研究二元关系时，往往会关注其是否具有一些特别的性质．对集合 $S$ 上的二元关系 $R$，我们定义如下特殊性质：</p>
+<ol>
+<li>自反性（reflexive）：$(\forall~a \in S)~~aRa$，</li>
+<li>反自反性（irreflexive，anti-reflexive）：$(\forall~a \in S)~~\lnot(aRa)$，</li>
+<li>对称性（symmetric）：$(\forall~a,b \in S)~~aRb \iff bRa$，</li>
+<li>反对称性（antisymmetric）：$(\forall~a,b \in S)~~(aRb \land bRa) \implies a=b$，</li>
+<li>非对称性（asymmetric）：$(\forall~a,b \in S)~~aRb \implies \lnot(bRa)$，</li>
+<li>传递性（transitive）：$(\forall~a,b,c \in S)~~(aRb \land bRc) \implies aRc$，</li>
+<li>连接性（connected）：$(\forall~a,b \in S)~~a \neq b \implies (aRb \lor bRa)$，</li>
+<li>良基性（well-founded）：$(\exists~m \in S \neq \varnothing)~~(\forall~a \in S\setminus{m})~~\lnot(aRm)$（即非空集合 $S$ 中有极小元 $m$），</li>
+<li>不可比的传递性（transitive of incomparability）：$(\forall~a,b,c \in S)~~(\lnot(aRb \lor bRa) \land \lnot(bRc \lor cRb)) \implies \lnot(aRc \lor cRa)$（若 $\lnot(aRb \lor bRa)$，则称 $a$ 和 $b$ 是不可比的）．</li>
+</ol>
+<p>同时我们定义一些特殊的二元关系：</p>
+<table>
+<thead>
+<tr>
+<th>二元关系</th>
+<th>自反性</th>
+<th>反自反性</th>
+<th>对称性</th>
+<th>反对称性</th>
+<th>非对称性</th>
+<th>传递性</th>
+<th>连接性</th>
+<th>良基性</th>
+<th>不可比的传递性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等价关系（equivalence relation）</td>
+<td>有</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>预序（preorder，quasiorder）</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>偏序（partial order）</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>全序（total order）</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td>有</td>
+<td>有</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>良序（well-order）</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>严格预序（strict preorder）</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>严格偏序（strict partial order）</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>严格弱序（strict weak order）</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+</tr>
+<tr>
+<td>严格全序（strict total order）</td>
+<td></td>
+<td>有</td>
+<td></td>
+<td></td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">关系间的运算</h3>
+<p>对集合 $X$ 和集合 $Y$ 上的二元关系 $R$ 和 $S$，我们可以定义如下运算：</p>
+<ol>
+<li>$R$ 和 $S$ 的并 $R\cup S$ 满足 $G(R\cup S):={(x,y):xRy \lor xSy}$（如 $\leq$ 是 $&lt;$ 和 $=$ 的并），</li>
+<li>$R$ 和 $S$ 的交 $R\cap S$ 满足 $G(R\cap S):={(x,y):xRy \land xSy}$，</li>
+<li>$R$ 的补 $\bar{R}$ 满足 $G(\bar{R}):={(x,y):\lnot(xRy)}$，</li>
+<li>$R$ 的对偶 $R^T$ 满足 $G(R^T):={(y,x):xRy}$.</li>
+</ol>
+<p>对集合 $X$ 和集合 $Y$ 上的二元关系 $R$ 以及集合 $Y$ 和集合 $Z$ 上的二元关系 $S$，我们可以定义其复合 $S\circ R$ 满足 $G(S\circ R):={(x,z):(\exists~y\in Y)~~xRy\land ySz}$.</p>
+<h3 id="_5">偏序集</h3>
+<p>???+ note "定义"
+    若集合 $S$ 上的一个二元关系 $\preceq$ 具有 <strong>自反性</strong>、<strong>反对称性</strong>、<strong>传递性</strong>，则称 $S$ 是 <strong>偏序集</strong>（partially ordered set，poset），$\preceq$ 为其上一 <strong>偏序</strong>（partial order）．</p>
+<pre><code>若偏序 $\preceq$ 还具有 **连接性**，则称其为 **全序**（total order），对应的集合称为 **全序集**（totally ordered set）、**线性序集**（linearly ordered set，loset）、**简单序集**（simply ordered set）．
+</code></pre>
+<p>不难发现 $\mathbf{N}$，$\mathbf{Z}$，$\mathbf{Q}$、$\mathbf{R}$ 均关于 $\leq$ 构成全序集．</p>
+<h3 id="hasse">偏序集的可视化表示：Hasse 图</h3>
+<p>对于有限偏序集，我们可以用 Hasse 图直观地表示其上的偏序关系．</p>
+<p>???+ note "定义"
+    对有限偏序集 $S$ 和其上的偏序 $\preceq$，定义 $x\prec y\iff (x\preceq y\land x\neq y)$ 其对应的 <strong>Hasse 图</strong> 为满足如下条件的图 $G=\langle V,E\rangle$：</p>
+<pre><code>-   $V=S$,
+-   $E=\{(x,y)\in S\times S: x\prec y \land ((\nexists~z\in S)~~x\prec z\prec y)\}$
+</code></pre>
+<p>如对于集合 ${0,1,2}$ 的幂集 $S$ 和集合的包含关系 $\subseteq$，其对应的 Hasse 图为：</p>
+<p><img alt="" src="../images/order-theory1.svg" /></p>
+<p>由于偏序具有反对称性，所以 Hasse 图一定是 <a href="../../graph/dag/">有向无环图</a>，进而我们可以根据 <a href="../../graph/topo/">拓扑排序</a> 对任意有限偏序集构造全序．</p>
+<h3 id="_6">链与反链</h3>
+<p>???+ note "定义"
+    对偏序集 $S$ 和其上的偏序 $\preceq$，称 $S$ 的全序子集为 <strong>链</strong>（chain）．若 $S$ 的子集 $T$ 中任意两个不同元素均不可比（即 $(\forall~a,b \in T)~~a \neq b \implies (a \npreceq b \land b \npreceq a)$），则称 $T$ 为 <strong>反链</strong>（antichain）．</p>
+<pre><code>对偏序集 $S$ 和其上的偏序 $\preceq$，我们将偏序集 $S$ 的最长反链长度称为 **宽度**（partial order width）．
+</code></pre>
+<p>如对于集合 ${0,1,2}$ 的幂集 $S$ 和集合的包含关系 $\subseteq$，${\varnothing,{1},{1,2}}$ 为一条链，${{1},{0,2}}$ 为一条反链，$S$ 的宽度为 $3$.</p>
+<h3 id="_7">预序集中的特殊元素</h3>
+<p>在预序集中，我们可以定义极大（小）元、上（下）界、上（下）确界等概念，这些概念可以推广到其他序关系中．</p>
+<p>???+ note "定义"
+    对预序集 $S$ 和其上的预序 $\preceq$，取 $S$ 中的元素 $m$：</p>
+<pre><code>1.  若 $(\forall~a \in S\setminus\{m\})~~\lnot(m\preceq a)$，则称 $m$ 为 **极大元**（maximal element），
+2.  若对 $T \subseteq S$ 满足 $(\forall~t\in T)~~t\preceq m$，则称 $m$ 为 $T$ 的 **上界**（upper bound），
+3.  若对 $T \subseteq S$ 满足 $m$ 是 $T$ 的上界且对 $T$ 的任意上界 $n$ 均有 $m \preceq n$，则称 $m$ 为 $T$ 的 **上确界**（supremum）．
+
+类似可定义 **极小元**（minimal element）、**下界**（lower bound）和 **下确界**（infimum）．
+</code></pre>
+<p>如 $1$ 是 $\mathbf{N}_+$ 的极小元和下界．</p>
+<p>可以证明：</p>
+<ul>
+<li>
+<p>预序集中，极大（小）元、上（下）界、上（下）确界都是不一定存在的，即使存在也不一定唯一．</p>
+</li>
+<li>
+<p>若偏序集 $S$ 的子集 $T$ 存在上（下）确界，则一定唯一．</p>
+<p>我们可将 $T$ 的上确界、下确界分别记为 $\sup T$，$\inf T$. 若偏序集 $S$ 既有上界又有下界，则称 $S$ 是有界的．</p>
+</li>
+</ul>
+<p>在无限偏序集中，极大元不一定存在．可用 <strong>Zorn 引理</strong>（Zorn's Lemma）来判断无限偏序集中是否存在极大元．</p>
+<p>???+ note "<a href="https://en.wikipedia.org/wiki/Zorn%27s_lemma">Zorn 引理</a>"
+    <strong>Zorn 引理</strong> 也被称为 <strong>Kuratowski–Zorn 引理</strong>，其内容为：若非空偏序集的每条链都有上界，则该偏序集存在极大元．</p>
+<p>Zorn 引理与 <strong><a href="https://en.wikipedia.org/wiki/Axiom_of_choice">选择公理</a></strong>、<strong><a href="https://en.wikipedia.org/wiki/Well-ordering_theorem">良序定理</a></strong> 等价．</p>
+<h3 id="_8">有向集与格</h3>
+<p>我们知道若偏序集的子集存在上（下）确界，则一定唯一．但是这一点并不适用于极大（小）元．例如：考虑偏序集 $S={{0},{1},{2},{0,1},{0,2},{1,2}}$ 和其上的偏序 $\subseteq$，不难发现其有 $3$ 个极大元和 $3$ 个极小元．</p>
+<p>我们希望通过向偏序集添加一定的条件来使得若极大（小）元存在则一定唯一，这样我们就可以定义最大（小）元的概念了．</p>
+<p>???+ note "有向集"
+    对预序集 $S$ 和其上的预序 $\preceq$，若 $(\forall~a,b\in S)~~(\exists~c\in S)~~a\preceq c\land b\preceq c$，则称 $\preceq$ 为 $S$ 的一个 <strong>方向</strong>（direction），$S$ 称为 <strong>有向集</strong>（directed set）或 <strong>过滤集</strong>（filtered set）．</p>
+<pre><code>有时也将满足上述定义的集合 $S$ 称为 **上有向集**（upward directed set），类似地可定义 **下有向集**（downward directed set）．
+</code></pre>
+<p>有向集也可用如下方式定义：</p>
+<p>???+ note "有向集的等价定义"
+    对预序集 $S$ 和其上的预序 $\preceq$，若 $S$ 的任意有限子集 $T$ 均有上界，则称 $\preceq$ 为 $S$ 的一个方向，$S$ 称为有向集．</p>
+<p>不难发现：</p>
+<ul>
+<li>若上有向集存在极大元，则一定唯一．我们将上有向集的极大元称为 <strong>最大元</strong>（greatest element）．</li>
+<li>若下有向集存在极小元，则一定唯一．我们将下有向集的极小元称为 <strong>最小元</strong>（least element）．</li>
+</ul>
+<p>有方向的偏序集中，对任意元素 $a,b$，${a,b}$ 都有上界，若将上界修改为上确界，则得到了并半格的定义．</p>
+<p>对偏序集 $S$ 和其上的偏序 $\preceq$：</p>
+<p>???+ note "并半格"
+    若对 $S$ 中的任意元素 $a,b$，${a,b}$ 均有上确界 $c$，则称 $S$ 为 <strong>并半格</strong>（join-semilattice，upper semilattice），并且我们称 $c$ 为 $a$ 和 $b$ 的 <strong>并</strong>（join），记为 $a\lor b$.</p>
+<p>???+ note "交半格"
+    若对 $S$ 中的任意元素 $a,b$，${a,b}$ 均有下确界 $c$，则称 $S$ 为 <strong>交半格</strong>（meet-semilattice，lower semilattice），并且我们称 $c$ 为 $a$ 和 $b$ 的 <strong>交</strong>（meet），记为 $a\land b$.</p>
+<p>???+ note "格"
+    若 $S$ 既是并半格也是交半格，则称 $S$ 为 <strong>格</strong>（lattice）．</p>
+<p>例如 $60$ 的正因子构成的集合 $S={1,2,3,4,5,6,10,12,15,20,30,60}$ 关于整除构成偏序集，其上的任意正整数 $a,b$，$\operatorname{lcm}(a,b)$ 为 $a$ 和 $b$ 的并，$\gcd(a,b)$ 为 $a$ 和 $b$ 的交，从而 $S$ 是格．</p>
+<h3 id="_9">对偶</h3>
+<p>在序理论中，对偶是非常常见的概念，如上文提到的极大元与极小元对偶、上界与下界对偶、上确界与下确界对偶．</p>
+<p>对偏序集 $P$ 和其上的偏序 $\preceq$，定义其 <strong>对偶</strong>（dual，opposite）偏序集 $P^d$ 满足：$x \preceq y$ 在 $P$ 中成立当且仅当 $y \preceq x$ 在 $P^d$ 中成立．将 $P$ 的 Hasse 图的边反转即可得到 $P^d$ 的 Hasse 图．</p>
+<h2 id="dilworth-mirsky">Dilworth 定理与 Mirsky 定理</h2>
+<p>对有限偏序集 $S$ 和其上的偏序 $\preceq$，我们有如下的一对对偶的定理：</p>
+<p>???+ note "Dilworth 定理"
+    $S$ 的宽度（最长反链长度）等于最小的链覆盖数．</p>
+<pre><code>??? note "证明"
+    考虑数学归纳法．当 $|S|\leq 3$ 时，命题显然成立．
+
+    假设命题对所有元素个数小于 $|S|$ 的偏序集都成立，令 $S$ 的宽度为 $d$. 若 $|S|$ 中所有元素均不可比，则命题显然成立，否则在 $S$ 中取一条长度大于 $1$ 的链，令其中的最小元为 $m$，最大元为 $M$.
+
+    令 $T=S\setminus\{m,M\}$，若 $T$ 中的宽度不超过 $d-1$，则由归纳假设知 $T$ 可被至多 $d-1$ 条链覆盖，进而 $S$ 可被这些链再加上链 $\{m,M\}$ 覆盖，命题成立，否则说明 $T$ 中的宽度也为 $d$，令 $T$ 中最长的一条反链为 $A$.
+
+    我们考虑如下两个集合：
+
+    $$
+    S^+:=\{x\in S:(\exists~a\in A)~~a\preceq x\}
+    $$
+
+    $$
+    S^-:=\{x\in S:(\exists~a\in A)~~x\preceq a\}
+    $$
+
+    我们不难发现如下性质：
+
+    -   $S^+\cup S^-=S$，
+    -   $S^+\cap S^-=A$，
+    -   $|S^+|&lt;|S|$,$|S^-|&lt;|S|$（因为 $m\notin S^+$ 且 $M\notin S^-$）．
+
+    对 $S^+$ 和 $S^-$ 都应用归纳假设，则这两个集合的最小链覆盖数为 $d$，且这些链中恰好包含一个 $A$ 中的元素 $a$，设这些链分别为 $C_a^+$，$C_a^-$，则 $\{C_a^-\cup\{a\}\cup C_a^+\}_{a\in A}$ 是 $S$ 的一个最小链覆盖，命题得证．
+</code></pre>
+<p>???+ note "Mirsky 定理"
+    $S$ 的最长链长度等于最小的反链覆盖数．</p>
+<pre><code>??? note "证明"
+    设 $S$ 的最长链长度为 $d$，则由定义，最小反链覆盖数至少为 $d$.
+
+    令 $f(s)$ 为以 $s$ 为最小元的最长链长度，注意到若 $f(s)=f(t)$，则 $s$ 与 $t$ 不可比，进而 $(\forall~n\in\mathbf{N})~~f^{-1}(\{n\})$ 均为反链，其中 $f^{-1}(\{n\}):=\{a\in S:f(a)=n\}$ 称为 [水平集（level set）](https://en.wikipedia.org/wiki/Level_set)．
+
+    因此不难得出 $\{f^{-1}(\{i\}):1\leq i\leq d\}$ 是一个反链覆盖，从而最小反链覆盖数至多为 $d$.
+</code></pre>
+<p>Dilworth 定理与 <a href="../../graph/graph-matching/graph-match/#hall-定理">Hall 婚配定理</a> 等价．</p>
+<p>我们可以用 Dilworth 定理证明如下定理：</p>
+<p>???+ note "Erdős–Szekeres 定理"
+    含至少 $rs+1$ 个元素的实数序列 ${a_i}$ 要么有一个长为 $r+1$ 的不下降子序列，要么有一个长为 $s+1$ 的不上升子序列．</p>
+<pre><code>??? note "证明"
+    设序列长度为 $n\geq rs+1$，定义偏序集 $\{(i,a_i)\}_{i=1}^{n}$，其上的偏序 $\preceq$ 定义为：
+
+    $$
+    (i,a_i)\preceq (j,a_j)\iff (i\leq j\land a_i\leq a_j)
+    $$
+
+    假设该偏序集的宽度不超过 $s$，则由 Dilworth 定理可知该偏序集可以被至多 $s$ 条链覆盖，若这些链的长度都不超过 $r$，则序列所含元素数至多为 $rs$，与条件矛盾．
+</code></pre>
+<h3 id="_10">例题</h3>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/P1020">Luogu P1020 [NOIP1999 提高组] 导弹拦截</a>"
+    某国为了防御敌国的导弹袭击，发展出一种导弹拦截系统．但是这种导弹拦截系统有一个缺陷：虽然它的第一发炮弹能够到达任意的高度，但是以后每一发炮弹都不能高于前一发的高度．某天，雷达捕捉到敌国的导弹来袭．由于该系统还在试用阶段，所以只有一套系统，因此有可能不能拦截所有的导弹．</p>
+<pre><code>输入导弹依次飞来的高度，计算这套系统最多能拦截多少导弹，如果要拦截所有导弹最少要配备多少套这种导弹拦截系统．
+
+对于全部数据，满足导弹的高度为正整数，且不超过 $5\times 10^4$.
+
+??? note "题解"
+    令一共有 $n$ 个导弹，第 $i$ 个导弹的高度为 $h_i$，则集合 $\{(i,h_i)\}_{i=1}^{n}$ 为偏序集，其上的偏序 $\preceq$ 定义为：
+
+    $$
+    (i,h_i)\preceq(j,h_j) \iff (i\leq j \land h_i\geq h_j)
+    $$
+
+    进而根据 Dilworth 定理有：**序列的不上升子序列的最少覆盖数等于最长上升子序列长度**．从而可以通过 [最长不下降子序列的 $O(n\log n)$ 做法](../dp/basic.md#算法二) 解决本题．
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/math/code/order-theory/order-theory_1.cpp"
+    ```
+</code></pre>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/P3974">[TJOI2015] 组合数学</a>"
+    给一个 $n$ 行 $m$ 列的网格图，其中每个格子中均有若干块财宝．每次从左上角出发，只能往右或下走，每次经过一个格子至多只能捡走一块财宝．问至少要走几次才可能把财宝全捡完．</p>
+<pre><code>$1\le n \le 1000$，$1\le m \le 1000$，每个格子中的财宝不超过 $10^6$ 块．
+
+??? note "题解"
+    不考虑网格图的点权，不难发现按给定的规则下在网格图上行走等价于在 DAG 上行走，从而我们可以将其视作 Hasse 图来构造偏序集，进而根据 Dilworth 定理有：**DAG 的最小链覆盖数等于最大的点独立集大小**．
+
+    因此本题所求即为给定网格图最大点权独立集的点权和．
+
+    令 $a_{ij}$ 为网格图在点 $(i,j)$ 处的权值，$f(i,j)$ 为 从 $(i,j)$ 到 $(1,m)$ 这个子网格中的答案，注意到每个点都和其右上角的点不相邻，则状态转移方程为：
+
+    $$
+    f(i,j)=\max\{f(i-1,j),f(i,j+1),f(i-1,j+1)+a_{ij}\}
+    $$
+
+    答案即为 $f(n,1)$.
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/math/code/order-theory/order-theory_2.cpp"
+    ```
+</code></pre>
+<h3 id="_11">习题</h3>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P4298">[CTSC2008] 祭祀</a></li>
+<li><a href="https://codeforces.com/problemset/problem/590/E">CodeForces 590E Birthday</a></li>
+</ul>
+<h2 id="c">C++ 中的应用</h2>
+<p>另请参阅：<a href="../../basic/stl-sort/">排序相关 STL -  算法基础</a>．</p>
+<p>C++ STL 中 <a href="https://en.cppreference.com/w/cpp/named_req/Compare#Standard_library">需要使用比较的算法和数据结构</a> 中有序理论的应用．我们经常需要在 C++ 中自定义比较器，STL <a href="https://en.cppreference.com/w/cpp/named_req/Compare">要求</a> 其必须为 <strong>严格弱序</strong>．令 $&lt;$ 为自定义比较器，则可以定义：</p>
+<ul>
+<li>$x&gt;y$ 为 $y&lt;x$；</li>
+<li>$x \leq y$ 为 $y \nless x$；</li>
+<li>$x \geq y$ 为 $x \nless y$；</li>
+<li>$x=y$ 为 $x \nless y\land y \nless x$.</li>
+</ul>
+<h2 id="_12">参考资料与拓展阅读</h2>
+<ol>
+<li><a href="https://academickids.com/encyclopedia/index.php/Order_theory">Order theory - From Academic Kids</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_relation">Binary Relation - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_theory">Order Theory - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hasse_diagram">Hasse diagram - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Directed_set">Directed set - Wikipedia</a></li>
+<li><a href="http://www.columbia.edu/~md3405/DT_Order_15.pdf">Order Theory, Lecture Notes by Mark Dean for Decision Theory</a></li>
+<li>卢开澄，卢华明，<a href="http://www.tup.tsinghua.edu.cn/bookscenter/book_00458101.html">《组合数学》（第 3 版）</a>, 2006</li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_order_theory_topics">List of Order Theory Topics - Wikipedia</a></li>
+<li><a href="https://ouuan.github.io/post/%E6%B5%85%E8%B0%88%E9%82%BB%E9%A1%B9%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F%E7%9A%84%E5%BA%94%E7%94%A8%E4%BB%A5%E5%8F%8A%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98/">浅谈邻项交换排序的应用以及需要注意的问题 by ouuan</a></li>
+<li><a href="https://codeforces.com/blog/entry/72525">One thing you should know about comparators—Strict Weak Ordering</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dilworth%27s_theorem">Dilworth's theorem - Wikipedia</a></li>
+<li><a href="https://brilliant.org/wiki/dilworths-theorem/">Dilworth's Theorem | Brilliant Math &amp; Science Wiki</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hall's_marriage_theorem">Hall's marriage theorem - Wikipedia</a></li>
+<li><a href="https://brilliant.org/wiki/hall-marriage-theorem/">Hall's Marriage Theorem | Brilliant Math &amp; Science Wiki</a></li>
+<li><a href="https://www.luogu.com.cn/blog/Rolling-Code/dilworth">Dilworth 学习笔记 - Selfish</a></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1000 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/number-theory/bezouts/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Bezouts - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bezouts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        裴蜀定理
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="裴蜀定理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个整数的情形
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一次不定方程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一次不定方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        两个变量的情形
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个变量的情形
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frobenius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frobenius 硬币问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frobenius 硬币问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sylvester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sylvester 定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/number-theory/bezouts.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Bezouts</h1>
+
+<p>裴蜀定理揭示了最大公约数与整数线性组合之间的深刻联系，是数论中最基础也最重要的结论之一．基于此，本文进一步讨论了一次不定方程的求解方法．</p>
+<h2 id="_1">裴蜀定理</h2>
+<p><strong>裴蜀定理</strong>（Bézout's lemma），也译作贝祖定理，或称作贝祖等式（Bézout's identity），给出了一个整数能够表示为两个整数的整系数线性组合的充分必要条件．</p>
+<p>???+ note "裴蜀定理"
+    设 $a,b$ 是不全为零的整数．那么，对于任意整数 $x,y$，都有 $\gcd(a,b)\mid ax+by$ 成立；而且，存在整数 $x,y$，使得 $ax+by=\gcd(a,b)$ 成立．</p>
+<p>??? note "证明"
+    记 $d=\gcd(a,b)$．因为 $d\mid a,b$，所以，存在整数 $u,v$ 使得 $a=du,~b=dv$ 成立．因此，总有</p>
+<pre><code>$$
+ax + by = d(ux+vy).
+$$
+
+这就说明 $d\mid ax+by$．
+
+反过来，需要说明存在 $x,y$ 使得等式成立．如果 $a,b$ 之一是 $0$，不妨设 $b=0$，那么它们的最大公约数为 $d=a$，显然有 $(x,y)=(1,0)$ 使得等式成立．接下来，考虑 $a,b$ 均不为零的情形．由于 $\gcd(a,b)=\gcd(-a,b)=\gcd(a,-b)$，所以不妨设 $a,b$ 都是正数．
+
+考虑辗转相除法的过程，有
+
+$$
+\begin{aligned}
+a   &amp;= q_1b   + r_1, &amp;&amp; 0\le r_1 &lt; b,\\
+b   &amp;= q_2r_1 + r_2, &amp;&amp; 0\le r_2 &lt; r_1,\\
+r_1 &amp;= q_3r_2 + r_3, &amp;&amp; 0\le r_3 &lt; r_2,\\
+    &amp; \cdots \\
+r_{n-3} &amp;= q_{n-1}r_{n-2} + r_{n-1}, &amp;&amp; 0\le r_{n-1} &lt; r_{n-2},\\
+r_{n-2} &amp;= q_nr_{n-1} + r_n,         &amp;&amp; 0\le r_n     &lt; r_{n-1},\\
+r_{n-1} &amp;= q_{n+1}r_n.
+\end{aligned}
+$$
+
+由于最大公约数是 $d$，最后一步辗转相除时，一定有 $r_n=d$．所以，倒数第二个等式可以写作
+
+$$
+d = r_n = r_{n-2} - q_nr_{n-1}.
+$$
+
+从倒数第三个等式中解出
+
+$$
+r_{n-1} = r_{n-3} - q_{n-1}r_{n-2}
+$$
+
+再代入上式，就可以消去 $r_{n-1}$：
+
+$$
+\begin{aligned}
+d &amp;= r_{n-2} - q_n(r_{n-3} - q_{n-1}r_{n-2}) \\
+&amp;= (1 + q_nq_{n-1})r_{n-2} - q_nr_{n-3}.
+\end{aligned}
+$$
+
+类似地，可以逐步地消去所有 $r_{n-2},r_{n-3},\cdots,r_2,r_1$，最终得到
+
+$$
+d = xa + yb.
+$$
+
+这就证明了存在 $x,y$ 使得 $ax+by=d$ 成立．由前文分析可知，这也证明了原命题．
+</code></pre>
+<p>此处，关于存在性的证明是构造性的，它同时给出了该系数的一种计算方法．这一计算方法就是 <a href="../gcd/#扩展欧几里得算法">扩展欧几里得算法</a>．</p>
+<p>考虑裴蜀定理在 $\gcd(a,b)=1$ 时的特殊情形，可以得到如下推论：</p>
+<p>???+ note "推论"
+    整数 $a,b$ 互素，当且仅当存在整数 $x,y$，使得 $ax+by=1$ 成立．</p>
+<h3 id="_2">多个整数的情形</h3>
+<p>裴蜀定理可以推广到多个整数的情形．</p>
+<p>???+ note "定理"
+    设 $a_1,a_2,\cdots,a_n$ 是不全为零的整数．那么，对于任意整数 $x_1,x_2,\cdots,x_n$，都有 $\gcd(a_1,a_2,\cdots,a_n)\mid a_1x_1+a_2x_2+\cdots+a_nx_n$ 成立；而且，存在整数 $x_1,x_2,\cdots,x_n$，使得 $\gcd(a_1,a_2,\cdots,a_n)=a_1x_1+a_2x_2+\cdots+a_nx_n$ 成立．</p>
+<p>??? note "证明"
+    利用 $\gcd(a_1,a_2,\cdots,a_n)=\gcd(\gcd(a_1,a_2,\cdots,a_{n-1}),a_n)$ 这一点，对 $n$ 进行归纳即可．</p>
+<h3 id="_3">例题</h3>
+<p>???+ example "<a href="https://codeforces.com/problemset/problem/510/D">Codeforces 510 D. Fox And Jumping</a>"
+    给出 $n\le 300$ 张卡片，分别有 $l_i$ 和 $c_i$．在一条无限长的纸带上，你可以选择花 $c_i$ 的钱来购买卡片 $i$，从此以后可以向左或向右跳 $l_i$ 个单位任意次．问你至少花多少元钱才能够跳到纸带上全部位置．若不行，输出 $-1$．</p>
+<p>??? note "解答"
+    分析该问题，发现想要跳到每一个格子上，必须使得所选数 $l_{i_1}, \cdots, l_{i_k}$ 通过数次相加或相减得出的绝对值为 $1$．也就是说，存在整数 $x_1, \cdots, x_k$ 使得 $l_{i_1} x_1 + \cdots + l_{i_k} x_k = 1$．由多个整数的裴蜀定理，这相当于从数组 $l_1, \cdots, l_n$ 中选择若干个数，满足它们的最大公约数为 $1$，同时要求代价和最小．</p>
+<pre><code>**解法 1**：将最小代价和看作是最短路径问题，可以用 Dijkstra 算法求解．图的顶点处存储了当前的最大公约数的取值．图的起点是 $0$，要到达的目标点是 $1$．每走一步，就从当前顶点 $x$ 出发，沿着长度为 $c_i$ 的边走到顶点 $\gcd(x,l_i)$．这一算法的时间复杂度为 $O(n^2\log n)$．
+
+**解法 2**：从数组 $l_1, \cdots, l_n$ 选择若干个数，满足它们的最大公因数为 $1$，且代价和最小，由此可以想到 0-1 背包问题．
+
+设 $f_{i, j}$ 表示考虑前 $i$ 个数且最大公因数为 $j$ 的最小代价，则有转移方程：
+
+$$
+f_{i, j} = \min_{\gcd(k, l_i) = j} f_{i - 1, k} + c_i.
+$$
+
+DP 后最终的总代价即为 $f_{n, 1}$．
+
+如同一般的 0-1 背包问题，可以用滚动数组优化，去掉第一维．而这里 300 个数可以组成的最大公约数 $j$ 是很稀疏的，可以用哈希表储存．
+
+实际上，这里解法 1 建出的图便是解法 2 中动态规划的状态转移图，解法 2 相当于用动态规划求有向无环图的最短路，因此解法 1 和解法 2 是等价的．但解法 2 无需储存全图，同时 DP 的时间复杂度为 $O(n + m)$，相比 Dijkstra 算法更低，因此解法 2 在时间和空间上更优．
+</code></pre>
+<h2 id="_4">一次不定方程</h2>
+<p><strong>一次不定方程</strong>（linear Diophantine equation）是形如</p>
+<p>$$
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b
+$$</p>
+<p>的不定方程，其中，$a_1,a_2,\cdots,a_n$ 都是整数．本节的目标是寻找它的全体整数解．</p>
+<h3 id="_5">两个变量的情形</h3>
+<p>首先考虑二元一次不定方程：</p>
+<p>$$
+a_1x_1 + a_2x_2 = b.
+$$</p>
+<p>裴蜀定理指出，该方程有解，当且仅当</p>
+<p>$$
+d = \gcd(a_1,a_2) \mid b.
+$$</p>
+<p>接下来，假设这一条件成立．利用扩展欧几里得算法可以求出方程 $a_1x_1 + a_2x_2 = d$ 的一组整数解 $(x_1^<em>,x_2^</em>)$．由此，可以得到原方程的一组特解</p>
+<p>$$
+(x_1^\circ,x_2^\circ) = \left(\frac{b}{d}x_1^<em>,\frac{b}{d}x_2^</em>\right).
+$$</p>
+<p>要得到全部解，可以考虑将原方程与恒等式 $a_1x_1^\circ+a_2x_2^\circ = b$ 相减，就有</p>
+<p>$$
+a_1(x_1 - x_1^\circ) + a_2(x_2 - x_2^\circ) = 0.
+$$</p>
+<p>这是一个关于 $(x_1-x_1^\circ,x_2-x_2^\circ)$ 的齐次一次不定方程，它有通解</p>
+<p>$$
+(x_1-x_1^\circ,x_2-x_2^\circ) = \left(t\dfrac{a_2}{d},-t\dfrac{a_1}{d}\right).\quad(t\in\mathbf Z)
+$$</p>
+<p>因此，原方程的通解就是</p>
+<p>$$
+(x_1,x_2) = \left(x_1^\circ + t\dfrac{a_2}{d},x_2^\circ - t\dfrac{a_1}{d}\right).\quad(t\in\mathbf Z)
+$$</p>
+<p>这是直线 $a_1x_1+a_2x_2 = b$ 上一系列等间隔分布的整点．</p>
+<h3 id="_6">多个变量的情形</h3>
+<p>解决了二元的情形，多元的情形也就容易解决了．对于 $n$ 元一次不定方程</p>
+<p>$$
+a_1x_1 + a_2x_2 + \cdots + a_nx_n = b,\quad (n&gt;3)
+$$</p>
+<p>由裴蜀定理可知，方程有解当且仅当</p>
+<p>$$
+\gcd(a_1,a_2,\cdots,a_n) \mid b.
+$$</p>
+<p>和二元的情形类似，多元一次不定方程的通解同样可以写作</p>
+<p>$$
+(x_1^\circ,x_2^\circ,\cdots,x_n^\circ) + \sum_{k=1}^{n-1} t_k(x_1^{(k)},x_2^{(k)},\cdots,x_n^{(k)})
+$$</p>
+<p>的形式，其中，$x^\circ$ 为一个特解，$x^{(k)}$ 为相应的齐次方程的 $(n-1)$ 个解．</p>
+<p>要求出通解的具体形式，可以通过将 $n$ 元方程转化为 $(n-1)$ 元方程来完成．不妨设 $d_1 = \gcd(a_1,a_2)$，那么，根据裴蜀定理，$a_1x_1+a_2x_2$ 的全体恰为 $d_1$ 的所有倍数．因此，可以首先求解 $(n-1)$ 元一次不定方程：</p>
+<p>$$
+d_1y_1 + a_3x_3 + a_4x_4 + \cdots + a_nx_n = b.
+$$</p>
+<p>设得到的它的通解为</p>
+<p>$$
+\begin{aligned}
+y_1 &amp;= y_1^\circ + \sum_{k=2}^{n-1}t_ky_1^{(k)}, \
+x_i &amp;= x_i^\circ + \sum_{k=2}^{n-1}t_kx_i^{(k)},\quad i=3,\cdots,n.
+\end{aligned}
+$$</p>
+<p>设 $a_1x_1+a_2x_2=d_1$ 的一组特解为 $(x_1^<em>,x_2^</em>)$，那么，根据前一节的讨论可知，关于 $x_1,x_2$ 的二元一次不定方程 $a_1x_1+a_2x_2=d_1y_1$ 的通解就是</p>
+<p>$$
+x_1 = x_1^<em>y_1 + t_1\dfrac{a_2}{d_1},~x_2 = x_2^</em>y_1 - t_1\dfrac{a_1}{d_1}.
+$$</p>
+<p>代入 $y_1$ 的表达式，就得到原方程的通解</p>
+<p>$$
+\begin{aligned}
+x_1 &amp;= x_1^<em>y_1^\circ + t_1\dfrac{a_2}{d_1} + \sum_{k=2}^{n-1}t_kx_1^</em>y_1^{(k)}, \
+x_2 &amp;= x_2^<em>y_1^\circ - t_1\dfrac{a_1}{d_1} + \sum_{k=2}^{n-1}t_kx_2^</em>y_1^{(k)}, \
+x_i &amp;= x_i^\circ + \sum_{k=2}^{n-1}t_kx_i^{(k)},\quad i=3,\cdots,n.
+\end{aligned}
+$$</p>
+<h2 id="frobenius">Frobenius 硬币问题</h2>
+<p>裴蜀定理给出了一个整数可以由若干个整数线性表出的充分必要条件．与此紧密相关的是 <strong>Frobenius 硬币问题</strong>（Frobenius coin problem）：</p>
+<ul>
+<li>如果硬币共有 $a_1,a_2,\cdots,a_n$ 等若干种整数面值，且 $\gcd(a_1,a_2,\cdots,a_n)=1$，那么，不能够由这些硬币组成的最大整数是多少？</li>
+</ul>
+<p>同样是在考察整数 $k$ 什么时候可以表示为 $a_1x_1+a_2x_2+\cdots+a_nx_n$ 的形式，裴蜀定理中 $x_i$ 可以是任意整数，而 Frobenius 硬币问题中 $x_i$ 只能是自然数．</p>
+<p>只有一种硬币的情形是平凡的，因为只能有 $a_1=1$，所有自然数都可以由它表示．而 $n&gt;2$ 的情形又太过复杂，所以，本节仅讨论 $n=2$ 的情形．</p>
+<h3 id="sylvester">Sylvester 定理</h3>
+<p>在 1882 年，Sylvester 完全解决了 $n = 2$ 时的 Frobenius 硬币问题：</p>
+<p>???+ note "定理（Sylvester）"
+    对于互素的正整数 $a_1,a_2$，不能够写作 $a_1x_1+a_2x_2~(x_1,x_2\in\mathbf N)$ 的最大整数是 $C = a_1a_2 - a_1 - a_2$．而且，对于所有 $k\in\mathbf Z$，整数 $k$ 和 $C-k$ 中有且只有一个可以写作该形式．</p>
+<p>为表述方便，称可以写作 $a_1x_1+a_2x_2~(x_1,x_2\in\mathbf N)$ 形式的整数为 <strong>可表示的</strong>．</p>
+<p>??? note "证明一"
+    由于 $a_1,a_2$ 互素，对于任意整数 $k$，方程 $a_1x_1+a_2x_2=k$ 一定有解，且通解为</p>
+<pre><code>$$
+(x_1,x_2) = (x_1^\circ + ta_2, x_2^\circ - ta_1).\quad(t\in\mathbf Z)
+$$
+
+取 $t$ 为 $x_2^\circ$ 对 $a_1$ 作带余除法得到的商，那么，余数 $x_2 = x_2^\circ-ta_1$ 位于 $0$ 和 $a_1-1$ 之间．考察此时得到的一组解 $(x_1,x_2)$．因为 $x_2$ 是它能够取到的最小非负整数值，所以 $n$ 可表示当且仅当 $x_1\ge 0$．
+
+**第一步**：证明大于 $C$ 的整数都是可表示的．
+
+当 $k &gt; C$ 时，有
+
+$$
+a_1x_1 = k - a_2x_2 &gt; C - a_2(a_1-1) = -a_1.
+$$
+
+所以，$x_1 &gt; -1$，也就是说，$x_1\ge 0$．这说明，$(x_1,x_2)$ 是一组自然数解．此时，$k$ 可以写作所求形式．
+
+**第二步**：证明 $C$ 不可表示．进而，$C$ 是最大的不可表示的整数，且 $k$ 和 $C-k$ 并非都可表示的．
+
+反证法．假设 $C$ 可以表示，即存在 $x_1,x_2\in\mathbf N$ 使得 $a_1x_1+a_2x_2=C$ 成立．代入 $C$ 的表达式，可知
+
+$$
+a_1a_2 = a_1(x_1+1) + a_2(x_2+1).
+$$
+
+因此，$a_2\mid (x_1+1)$ 且 $a_1\mid (x_2+1)$．又因为 $x_1+1,x_2+1$ 都是正数，所以，有
+
+$$
+a_1a_2 \ge a_1a_2 + a_2a_1 = 2a_1a_2.
+$$
+
+矛盾．这就说明 $C$ 不可表示．结合第一步，它也就是不可表示的最大整数．
+
+如果 $k$ 和 $C-k$ 都可以表示，那么，将 $k$ 和 $C-k$ 的表示中的系数相加就得到 $C$ 的表示中的系数，这与 $C$ 不可表示矛盾，故而 $k$ 和 $C-k$ 至多只有一个可以表示．
+
+**第三步**：证明如果 $k$ 不可表示，那么 $C-k$ 一定是可表示的．
+
+设 $(x_1,x_2)$ 是前文所设的方程 $a_1x_1+a_2x_2=k$ 的整数解．那么，前文已经说明 $k$ 不可表示，就等价于 $x_1&lt;0$．因此，有
+
+$$
+C - k = a_1a_2 - a_1 - a_2 - a_1x_1 - a_2x_2 = a_1(-1-x_1) + a_2(a_1-1-x_2).
+$$
+
+其中，$-1-x_1$ 和 $a_1-1-x_2$ 都是非负整数，所以，$C-k$ 可以表示．
+</code></pre>
+<p>??? note "证明二"
+    此处仅证明 $C=a_1a_2-a_1-a_2$ 是最大的不可表示的自然数，其余部分的证明类似证明一．</p>
+<pre><code>考虑模 $a_2$ 意义下，每个剩余系中最小的可表示的自然数．因为同一个剩余系中的不同自然数可以通过加减若干个 $a_2$ 互相转化，所以，在讨论最小可表示数时，只需要考虑加减 $a_1$ 的可能性就可以了．由于 $a_1$ 和 $a_2$ 互素，所以，每个剩余系中最小的可表示的自然数恰好就是 $a_1$ 的倍数
+
+$$
+0,~a_1,~2a_1,~\cdots,~(a_2-1)a_1.
+$$
+
+因此，最大的不可表示数为
+
+$$
+\max_{0\le i &lt; a_2} ia_1 - a_2 = (a_2-1)a_1 - a_2 = C.
+$$
+</code></pre>
+<h3 id="_7">几何意义</h3>
+<p>将方程 $a_1x_1 + a_2x_2 = k$ 看作是一条直线．那么，$k$ 可表示，当且仅当这条直线在第一象限（包括坐标轴）内通过一个整点．当 $k &lt; ab$ 时，这条直线在第一象限至多只能通过一个整点．因此，对于 $0\le k &lt; ab$，整数 $k$ 可以表示，当且仅当 $k$ 在第一象限通过恰好一个整点．</p>
+<p>因此，小于等于 $k &lt; ab$ 且可以表示的自然数的数量，恰好等于第一象限内直线 $a_1x_1 + a_2x_2 = k$ 下的整点个数（包含边界上的点）．这一数量就等于</p>
+<p>$$
+\sum_{i=0}^{\lfloor k / a_1 \rfloor} \left\lfloor\dfrac{k-ia_1}{a_2}\right\rfloor.
+$$</p>
+<p>这是经典的直线下整点问题，可以用 <a href="../euclidean/#类欧几里得算法">类欧几里得算法</a> 在 $O(\log\min{a_1,a_2,k})$ 时间求解．</p>
+<h3 id="_8">习题</h3>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P3951">Luogu P3951 NOIP2017 提高组 小凯的疑惑/蓝桥杯 2013 省 买不到的数目</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

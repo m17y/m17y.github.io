@@ -1,0 +1,827 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="Hope666666">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/dp/dp-of-dp/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Dp of dp - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dp of dp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="例题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例一
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例二
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/dp/dp-of-dp.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Dp of dp</h1>
+
+<h2 id="_1">引入</h2>
+<p>本文将介绍 DP 套 DP 的思想，并通过两道例题展示它如何应用到具体问题中．</p>
+<h2 id="_2">思想</h2>
+<p>所谓「DP 套 DP」，实际上指的是在动态规划的过程中，把一个子问题的求解过程（通常是一个 DP）抽象成一个自动机（DFA），然后在这个自动机的基础上再设计一层新的 DP 的方法．</p>
+<p>这种技巧主要应用于一类 <strong>序列计数</strong>、<strong>概率</strong> 或 <strong>期望</strong> 问题．一个典型的问题具有如下结构：</p>
+<ul>
+<li>给定字符集 $\Sigma$ 和它上面一个长度为 $n$ 的「合法序列」的集合 $A\subseteq\Sigma^n$．根据字符集不同，序列可以是二进制串、数字串、状态序列等．</li>
+<li>对于每一个具体的序列 $s\in\Sigma^n$，可以通过动态规划来判断它是否合法（即 $s\in A$），计算它的权值或求出相关值．</li>
+<li>最终，我们希望统计集合 $A$ 中所有序列的数目、总权值、期望值等．</li>
+</ul>
+<p>这时，枚举所有序列是不可行的．于是我们考虑将「判断一个序列是否合法」的过程（即内层 DP）抽象为一个 <a href="../../misc/fsm/#确定性有限状态自动机">确定有限状态自动机</a>（DFA）．一般地，对于固定的序列 $s\in\Sigma^n$，内层 DP 的状态函数可以表示为 $g(i,x;s)$，即已经处理完序列 $s$ 的长度为 $i$ 的前缀，且其他状态分量为 $x$ 时某个量的取值．相应地，内层 DP 的状态转移方程为</p>
+<p>$$
+g(i,\cdot;s) = G(g(i-1,\cdot;s),s_i).
+$$</p>
+<p>也就是说，函数 $g(i,\cdot;s)$ 由之前的函数 $g(i-1,\cdot;s)$ 和当前的字符 $s_i$ 唯一确定．如果将函数 $g(i,\cdot;s)$ 看作是自动机的一个状态，那么，内层 DP 的状态转移方程就给出了自动机的一个转移．因此，内层 DP 对应的自动机 $(Q,\Sigma,\delta,q_0,F)$ 结构如下：</p>
+<ul>
+<li>状态集合 $Q$ 就是所有可能的 $s\in\Sigma^n$ 和 $i=0,1,\cdots,n$ 对应的函数 $g(i,\cdot;s)$ 的集合；</li>
+<li>转移函数 $\delta:Q\times\Sigma\to Q$ 就是内层 DP 的状态转移方程中的 $G$；</li>
+<li>起始状态 $q_0$ 通常是显然的，即内层 DP 的初始状态；</li>
+<li>接受状态集合 $F$ 就对应着所有的合法序列 $s\in A$．</li>
+</ul>
+<p>函数 $g(i,\cdot;s)$ 本身可能相当复杂，因此，在处理具体问题时，通常需要进行 <a href="../state/">状态压缩</a> 或结合 DFA 最小化的技巧来压缩状态空间．这也是 DP 套 DP 相较于暴力 DP 能够显著降低时空复杂度的主要原因．</p>
+<p>将内层 DP 抽象为 DFA 后，就可以在这个 DFA 上设计一个新的 DP 用于求解原问题，即外层 DP．为方便表述，以简单的计数问题为例．外层 DP 的状态函数定义为 $f(i,q)$，即处理到长度为 $i$ 的前缀时，到达 DFA 中状态 $q\in Q$ 的前缀的数目．它的状态转移方程为</p>
+<p>$$
+f(i,q) = \sum_{c\in\Sigma}\sum_{q'\in Q:\delta(q',c)=q} f(i-1,q').
+$$</p>
+<p>起始状态当然是 $f(0,q_0)$，而最终要求的答案通常可以根据 ${f(n,q):q\in F}$ 简单计算得到．外层 DP 实际上是 <a href="../dag/">DAG 上 DP</a> 的特殊情形．</p>
+<h2 id="_3">例题</h2>
+<p>接下来的两个例题会详细说明 DP 套 DP 的一般做法．</p>
+<h3 id="_4">例一</h3>
+<p>???+ example "<a href="https://www.luogu.com.cn/problem/P10614">Hero meet devil</a>"
+    给定一个字符集为 <code>ACGT</code> 的字符串 $S$，且 $|S|\le 15$．对于每个 $0\leq i \leq |S|$，求有多少个长度为 $m$，字符集 <code>ACGT</code> 的字符串 $T$，满足它与 $S$ 的最长公共子序列长度为 $i$．</p>
+<p>??? note "题解"
+    我们首先会想到一个 DP：设 $f_{i,j}$ 表示长度为 $i$ 的 $T$ 中，和 $S$ 的最长公共子序列的长度为 $j$ 的方案数．但是这样无法转移，我们发现主要的问题是，我们不知道这个最长公共子序列对应的是哪些字符．</p>
+<pre><code>考虑朴素求最长公共子序列的过程．设 $g_{i,j}$ 表示 $T$ 的前 $i$ 位和 $S$ 的前 $j$ 位，它们的最长公共子序列的长度，就有
+
+$$
+g_{i,j} = \max\{g_{i-1,j},g_{i,j-1},g_{i-1,j-1}+[T_i=S_j]\}.
+$$
+
+我们发现，对于一个 $i$，只需要记录 $g_i$ 这个一维数组每一位的值，就能准确维护当前 $S$ 与 $T$ 前 $i$ 位最长公共子序列的状态．因为 $S$ 长度只有 $15$，我们发现这个思想是可行的．
+
+于是重新设状态 $f_{i,x}$ 表示对于长度为 $i$ 的 $T$，与 $S$ 的 DP 数组（就是 $g_i$）状态为 $x$ 的方案数．这个 DP 看起来状态数很多，然而我们发现 $g_{i,j}-g_{i,j-1}\in\{0,1\}$，就可以维护 $g_i$ 的差分数组，状态数是 $2^{|S|}$ 的．
+
+现在思考怎么转移．容易发现，如果我们知道了 $g_i$ 这个数组，也知道了 $T_{i+1}$，就能通过朴素 LCS 转移（即前文的 DP 方程）求出 $g_{i+1}$．于是朴素的 LCS 就成为了帮助 $f$ 转移的内层 DP．
+
+因此，我们枚举 $T_{i+1}$，计算出 $x$ 转移后的状态 $x'$，再将 $f_{i+1,x'}$ 加上 $f_{i,x}$ 就可以完成外层 DP 的状态转移．最后，我们记录 $\textit{ans}_i$ 为 LCS 长度为 $i$ 的答案，枚举每个状态 $S$，$\textit{ans}_{\operatorname{popcount}(S)}$ 加上 $f_{m,S}$ 即可．
+</code></pre>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/dp/code/dp-of-dp/dp-of-dp_1.cpp"</code></p>
+<h3 id="_5">例二</h3>
+<p>???+ example "<a href="https://loj.ac/p/3042">[ZJOI2019] 麻将</a>"
+    假设麻将牌有 $n$ 种大小的牌，每种大小有 $4$ 张牌．定义面子为三张相邻大小的麻将牌 $i,i+1,i+2$（顺子）或三种相同大小的麻将牌 $i,i,i$（刻子），对子为两张相同大小的麻将牌 $i,i$．定义一个麻将牌的序列是胡的，当且仅当它（看作多重集合）可以拆成四个面子和一个对子，或者七个不同的对子．给定 $13$ 张麻将牌，问期望再摸多少张牌可以满足存在一个胡牌的子序列的条件．</p>
+<p>??? note "题解"
+    首先，对于一副牌，我们只需考虑每种牌的数量，而不必关心它们的顺序．因此，对于任何一副牌的任意前缀，我们都可以将它转化为一个长度为 $n$，每个位置上为 $0\sim 4$ 的序列．初始时，第 $i$ 张牌的数量为 $a_i$，就相当于限制了序列中第 $i$ 个数字 $x_i$ 的取值为 $[a_i,4]$ 内的整数．注意，转化后的序列没有考虑摸牌的顺序，但是题目中的麻将牌的序列是考虑顺序的．</p>
+<pre><code>设 $X$ 表示可以胡牌的最小摸牌次数．直接计算期望 $\mathbf E[X]$ 较为困难，可以考虑进行如下转化．设 $h_i$ 表示摸了 $i$ 张牌后 **没有胡** 的序列数．因为它对应的麻将牌序列中，这 $i$ 张牌必然排在剩下的 $(4n-13-i)$ 张牌前方，但是这 $i$ 张牌和剩下的 $(4n-13-i)$ 张牌的顺序是任意的，所以，只摸前 $i$ 张牌无法胡牌的麻将牌序列的数目就是
+
+$$
+h_i\cdot i!(4n-13-i)!.
+$$
+
+因为麻将牌序列的总数为 $(4n-13)!$，所以，只摸前 $i$ 张牌无法胡牌的概率为
+
+$$
+\mathbf P[X&gt;i] = \dfrac{h_i\cdot i!(4n-13-i)!}{(4n-13)!}.
+$$
+
+利用尾求和公式，就可以得到所求期望
+
+$$
+\mathbf E[X] = \sum_{i=0}^\infty\mathbf P[X&gt;i] = 1 + \sum_{i=1}^{4n-13}\dfrac{h_i\cdot i!(4n-13-i)!}{(4n-13)!}.
+$$
+
+至此，问题转化为如何计算 $h_i$．我们采用 DP 套 DP 的方法来解决这一问题．
+
+首先，考虑内层 DP，也就是要用动态规划判断一个（转化后的）序列是否对应一副能胡的牌．七对子的情形较为容易，重点讨论第一种胡牌的形式．为此，设 $g_{0/1,i,j,k}$ 表示处理完前 $i$ 种牌，还剩 $j$ 组 $(i−1,i)$ 以及 $k$ 张 $i$，且存在/不存在对子（即 $0/1$）时最多的面子数．如果对于一个序列进行 DP，最后得到的 $g_{1,n}$ 中包括一个大于等于 $4$ 的数字，那么这个序列就是能胡的．
+
+这个 DP 的状态转移较为复杂．我们分两步讨论．第一步，考虑 $g_{0/1,i}$ 的转移．这相当于说，如果要向现在的牌型中，添加 $x_i$ 张大小为 $i$ 的牌，但是不组成新的对子时，面子数如何转移．显然，如果希望在添加 $x_i$ 张大小为 $i$ 的牌后，要得到 $\ell$ 个顺子，$j$ 个 $(i-1,i)$ 和 $k$ 个单独的 $i$，那么，就应该从 $(g_{0/1,i-1})_{\ell,j}$ 中转移过来（这里的选择最大程度避免了浪费），并将剩余的牌 $(x_i-\ell-j-k)$ 用于组成尽可能多的刻子．穷举所有的可能性，就得到如下转移方程：
+
+$$
+\tilde G(g_{0/1,i-1}, x_i)_{j,k} = \max\left\{(g_{0/1,i-1})_{\ell,j} + \ell + \left\lfloor\dfrac{x_i-\ell-j-k}{3}\right\rfloor:\ell+j+k\le x_i\right\}.
+$$
+
+第二步，再考虑需要组成对子的情形．加入 $x_i$ 张大小为 $i$ 的牌时，有如下三种转移：
+
+-   将 $g_{0,i-1}$ 加 $x_i$ 张牌转移到 $g_{0,i}$；
+-   将 $g_{1,i-1}$ 加 $x_i$ 张牌转移到 $g_{1,i}$；
+-   若 $x_i\ge 2$，将 $g_{0,i-1}$ 加 $x_i-2$ 张牌转移到 $g_{1,i}$．
+
+由此，就得到了从 $g_{i-1}$ 添加 $x_i$ 张牌得到 $g_i$ 的全部转移．
+
+解决了内层 DP 的状态转移，就可以构建 **胡牌自动机**．自动机的转移就是上述内层 DP 的转移，还需要考虑如何表示自动机的每个状态．每个状态都对应 $g_i$ 的一种可能的取值．它有三个维度 $(0/1,j,k)$．因为 $j$ 和 $k$ 对应的维度中保留的 $(i-1,i)$ 和 $i$ 都是用于将来组成顺子的，而三个相同顺子总是可以重组为三个刻子，所以，只需要考虑组成不超过 $2$ 个相同顺子的需求就行，每种牌型也就只要保留不超过 $2$ 个，即 $j,k\in\{0,1,2\}$．因此，$g_i$ 可以表示为一个 $2\times 3\times 3$ 的数组．另外，为了维护七对子的胡牌牌型，还需要为每个状态添加一个计数器，用于表示当前最多可组成的对子数目．
+
+数组 $g_i$ 中每个元素的取值范围可能是 $\{-\infty\}\cup\mathbf N$，但是，因为面子数目大于等于 $4$ 都是胡牌，所以，可以限制每个元素取值不超过 $4$．由于胡牌序列再添加任何牌都是胡牌序列，所以，可以利用 DFA 最小化的思想，将全体胡牌状态压缩为一个状态．因此，对于非胡牌状态，实际上每个位置的取值只要考虑 $\{-\infty\}\cup\{0,1,2,3\}$ 就可以了．实现时，$-\infty$ 用 $-1$ 表示．
+
+尽管如此，所有可能的状态依然相当地多，共有 $1+7\times 5^{18}$ 种．穷举它们并不现实．实际上，绝大多数这些可能性都不会真的出现在一个胡牌自动机中．为了避免考虑实际不存在的状态，可以利用 BFS 的思想，从初始状态开始，一步一步扩展状态，直到胡牌状态处停止．这样得到的自动机中有 $N = 2092$ 个状态．
+
+最后，考虑如何在胡牌自动机上 DP（即外层 DP）．设 $f_{i,j,k}$ 表示处理到第 $i$ 张牌，共摸了 $j$ 张牌，走到了胡牌自动机上的 $k$ 号状态的序列数．转移时，枚举摸牌数 $0\leq t\leq 4-a_i$，其中 $a_i$ 为初始 $13$ 张牌中用掉的 $i$ 的张数，将之前的序列数乘以 $4−a_i$ 张牌中选 $t$ 张牌的方案数 $\dbinom{4-a_i}{t}$，再累加到一起．形式化地，有：
+
+$$
+f_{i+1,j+t,k'} = \sum_{t=0}^{4-a_i}\dbinom{4-a_i}{t}f_{i,j,k}.
+$$
+
+其中，$k'=\delta(k,a_i+t)$，表示向自动机的状态 $k$ 中加入 $a_i+t$ 张牌后的状态．外层 DP 结束后，就可以计算出摸了 $i$ 张牌仍然没有胡牌的序列数目，即
+
+$$
+h_i=\sum_{j=1}^{N} f_{n,i,j}.
+$$
+
+代入前文所述表达式，就可以得到所要求的期望．
+</code></pre>
+<p>??? note "参考代码"
+    <code>cpp
+    --8&lt;-- "docs/dp/code/dp-of-dp/dp-of-dp_2.cpp"</code></p>
+<h2 id="_6">习题</h2>
+<ul>
+<li><a href="https://codeforces.com/problemset/problem/979/E">CF979E Kuro and Topological Parity</a></li>
+<li><a href="https://loj.ac/p/2575">[TJOI2018] 游园会</a></li>
+<li><a href="https://loj.ac/p/3848">[NOI2022] 移除石子</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

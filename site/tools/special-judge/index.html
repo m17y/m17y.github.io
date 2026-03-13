@@ -1,0 +1,1153 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="Xeonacid, NachtgeistW, 2014CAIS01, sshwy, Chrogeek, Menci, yzy-1">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/tools/special-judge/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Special judge - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Special judge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testlib" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testlib
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lemon
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cena" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cena
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ccr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CCR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbiter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arbiter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hustoj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HUSTOJ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qduoj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QDUOJ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hdoj" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HDOJ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syzoj-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SYZOJ 2
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        牛客网
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domjudge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DOMJudge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/tools/special-judge.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Special judge</h1>
+
+<p>本页面主要介绍部分评测工具/OJ 的 spj 编写方法．</p>
+<h2 id="_1">简介</h2>
+<p><strong>Special Judge</strong>（简称：spj，别名：checker）是当一道题有多组解时，用来判断答案合法性的程序．</p>
+<p>???+ warning "Warning"
+    spj 还应当判断文件尾是否有多余内容，及输出格式是否正确（如题目要求数字间用一个空格隔开，而选手却使用了换行）．但是，目前前者只有 Testlib 可以方便地做到这一点，而后者几乎无人去特意进行这种判断．</p>
+<pre><code>判断浮点数时应注意 NaN．不合理的判断方式会导致输出 NaN 即可 AC 的情况．
+
+在对选手文件进行读入操作时应该要检查是否正确读入了所需的内容，防止造成 spj 的运行错误．（部分 OJ 会将 spj 的运行错误作为系统错误处理）
+</code></pre>
+<p>???+ note "Note"
+    以下均以 C++ 作为编程语言，以「要求标准答案与选手答案差值小于 1e-3，文件名为 num，单个测试点满分为 10 分」为例．</p>
+<h2 id="testlib">Testlib</h2>
+<p>参见：<a href="../testlib/">Testlib/简介</a>，<a href="../testlib/checker/">Testlib/Checker</a></p>
+<p>Testlib 是一个 C++ 的库，用于辅助出题人使用 C++ 编写算法竞赛题．</p>
+<p>必须使用 Testlib 作为 spj 的 评测工具/OJ：Codeforces、洛谷、UOJ 等．</p>
+<p>可以使用 Testlib 作为 spj 的 评测工具/OJ：LibreOJ (<a href="https://github.com/lyrio-dev">Lyrio</a>)、Lemon、牛客网等．</p>
+<p>SYZOJ 2 所需的修改版 Testlib 托管于 <a href="https://pastebin.com/3GANXMG7">pastebin</a>[^1]，但此修改版并未修改交互模式．<a href="https://github.com/syzoj/testlib">syzoj/testlib</a> 处托管了一份可以在 SYZOJ 2 上使用交互模式的 Testlib．</p>
+<p>Lemon 所需的修改版 Testlib 托管于 <a href="https://github.com/GitPinkRabbit/Testlib-for-Lemons">GitHub - GitPinkRabbit/Testlib-for-Lemons</a>．注意此版本 Testlib 注册 checker 时应使用 <code>registerLemonChecker()</code>，而非 <code>registerTestlibCmd()</code>．此版本继承自 <a href="https://paste.ubuntu.com/p/JsTspHHnmB/">matthew99 的旧版</a>，添加了一些 Testlib 的新功能．如果你使用 LemonLime，则可以使用原生的 Testlib．</p>
+<p>DOMJudge 所需的修改版 Testlib 托管于 <a href="https://github.com/cn-xcpc-tools/testlib-for-domjudge">cn-xcpc-tools/testlib-for-domjudge</a>．此版本 Testlib 同时可作为 Special Judge 的 checker 和交互题的 interactor．</p>
+<p>Arbiter 所需的修改版 Testlib 托管于 <a href="https://github.com/HeRaNO/ChickenRibs/tree/master/testlib-for-arbiter">testlib-for-arbiter</a>．</p>
+<p>其他评测工具/OJ 大部分需要按照其 spj 编写格式修改 Testlib，并将 testlib.h 与 spj 一同上传；或将 testlib.h 置于 include 目录．</p>
+<pre><code class="language-cpp">#include &quot;testlib.h&quot;
+//
+#include &lt;cmath&gt;
+
+int main(int argc, char *argv[]) {
+  /*
+   * inf：输入
+   * ouf：选手输出
+   * ans：标准输出
+   */
+  registerTestlibCmd(argc, argv);
+
+  double pans = ouf.readDouble(), jans = ans.readDouble();
+
+  if (abs(pans - jans) &lt; 1e-3)
+    quitf(_ok, &quot;Good job\n&quot;);
+  else
+    quitf(_wa, &quot;Too big or too small, expected %f, found %f\n&quot;, jans, pans);
+}
+</code></pre>
+<h2 id="lemon">Lemon</h2>
+<p>???+ note "Note"
+    Lemon 有现成的修改版 <a href="#testlib">Testlib</a>，建议使用 Testlib．</p>
+<pre><code>LemonLime 最新版已经支持使用原版 Testlib 编写评测器，如果你使用 LemonLime，建议使用 Testlib．
+</code></pre>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]：输入
+   * argv[2]：选手输出
+   * argv[3]：标准输出
+   * argv[4]：单个测试点分值
+   * argv[5]：输出最终得分 (0 ~ argv[4])
+   * argv[6]：输出错误报告
+   */
+  FILE* fin = fopen(argv[1], &quot;r&quot;);
+  FILE* fout = fopen(argv[2], &quot;r&quot;);
+  FILE* fstd = fopen(argv[3], &quot;r&quot;);
+  FILE* fscore = fopen(argv[5], &quot;w&quot;);
+  FILE* freport = fopen(argv[6], &quot;w&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    fprintf(fscore, &quot;%s&quot;, argv[4]);
+    fprintf(freport, &quot;Good job\n&quot;);
+  } else {
+    fprintf(fscore, &quot;%d&quot;, 0);
+    fprintf(freport, &quot;Too big or too small, expected %f, found %f\n&quot;, jans,
+            pans);
+  }
+}
+</code></pre>
+<h2 id="cena">Cena</h2>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+int main(int argc, char* argv[]) {
+  /*
+   * FILENAME.in：输入
+   * FILENAME.out：选手输出
+   * argv[1]：单个测试点分值
+   * argv[2]：标准输出
+   * score.log：输出最终得分 (0 ~ argv[1])
+   * report.log：输出错误报告
+   */
+  FILE* fin = fopen(&quot;num.in&quot;, &quot;r&quot;);
+  FILE* fout = fopen(&quot;num.out&quot;, &quot;r&quot;);
+  FILE* fstd = fopen(argv[2], &quot;r&quot;);
+  FILE* fscore = fopen(&quot;score.log&quot;, &quot;w&quot;);
+  FILE* freport = fopen(&quot;report.log&quot;, &quot;w&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    fprintf(fscore, &quot;%s&quot;, argv[1]);
+    fprintf(freport, &quot;Good job\n&quot;);
+  } else {
+    fprintf(fscore, &quot;%d&quot;, 0);
+    fprintf(freport, &quot;Too big or too small, expected %f, found %f\n&quot;, jans,
+            pans);
+  }
+}
+</code></pre>
+<h2 id="ccr">CCR</h2>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+int main(int argc, char* argv[]) {
+  /*
+   * stdin：输入
+   * argv[2]：标准输出
+   * argv[3]：选手输出
+   * stdout:L1：输出最终得分比率 (0 ~ 1)
+   * stdout:L2：输出错误报告
+   */
+  FILE* fout = fopen(argv[3], &quot;r&quot;);
+  FILE* fstd = fopen(argv[2], &quot;r&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    printf(&quot;%d\n&quot;, 1);
+    printf(&quot;Good job\n&quot;);
+  } else {
+    printf(&quot;%d\n&quot;, 0);
+    printf(&quot;Too big or too small, expected %f, found %f\n&quot;, jans, pans);
+  }
+}
+</code></pre>
+<h2 id="arbiter">Arbiter</h2>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]：输入
+   * argv[2]：选手输出
+   * argv[3]：标准输出
+   * /tmp/_eval.score:L1：输出错误报告
+   * /tmp/_eval.score:L2：输出最终得分
+   */
+  FILE* fout = fopen(argv[2], &quot;r&quot;);
+  FILE* fstd = fopen(argv[3], &quot;r&quot;);
+  FILE* fscore = fopen(&quot;/tmp/_eval.score&quot;, &quot;w&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    fprintf(fscore, &quot;Good job\n&quot;);
+    fprintf(fscore, &quot;%d&quot;, 10);
+  } else {
+    fprintf(fscore, &quot;Too big or too small, expected %f, found %f\n&quot;, jans,
+            pans);
+    fprintf(fscore, &quot;%d&quot;, 0);
+  }
+}
+</code></pre>
+<h2 id="hustoj">HUSTOJ</h2>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+#define AC 0
+#define WA 1
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]：输入
+   * argv[2]：标准输出
+   * argv[3]：选手输出
+   * exit code：返回判断结果
+   */
+  FILE* fin = fopen(argv[1], &quot;r&quot;);
+  FILE* fout = fopen(argv[3], &quot;r&quot;);
+  FILE* fstd = fopen(argv[2], &quot;r&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3)
+    return AC;
+  else
+    return WA;
+}
+</code></pre>
+<h2 id="qduoj">QDUOJ</h2>
+<p>相较之下，QDUOJ 略为麻烦．它带 spj 的题目没有标准输出，只能把 std 写进 spj，待跑出标准输出后再判断．</p>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+#define AC 0
+#define WA 1
+#define ERROR -1
+
+double solve(...) {
+  // std
+}
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]：输入
+   * argv[2]：选手输出
+   * exit code：返回判断结果
+   */
+  FILE* fin = fopen(argv[1], &quot;r&quot;);
+  FILE* fout = fopen(argv[2], &quot;r&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+
+  jans = solve(...);
+  if (abs(pans - jans) &lt; 1e-3)
+    return AC;
+  else
+    return WA;
+}
+</code></pre>
+<h2 id="hdoj">HDOJ</h2>
+<p>HDOJ 和 QDUOJ 的情况基本一致，也需要在 spj 中实现 std 后与选手输出比较．但与 QDUOJ 不同的是，HDOJ 会比较答案与 spj 输出在标准输出的内容后给出最终结果．因此，上传输出时仅需上传 spj 在正确时的输出即可．</p>
+<p>HDOJ 需上传 Windows 下编译后的二进制文件，而非源代码．</p>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+double solve(FILE* fin) {
+  // std, read input from fin
+}
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]：输入
+   * stdin：选手输出
+   */
+  FILE* fin = fopen(argv[1], &quot;r&quot;);
+
+  double pans, jans;
+  if (scanf(&quot;%lf&quot;, &amp;pans) != 1) {
+    printf(&quot;WA\n&quot;);
+    goto finish;
+  }
+
+  jans = solve(fin);
+  if (abs(pans - jans) &lt; 1e-3)
+    printf(&quot;AC\n&quot;);
+  else
+    printf(&quot;WA\n&quot;);
+
+finish:
+  fclose(fin);
+  return 0;
+}
+</code></pre>
+<p>对应的答案文件为：</p>
+<pre><code class="language-text">AC
+</code></pre>
+<h2 id="syzoj-2">SYZOJ 2</h2>
+<p>???+ note "Note"
+    SYZOJ 2 有现成的修改版 <a href="#testlib">Testlib</a>，建议使用 Testlib．</p>
+<pre><code>LibreOJ 的最新版本已不再基于 SYZOJ，而是基于 [Lyrio](https://github.com/lyrio-dev/lyrio)．Lyrio 支持使用原版 Testlib 编写评测器，这也是更加通用且推荐的做法．
+</code></pre>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+int main(int argc, char* argv[]) {
+  /*
+   * in：输入
+   * user_out：选手输出
+   * answer：标准输出
+   * code：选手代码
+   * stdout：输出最终得分 (0 ~ 100)
+   * stderr：输出错误报告
+   */
+  FILE* fin = fopen(&quot;input&quot;, &quot;r&quot;);
+  FILE* fout = fopen(&quot;user_out&quot;, &quot;r&quot;);
+  FILE* fstd = fopen(&quot;answer&quot;, &quot;r&quot;);
+  FILE* fcode = fopen(&quot;code&quot;, &quot;r&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    printf(&quot;%d&quot;, 100);
+    fprintf(stderr, &quot;Good job\n&quot;);
+  } else {
+    printf(&quot;%d&quot;, 0);
+    fprintf(stderr, &quot;Too big or too small, expected %f, found %f\n&quot;, jans,
+            pans);
+  }
+}
+</code></pre>
+<h2 id="_2">牛客网</h2>
+<p>???+ note "Note"
+    牛客网有现成的修改版 <a href="#testlib">Testlib</a>，建议使用 Testlib．</p>
+<p>参见：<a href="https://www.nowcoder.com/discuss/84666">如何在牛客网出 Special Judge 的编程题</a></p>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+#define AC 0
+#define WA 1
+
+int main(int argc, char* argv[]) {
+  /*
+   * input：输入
+   * user_output：选手输出
+   * output：标准输出
+   * exit code：返回判断结果
+   */
+  FILE* fin = fopen(&quot;input&quot;, &quot;r&quot;);
+  FILE* fout = fopen(&quot;user_output&quot;, &quot;r&quot;);
+  FILE* fstd = fopen(&quot;output&quot;, &quot;r&quot;);
+
+  double pans, jans;
+  fscanf(fout, &quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3)
+    return AC;
+  else
+    return WA;
+}
+</code></pre>
+<h2 id="domjudge">DOMJudge</h2>
+<p>???+ note "Note"
+    DOMJudge 支持任何语言编写的 spj，参见：<a href="https://www.problemarchive.org/wiki/index.php/Output_validator">problemarchive.org output validator 格式</a>．</p>
+<pre><code>DOMJudge 有现成的修改版 [Testlib](#testlib)，建议使用 Testlib．
+</code></pre>
+<p>DOMJudge 使用的 Testlib 及导入 Polygon 题目包方式的文档：<a href="https://github.com/cn-xcpc-tools/testlib-for-domjudge">https://github.com/cn-xcpc-tools/testlib-for-domjudge</a></p>
+<p>DOMJudge 的 <a href="https://github.com/Kattis/problemtools/blob/master/support/default_validator/">默认比较器</a> 自带了浮点数带精度比较，只需要在题目配置的 <code>validator_flags</code> 中添加 <code>float_tolerance 1e-3</code> 即可．</p>
+<pre><code class="language-cpp">#include &lt;cmath&gt;
+#include &lt;cstdio&gt;
+
+#define AC 42
+#define WA 43
+char reportfile[50];
+
+int main(int argc, char* argv[]) {
+  /*
+   * argv[1]: 输入
+   * argv[2]: 标准输出
+   * argv[3]: 评测信息输出的文件夹
+   * stdin: 选手输出
+   */
+  FILE* fin = fopen(argv[1], &quot;r&quot;);
+  FILE* fstd = fopen(argv[2], &quot;r&quot;);
+  sprintf(reportfile, &quot;%s/judgemessage.txt&quot;, argv[3]);
+  FILE* freport = fopen(reportfile, &quot;w&quot;);
+
+  double pans, jans;
+  scanf(&quot;%lf&quot;, &amp;pans);
+  fscanf(fstd, &quot;%lf&quot;, &amp;jans);
+
+  if (abs(pans - jans) &lt; 1e-3) {
+    fprintf(freport, &quot;Good job\n&quot;);
+    return AC;
+  } else {
+    fprintf(freport, &quot;Too big or too small, expected %f, found %f\n&quot;, jans,
+            pans);
+    return WA;
+  }
+}
+</code></pre>
+<p>也可以使用 Kattis Problem Tools 提供的头文件 <a href="https://github.com/Kattis/problemtools/blob/master/examples/different/output_validators/different_validator/validate.h">validate.h</a> 编写，以实现更加复杂的功能．</p>
+<h2 id="_3">参考资料</h2>
+<p>[^1]: <a href="https://loj.ac/article/124">LibreOJ 支持 testlib 检查器啦！</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

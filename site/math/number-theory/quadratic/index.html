@@ -1,0 +1,1010 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/number-theory/quadratic/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Quadratic - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quadratic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二次域
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        共轭与范数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        二次整数环
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        整除、相伴与单位数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        唯一分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gauss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauss 整数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gauss 整数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gauss_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gauss 素数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        圆上整点问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        勾股方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eisenstein" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eisenstein 整数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考文献与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/number-theory/quadratic.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Quadratic</h1>
+
+<p>本文简要介绍二次域的相关概念．与之相关的两个重要例子是 Gauss 整数和 Eisenstein 整数，它们可以用于解决一些数论问题．</p>
+<h2 id="_1">基本概念</h2>
+<p>本节首先介绍一系列基本概念．二次域和二次整数环都是更一般的代数扩域和代数整数环的概念的特例，因此本节的几乎所有定义和结论都可以恰当地推广到一般的情形．本节的讨论将限于二次域这一特殊情形，而不引入过多的代数数论内容．</p>
+<h3 id="_2">二次域</h3>
+<p>二次域的元素都是二次代数数．</p>
+<p><strong>二次代数数</strong>（quadratic algebraic number）是可以表示为整系数一元二次方程的解的复数．由一元二次方程的求根公式可知，所有二次代数数均可以表示成</p>
+<p>$$
+a+b\sqrt{d}
+$$</p>
+<p>的形式，其中，$a$ 与 $b$ 为有理数，$d$ 为整数且无平方因子．任意这种形式的数也都是二次代数数．二次代数数可以分为有理数和 <strong>二次无理数</strong>（quadratic irrational number）．显然，二次无理数表示成上述形式的方法是唯一的．</p>
+<p>对于任意无平方因子的整数 $d\neq 0,1$，都可以验证集合 $Q(\sqrt{d})={a+b\sqrt{d}:a,b\in\mathbf Q}$ 对于加、减、乘、除是封闭的．由于对于四则运算封闭的集合称为 <a href="../../algebra/basic/#域">域</a>，集合 $Q(\sqrt{d})$ 就称为 <strong>二次域</strong>（quadratic field）．每一个二次域都包含全体有理数，因此它们都是有理数域 $\mathbf Q$ 的 <a href="../../algebra/field-theory/#域的扩张">二次扩域</a>．当 $d&gt;0$ 时，二次域 $\mathbf Q(\sqrt{d})$ 中所有数都是实数，此时的 $\mathbf Q(\sqrt{d})$ 称为实二次域；当 $d&lt;0$ 时，二次域中除了有理数都是复数，此时的 $\mathbf Q(\sqrt{d})$ 称为虚二次域．</p>
+<h3 id="_3">共轭与范数</h3>
+<p>二次无理数 $a+b\sqrt{d}$ 的 <strong>共轭</strong>（conjugate）定义为 $a-b\sqrt{d}$．共轭的二次无理数是同一个整系数二次方程的两个相异的根．在实二次域中，二次无理数的共轭与它作为复数的共轭并不一致；在虚二次域中，二次无理数的共轭就是它作为复数的共轭．最后，有理数的共轭规定为它自身．这样就对于全体二次代数数定义了共轭的概念．</p>
+<p>任意二次域中，由加减乘除四则运算产生的等式，无法区分共轭关系．也就是说，在等式中将每一个数换成它的共轭，即将每一个二次根号的符号改变，等式仍然成立．</p>
+<p>利用共轭，可以构造若干个从二次代数数到有理数的映射，它们可以将对二次代数数进行的讨论转化为对有理数的讨论．较为简单的是二次代数数 $\alpha$ 的 <strong>迹</strong>（trace），即一个数与它的共轭的和，记作 $\operatorname{tr}(\alpha)$．因为这其实就是它的有理数部分的 $2$ 倍，所以并没有提供太多信息．</p>
+<p>更为有用的是二次代数数的范数．二次代数数与它的共轭的积称为它的 <strong>范数</strong>（norm）：</p>
+<p>$$
+N(a+b\sqrt{d})=a^2-db^2
+$$</p>
+<p>显然，在虚二次域中，范数的概念，与复数的模的平方的概念一致；但是，在实二次域中这两个概念并不一致．</p>
+<p>范数具有良好的性质．首先，因为 $d$ 不含平方因子，不可能是平方数，所以只有 $0$ 的范数是 $0$．其次，范数保持乘法和除法：</p>
+<p>$$
+N(a_1+b_1\sqrt{d})N(a_2+b_2\sqrt{d})=N((a_1+b_1\sqrt{d})(a_2+b_2\sqrt{d})),
+$$</p>
+<p>$$
+\frac{N(a_1+b_1\sqrt{d})}{N(a_2+b_2\sqrt{d})}=N\left(\frac{a_1+b_1\sqrt{d}}{a_2+b_2\sqrt{d}}\right).
+$$</p>
+<p>另外，二次代数数的倒数就是它的共轭与它的范数之比：</p>
+<p>$$
+\dfrac{1}{a+b\sqrt{d}}=\frac{a-b\sqrt{d}}{N(a+b\sqrt{d})}.
+$$</p>
+<p>利用 Vieta 定理可知，二次代数数 $\alpha$ 实际上是方程</p>
+<p>$$
+x^2-\operatorname{tr}(\alpha)x+N(\alpha)=0
+$$</p>
+<p>的根．该方程的判别式也称为该二次代数数的 <strong>判别式</strong>（discriminant），记作 $\operatorname{disc}(\alpha)$，取值为 $4db^2$．</p>
+<p>???+ note "矩阵表示"
+    类似于复数，二次代数数也可以用矩阵表示．令 $d\neq 0,1$ 为无平方因子的整数且 $a,b$ 为有理数，则 $a+b\sqrt{d}$ 可以表示为矩阵</p>
+<pre><code>$$
+\begin{pmatrix}a &amp; b \\ db &amp; a\end{pmatrix}.
+$$
+
+可以验证，该矩阵的加、减、乘、除四则运算的结果就对应于二次代数数的运算结果．该矩阵的迹和行列式分别对应了二次代数数的迹和范数，该矩阵的特征多项式的判别式就是二次代数数的判别式．矩阵的伴随矩阵对应着二次代数数的共轭．
+</code></pre>
+<h3 id="_4">二次整数环</h3>
+<p>二次代数数中较为特殊的是二次整数．<strong>二次整数</strong>（quadratic integer）指可以表示为二次项系数为一的整系数一元二次方程的解的复数．与二次代数数的唯一不同就是对于二次项系数的限制．根据求根公式，二次方程 $x^2+px+q=0$ 的两个根是</p>
+<p>$$
+\frac{-p\pm\sqrt{p^2-4q}}{2}.
+$$</p>
+<p>如果 $p$ 是偶数，即 $p=2k$，那么两个根可以写作 $-k\pm\sqrt{k^2-q}$；如果 $p$ 是奇数，即 $p=2k+1$，那么两个根可以写作 $-k-\dfrac{1\pm\sqrt{4(k^2+k-q)+1}}{2}$．从这两种情形中可以归纳出 $\mathbf Q(\sqrt{d})$ 中的二次整数必然可以写作</p>
+<p>$$
+a+b\omega
+$$</p>
+<p>的形式，其中，$a$ 和 $b$ 是整数，而</p>
+<p>$$
+\omega=\begin{cases}
+\dfrac{1+\sqrt{d}}{2}, &amp; d\equiv 1\pmod 4,\
+\sqrt{d}, &amp; d\equiv 2,3\pmod 4.
+\end{cases}
+$$</p>
+<p>反过来，任何这种形式的复数都是二次整数．每个非有理数的二次整数写成该形式的方法都是唯一的．</p>
+<p>二次域 $\mathbf Q(\sqrt{d})$ 中的全体二次整数构成的集合记作 $\mathbf Z[\omega]$．因为这个集合对于加、减、乘都是封闭的，所以它也称为 <strong>二次整数环</strong>（quadratic integer ring)．二次整数环中的有理数恰为全体整数．如果考察 $\mathbf Z[\omega]$ 中的二次整数的全体比值构成的集合，就得到相应的二次域 $\mathbf Q(\sqrt{d})$．</p>
+<p>二次整数的迹、范数和判别式都是整数．二次整数环 $\mathbf Z[\omega]$ 中全体二次无理数的判别式的最小值也称为相应的二次域 $\mathbf Q(\sqrt{d})$ 的判别式．当 $d\equiv 1\pmod 4$ 时，判别式是 $d$；当 $d\equiv 2,3\pmod 4$ 时，判别式是 $4d$．</p>
+<h3 id="_5">整除、相伴与单位数</h3>
+<p>类似于整数，对于二次整数同样可以建立整除理论．当然，讨论必须在同一个二次整数环内进行．</p>
+<p>对于二次整数环 $\mathbf Z[\omega]$ 中的二次整数 $\alpha$ 和 $\beta$，如果存在同一个环中的二次整数 $\gamma$ 使得 $\beta=\alpha\gamma$ 成立，就称 $\alpha$ 整除 $\beta$，记作 $\alpha\mid\beta$．整除关系是二次整数环上的 <a href="../../order-theory/#二元关系">偏序</a> 关系．如果同时有 $\alpha\mid\beta$ 和 $\beta\mid\alpha$，那么 $\alpha$ 和 $\beta$ 在研究整除理论时就可以视作同一个数，它们称为 <strong>相伴</strong>（associate）．相伴关系是二次整数环上的等价关系．</p>
+<p>类比到整数的整除理论上，相伴关系就是互为相反数．整除理论通常只需要考虑自然数就好了，而不必考察负数的情形．对于二次整数而言，相伴关系可能更为复杂一些．如果二次整数 $\alpha$ 和 $\beta$ 相伴，则存在二次整数 $\gamma$ 和 $\delta$ 使得 $\beta=\alpha\gamma$ 和 $\alpha=\beta\delta$ 成立．因此，$\beta$ 和 $\alpha$ 的比值 $\gamma$ 必然是特殊的二次整数，即存在二次整数 $\delta$ 使得 $\gamma\delta=1$．这样的二次整数 $\gamma$ 称为 <strong>单位数</strong>（unit），也称为可逆元．两个二次整数相伴，当且仅当它们的比值是单位数．因此，要理解二次整数环上的相伴关系，就要理解它的单位数的结构．</p>
+<p>因为范数可以保持乘法运算，且二次整数的范数总是整数，所以利用范数可以将二次整数的整除关系转化为整数的整除关系．也就是说，如果 $\alpha\mid\beta$，那么必然有 $N(\alpha)\mid N(\beta)$．同样地，二次整数 $\alpha$ 是单位数，当且仅当它的范数 $N(\alpha)=\pm 1$．因此，要获得二次整数环 $\mathbf Z[\omega]$ 中的全体单位数，只需要求解不定方程：</p>
+<p>$$
+N(a+b\sqrt{d})=1,
+$$</p>
+<p>其中，范数的表达式为</p>
+<p>$$
+N(a+b\sqrt{d})=\begin{cases}
+a^2+ab+\dfrac{1-d}{4}b^2, &amp; d\equiv 1\pmod 4,\
+a^2-db^2, &amp; d\equiv 2,3\pmod 4.
+\end{cases}
+$$</p>
+<p>对于虚二次整数环，即 $d&lt;0$ 时，因为范数必然是非负整数，容易验证对于所有的无平方因子的负数 $d\neq -1,-3$，解都只有 $(a,b)=(\pm 1,0)$，即除了 $\mathbf Z[\sqrt{-1}]$ 和 $\mathbf Z[\frac{1+\sqrt{-3}}{2}]$，虚二次整数环的单位数都只有 $\pm 1$．记 $\mathrm{i}=\sqrt{-1}$，则二次整数环 $\mathbf Z[\mathrm{i}]$ 又称作 Gauss 整数环，它的单位数的集合为 ${\pm 1,\pm\mathrm{i}}$．记 $\omega=\frac{1+\sqrt{-3}}{2}$，则二次整数环 $\mathbf Z[\omega]$ 又称为 Eisenstein 整数环，它的单位数的集合为 ${\pm 1,\pm\omega,\pm\omega^2}$．</p>
+<p>对于实二次整数环，即 $d&gt;0$ 时，情形较为复杂，可以转化为对相应的 <a href="../pell-equation/">Pell 方程</a> 的讨论．由 Pell 方程的相关结论可知，此时的全体单位数的集合可以写作 ${\pm u^k:k\in\mathbf Z}$，其中的 $u$ 称为 <strong>基本单位数</strong>（fundamental unit）．基本单位数可以通过相应的 Pell 方程进行求解．基本单位数并不是唯一的：如果 $u$ 是基本单位数，那么它的共轭 $\bar u$ 以及 $-u$ 和 $-\bar u$ 都是基本单位数．</p>
+<p>二次整数环的单位数的结构可以推广到一般的 <a href="../../algebra/field-theory/#代数扩张">代数整数环</a>．代数数论中的 <a href="https://en.wikipedia.org/wiki/Dirichlet%27s_unit_theorem">Dirichlet 单位定理</a> 指出，所有代数整数环的全体单位数都构成 <a href="../../algebra/group-theory/#有限生成-abel-群">有限生成 Abel 群</a>，同时这一定理也给出了这个群的阶．</p>
+<p>整数的整除理论中的最大公因数、带余除法、Bezout 定理、唯一分解定理等内容都可以推广到部分或全部的二次整数环上．在某个二次整数环上能否进行这样的推广，其实反映了该二次整数环性质是否足够接近于整数环．并非所有二次整数环上都成立唯一分解定理；在成立唯一分解定理的二次整数环中，也只有一部分二次整数环上可以进行带余除法．对于这部分内容的讨论，可以参考环论部分的 <a href="../../algebra/ring-theory/#例子二次整数环">二次整数环</a> 一节或相关书籍．</p>
+<h3 id="_6">唯一分解</h3>
+<p>整数的唯一分解定理如果可以推广到二次整数环上，应当具有这样的形式：环 $\mathbf Z[\omega]$ 中的每个二次整数都可以写成若干个不可约元的乘积，且这个分解在不计相伴和次序的意义下唯一．其中的 <a href="../../algebra/ring-theory/#整除关系">不可约元</a> 是指不能够继续分解为非单位数的乘积的二次整数，类似于整数唯一分解定理中的素数．前文已经提及，并非所有的二次整数环都成立唯一分解定理．</p>
+<p>例如，在 $\mathbf Z[\sqrt{-5}]$ 中有分解 $9=3\times 3=(2+\sqrt{-5})\times(2-\sqrt{-5})$，但是，$3$ 和 $2\pm\sqrt{-5}$ 都已经是不可约元，因而分解并不唯一．要说明这三个数都是不可约元，可以通过考察它们的范数：它们的范数都是 $9$，如果它们可以分解成非单位数的乘积，那么分解得到的因子的范数只能是 $3$，但是 $\mathbf Z[\sqrt{-5}]$ 中并没有范数为 $3$ 的二次整数．</p>
+<p>一般的二次整数环中唯一分解定理不成立的主要原因是仅仅使用二次整数进行的分解是不够彻底的．例如要分解乘积 $abcd$，但是可选的基本元素只有 ${ab,cd,ac,bd}$ 时，得到的分解自然不唯一；要得到唯一分解定理，必须进一步考虑 ${a,b,c,d}$．在二次整数环中，比二次整数更为细致的结构就是二次整数环的 <a href="../../algebra/ring-theory/#理想">理想</a>，将二次整数映射至它对应的主理想可以将它所在的相伴等价类嵌入到理想的集合中，因而整数的分解只是理想的分解的特殊情形．如果考虑二次整数环中理想的分解，那么可以证明所有二次整数环的理想都可以唯一地分解为若干个素理想的乘积．这说明，二次整数环都是 <a href="https://en.wikipedia.org/wiki/Dedekind_domain">Dedekind 整环</a>．更一般地，所有的代数整数环都是 Dedekind 整环．</p>
+<p>如果一个二次整数环上成立唯一分解定理，那么它的素理想和不可约元（在相伴意义下的等价类）一一对应，因此，对于这一类二次整数环，将理想分解为素理想就等价于将二次整数分解为不可约元．而且，此时的不可约元也称为 <a href="../../algebra/ring-theory/#整除关系">素元</a>，它就相当于整数中的素数的概念．下面的讨论将使用素理想及其相关概念，不熟悉这一概念的读者，可以将它们逐字逐句替换成素元，那么这些论述在唯一分解定理成立的情形下也是对的．</p>
+<p>要完全地搞清楚一般的二次整数环 $\mathbf Z[\omega]$ 上的唯一分解，需要知道 $\mathbf Z[\omega]$ 中的素理想都有哪些．首先，$\mathbf Z[\omega]$ 中的每个素理想都整除它的范数（的主理想）．将它的范数在整数内分解为若干素数的乘积，则根据唯一分解定理，该素理想必然整除这些素数因子中的某个（的主理想）．因此，$\mathbf Z[\omega]$ 中的素理想一定是将整数中的素数进一步分解得到的．要列举出 $\mathbf Z[\omega]$ 中的全部素理想，只要给出 $\mathbf Z$ 中的素数 $p$（的主理想）在 $\mathbf Z[\omega]$ 中的唯一分解就可以了．因为素数 $p$（的主理想）在 $\mathbf Z[\omega]$ 中的范数是 $p^2$，而它分解成素理想意味着素理想的范数必然是 $p^2$ 的因子，故而只能是 $p$ 或 $p^2$．这说明只有如下三种可能性：</p>
+<ol>
+<li>$p$ 在 $\mathbf Z[\omega]$ 中是 <strong>惯性</strong>（inert）的，即 $(p)$ 在 $\mathbf Z[\omega]$ 中仍然是素理想；</li>
+<li>$p$ 在 $\mathbf Z[\omega]$ 中 <strong>分裂</strong>（split），即 $(p)$ 在 $\mathbf Z[\omega]$ 中可以写成两个不同的共轭素理想的乘积；</li>
+<li>$p$ 在 $\mathbf Z[\omega]$ 中 <strong>分歧</strong>（ramify），即 $(p)$ 在 $\mathbf Z[\omega]$ 中可以写成某个素理想的平方．</li>
+</ol>
+<p>进一步可以证明，要判定某个素数 $p$ 落入这三种情形中的哪一种，只需要对 $\mathbf Z[\omega]$ 所在的二次域的判别式 $D$ 和该素数 $p$ 计算 <a href="https://en.wikipedia.org/wiki/Kronecker_symbol">Kronecker 符号</a> $\left(\dfrac{D}{p}\right)$ 就可以了．这三种情形分别对应着 Kronecker 符号的三种取值：$-1$，$+1$ 和 $0$．当 $p$ 是奇素数时，Kronecker 符号就是 <a href="../quad-residue/#legendre-符号">Legendre 符号</a>，这三种情形分别对应于 $D$ 是 $p$ 的 <a href="../quad-residue/">二次非剩余</a>，$D$ 是 $p$ 的 <a href="../quad-residue/">二次剩余</a> 以及 $p$ 整除 $D$．当 $p=2$ 时，这三种情形分别对应于 $D\equiv \pm 3\pmod 8$，$D\equiv \pm 1\pmod 8$ 和 $2$ 整除 $D$．</p>
+<h2 id="gauss">Gauss 整数</h2>
+<p>本节中，令 $\mathrm{i}=\sqrt{-1}$ 表示虚数单位．二次域 $\mathbf Q(\mathrm{i})$ 也称为 Gauss 域，它也是四次 <a href="../../algebra/field-theory/#分圆域">分圆域</a>．相应的二次整数环 $\mathbf Z[\mathrm{i}]$ 也称为 Gauss 整数环，其中的元素称为 <strong>Gauss 整数</strong>（Gaussian integer）．Gauss 整数的单位数共四个，即 $\pm 1$ 和 $\pm\mathrm{i}$，因而每个非零的 Gauss 整数有四个相伴元（含自身）．在复平面上，Gauss 整数表示的是全体整点，而 Gauss 整数的范数 $N(a+b\mathrm{i})=a^2+b^2$ 就是复平面上的范数．</p>
+<p><img alt="" src="../images/gaussian-integer.svg" /></p>
+<p>Gauss 整数上可以做带余除法：对于 Gauss 整数 $a$ 和 $b\neq 0$，总存在 Gauss 整数 $q$ 和 $r$ 使得 $a=bq+r$ 成立，且 $N(r)&lt;N(b)$．要计算这样的带余除法，可以首先在 $\mathbf Q(\mathrm{i})$ 内计算 $\dfrac{a}{b}$，再在复平面内寻找最近的整点作为 $q$，然后计算 $r=a-bq$；这样得到的余数总是满足 $N(r)\le\dfrac{1}{2}N(b)$．利用带余除法，可以将辗转相除法（Euclid 算法）和 Bezout 定理等迁移到 Gauss 整数上，进而建立唯一分解定理．</p>
+<h3 id="gauss_1">Gauss 素数</h3>
+<p>利用上节的结论可以求出 Gauss 整数内的素元（也称为 Gauss 素数）．因为 Gauss 整数环的判别式是 $-4$，而 Kronecker 符号 $\left(\dfrac{-4}{n}\right)$ 在偶数 $n$ 上取值为 $0$，在奇数 $n$ 上取值等于 $\left(\dfrac{-1}{n}\right)=(-1)^{(n-1)/2}$，故而有</p>
+<p>$$
+\left(\dfrac{-4}{n}\right) = \begin{cases}
++1,&amp; n\equiv 1\pmod 4,\
+-1,&amp; n\equiv 3\pmod 4,\
+0,&amp; 2\mid n.
+\end{cases}
+$$</p>
+<p>所以 Gauss 素数总共有如下三类：</p>
+<ol>
+<li>整数中 $4k+3$ 型素数；</li>
+<li>整数中 $4k+1$ 型素数的两个共轭的 Gauss 素数因子；</li>
+<li>素数 $2$ 的因子 $1+\mathrm{i}$，它的共轭与它相伴．</li>
+</ol>
+<p>比如在 $\mathbf Z[\mathrm{i}]$ 中，有分解 $60=2^2\times 3\times 5=-(1+\mathrm{i})^4\times 3\times(2+\mathrm{i})\times(2-\mathrm{i})$．</p>
+<p>此处讨论素数 $p$ 能够在 $\mathbf Z[\mathrm{i}]$ 中进一步分解，其实等价于讨论素数 $p$ 能够写成整数平方和 $a^2+b^2$ 的形式．因此，由此处的结论可以推得，素数 $p$ 可以写成平方和的形式，当且仅当 $p=2$ 或 $p\equiv 1\pmod 4$．这就是 <a href="https://en.wikipedia.org/wiki/Fermat%27s_theorem_on_sums_of_two_squares">Fermat 平方和定理</a>．</p>
+<h3 id="_7">圆上整点问题</h3>
+<p>在复平面上，Gauss 整数表示了所有整点．Gauss 整数的范数就是格点到原点 Euclid 距离的平方．因此，具有相同范数的二次整数对应着复平面以原点为圆心的圆上的整点．也就是说，圆 $x^2+y^2=n$ 上的整点个数就是范数等于 $n$ 的 Gauss 整数 $x+y\mathrm{i}$ 的个数．</p>
+<p>要求解方程 $N(x+y\mathrm{i})=n$，可以考虑 Gauss 整数 $x+y\mathrm{i}$ 分解成素因子，则这些素因子的范数的乘积就等于 $n$．因此，只要首先得到 $n$ 的因式分解，就能够根据 $n$ 的素因子判断出 $x+y\mathrm{i}$ 可能具有的素因子．设整数 $n$ 的素因数分解为</p>
+<p>$$
+n=2^kp_1^{r_1}\cdots p_\ell^{r_\ell}q_1^{s_1}\cdots q_{m}^{s_m},
+$$</p>
+<p>其中，$p_1,\cdots,p_\ell$ 为 $4k+1$ 型素因子，$q_1,\cdots,q_m$ 为 $4k+3$ 型素因子．</p>
+<p>首先，方程 $N(x+y\mathrm{i})=n$ 有解，当且仅当 $n$ 的 $4k+3$ 型素因子的指数 $s_1,\cdots,s_\ell$ 都是偶数；这是因为 $q_1,\cdots,q_m$ 也是 Gauss 素数，它们的范数等于自身的平方，因此范数的素因数分解中它们必然成对出现．</p>
+<p>现在假设方程有解．那么，方程的解必然具有形式</p>
+<p>$$
+u(1+\mathrm{i})^k(a_1+b_1\mathrm{i})^{r_{1}^+}(a_1-b_1\mathrm{i})^{r_{1}^-}\cdots(a_\ell+ b_\ell\mathrm{i})^{r_\ell^+}(a_\ell-b_\ell\mathrm{i})^{r_\ell^-}q_1^{s_1/2}\cdots q_{m}^{s_m/2},
+$$</p>
+<p>其中，$u$ 是单位数，$a_j\pm b_j\mathrm{i}$ 是 $p_j$ 在 Gauss 整数环中的共轭素因子，且 $r_j^++r_j^-=r_j$．因此，方程的解的个数就等于</p>
+<p>$$
+4(1+r_1)\cdots(1+r_\ell).
+$$</p>
+<p>令 $f(n)$ 表示方程 $x^2+y^2=n$ 的整数解的个数．当它有解时，$f(n)$ 由上述表达式给出；否则，$f(n)=0$．容易验证，$\dfrac14f(n)$ 是 <a href="../basic/#积性函数">积性函数</a>．积性函数的值由它在素数幂上的取值确定．根据 $f(n)$ 的表达式可以确定，$\dfrac14f(n)$ 在素数幂 $p^k$ 上的取值如下：</p>
+<ol>
+<li>若 $p$ 为 $4k+3$ 型素数，那么 $\dfrac14f(1)=1,\dfrac14f(p)=0,\dfrac14f(p^2)=1,\dfrac14f(p^3)=0,\cdots$；</li>
+<li>若 $p$ 为 $4k+1$ 型素数，那么 $\dfrac14f(p^k)=k+1$；</li>
+<li>若 $p=2$，那么 $\dfrac14f(2^k)=1$．</li>
+</ol>
+<p>容易验证，这三种情形都可以写成</p>
+<p>$$
+\dfrac14f(p^k) = \sum_{j=0}^k\left(\dfrac{-4}{p}\right)^k = \sum_{j=0}^k\left(\dfrac{-4}{p^k}\right) = \sum_{d\mid p^k}\left(\dfrac{-4}{d}\right).
+$$</p>
+<p>由于 Kronecker 符号 $\left(\dfrac{-4}{n}\right)$ 是完全积性函数，可以得到</p>
+<p>$$
+f(n) = 4\sum_{d\mid n}\left(\dfrac{-4}{d}\right)=4\sum_{d\mid n}\chi_{4,3}(d).
+$$</p>
+<p>最右侧的求和式的记号利用了 Kronecker 符号 $\left(\dfrac{-4}{n}\right)$ 是模 $4$ 的实 <a href="https://en.wikipedia.org/wiki/Dirichlet_character">Dirichlet 特征</a> 这一事实．</p>
+<h3 id="_8">勾股方程</h3>
+<p>利用 Gauss 整数可以求出勾股方程的通解．勾股方程指如下二次不定方程：</p>
+<p>$$
+x^2+y^2=z^2.
+$$</p>
+<p>对比上一节的内容可知，这相当于求解方程 $N(x+y\mathrm{i})=z^2$．设 $z$ 在 $\mathbf Z$ 中有素因子分解</p>
+<p>$$
+z=2^kp_1^{r_1}\cdots p_\ell^{r_\ell}q_1^{s_1}\cdots q_{m}^{s_m},
+$$</p>
+<p>因而它的解 $x+y\mathrm{i}$ 在 $\mathbf Z[\mathrm{i}]$ 中有素因子分解</p>
+<p>$$
+x+y\mathrm{i} = u(1+\mathrm{i})^{2k}(a_1+b_1\mathrm{i})^{r_{1}^+}(a_1-b_1\mathrm{i})^{r_{1}^-}\cdots(a_\ell+ b_\ell\mathrm{i})^{r_\ell^+}(a_\ell-b_\ell\mathrm{i})^{r_\ell^-}q_1^{s_1}\cdots q_{m}^{s_m}
+$$</p>
+<p>且 $r_j^++r_j^-=2r_j$．可以计算 $x+y\mathrm{i}$ 和 $z$ 的最大公因子，得到如下整数：</p>
+<p>$$
+\kappa = 2^kp_1^{\min{r_1^+,r_1^-}}\cdots p_\ell^{\min{r_\ell^+,r_\ell^-}}q_1^{s_1}\cdots q_m^{s_m}.
+$$</p>
+<p>消去这一公因子，那么 $\kappa^{-1}(x+y\mathrm{i})$ 中只含有 $a_j\pm b_j\mathrm{i}$ 形式的素因子，共轭的因子不会成对出现，且这些因子的指数 $|r_j^+-r_j^-|$ 必然是偶数（因为它们的和 $2r_j$ 是偶数）．因此，$\kappa^{-1}(x+y\mathrm{i})$ 是某个二次整数 $u+v\mathrm{i}$ 的平方．由此，得到如下方程：</p>
+<p>$$
+x+y\mathrm{i} = \kappa(u+v\mathrm{i})^2,\ z=\kappa N(u+v\mathrm{i}).
+$$</p>
+<p>在整数 $\mathbf Z$ 内，这相当于如下方程组：</p>
+<p>$$
+x = \kappa(u^2-v^2),\ y = 2\kappa uv,\ z = \kappa(u^2+v^2).
+$$</p>
+<p>反过来，对于任何整数 $u$ 和 $v$，上述表达式得到的 $(x,y,z)$ 都满足勾股方程．因此，这就是勾股方程的通解．</p>
+<p>根据上面的过程可以知道，本原勾股数 $(x,y,z)$（即 $x,y,z$ 公因子为一）中的 $x,y$ 必然一奇一偶，$z$ 是奇数且只含有 $4k+1$ 型素因子．</p>
+<p>利用类似的方法还可以得到方程 $x^2+y^2=z^3$ 的通解，或者证明方程 $x^4+y^4=z^4$ 无解．当然，利用勾股方程的通解和无穷递降法，可以证明更强的结论，即方程 $x^4+y^4=z^2$ 无解．</p>
+<h2 id="eisenstein">Eisenstein 整数</h2>
+<p>本节中，令 $\omega=\dfrac{-1+\sqrt{3}\mathrm{i}}{2}=e^{2\pi\mathrm{i}/3}$．[^omega]二次域 $\mathbf Q(\sqrt{3}\mathrm{i})$ 是三次和六次 <a href="../../algebra/field-theory/#分圆域">分圆域</a>，其中的代数整数称为 Eisenstein 整数．全体 Eisenstein 整数构成的环 $\mathbf Z[\omega]$ 称为 Eisenstein 整数环．Eisenstein 整数环的单位数共六个，分别是 $\pm 1$，$\pm\omega$ 和 $\pm\omega^2$．在复平面上，所有 Eisenstein 整数构成三角形的格点．与 Gauss 整数不同，此处的格点一般不是整点．</p>
+<p><img alt="" src="../images/eisenstein-integer.svg" /></p>
+<p>Eisenstein 整数的范数为</p>
+<p>$$
+N(a+b\omega) = a^2-ab+b^2,
+$$</p>
+<p>它也是复平面上上述格点到原点的距离的平方．</p>
+<p>Eisenstein 整数与 Gauss 整数也十分相似．在 Eisenstein 整数上同样可以利用范数 $N(\cdot)$ 定义带余除法，并建立辗转相除法、Bezout 定理、唯一分解定理等结论．类似于上文，可以推导出素数在 Eisenstein 整数环中的因子．为此，注意到 $\mathbf Z[\omega]$ 判别式是 $-3$，而 Kronecker 符号</p>
+<p>$$
+\left(\dfrac{-3}{n}\right) = \begin{cases}
++1, &amp; n\equiv 1\pmod 3,\
+-1, &amp; n\equiv 2\pmod 3,\
+0,  &amp; 3\mid n,
+\end{cases}
+$$</p>
+<p>因此，Eisenstein 整数环内的素元，亦即 Eisenstein 素数，有如下三类：</p>
+<ol>
+<li>整数中 $3k+2$ 型素数，即 $2$ 和 $6k+5$ 型素数；</li>
+<li>整数中 $3k+1$ 型素数（也就是 $6k+1$ 型素数）的两个共轭的 Gauss 素数因子；</li>
+<li>素数 $3$ 的因子 $(3+\sqrt{3}\mathrm{i})/2$，它的共轭与它相伴．</li>
+</ol>
+<p>利用上一节的方法，可以求出范数为 $n$ 的 Eisenstein 整数的数目．设这个数目为 $f(n)$，则它就等于</p>
+<p>$$
+f(n)=6\sum_{d\mid n}\left(\dfrac{-3}{d}\right)=6\sum_{d\mid n}\chi_{3,2}(d). 
+$$</p>
+<p>其中，$\chi_{3,2}(n)=\left(\dfrac{-3}{n}\right)$ 是模 $3$ 的实 Dirichlet 特征．该表达式说明，这样的 Eisenstein 整数存在，当且仅当 $n$ 的全部 $3k+2$ 型素因子的指数都是偶数．</p>
+<p>利用前文的范数公式，$f(n)$ 也是不定方程 $x^2-xy+y^2=n$ 或不定方程 $x^2+xy+y^2=n$ 的数目．它对应的几何意义是斜椭圆 $x^2\pm xy+y^2=n$ 上的整点数目．</p>
+<p>与这些方程密切相关的是另一个不定方程 $x^2+3y^2=n$，它的整数解对应着标准椭圆上的整点．做变量代换 $x=(u+v)/2$ 和 $y=(u-v)/2$ 可以将它转化为已经解决的方程 $u^2-uv+v^2=n$．但是，虽然 $x^2+3y^2=n$ 的整数解总对应着 $u^2-uv+v^2=n$ 的整数解，反过来却不一定正确．如果 $n$ 是偶数，那么 $u$ 和 $v$ 必然都是偶数，这意味着 $x$ 和 $y$ 必然是整数，此时 $x^2+3y^2=n$ 的整数解的数目仍然是 $f(n)$．但是，如果 $n$ 是奇数，那么 $u$ 和 $v$ 可能一奇一偶，也可能都是奇数，因而相对应的 $x$ 和 $y$ 可能都是半整数或者都是整数．这种情形需要更细致的讨论．</p>
+<p>当已知方程 $u^2-uv+v^2=n$ 一个整数解 $(u,v)$ 时，与 $u+v\omega$ 相伴的 Eisenstein 整数（含自身）对应的整数解分别是</p>
+<p>$$
+(u,v),(u-v,u),(-v,u-v),(-u,-v),(v-u,-u),(v,v-u).
+$$</p>
+<p>因为 $u,v,u-v$ 三个整数只要不全是偶数，必然是两个奇数一个偶数，所以这六组整数解中必然有两组全是奇数，四组一奇一偶．这说明，当 $n$ 为奇数时，方程 $u^2-uv+v^2=n$ 的整数解中只有 $\dfrac13$ 全是奇数，此时它才能够对应 $x^2+3y^2=n$ 的整数解．因而，当 $n$ 为奇数时，$x^2+3y^2=n$ 的整数解的数目为 $\dfrac13f(n)$．</p>
+<p>最后，类似于解决勾股方程的方法，可以利用 Eisenstein 整数解决如下不定方程：</p>
+<p>$$
+x^2-xy+y^2=z^2
+$$</p>
+<p>$$
+x^2+xy+y^2=z^2
+$$</p>
+<p>$$
+x^2+3y^2=z^2
+$$</p>
+<p>$$
+x^2+3y^2=z^3
+$$</p>
+<p>它们的通解在此不再赘述．类似的方法还可以用于证明 $x^3+y^3=z^3$ 无解．</p>
+<h2 id="_9">参考文献与注释</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_field">Quadratic field - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_integer">Quadratic integer - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gaussian_integer">Gaussian integer - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Eisenstein_integer">Eisenstein integer - Wikipedia</a></li>
+<li><a href="https://mathworld.wolfram.com/KroneckerSymbol.html">Kronecker symbol - Wolfram MathWorld</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dirichlet_character">Dirichlet character - Wikipedia</a></li>
+<li><a href="https://staff.science.uva.nl/t.j.dekker/PrimesPaper/Primes.pdf">Theodorus J. Dekker's Notes on Primes in Quadratic Fields</a></li>
+<li><a href="http://www.fen.bilkent.edu.tr/~franz/ant/ant02.pdf">Franz Lemmermeyer's Notes on Ideals in Quadratic Number Fields</a></li>
+<li><a href="https://www.jmilne.org/math/CourseNotes/ANT301.pdf">J.S. Milne - Algebraic Number Theory</a></li>
+</ul>
+<p>[^omega]: 注意，此处 $\omega$ 的选择与上文的选择并不相同．按照惯例，在讨论一般的二次整数环时常规定 $\omega=(1+\sqrt{d})/2$（当 $d\equiv 1\pmod4$ 时），而对于 Eisenstein 整数环又往往规定 $\omega=(-1+\sqrt{-3})/2$．这个区别没有任何实质影响，但是可能会引起部分表达式的形式改变．注意，不应将 Eisenstein 整数环写成 $\mathbf Z[\sqrt{-3}]$．</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

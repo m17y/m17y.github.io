@@ -1,0 +1,970 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="Enter-tainer, ouuan, Xeonacid, Ir1d, partychicken, ChungZH, LuoshuiTianyi, Kewth, s0cks5, Doveqise, StudyingFather, SukkaW, SodaCris, SkyeYoung, 383494, danielqfmai">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/tools/editor/vim/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Vim - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vim
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简介
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim 的模式与常用键位
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vim 的模式与常用键位">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令模式 (Command Mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入模式 (Insert Mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        底线命令行模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可视模式 (Visual mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim 的快捷键
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        进阶知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        . 命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        宏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        normal 命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字 +.+ 宏 + normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        外部链接
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/tools/editor/vim.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Vim</h1>
+
+<p>Vim - 无处不在的文本编辑器．</p>
+<h2 id="_1">简介</h2>
+<p>Vim 是从 vi 发展出来的一个文本编辑器．其代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员群体中被广泛使用．</p>
+<h2 id="_2">安装</h2>
+<p>Linux 系统通常自带 Vim，打开终端输入 <code>vim</code> 即可启用．</p>
+<p>若需手动安装，Vim 的 <a href="https://www.vim.org/">官方网站</a> 提供了下载的 <a href="https://www.vim.org/download.php">说明文档</a>，按照需求编译安装即可．</p>
+<h2 id="vim">Vim 的模式与常用键位</h2>
+<p>Vim 的基础操作在 Vim 自带的教程里将会讲述．打开终端输入 <code>vimtutor</code> 即可进入教程．</p>
+<p>这些操作通常需要二三十分钟来大致熟悉．</p>
+<h3 id="command-mode">命令模式 (Command Mode)</h3>
+<p>进入 Vim 后的默认模式．</p>
+<p>此状态下敲击键盘动作会被 Vim 识别为命令，而非输入字符，比如我们此时按下<kbd>i</kbd>，并不会输入一个字符，<kbd>i</kbd>被当作了一个命令．</p>
+<p>Vim 的方向键是<kbd>↑</kbd>、<kbd>↓</kbd>、<kbd>←</kbd>、<kbd>→</kbd>，或者<kbd>h</kbd>、<kbd>j</kbd>、<kbd>k</kbd>、<kbd>l</kbd>．</p>
+<pre><code class="language-text">        ↑(k)
+        ^
+(h)← &lt;     &gt; →(l)
+        v
+        ↓(j)
+</code></pre>
+<p>以下是命令模式常用的命令：</p>
+<ul>
+<li><code>i</code> 切换到输入模式，在光标当前位置开始输入文本．按<kbd>Esc</kbd>键可回到普通模式．</li>
+<li><code>x</code> 用于删除光标后的一个字符．</li>
+<li><code>:</code> 切换到底线命令模式，以在最底一行输入命令．</li>
+<li><code>a</code> 切换到输入模式，在光标后开始输入文本．</li>
+<li><code>o</code> 切换到输入模式，在光标下插入新的一行；<code>O</code> 切换到输入模式，在光标上插入新的一行．</li>
+<li><code>p</code> 粘贴剪贴板内容到光标下方；<code>P</code> 粘贴剪贴板内容到光标上方．</li>
+<li><code>dd</code> 删除光标所在的一整行．</li>
+<li><code>d</code> 命令也是删除，通常配合其他键使用．</li>
+<li><code>u</code> 撤销上一次对文本的更改．</li>
+<li><code>y</code> 命令可以复制被选中的区域．需要按 <code>v</code> 进入可视模式操作．</li>
+<li><code>yy</code> 复制当前行．</li>
+<li><code>Ctrl + r</code> 重做上次撤销的操作．</li>
+<li><code>:w</code> 保存文件，常配合 q 保存退出．</li>
+<li><code>:q</code> 退出 Vim．</li>
+<li><code>:q!</code> 强制退出 Vim，不保存修改．</li>
+</ul>
+<p>部分其他命令：</p>
+<ul>
+<li><code>c</code> 命令用于修改，相当于 <code>di</code>．</li>
+<li><code>=</code> 命令可以以默认格式对选中行应用自动缩进．</li>
+<li><code>==</code> 自动缩进当前行．</li>
+<li><code>.</code> 命令可以重复上次执行的命令．</li>
+<li><code>gg</code> 命令可跳至代码的开头；<code>G</code> 命令可跳至代码最后一行的开头；<code>G</code> 命令前加数字可跳至指定行．</li>
+<li><code>w</code> 可以跳到下个单词的开头；<code>e</code> 可以跳到当前单词或下一单词的结尾；<code>b</code> 可以跳到当前单词或上一单词的的开头；<code>0</code> 可以跳至行首；<code>$</code> 可以跳至行尾．<code>w</code>、<code>e</code>、-<code>0</code>、<code>$</code> 还可以与其他命令组合，比如 <code>de</code>、<code>dw</code>、<code>d0</code> 和 <code>d$</code> 分别对应删至单词尾、删至下个单词头、删至行首和删至行尾．</li>
+</ul>
+<p>命令模式下按<kbd>/</kbd>，下方即会出现查找框，输入需要查找的字符，按回车后就能查看搜索结果．如果有多个查找结果，按<kbd>n</kbd>即可跳至下一个查找结果；按<kbd>N</kbd>可跳至上一个．</p>
+<p>命令模式下按<kbd>*</kbd>可以查找当前光标下的单词．</p>
+<p>在输入某个命令前，输入一个数字 n 的话，命令就会重复 n 次．</p>
+<h3 id="insert-mode">输入模式 (Insert Mode)</h3>
+<p>在命令模式下按下<kbd>i</kbd>就进入了输入模式，按<kbd>Esc</kbd>键可以返回到命令模式．</p>
+<p>在输入模式中，可以使用以下按键：</p>
+<ul>
+<li>字符按键以及<kbd>Shift</kbd>组合，输入字符</li>
+<li><kbd>ENTER</kbd>，回车键，换行</li>
+<li><kbd>BACK SPACE</kbd>，退格键，删除光标前一个字符</li>
+<li><kbd>DEL</kbd>，删除键，删除光标后一个字符</li>
+<li>方向键，在文本中移动光标</li>
+<li><kbd>HOME/END</kbd>，移动光标到行首/行尾</li>
+<li><kbd>Page Up/Page Down</kbd>，上/下翻页</li>
+<li><kbd>Insert</kbd>，切换光标为输入/替换模式，光标将变成竖线/下划线</li>
+<li><kbd>ESC</kbd>，退出输入模式，切换到命令模式</li>
+</ul>
+<p>在输入模式下按<kbd>Ctrl</kbd>+<kbd>o</kbd>即可进入「输入 - 命令模式」，执行完一次操作后又会自动回到输入模式．</p>
+<h3 id="_3">底线命令行模式</h3>
+<p>命令模式下按<kbd>:</kbd>，进入底线命令模式．</p>
+<p>底线命令模式可以输入单个或多个字符的命令，可用的命令非常多．</p>
+<p>在底线命令模式中，基本的命令有：</p>
+<ul>
+<li><code>:help</code>/<code>:h</code> 查看英文版 Vim 在线帮助文档．</li>
+<li><code>:w</code> 保存文件．</li>
+<li><code>:q</code> 退出 Vim．</li>
+<li><code>:wq</code> 保存文件，退出 Vim．</li>
+<li><code>:q!</code>/<code>:!q</code> 强制退出 Vim，不保存修改．</li>
+<li><code>:e filename</code> 可以打开当前目录下的指定文件．</li>
+<li><code>:s</code> 命令是替换．</li>
+</ul>
+<pre><code class="language-vim">&quot; 把当前行第一个匹配的 str1 替换成 str2
+:s/str1/str2/
+&quot; 把当前行所有的 str1 替换成 str2
+:s/str1/str2/g
+&quot; 把当前行所有的 str1 替换成 str2，在替换前询问
+:s/str1/str2/gc
+&quot; 把第 x1 行至 x2 行中，每一行第一个匹配的 str1 替换成 str2
+:x1,x2 s/str1/str2/
+&quot; 把第 x1 行至 x2 行中所有的 str1 替换成 str2
+:x1,x2 s/str1/str2/g
+&quot; 第 x1 行至 x2 行中所有的 str1 替换成 str2，在替换前询问
+:x1,x2 s/str1/str2/gc
+&quot; 把所有行第一个匹配的 str1 替换成 str2
+:%s/str1/str2/
+&quot; 把全文件所有的 str1 替换成 str2
+:%s/str1/str2/g
+&quot; 把全文件所有的 str1 替换成 str2，在替换前询问
+:%s/str1/str2/gc
+</code></pre>
+<p>如果命令形式是 <code>:! command</code>，则命令将在 bash 终端执行．</p>
+<p>按<kbd>Esc</kbd>键可以退出底线命令模式．</p>
+<h3 id="visual-mode">可视模式 (Visual mode)</h3>
+<p>按 <code>v</code> 进入可视模式，多用于选中区域．按 <code>V</code>（<code>Shift+v</code>）进入行可视模式，用于选中行．</p>
+<p>按<kbd>Ctrl</kbd>+<kbd>v</kbd>或<kbd>Ctrl</kbd>+<kbd>q</kbd>进入块可视模式 (visual block)．</p>
+<p>进入块可视模式后，按<kbd>I</kbd>或<kbd>A</kbd>进入插入模式（相当于 <code>i</code> 和 <code>a</code>），退出插入模式后对本行所做的改动将被应用到选中的每一行同一位置．常用于批量添加注释．</p>
+<p>选中后输入 <code>y</code> 或 <code>d</code> 亦可执行相应命令．</p>
+<p>三种可视模式可以通过按键相互转化．</p>
+<h2 id="vim_1">Vim 的快捷键</h2>
+<p>可参考 <a href="https://cenalulu.github.io/linux/all-vim-cheatsheat/">史上最全 Vim 快捷键键位图—入门到进阶</a></p>
+<h2 id="_4">进阶知识</h2>
+<h3 id="_5"><code>.</code> 命令</h3>
+<p>Vim 的使用者不可避免地会抗拒重复的文本修改，因为 Vim 注定比其他编辑器会多出两次按键——<kbd>Esc</kbd>与<kbd>i</kbd>．但是，Vim 其实提供了重复命令 <code>.</code>，它适用于重复的添加、修改、删除文本操作．</p>
+<p><code>.</code> 命令可以重复上次执行的命令．但是这个「命令」并不只限于单一的命令，它也可以是 <code>数字 + 命令</code> 的组合；<code>进入插入模式 + 输入文本 + Esc</code> 也是命令的一种．所以，适当使用 <code>.</code> 命令才能达到最高的效率．</p>
+<p>例如，如下代码的每一行末尾都少了分号：</p>
+<pre><code class="language-text">int a, b
+cin &gt;&gt; a &gt;&gt; b
+cout &lt;&lt; a + b
+return 0
+</code></pre>
+<p>将 <code>.</code> 与搭配移动到行尾插入命令 <code>A</code> 使用，就能高效地补上末尾的分号．</p>
+<pre><code class="language-vim">A;&lt;Esc&gt;
+&quot; 重复下面的命令
+j.
+</code></pre>
+<p>再例如，如下代码中，后面五个赋值语句的数组名全部写错了：</p>
+<pre><code class="language-cpp">int check() {
+  book[1] = 1, book[2] = 1, book[3] = 1, bok[1] = 1, bok[2] = 1, bok[3] = 1,
+  bok[4] = 1, bok[5] = 1;
+  return 0;
+}
+</code></pre>
+<p>一个个改过于麻烦，而命令行模式的 <code>s</code> 命令又会全部改掉．</p>
+<p>第一种改法是搭配普通模式下的 <code>s</code> 命令（删除光标处字符并进入插入模式）使用．来到第一个错误的数组名首字母处，按下 <code>3s</code>/<code>cw</code>，输入正确的数组名并退出．之后把光标一个个移过去，再使用 <code>.</code> 命令．</p>
+<p>第二种比较节省时间的改法是利用查找模式修改．键入 <code>/bok</code>，接着按下回车，并使用 <code>n</code> 键来到第一个错误的数组名首字母处，键入 <code>3s 新数组名 &lt;Esc&gt;</code>，最后重复 <code>n.</code>．</p>
+<p>第三种改法是简易查找命令 <code>f</code>．在一行中普通模式下，<code>f + 单个字符</code> 即可查找此行中出现的这个字符并将光标移至字符处；按 <code>;</code> 查找下一个，<code>,</code> 查找上一个．所以对于上面的代码，只需键入 <code>fb;;;</code> 之后进入插入模式修改，然后 <code>;.</code> 即可．这种改法适用于只需行内移动的情况．</p>
+<h3 id="_6">宏</h3>
+<p>Vim 的宏功能可以重复任意长的命令．</p>
+<p>使用宏之前要先「录制」，即把一串按键操作录下来再回放，这样就达到了重复的效果．录制的方法很简单，普通模式下键入 <code>q</code> 开始录制．下一步，为录制的宏指定一个执行的命令键，可以按下 26 个字母中的任意一个来指定．这时左下方会显示 <code>记录中 @刚刚选择的字母</code>．然后就可以开始录制命令了．同理，普通模式下按 <code>q</code> 暂停录制．</p>
+<p>使用方法为按下 <code>:</code> 进入命令行模式，键入 <code>@选择的记录字母</code>，然后之前录制的命令就被调用了．</p>
+<p>将 <code>.</code> 和宏组合，即录制宏 → 调用宏 →<code>.</code> 重复命令 → 数字 +<code>.</code>，可以达到非常高的效率．</p>
+<h3 id="normal">normal 命令</h3>
+<p>该命令与普通模式有关，效果是在指定行重复命令．</p>
+<p>按 <code>:</code> 进入命令行模式，输入如下命令：</p>
+<pre><code class="language-vim">:a,b normal command
+</code></pre>
+<p>或者：</p>
+<pre><code class="language-vim">:a,b norm command
+</code></pre>
+<p>以上命令的意思是在普通模式下，对 a\~b 行执行 <code>command</code> 命令．</p>
+<p>由于 <code>normal</code> 命令可以被 <code>.</code> 命令重复调用，且其易于理解，它的使用频率甚至更高于宏．</p>
+<h3 id="normal_1">数字 +<code>.</code>+ 宏 + normal</h3>
+<p>以上三种命令可以组合使用．例如：</p>
+<blockquote>
+<p>我下载了一本书，我需要它的每一个章节都变成「标题」，以方便转换成 mobi 之类的格式，或者方便生成 TOC 目录跳转，怎么办呢？</p>
+</blockquote>
+<p>以下是用 Vim 处理的过程：</p>
+<ol>
+<li>按下<kbd>/</kbd>调出查找框，输入正则表达式进行查找；</li>
+<li>用 <code>q</code> 命令开始录制宏；</li>
+<li>键入 <code>I#</code> 命令，然后按下<kbd>ESC</kbd>；</li>
+<li>用 <code>q</code> 命令结束宏录制；</li>
+<li>键入 <code>normal n@字母</code> 转到下一处并重复上一步操作；</li>
+<li>键入 <code>数字 + .</code> 多次重复．</li>
+</ol>
+<h2 id="_7">外部链接</h2>
+<ul>
+<li><a href="https://www.vim.org/">Vim 官网</a></li>
+<li><a href="https://github.com/LuoshuiTianyi/Vim-for-OIWiki">原作者提供的配置</a></li>
+<li><a href="https://fzheng.me/2018/05/28/termdebug/">Vim 调试：termdebug 入门</a></li>
+<li><a href="https://devhints.io/vimscript">Vim scripting cheatsheet</a></li>
+<li><a href="https://learnvimscriptthehardway.stevelosh.com">Learn Vimscript the Hard Way</a></li>
+<li><a href="https://www.runoob.com/linux/linux-vim.html">Linux vi/vim | 菜鸟教程</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

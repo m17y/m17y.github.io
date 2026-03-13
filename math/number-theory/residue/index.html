@@ -1,0 +1,1109 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/number-theory/residue/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Residue - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Residue
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高次剩余
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="高次剩余">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单位根
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="单位根">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模意义下开方
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模意义下开方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        朴素算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tonellishanks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        改良 Tonelli–Shanks 算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="改良 Tonelli–Shanks 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时间复杂度
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般情形的处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/number-theory/residue.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Residue</h1>
+
+<p>前置知识：<a href="../discrete-logarithm/">离散对数</a></p>
+<p>本文讨论模意义下的高次剩余和单位根，并介绍模意义下开方运算的算法．</p>
+<h2 id="_1">高次剩余</h2>
+<p>模运算下的高次剩余，可以认为是在讨论模意义下开高次方的可行性．它是 <a href="../quad-residue/">二次剩余</a> 的推广．</p>
+<p>???+ abstract "$k$ 次剩余"
+    令整数 $k\geq 2$，整数 $a$ 和正整数 $m$ 互素．若存在整数 $x$ 使得</p>
+<pre><code>$$
+x^k\equiv a\pmod m,
+$$
+
+则称 $a$ 为模 $m$ 的 **$k$ 次剩余**（$k$-th residue），$x$ 为 $a$ 模 $m$ 的 **$k$ 次方根**（$k$-th root）；否则称 $a$ 为模 $m$ 的 **$k$ 次非剩余**（$k$-th nonresidue）．
+</code></pre>
+<p>也就是说，$a$ 模 $m$ 的 $k$ 次方根存在，当且仅当 $a$ 是模 $m$ 的 $k$ 次剩余．</p>
+<h3 id="_2">性质</h3>
+<p>类似二次剩余，可以讨论 $k$ 次剩余的判定、个数以及 $k$ 次剩余类的个数问题．和其他 <a href="../congruence-equation/">同余方程</a> 问题一样，可以通过 <a href="../crt/">中国剩余定理</a> 将它们转化为素数幂模的情形．根据原根的有无，这进一步区分为奇素数幂模和模数为 $2$ 的幂次的情形．</p>
+<p>奇数幂模的情形较为简单．事实上，对于所有原根存在的情形，都有如下结论：</p>
+<p>???+ note "定理"
+    设整数 $k\geq 2$，整数 $a$ 和正整数 $m$ 互素．设模 $m$ 的原根存在，且 $g$ 是模 $m$ 的一个原根．记 $d=\gcd(k,\varphi(m))$ 且 $d'=\dfrac{\varphi(m)}{d}$，其中，$\varphi(m)$ 是 <a href="../euler-totient/">欧拉函数</a>．那么，有：</p>
+<pre><code>1.  $a$ 为模 $m$ 的 $k$ 次剩余，当且仅当
+
+    $$
+    a^{d'} \equiv 1 \pmod m.
+    $$
+2.  当 $a$ 为模 $m$ 的 $k$ 次剩余时，同余意义下，$a$ 模 $m$ 恰有 $d$ 个互不相同的 $k$ 次方根，且它们具有形式
+
+    $$
+    x \equiv g^{y_0+id'}\pmod{\varphi(m)},~0\le y_0 &lt; d',~i=0,1,\cdots,d-1.
+    $$
+3.  模 $m$ 的 $k$ 次剩余类的个数为 $d'$，且它们的全体就是
+
+    $$
+    \{g^{di}\bmod m : 0 \le i &lt; d'\}.
+    $$
+</code></pre>
+<p>??? note "证明"
+    因为 $a\perp m$，所以 $x\perp m$．因为 $g$ 是模 $m$ 的原根，所以，$x$ 和 $a$ 均与某个 $g$ 的幂次同余．设 $x\equiv g^y\pmod m$，方程 $x^k\equiv a\pmod m$ 就等价于</p>
+<pre><code>$$
+g^{ky} \equiv g^{\operatorname{ind}_g a}\pmod m.
+$$
+
+其中，$\operatorname{ind}_g a$ 是离散对数．根据 [阶的性质](./primitive-root.md#幂的循环结构) 和 $\delta_m(g)=\varphi(m)$，这等价于同余方程
+
+$$
+ky \equiv \operatorname{ind}_g a \pmod{\varphi(m)}.
+$$
+
+这是关于 $y$ 的 [线性同余方程](./linear-equation.md)．应用该页面对其解结构的分析，就可以知道方程有解当且仅当 $d\mid\operatorname{ind}_g a$，且通解形式为
+
+$$
+y = y_0 + id' \pmod{\varphi(m)},~0\le y_0 &lt; d',~i=0,1,\cdots,d-1.
+$$
+
+由此，就几乎可以得到本定理的全部内容；唯一需要额外说明的是判别式 $a^{d'} \equiv 1 \pmod m$．由 [阶的性质 3](./primitive-root.md#ord-prop-3) 可知
+
+$$
+\delta_m(a) = \delta_m(g^{\operatorname{ind}_g a}) = \dfrac{\varphi(m)}{\gcd(\varphi(m),\operatorname{ind}_g a)} = \dfrac{\varphi(m)}{\operatorname{ind}_g a}.
+$$
+
+又已知方程有解当且仅当 $d\mid \operatorname{ind}_g a$，亦即 $\delta_m(a)\mid d'$．由 [阶的性质 2](./primitive-root.md#ord-prop-2) 可知，这就等价于该判别式．
+</code></pre>
+<p>模数为 $2$ 的幂次的情形较为特殊．为处理这种情形，需要用到关于模 $2^e$ 既约剩余系结构的一个 <a href="../primitive-root/#mod-pow-2">结论</a>：所有奇数 $a$ 都唯一地同余于某个 $(-1)^s5^r\bmod 2^e$ 形式的整数，其中，$s\in{0,1}$ 且 $0\le r &lt; 2^{e-2}$．借助这一结果，可以得到如下结论：</p>
+<p>???+ note "定理"
+    设整数 $k\ge 2$，奇数 $a$ 和正整数 $m=2^e$ 且 $e \ge 2$．那么，当 $k$ 是奇数时，有：</p>
+<pre><code>1.  $a$ 恒为模 $m$ 的 $k$ 次剩余．
+2.  $a$ 模 $m$ 的 $k$ 次方根有且仅有一个．
+3.  模 $m$ 的 $k$ 次剩余类个数为 $2^{e-1}$，且它们就是全体既约剩余类．
+
+当 $k$ 是偶数时，记 $d=\gcd(k,2^{e-2})$ 且 $d'=\dfrac{2^{e-2}}{d}$，有：
+
+1.  $a$ 为模 $m$ 的 $k$ 次剩余，当且仅当 $a\equiv 1\pmod 4$ 且 $a^{d'}\equiv 1\pmod m$．
+2.  当 $a$ 为模 $m$ 的 $k$ 次剩余时，同余意义下，$a$ 模 $m$ 恰有 $2d$ 个互不相同的 $k$ 次方根，且它们具有形式
+
+    $$
+    x \equiv \pm 5^{y_0 + id'} \pmod{2^{e-1}},~ 0 \le y_0 &lt; d',~i = 0, 1,\cdots,d-1. 
+    $$
+3.  模 $m$ 的 $k$ 次剩余类的个数为 $d'$，且它们的全体就是
+
+    $$
+    \{5^{di}\bmod m : 0 \le i &lt; d'\}.
+    $$
+</code></pre>
+<p>??? note "证明"
+    因为 $a\perp m$，所以 $x\perp m$．因为 $x$ 和 $a$ 都是奇数，由前述结论可知，可以设 $a\equiv (-1)^s5^r\pmod{2^e}$ 且 $x=(-1)^z5^{y}\pmod{2^e}$．因为表示是唯一的，所以同余方程 $x^k\equiv a\pmod{2^e}$ 等价于 <a href="../linear-equation/">线性同余方程</a> 组</p>
+<pre><code>$$
+\begin{aligned}
+kz &amp;\equiv s \pmod{2},\\
+ky &amp;\equiv r \pmod{2^{e-2}}.
+\end{aligned}
+$$
+
+结合该页面对于线性同余方程解的分析，就可以得到同余方程 $x^k\equiv a\pmod{2^e}$ 解的结构．根据 $k$ 的奇偶性不同，可以分为两种情形：
+
+-   当 $k$ 是奇数时，因为 $\gcd(k,2)=\gcd(k,2^{e-2})=1$，所以两个线性同余方程对于所有 $s,r$ 都有解，故而原同余方程对于所有奇数 $a$ 总是有解．
+-   当 $k$ 是偶数时，第一个方程有解当且仅当 $2\mid s$，第二个方程有解当且仅当 $d=\gcd(k,2^{e-2})\mid r$．将两者结合就得到 $k$ 次剩余类的全体形式．直接计算可知，第一个条件等价于 $a\equiv 1\pmod 4$；重复奇素数幂情形的分析可知，第二个条件等价于 $a^{d'}=1$．将两点结合起来就得到定理中的判定方法．两个线性同余方程的通解也是已知的：
+
+    $$
+    \begin{aligned}
+    z &amp;\equiv0,1\pmod 2, \\
+    y &amp;\equiv y_0 + id' \pmod{2^{e-2}},~ 0\le y_0 &lt; 2^{e-2}.
+    \end{aligned}
+    $$
+
+    将两者结合就得到原方程的通解．
+</code></pre>
+<p>这就完全解决了不同模数下 $k$ 次剩余的判定问题．二次剩余中的 Legendre 记号和二次互反律等内容也可以推广到高次剩余的情形，但这并不容易，需要用到 <a href="../../algebra/field-theory/#分圆域">分圆域</a> 等概念．在代数数论中，二次互反律最终可以推广到 <a href="https://en.wikipedia.org/wiki/Artin_reciprocity">Artin 互反律</a>．</p>
+<h2 id="_3">单位根</h2>
+<p>作为 $k$ 次方根的特殊情形，本节讨论 $k$ 次（本原）单位根的概念．它可以看作是复数域 $\mathbf C$ 中 $k$ 次 <a href="../../complex/#单位根">单位根</a> 的概念在模 $m$ 既约剩余系 $\mathbf Z_m^*$ 中的对应．当模数 $m$ 合适时，用模 $m$ 的 $k$ 次本原单位根代替复数根 $\omega_k$ 可以加速计算．</p>
+<p>类似于复数域的情形，有如下定义：</p>
+<p>???+ abstract "模 $m$ 的 $k$ 次单位根"
+    对于模数 $m$，元素 $1$ 的 $k$ 次方根称为 <strong>模 $m$ 的 $k$ 次单位根</strong>（$k$-th root of unity modulo $m$）．特别地，如果 $x$ 是模 $m$ 的一个 $k$ 次单位根，且它不是模 $m$ 的任何 $k' &lt; k$ 次单位根，那么，也称 $x$ 为 <strong>模 $m$ 的 $k$ 次本原单位根</strong>（$k$-th primitive root of unity modulo $m$）．</p>
+<p>比较 <a href="../primitive-root/#原根">原根的定义</a> 可知，原根 $g$ 就是模 $m$ 的 $\varphi(m)$ 次本原单位根，其中，$\varphi(m)$ 是 <a href="../euler-totient/">欧拉函数</a>．</p>
+<p>当模 $m$ 的 $k$ 次本原单位根存在时，它的代数性质和 $k$ 次本原单位复根 $\omega_k$ 一致，可以代替 $\omega_k$ 进行各种计算．例如，将它应用于 <a href="../../poly/fft/">快速傅里叶变换</a> 中，就得到有限域[^fnnt]上的 <a href="../../poly/ntt/">快速数论变换</a>．</p>
+<h3 id="_4">性质</h3>
+<p>复数域中，任意次（本原）单位根都存在．但是，数论中的（本原）单位根并非如此．</p>
+<p>???+ note "性质"
+    对于模数 $m$，设 $\lambda(m)$ 为它的 <a href="../primitive-root/#carmichael-函数">Carmichael 函数</a>，有：</p>
+<pre><code>1.  所有与 $m$ 互素的整数 $a$ 都是模 $m$ 的 $\delta_m(a)$ 次本原单位根，其中，$\delta_m(a)$ 是 $a$ 模 $m$ 的 [阶](./primitive-root.md#阶)．
+2.  元素 $a$ 是模 $m$ 的 $k$ 次单位根，且 $k'$ 是 $k$ 的任意倍数，那么 $a$ 也是模 $m$ 的 $k'$ 次单位根．
+3.  元素 $a$ 是模 $m$ 的 $k$ 次（本原）单位根，那么元素 $a^{\ell}$ 是模 $m$ 的 $\dfrac{k}{\gcd(k,\ell)}$ 次（本原，相应地）单位根．
+4.  当 $k'$ 遍历 $k$ 的因数，所有模 $m$ 的 $k'$ 次本原单位根恰构成模 $m$ 的 $k$ 次单位根的一个划分．而且，对于 $\ell\perp k$，映射 $x\mapsto x^\ell$ 给出 $k$ 次单位根之间的双射，且保持上述划分不变：它将 $k'\mid k$ 次本原单位根仍然映射到 $k'$ 次本原单位根．
+5.  模 $m$ 的 $k$ 次本原单位根存在，当且仅当 $k\mid\lambda(m)$．特别地，模 $m$ 的 $\lambda(m)$ 次本原单位根存在，称为 **模 $m$ 的 $\lambda$‑原根**．
+6.  元素 $a$ 是模 $m$ 的 $k$ 次单位根，当且仅当 $a^k\equiv 1\pmod{m}$ 且对于任意素因子 $p\mid k$ 都有 $a^{k/p}\not\equiv 1\pmod{m}$．
+</code></pre>
+<p>??? note "证明"
+    根据阶的定义，所有与 $m$ 互素的整数 $a$ 都是模 $m$ 的 $\delta_m(a)$ 次本原单位根，其中，$\delta_m(a)$ 是 $a$ 模 $m$ 的阶．反过来，如果 $a$ 是模 $m$ 的 $k$ 次单位根，那么 $\gcd(a^k,m)=1$，所以 $\gcd(a,m)=1$．因此，$a$ 是模 $m$ 的（本原）单位根，当且仅当 $a$ 与 $m$ 互素．这就是性质 1．</p>
+<pre><code>直接验证定义可知，只要 $k\mid k'$，就可以从 $a^k\equiv 1\pmod m$ 推出 $a^{k'}\equiv 1\pmod m$，这就是性质 2．根据 [阶的性质](./primitive-root.md#ord-prop-3) 可知
+
+$$
+\delta(a^\ell) = \dfrac{\delta_m(a)}{\gcd(\delta_m(a),\ell)}.
+$$
+
+如果 $a$ 是模 $m$ 的 $k$ 次本原单位根，那么，$\delta_m(a)=k$，直接代入上式就得到 $a^\ell$ 是模 $m$ 的 $\dfrac{k}{\gcd(k,\ell)}$ 次本原单位根．如果 $a$ 只是模 $m$ 的 $k$ 次单位根，设它是 $k'\mid k$ 次本原单位根，故而 $a^\ell$ 是模 $m$ 的 $\dfrac{k'}{\gcd(k',\ell)}$ 次本原单位根．由于 $k'\mid k$，有
+
+$$
+\dfrac{k'}{\gcd(k',\ell)} \mid \dfrac{k}{\gcd(k,\ell)},
+$$
+
+再由性质 2，就得到 $a^\ell$ 是模 $m$ 的 $\dfrac{k}{\gcd(k,\ell)}$ 次单位根．这就是性质 3．
+
+对于 $k'\mid k$，由性质 2，模 $m$ 的 $k'$ 次本原单位根必然是模 $m$ 的 $k$ 次单位根．它们两两不交，故而构成划分．而对于 $\ell\perp k$，总有 $\ell\perp k'$，因此对于模 $m$ 的 $k'$ 次本原单位根 $a$，总有 $a^\ell$ 是模 $m$ 的 $k'$ 次本原单位根．取 $\ell'=\ell^{-1}\bmod k$，可以验证 $x\mapsto x^\ell$ 和 $x\mapsto x^{\ell'}$ 互为逆映射，因此，$x\mapsto x^\ell$ 是双射．这就是性质 4．
+
+根据 Carmichael 函数的性质可知，模 $m$ 的 $\lambda(m)$ 次本原单位根总是存在的，设它为 $a$，且 $\delta_m(a)=\lambda(m)$．对于 $k\mid\lambda(m)$，设 $k'=\dfrac{\lambda(m)}{k}$，总有
+
+$$
+\delta_m(a^{k'}) = \dfrac{\lambda(m)}{(\lambda(m),k')} = \dfrac{\lambda(m)}{k'} = k.
+$$
+
+因此，$a^{k'}$ 是 $k$ 次本原单位根．而根据 Carmichael 函数的定义，所有 $x\perp m$ 的阶都是 $\lambda(m)$ 的因子．这就得到性质 5．
+
+几乎重复 [原根判定定理](./primitive-root.md#原根判定定理) 的证明，就可以得到性质 6．这一判别方法实际上在验证 $\delta_m(a)=k$．
+</code></pre>
+<p>从这些性质可以看出，相对于原根存在的情形，模 $m$ 的 $\lambda$‑原根起到了类似的基础作用．与原根不同的是，$\lambda$‑原根的幂次并不能用于生成模 $m$ 的全体单位根．尽管如此，由于 $\lambda$‑原根的密度并不低[^lambda-density]，如果确实需要找到 $k$ 次本原单位根，可以首先通过随机方法找到一个 $\lambda$‑原根，再通过求幂次得到一个 $k$ 次本原单位根．</p>
+<p>如果已知 $a$ 模 $m$ 的一个 $k$ 次方根，可以通过模 $m$ 的全体 $k$ 次单位根生成 $a$ 模 $m$ 的全体 $k$ 次方根．</p>
+<p>???+ note "定理"
+    设 $x$ 是 $a$ 模 $m$ 的一个 $k$ 次方根，当 $r$ 遍历模 $m$ 的全体 $k$ 次单位根时，$xr$ 遍历 $a$ 模 $m$ 的全体 $k$ 次方根．</p>
+<p>??? note "证明"
+    对于 $a$ 模 $m$ 的两个 $k$ 次方根 $x,y$，设 $r=x^{-1}y\bmod m$，那么 $r$ 满足 $r^k\equiv 1\pmod m$，是模 $m$ 的 $k$ 次方根．反过来，只要 $r$ 是模 $m$ 的 $k$ 次单位根，那么，$(xr)^{k}= x^kr^k\equiv a\pmod m$，也就是说，$xr$ 是模 $m$ 的 $k$ 次方根．</p>
+<p>利用 $k$ 次单位根生成全体 $k$ 次方根，就类似于利用齐次线性方程组的解生成非齐次线性方程组的通解一样．</p>
+<p>前面讨论的是一般情形．仅对于原根存在的情形，单位根的结构更为简单：</p>
+<p>???+ note "定理"
+    对于模数 $m$，设模 $m$ 的原根存在，且 $a$ 是模 $m$ 的 $k$ 次本原单位根．那么，$b$ 是模 $m$ 的 $k$ 次单位根，当且仅当它可以表示为 $a$ 的幂次．</p>
+<p>??? note "证明"
+    设 $g$ 是模 $m$ 的原根，那么，所有与 $m$ 互素的元素都可以表示为 $g$ 的幂次．那么，$a$ 是模 $m$ 的 $k$ 次本原单位根，当且仅当</p>
+<pre><code>$$
+\delta_m(a) = \delta_m(g^{\operatorname{ind}_ga}) = \dfrac{\varphi(m)}{\gcd(\varphi(m),\operatorname{ind}_ga)} = k.
+$$
+
+类似地，$b$ 是模 $m$ 的 $k$ 次单位根，当且仅当
+
+$$
+\delta_m(b) = \delta_m(g^{\operatorname{ind}_gb}) = \dfrac{\varphi(m)}{\gcd(\varphi(m),\operatorname{ind}_gb)} = k' \mid k.
+$$
+
+所以，有
+
+$$
+\gcd(\varphi(m),\operatorname{ind}_ga) \mid \gcd(\varphi(m),\operatorname{ind}_gb)\mid \operatorname{ind}_gb.
+$$
+
+根据对线性同余方程的 [分析](./linear-equation.md) 可知，这一条件就等价于方程
+
+$$
+(\operatorname{ind}_ga) x \equiv \operatorname{ind}_gb \pmod{\varphi(m)}
+$$
+
+有解．将这一条件对 $g$ 取幂，就得到 $a^x\equiv b\pmod{m}$，亦即 $b$ 可以表示为 $a$ 的幂次．
+</code></pre>
+<p>这一定理说明，原根存在时，全体 $k$ 次单位根呈现 <a href="../../algebra/group-theory/#循环群">循环群</a> 的结构，而 $k$ 次本原单位根则是该循环群的生成元．稍后将会看到，Tonelli–Shanks 算法正是利用这一点，加速了开方运算中离散对数部分的计算．</p>
+<h2 id="_5">模意义下开方</h2>
+<p>最后，本文讨论 $k$ 次方根的求法．对于 $k=2$ 的情形，有 <a href="../quad-residue/#模意义下开平方">很多高效算法</a> 可以用于模意义下开平方运算．但是，对于一般的 $k$，并没有已知的多项式时间算法．本节将介绍两种常见算法，分别可以在 $O(m^{1/2})$ 和 $O(m^{1/4+\varepsilon})$ 时间内求出一个 $k$ 次方根．利用中国剩余定理总是可以将问题转换为素数幂模的情形，因此，本节主要讨论素数幂模情形的解法．</p>
+<h3 id="_6">朴素算法</h3>
+<p>前文对于 $k$ 次剩余性质的 <a href="#性质">分析</a> 实际上已经指出了一种求解素数幂模下 $k$ 次方根的方法．严格来说，前文解决的情形是被开方数 $a$ 与模数 $m$ 互素的情形．算法过程总结如下：</p>
+<ul>
+<li>
+<p>当 $m=p^e$ 是奇素数幂时，设模 $m$ 的一个原根是 $g$．那么，方程 $x^k\equiv a\pmod m$ 可以转化为线性同余方程</p>
+<p>$$
+ky \equiv \operatorname{ind}_g a \pmod{\varphi(m)}.
+$$</p>
+<p>其中，$\operatorname{ind}_g a$ 可以通过 <a href="../discrete-logarithm/#大步小步算法">BSGS 算法</a> 求出，而 <a href="../linear-equation/">线性同余方程</a> 的全体解容易求出．由此，就可以得到 $a$ 的全部 $k$ 次方根 $x\equiv g^y\pmod m$．</p>
+<p>除此之外，还有另一种相仿的思路．同样是设 $x\equiv g^y\pmod m$，还可以通过变形</p>
+<p>$$
+x^k \equiv (g^k)^y \equiv a \pmod m
+$$</p>
+<p>转化为求底数为 $g^k$ 时 $a$ 的离散对数．这同样可以通过 BSGS 算法找到一组特解．它的通解可以通过前文的解的表达式求出，也就是将特解与全体 $k$ 次单位根逐一相乘得到．</p>
+<p>无论采用哪种思路，原根已知时，该算法求出单个解的复杂度都是 $O(m^{1/2})$．因为可以在 $o(m^{1/2})$ 时间内找到一个原根，所以，总的时间复杂度仍然是 $O(m^{1/2})$．</p>
+</li>
+<li>
+<p>当 $m=2^e$ 且 $e\in\mathbf N_+$ 时，可以首先求出 $a\equiv (-1)^s5^r\pmod m$ 中的 $s,r$．这两个指数中，$s$ 可以在 $O(1)$ 时间内确定：</p>
+<p>$$
+s = \begin{cases}0, &amp; a\equiv 1\pmod 4, \ 1, &amp; a\equiv 3\pmod 4.\end{cases}
+$$</p>
+<p>而 $r=\operatorname{ind}_5((-1)^sa)$ 可以通过 BSGS 算法在 $O(m^{1/2})$ 时间内求出．接下来，只需要求解线性同余方程组：</p>
+<p>$$
+\begin{aligned}
+kz &amp;\equiv s \pmod{2},\
+ky &amp;\equiv r \pmod{2^{e-2}}.
+\end{aligned}
+$$</p>
+<p>这个线性方程组的通解 $(z,y)$ 容易求出，而 $x=(-1)^z5^y$ 就是所求的方根．这一算法求出单个解的复杂度仍然是 $O(m^{1/2})$．</p>
+</li>
+</ul>
+<p>当然，对于无解的情形，其实可以通过前文叙述的判别方法在 $O(\log m)$ 时间内快速判断，而无需在求解过程中判断．</p>
+<p>求素数模 $k$ 次方根的参考实现如下：（代码仅作示意，由于时间复杂度过高，无法通过本题）</p>
+<p>??? example "模板题 <a href="https://judge.yosupo.jp/problem/kth_root_mod">Library Checker - Kth Root (Mod)</a> 参考实现"
+    <code>cpp
+    --8&lt;-- "docs/math/code/residue/bsgs-mod-p.cpp"</code></p>
+<h3 id="tonellishanks">改良 Tonelli–Shanks 算法</h3>
+<p>将用于模意义下开平方的 <a href="../quad-residue/#tonellishanks-算法">Tonelli–Shanks 算法</a> 做适当推广，就可以解决素数幂模下开方运算．一种较为直接的推广方式是 Adleman–Manders–Miller 算法[^amm]，但是它的复杂度仍然不够优秀[^amm-comp]．本节介绍由 sugarknri、Min_25、37zigen 等人提出的改良 Tonelli–Shanks 算法．它可以在 $O(m^{1/4+\varepsilon})$ 时间内求出一个 $k$ 次方根．</p>
+<p>Tonelli–Shanks 算法的核心想法是，将离散对数的求解放到阶为 $2^e$ 的群里，进而降低时间复杂度．类似地，对于任意素数幂 $p^e$ 阶群内的离散对数，同样可以较为高效地求解，但是算法的复杂度为 $\Omega\left(\sqrt{p}\right)$．Adleman–Manders–Miller 算法将 $k$ 次方根的求解分拆为多个素数幂阶群内离散对数的计算，但是受限于 $k$ 的最大素因子 $p_\text{max}(k)$ 的大小，算法复杂度仍然为 $\Omega\left(\sqrt{p_\text{max}(k)}\right)$．本节算法进一步改良了这一过程，避免了对较大的素因子计算离散对数，进而将整体复杂度控制到 $O(m^{1/4+\varepsilon})$．</p>
+<h4 id="_7">过程</h4>
+<p>考虑素数幂模 $m$ 下 $a$ 的 $k$ 次方根的计算，即求解同余方程：</p>
+<p>$$
+x^k \equiv a \pmod m.
+$$</p>
+<p>特别地，对于 $m=2^e$ 的情形，还需要保证 $a\equiv 1\pmod{4}$，进而 $a$ 可以写成 $g=5$ 的幂次．类似前文讨论，模 $2^e$ 下 $k$ 次方根的计算总是可以转化为这样的情形．处理模 $2^e$ 的情形时，本节提到的 $\varphi(m)$ 都应换作 $\delta_m(5)=2^{e-2}$．</p>
+<p>首先，问题可以转化为开方次数整除 $\varphi(m)$ 的情形．设 $d=\gcd(k,\varphi(m))$．那么，由 $k$ 次剩余的性质可知，当 $a$ 模 $m$ 是 $k$ 次剩余时，$a$ 总是模 $m$ 的 $\dfrac{\varphi(m)}{d}$ 次单位根．根据单位根的性质，对于任意 $\ell\perp\dfrac{\varphi(m)}{d}$，映射 $x\mapsto x^{\ell}$ 都是 $\dfrac{\varphi(m)}{d}$ 次单位根之间的双射．因此，可以取</p>
+<p>$$
+\ell = \left(\dfrac{k}{d}\right)^{-1}\bmod\dfrac{\varphi(m)}{d}.
+$$</p>
+<p>将原来的同余方程两侧同时取 $\ell$ 次幂，就得到</p>
+<p>$$
+x^d\equiv x^{k\ell} \equiv a^{\ell} =: b \pmod{m}.
+$$</p>
+<p>最左侧同余号利用了 <a href="../fermat/#欧拉定理">欧拉定理</a> 和如下同余关系：（$c\in\mathbf Z$）</p>
+<p>$$
+k\ell = d\left(\frac{k}{d}\ell\right) = d\left(c\dfrac{\varphi(m)}{d}+1\right) \equiv d \pmod{\varphi(m)}.
+$$</p>
+<p>对于转化后的问题，考虑 $d$ 的素因数分解：</p>
+<p>$$
+d = \prod_{p\in\mathbf P}p^e.
+$$</p>
+<p>可以从 $b=a^\ell$ 开始，对每个 $p^e\neq 1$，依次开 $p^e$ 次方，最后就能得到 $b$ 的 $d$ 次方根，也就是 $a$ 的 $k$ 次方根．</p>
+<p>最后，问题转化为如何求如下方程的解：</p>
+<p>$$
+x^{p^e} \equiv b \pmod m.
+$$</p>
+<p>不妨设 $\varphi(m)=p^sr$ 且 $p\perp r$．设 $q\in\mathbf N_+$ 是方程 $qr\equiv -1\pmod{p^e}$ 的解．那么，因为 $b$ 是 $rp^{s-e}$ 次单位根，所以 $b^{qr}$ 一定是 $p^{s-e}$ 次单位根．又设 $\zeta$ 是模 $m$ 的 $p^s$ 次本原单位根．那么，$\zeta^{p^e}$ 是 $p^{s-e}$ 次本原单位根，进而存在 $h\in\mathbf N$ 使得 $b^{qr}\equiv \zeta^{hp^{e}}\pmod{m}$．所以，直接验证可知</p>
+<p>$$
+x\equiv b^{(qr+1)/p^e}\zeta^{-h} \pmod{m}
+$$</p>
+<p>是 $b$ 模 $m$ 的 $p^e$ 次方根．</p>
+<p>为了计算 $x$，需要找到模 $m$ 的一个 $p$ 次非剩余 $\eta$．为此，由前文性质，只需要随机 $\eta\perp m$ 并验证 $\eta^{\varphi(m)/p}\bmod{m}\neq 1$ 即可．这样的数的密度是</p>
+<p>$$
+\dfrac{\varphi(m)}{m}\left(1-\dfrac{1}{p}\right) \ge \dfrac{1}{4}.
+$$</p>
+<p>因此，期望随机不超过 $4$ 个整数就能找到它．注意到，$\eta^{rp^{s-1}}\not\equiv 1\pmod m$ 且 $\eta^{rp^s}\equiv 1\pmod m$，所以，如果设 $\zeta=\eta^r\bmod m$ 和 $\xi=\eta^{rp^{s-1}}\bmod m$，那么它们分别是 $p^s$ 次和 $p$ 次本原单位根．</p>
+<p>最后，需要计算 $h\in\mathbf N$．显然，可以取 $h &lt; p^{s-e}$．考虑 $h$ 的 $p$ 进制表示：</p>
+<p>$$
+h = \sum_{j=0}^{s-e-1}h_jp^j = h_0 + h_1p + h_2p^2 +\cdots.
+$$</p>
+<p>逐位计算这些数位．当前 $j$ 个数位都计算完成时，必然有</p>
+<p>$$
+\left(b^{qr}\zeta^{-p^e(h_0+h_1p+\cdots + h_{j-1}p^{j-1})}\right)^{p^{s-e-j-1}} \equiv \zeta^{h_jp^{s-1}} \equiv \xi^{h_j} \pmod{m}.
+$$</p>
+<p>故而，$h_j$ 可以通过计算关于 $\xi$ 的离散对数求出．为了获得更好的时间复杂度，需要使用 BSGS 算法．总共需要计算 $(s-e)$ 次离散对数，设预处理 $B$ 个 $\xi$ 的幂次，则单次求解离散对数的时间复杂度为 $O(p/B)$，总的时间复杂度为</p>
+<p>$$
+O\left(B+(s-e)\dfrac{p}{B}\right).
+$$</p>
+<p>当 $B=\sqrt{(s-e)p}$ 时，总的时间复杂度最低，为 $O\left(\sqrt{(s-e)p}\right)$．得到 $h$ 之后，代入前文 $x$ 的表达式，就可以找到一个特解．</p>
+<h4 id="_8">时间复杂度</h4>
+<p>这一算法的时间复杂度为 $O(m^{1/4+\varepsilon})$．本节讨论复杂度时，总是假设单次乘法需要 $O(1)$ 时间，且计算幂次时，总是应用欧拉定理降幂，则涉及的单个幂的计算总是可以在 $O(\log m)$ 时间内完成．</p>
+<p>先考虑单个 $p^e$ 次方根的计算．找到 $p$ 次非剩余只需要验证期望 $O(1)$ 个数，总时间复杂度为 $O(\log m)$．计算 $s,r,\zeta,\eta,b^{qr}$ 各只需要 $O(\log m)$ 时间．计算 $h$ 时，单个数位需要通过 $O(\log m)$ 时间计算幂次，总共 $(s-e)$ 位，故而总的时间复杂度为 $O((s-e)\log m)$．前文已经说明，计算离散对数的部分预处理和 $(s-e)$ 次查询的总时间为 $O\left(\sqrt{(s-e)p}\right)$．因为 $s-e\in O(\log m)$，所以单个 $p^e$ 次方根的计算的时间复杂度为 $O(p^{1/2+\varepsilon})$．特别地，当 $s=e$ 时，时间复杂度可以进一步减少为 $O(\log m)$．</p>
+<p>进而，可以考虑算法总的时间复杂度．计算 $\varphi(m),d,\ell$ 的时间复杂度均为 $O(\log m)$．紧接着需要做素因数分解 $d=\prod_p{p^e}$，这一步利用 <a href="../pollard-rho/#pollard-rho-算法">Pollard Rho 算法</a> 可以在 $O(m^{1/4})$ 时间内完成．最后，依次求 $p^e$ 次方根的总时间复杂度为</p>
+<p>$$
+O\left(\sum_{e &lt; s}p^{1/2+\varepsilon}\right).
+$$</p>
+<p>由于满足 $e &lt; s$ 的素因子 $p$ 至少在 $\varphi(m)$ 中出现 $2$ 次，必然有 $p &lt; m^{1/2}$．故而，总时间复杂度为 $O(m^{1/4+\varepsilon})$．</p>
+<p>事实上，在这一情景中，无需使用 Pollard Rho 算法分解素因数，仍然可以获得 $O(m^{1/4+\varepsilon})$ 的时间复杂度．事实上，只需要对 $d$ 暴力试除进行分解，并只枚举到不超过 $m^{1/4}$ 的素因子．设去除这些小素因子后得到的整数为 $z$．那么，对于 $z$ 的素因子 $p &gt; m^{1/4}$，必然有 $\nu_p(\varphi(m)) &lt; 4$，其中，$\nu_p(n)$ 表示 $n$ 的素因数分解中 $p$ 的次数．由于只需要考虑</p>
+<p>$$
+1 \le e = \nu_p(d) &lt; s = \nu_p(\varphi(m)) &lt; 4
+$$</p>
+<p>的情形，满足该条件的素因子 $p$ 至多只能有一个；否则，它们在 $\varphi(m)$ 中的次数都不小于 $2$，总的乘积必然超过 $m$．要分离出这个（可能存在的）唯一的大素因子，只需要计算</p>
+<p>$$
+p^\star=\gcd\left(z,\dfrac{\varphi(m)}{z}\right) = \prod_{p : \nu_p(d) &lt; \nu_p(\varphi(m))}p^{\min{\nu_p(d),\nu_p(\varphi(m))-\nu_p(d)}}.
+$$</p>
+<p>枚举 $\nu_p(d),\nu_p(\varphi(m))$ 的所有可能性可知，乘积中 $p$ 的次数一定是 $1$，因此这样算出来的就是唯一的大素因子 $p^\star$（如果存在的话）．至于剩余的部分 $z/p^\star$，因为其中只能包含若干满足 $e=s$ 的素因子，所以无需继续分解．</p>
+<p>求素数模 $k$ 次方根的参考实现如下：</p>
+<p>??? example "模板题 <a href="https://judge.yosupo.jp/problem/kth_root_mod">Library Checker - Kth Root (Mod)</a> 参考实现"
+    <code>cpp
+    --8&lt;-- "docs/math/code/residue/tonelli-shanks-mod-p.cpp"</code></p>
+<h3 id="_9">一般情形的处理</h3>
+<p>考虑一般的情形，仍然设模数 $m$ 是素数幂 $p^e$，但是 $\gcd(a,m)&gt;1$．如果 $a\equiv 0\pmod{m}$，那么</p>
+<p>$$
+x = p^{\lceil e/k \rceil}\ell\pmod{p^e},~\ell=0,1,\cdots,p^{e-\lceil e/k\rceil}-1
+$$</p>
+<p>都是原方程的解．接下来，考察 $a\not\equiv 0\pmod{m}$ 的情形．设 $a = p^sa'$ 且 $p\perp a'$．于是，设 $x=p^zx'$ 且 $p\perp x'$，就有</p>
+<p>$$
+x^k = p^{kz}(x')^k\equiv p^sa'\pmod{p^e}.
+$$</p>
+<p>由于 $(x')^k\perp p$，所以该式成立当且仅当 $kz = s$ 且 $(x')^k\equiv a'\pmod{p^{e-s}}$．当且仅当 $k\mid s$ 时，第一个方程有解 $z=\dfrac{s}{k}$；而第二个方程的求解已经解决．需要注意的是，因为第二个方程的通解的模数与原方程通解的模数并不相同，所以第二个方程的每一个解 $x'$，都对应原方程的若干解：</p>
+<p>$$
+x \equiv p^{s/k}(x' + \ell p^{e-s})\pmod{p^e},~\ell = 0,1,\cdots, p^{s-s/k}-1.
+$$</p>
+<p>求解任一模数下全体 $k$ 次方根的参考实现如下：</p>
+<p>??? example "模板题 <a href="https://www.luogu.com.cn/problem/P5668">Luogu P5668【模板】N 次剩余</a> 参考代码"
+    === "朴素算法"
+        <code>cpp
+        --8&lt;-- "docs/math/code/residue/bsgs.cpp"</code></p>
+<pre><code>=== "改良 Tonelli–Shanks 算法"
+    ```cpp
+    --8&lt;-- "docs/math/code/residue/tonelli-shanks.cpp"
+    ```
+</code></pre>
+<h2 id="_10">参考资料与注释</h2>
+<ul>
+<li>冯克勤．初等数论及其应用．</li>
+<li><a href="https://en.wikipedia.org/wiki/Root_of_unity_modulo_n">Root of unity modulo n - Wikipedia</a></li>
+<li><a href="https://yukicoder.me/problems/no/981/editorial">No.981 一般冪乗根 解説 by 37zigen</a></li>
+</ul>
+<p>[^fnnt]: 实际上，模数 $m$ 未必是素数．只要 $a$ 是模 $m$ 的 $k=2^e$ 次本原单位根，就可以用于模 $m$ 的快速数论变换．但是，由于通常需要处理的 $2^e$ 比较大，这意味着模数 $m$ 中的每个素因子都是 $c2^e+1$ 形式．因此，单个素因子就很大，而模数 $m$ 通常会更大，因而一般模数的情形并没有素数模的情形常用．</p>
+<p>[^lambda-density]: 根据 <a href="../primitive-root/#原根个数">原根个数相关结论</a> 可知，$\lambda$‑原根的数量恰为 $\varphi(\lambda(m))$，其中，$\varphi(\cdot)$ 和 $\lambda(\cdot)$ 分别是欧拉函数和 Carmichael 函数．因为对于几乎所有整数 $m$，都有 $\lambda(m)/m = \exp(-(1+o(1))\log\log m\log\log\log m)$，而存在 $C &gt; 0$，使得对于整数 $m &gt; 2$，都有 $\varphi(m)/m = C / \log\log m$，所以，对于几乎所有整数 $m$，都有 $\varphi(\lambda(m))/m = \exp(-(1+o(1))\log\log m\log\log\log m)$．其中，指数部分系数中的 $o(1)$ 吸收了因子 $\varphi(\lambda(m))/\lambda(m)$ 的贡献．故而，$\lambda$‑原根可以在期望 $\exp((1+o(1))\log\log m\log\log\log m)$ 次内找到．关于欧拉函数的估计，可以参考论文 Rosser, J. Barkley, and Lowell Schoenfeld. "Approximate formulas for some functions of prime numbers." Illinois Journal of Mathematics 6, no. 1 (1962): 64-94．关于 Carmichael 函数的估计，可以参考论文 Erdos, Paul, Carl Pomerance, and Eric Schmutz. "Carmichael’s lambda function." Acta Arith 58, no. 4 (1991): 363-385．</p>
+<p>[^amm]: 原始论文参见 Adleman, Leonard, Kenneth Manders, and Gary Miller. "On taking roots in finite fields." In 18th Annual Symposium on Foundations of Computer Science (sfcs 1977), pp. 175-178. IEEE Computer Society, 1977．一个更易读的介绍可见于 Cao, Zhengjun, Qian Sha, and Xiao Fan. "Adleman-Manders-Miller root extraction method revisited." In International Conference on Information Security and Cryptology, pp. 77-85. Berlin, Heidelberg: Springer Berlin Heidelberg, 2011．</p>
+<p>[^amm-comp]: 由于这一算法要求 $k$ 是素数，所以最差情形中，它需要对 $\varphi(m)$ 的最大素因子 $p$ 求 $a$ 模 $m$ 的 $p$ 次方根．这一过程中，需要对 $p$ 次本原单位根求 $a$ 模 $m$ 的离散对数．即使应用 BSGS 算法，这一过程也需要 $O(\sqrt{p})$ 时间．但是，论文 Fouvry, Étienne. "Theoreme de Brun-Titchmarsh; application au theoreme de Fermat." Inventiones mathematicae 79, no. 2 (1985): 383-407 指出，存在正密度的素数 $m$，使得 $\varphi(m)=m-1$ 的最大素因子 $p=\Omega(m^{2/3})$．这意味着这一算法的复杂度至少为 $\Omega(m^{1/3})$，劣于文中介绍的改良 Tonelli–Shanks 算法．</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

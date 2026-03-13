@@ -1,0 +1,1294 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/string/hash/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Hash - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hash
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash 的思想
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解释
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash 的错误率分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash 的错误率分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash 冲突
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        卡大模数 Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        卡自然溢出 Hash
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="卡自然溢出 Hash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b 为偶数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b 为奇数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash 的改进
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash 的改进">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多值 Hash
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多次询问子串哈希
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hash_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模数 Hash：
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双值 Hash：
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hash 的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hash 的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        字符串匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        允许 $k$ 次失配的字符串匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最长回文子串
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最长公共子字符串
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        确定字符串中不同子字符串的数量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/string/hash.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Hash</h1>
+
+<h2 id="_1">定义</h2>
+<p>我们定义一个把字符串映射到整数的函数 $f$，这个 $f$ 称为是 Hash 函数．</p>
+<p>我们希望这个函数 $f$ 可以方便地帮我们判断两个字符串是否相等．</p>
+<h2 id="hash">Hash 的思想</h2>
+<p>Hash 的核心思想在于，将输入映射到一个值域较小、可以方便比较的范围．</p>
+<p>??? warning "Warning"
+    这里的「值域较小」在不同情况下意义不同．</p>
+<pre><code>在 [哈希表](../ds/hash.md) 中，值域需要小到能够接受线性的空间与时间复杂度．
+
+在字符串哈希中，值域需要小到能够快速比较（$10^9$、$10^{18}$ 都是可以快速比较的）．
+
+同时，为了降低哈希冲突率，值域也不能太小．
+</code></pre>
+<h2 id="_2">性质</h2>
+<p>具体来说，哈希函数最重要的性质可以概括为下面两条：</p>
+<ol>
+<li>
+<p>在 Hash 函数值不一样的时候，两个字符串一定不一样；</p>
+</li>
+<li>
+<p>在 Hash 函数值一样的时候，两个字符串不一定一样（但有大概率一样，且我们当然希望它们总是一样的）．</p>
+<p>我们将 Hash 函数值一样但原字符串不一样的现象称为哈希碰撞．</p>
+</li>
+</ol>
+<h2 id="_3">解释</h2>
+<p>我们需要关注的是什么？</p>
+<p>时间复杂度和 Hash 的准确率．</p>
+<p>通常我们采用的是多项式 Hash 的方法，对于一个长度为 $l$ 的字符串 $s$ 来说，我们可以这样定义多项式 Hash 函数：$f(s) = \sum_{i=1}^{l} s[i] \times b^{l-i} \pmod M$．例如，对于字符串 $xyz$，其哈希函数值为 $xb^2+yb+z$．</p>
+<p>特别要说明的是，也有很多人使用的是另一种 Hash 函数的定义，即 $f(s) = \sum_{i=1}^{l} s[i] \times b^{i-1} \pmod M$，这种定义下，同样的字符串 $xyz$ 的哈希值就变为了 $x+yb+zb^2$ 了．</p>
+<p>显然，上面这两种哈希函数的定义函数都是可行的，但二者在之后会讲到的计算子串哈希值时所用的计算式是不同的，因此千万注意 <strong>不要弄混了这两种不同的 Hash 方式</strong>．</p>
+<p>由于前者的 Hash 定义计算更简便、使用人数更多、且可以类比为一个 $b$ 进制数来帮助理解，所以本文下面所将要讨论的都是使用 $f(s) = \sum_{i=1}^{l} s[i] \times b^{l-i} \pmod M$ 来定义的 Hash 函数．</p>
+<p>还有，有时为了方便和扩大模数，我们在 C++ 中我们会使用 <code>unsigned long long</code> 来定义 Hash 函数的结果．由于 C++ 的特性，我们相当于把模数 $M$ 定为 $2^{64}$，也是一个不错的选择．</p>
+<p>准确率会在后面讨论．</p>
+<h2 id="hash_1">Hash 的错误率分析</h2>
+<h3 id="hash_2">Hash 冲突</h3>
+<p>Hash 冲突是指两个不同的字符串映射到相同的 Hash 值．</p>
+<p>我们设 Hash 的取值空间（所有可能出现的字符串的数量）为 $d$，计算次数（要计算的字符串数量）为 $n$．</p>
+<p>则 Hash 冲突的概率为：</p>
+<p>$$
+p(n,d) = 1 - \frac{d!}{d^n\left(d-n\right)!} \approx 1 - \exp(-\frac{n(n-1)}{2d} )
+$$</p>
+<p>??? note "证明"
+    当 Hash 中每个值生成概率相同时，Hash 不冲突的概率为：</p>
+<pre><code>$$
+\overline{p}(n,d) = 1 \cdot \left (1 - \frac{1}{d} \right) \cdot \left ( 1- \frac{2}{d}\right) \cdots \left ( 1- \frac{n-1}{d}\right)
+$$
+
+化简得到：
+
+$$
+\begin{aligned}
+\overline{p}(n,d) 
+&amp; = \frac{d}{d}\cdot \frac{d-1}{d}\cdot \frac{d-2}{d} \cdots \frac{d-n+1}{d}\\
+&amp; = \frac{d\cdot (d-1)\cdot (d-2)\cdots(d-n+1)}{d^n}\\
+&amp; = \frac{d!}{d^n\left(d-n\right)!}
+\end{aligned}
+$$
+
+则 Hash 冲突的概率为：
+
+$$
+p(n,d) = 1 - \frac{d!}{d^n\left(d-n\right)!}
+$$
+
+这个公式还是太复杂了，我们进一步化简．
+
+根据泰勒公式：
+
+$$
+\exp(x) = \sum_{k=0}^{\infty}\frac{x^k}{k!}=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\frac{x^4}{24}+\cdots
+$$
+
+当 $x$ 为一个极小值时，$\exp(x)$ 趋近于 $1+x$．
+
+将它带入 Hash 不冲突的原始公式：
+
+$$
+\overline{p}(n,d) \approx 1 \cdot \exp(-\frac{1}{d}) \cdot \exp(-\frac{2}{d}) \cdots \exp(-\frac{n-1}{d})
+$$
+
+化简：
+
+$$
+\begin{aligned}
+\overline{p}(n,d) &amp; \approx \exp(-\frac{1}{d} - \frac{2}{d} - \cdots -\frac{n-1}{d})\\
+&amp;=\exp(-\frac{n(n-1)}{2d} )
+\end{aligned}
+$$
+
+则 Hash 冲突的概率为：
+
+$$
+p(n,d) \approx 1 - \exp(-\frac{n(n-1)}{2d})
+$$
+</code></pre>
+<h3 id="hash_3">卡大模数 Hash</h3>
+<p>注意到这个公式：</p>
+<p>$$
+p(n,d) \approx 1 - \exp(-\frac{n(n-1)}{2d} )
+$$</p>
+<p>为了卡掉 Hash，我们要满足以下条件：</p>
+<ol>
+<li>$d$ 要大于模数．</li>
+<li>$1-p(d,n)$ 要尽量小．</li>
+</ol>
+<p>举个例子：</p>
+<p>若字符集为 <strong>大小写字母和数字</strong>，模数为 $10^9+7$ 时：</p>
+<p>$\log_{62}10^9+7\approx 6$</p>
+<p>$p(10^6,62^{6}) \approx 0.9$</p>
+<p>所以对于这个范围，我们随机生成 $10^6$ 个长度为 $6$ 的字符串，它们 Hash 值相同的概率高达 $90\%$．</p>
+<h3 id="hash_4">卡自然溢出 Hash</h3>
+<p>这种 Hash 由于模数太大，用上面的方法卡不了，所以我们需要另一种方法．</p>
+<p>首先，这种 Hash 是形如 $f(s) = \sum_{i=1}^{l} s[i] \times b^{l-i}$，我们根据 $b$ 来分类讨论．</p>
+<h4 id="b">b 为偶数</h4>
+<p>此时 $f(s) = s_1\cdot b^l + s_2\cdot b^{l-1} + \cdots + s_l\cdot b \pmod M$，其中 $M$ 为 $2^{64}$．</p>
+<p>容易发现若 $l \ge 64$，$s_i\cdot b^l \equiv 0 \pmod M$．</p>
+<p>所以我们只要构造形如：</p>
+<p><code>aaa...a</code></p>
+<p><code>baa...a</code></p>
+<p>且长度大于 $64$ 的字符串就能冲突．</p>
+<h4 id="b_1">b 为奇数</h4>
+<p>定义 $!s_i$ 为把 $s_i$ 中所有字符反转．</p>
+<p>例：</p>
+<p>$s_i = abaab$</p>
+<p>$!s_i = babba$</p>
+<p>即把 <code>a</code> 变成 <code>b</code>，把 <code>b</code> 变成 <code>a</code>．</p>
+<p>再定义 $hash_i$ 为 $s_i$ 的 Hash 值，$!hash_i$ 为 $!s_i$ 的 Hash 值．</p>
+<p>不断构造 $s_i = s_{i-1} + !s_{i-1}$．</p>
+<p>$s_{12}$ 和 $!s_{12}$ 就是我们要的两个字符串．</p>
+<p>??? note "推导"
+    首先，有：</p>
+<pre><code>$$
+\begin{aligned}
+hash_i = hash_{i-1}\cdot base^{2^{i-2}} + !hash_{i-1}\\
+!hash_{i} = !hash_{i-1}\cdot base^{2^{i-2}}+hash_{i-1}
+\end{aligned}
+$$
+
+尝试相减：
+
+$$
+\begin{aligned}
+&amp;hash_i - !hash_i\\
+=\ &amp;hash_{i-1}\cdot base^{2^{i-2}} + !hash_{i-1}-(!hash_{i-1}\cdot base^{2^{i-2}}+hash_{i-1})\\
+=\ &amp;(hash_{i-1}-!hash_{i-1})\cdot (base^{2^{i-2}}-1)
+\end{aligned}
+$$
+
+发现出现了 $2^i$，但是原式太复杂，尝试换元：
+
+设：
+
+$$
+\begin{aligned}
+f_i = hash_i - !hash_i\\
+g_i = base^{2^{i-2}}-1
+\end{aligned}
+$$
+
+根据原式得：
+
+$$
+\begin{aligned}
+f_i &amp;= f_{i-1} \cdot g_i\\
+    &amp;=f_1 \cdot g_1 \cdot g_2 \cdots g_{i-1}\\
+\end{aligned}
+$$
+
+因为 $base^{2^{i-2}}$ 一定是奇数，所以 $g_i$ 一定是偶数．
+
+所以：
+
+$$
+2^{i-1} | f_i
+$$
+
+但这样太大了，$i-1\ge 64$ 才能卡掉，继续化简：
+
+$$
+g_i = base^{2^{i-2}}-1 = (base^{2^{i-3}}-1)\cdot(base^{2^{i-3}}+1)\\
+$$
+
+即 $g_i$ 为 $g_{i-1} \cdot c\ (c \equiv 0 \pmod 2)$ 的形式．
+
+所以 $2 | s_1$，$4 | s_2$，……，即
+
+$$
+\begin{aligned}
+&amp; 2^i &amp;| g_i\\
+&amp;2^1\cdot2^2\cdot2^3\cdots2^{i-1} &amp;| f_i\\
+&amp;2^{i(i-1)/2} &amp;| f_i
+\end{aligned}
+$$
+
+即当 $i=12$ 时就可以使 $2^{64} | hash_i - !hash_i$ 达到要求．
+</code></pre>
+<h3 id="_4">例题</h3>
+<p>???+ note "<a href="https://hydro.ac/p/bzoj-P3097">例题：BZOJ 3097 Hash Killer I</a>"
+    给定一个用 <strong>自然溢出</strong> 实现的 Hash，要求构造一个字符串来卡掉它．</p>
+<p>???+ note "<a href="https://hydro.ac/p/bzoj-P3098">例题：BZOJ 3097 Hash Killer II</a>"
+    给定一个用 <strong>大模数</strong> 实现的 Hash，要求构造一个字符串来卡掉它．</p>
+<p>???+ note "<a href="https://www.luogu.com.cn/problem/U461211">例题：洛谷 U461211 字符串 Hash（数据加强）</a>"
+    给定 $n$ 个字符串，判断不同的字符串有多少个．</p>
+<h2 id="hash_5">Hash 的改进</h2>
+<h3 id="hash_6">多值 Hash</h3>
+<p>看了上面这么多的卡法，当然也有解决办法．</p>
+<p>多值 Hash，就是有多个 Hash 函数，每个 Hash 函数的模数不一样，这样就能解决 Hash 冲突的问题．</p>
+<p>判断时只要有其中一个的 Hash 值不同，就认为两个字符串不同，若 Hash 值都相同，则认为两个字符串相同．</p>
+<p>一般来说，双值 Hash 就够用了．</p>
+<h3 id="_5">多次询问子串哈希</h3>
+<p>单次计算一个字符串的哈希值复杂度是 $O(n)$，其中 $n$ 为串长，与暴力匹配没有区别，如果需要多次询问一个字符串的子串的哈希值，每次重新计算效率非常低下．</p>
+<p>一般采取的方法是对整个字符串先预处理出每个前缀的哈希值，将哈希值看成一个 $b$ 进制的数对 $M$ 取模的结果，这样的话每次就能快速求出子串的哈希了：</p>
+<p>令 $f_i(s)$ 表示 $f(s[1..i])$，即原串长度为 $i$ 的前缀的哈希值，那么按照定义有 $f_i(s)=s[1]\cdot b^{i-1}+s[2]\cdot b^{i-2}+\dots+s[i-1]\cdot b+s[i]$</p>
+<p>现在，我们想要用类似前缀和的方式快速求出 $f(s[l..r])$，按照定义有字符串 $s[l..r]$ 的哈希值为 $f(s[l..r])=s[l]\cdot b^{r-l}+s[l+1]\cdot b^{r-l-1}+\dots+s[r-1]\cdot b+s[r]$</p>
+<p>对比观察上述两个式子，我们发现 $f(s[l..r])=f_r(s)-f_{l-1}(s) \times b^{r-l+1}$ 成立（可以手动代入验证一下），因此我们用这个式子就可以快速得到子串的哈希值．其中 $b^{r-l+1}$ 可以 $O(n)$ 的预处理出来然后 $O(1)$ 的回答每次询问（当然也可以快速幂 $O(\log n)$ 的回答每次询问）．</p>
+<h2 id="_6">实现</h2>
+<h3 id="hash_7">模数 Hash：</h3>
+<p>注：效率较低，实际使用中不推荐．</p>
+<p>=== "C++"
+    ```cpp
+    using std::string;</p>
+<pre><code>constexpr int M = 1e9 + 7;
+constexpr int B = 233;
+
+using ll = long long;
+
+int get_hash(const string&amp; s) {
+  int res = 0;
+  for (int i = 0; i &lt; s.size(); ++i) {
+    res = ((ll)res * B + s[i]) % M;
+  }
+  return res;
+}
+
+bool cmp(const string&amp; s, const string&amp; t) {
+  return get_hash(s) == get_hash(t);
+}
+```
+</code></pre>
+<p>=== "Python"
+    ```python
+    M = int(1e9 + 7)
+    B = 233</p>
+<pre><code>def get_hash(s):
+    res = 0
+    for char in s:
+        res = (res * B + ord(char)) % M
+    return res
+
+
+def cmp(s, t):
+    return get_hash(s) == get_hash(t)
+```
+</code></pre>
+<h3 id="hash_8">双值 Hash：</h3>
+<p>=== "C++"
+    ```cpp
+    using ull = unsigned long long;
+    ull base = 131;
+    ull mod1 = 212370440130137957, mod2 = 1e9 + 7;</p>
+<pre><code>ull get_hash1(std::string s) {
+  int len = s.size();
+  ull ans = 0;
+  for (int i = 0; i &lt; len; i++) ans = (ans * base + (ull)s[i]) % mod1;
+  return ans;
+}
+
+ull get_hash2(std::string s) {
+  int len = s.size();
+  ull ans = 0;
+  for (int i = 0; i &lt; len; i++) ans = (ans * base + (ull)s[i]) % mod2;
+  return ans;
+}
+
+bool cmp(const std::string s, const std::string t) {
+  bool f1 = get_hash1(s) != get_hash1(t);
+  bool f2 = get_hash2(s) != get_hash2(t);
+  return f1 || f2;
+}
+```
+</code></pre>
+<p>=== "Python"
+    ```python
+    def get_hash1(s: str) -&gt; int:
+        base = 131
+        mod1 = 212370440130137957
+        ans = 0
+        for char in s:
+            ans = (ans * base + ord(char)) % mod1
+        return ans</p>
+<pre><code>def get_hash2(s: str) -&gt; int:
+    base = 131
+    mod2 = 1000000007
+    ans = 0
+    for char in s:
+        ans = (ans * base + ord(char)) % mod2
+    return ans
+
+
+def cmp(s: str, t: str) -&gt; bool:
+    f1 = get_hash1(s) != get_hash1(t)
+    f2 = get_hash2(s) != get_hash2(t)
+    return f1 or f2
+```
+</code></pre>
+<h2 id="hash_9">Hash 的应用</h2>
+<h3 id="_7">字符串匹配</h3>
+<p>求出模式串的哈希值后，求出文本串每个长度为模式串长度的子串的哈希值，分别与模式串的哈希值比较即可．</p>
+<h3 id="k">允许 $k$ 次失配的字符串匹配</h3>
+<p>问题：给定长为 $n$ 的源串 $s$，以及长度为 $m$ 的模式串 $p$，要求查找源串中有多少子串与模式串匹配．$s'$ 与 $s$ 匹配，当且仅当 $s'$ 与 $s$ 长度相同，且最多有 $k$ 个位置字符不同．其中 $1\leq n,m\leq 10^6$，$0\leq k\leq 5$．</p>
+<p>这道题无法使用 KMP 解决，但是可以通过哈希 + 二分来解决．</p>
+<p>枚举所有可能匹配的子串，假设现在枚举的子串为 $s'$，通过哈希 + 二分可以快速找到 $s'$ 与 $p$ 第一个不同的位置．之后将 $s'$ 与 $p$ 在这个失配位置及之前的部分删除掉，继续查找下一个失配位置．这样的过程最多发生 $k$ 次．</p>
+<p>总的时间复杂度为 $O(m+kn\log_2m)$．</p>
+<h3 id="_8">最长回文子串</h3>
+<p>二分答案，判断是否可行时枚举回文中心（对称轴），哈希判断两侧是否相等．需要分别预处理正着和倒着的哈希值．时间复杂度 $O(n\log n)$．</p>
+<p>这个问题可以使用 <a href="../manacher/">manacher 算法</a> 在 $O(n)$ 的时间内解决．</p>
+<p>通过哈希同样可以 $O(n)$ 解决这个问题，具体方法就是记 $R_i$ 表示以 $i$ 作为结尾的最长回文的长度，那么答案就是 $\max_{i=1}^nR_i$．考虑到 $R_i\leq R_{i-1}+2$，因此我们只需要暴力从 $R_{i-1}+2$ 开始递减，直到找到第一个回文即可．记变量 $z$ 表示当前枚举的 $R_i$，初始时为 $0$，则 $z$ 在每次 $i$ 增大的时候都会增大 $2$，之后每次暴力循环都会减少 $1$，故暴力循环最多发生 $2n$ 次，总的时间复杂度为 $O(n)$．</p>
+<h3 id="_9">最长公共子字符串</h3>
+<p>问题：给定 $m$ 个总长不超过 $n$ 的非空字符串，查找所有字符串的最长公共子字符串，如果有多个，任意输出其中一个．其中 $1\leq m, n\leq 10^6$．</p>
+<p>很显然如果存在长度为 $k$ 的最长公共子字符串，那么 $k-1$ 的公共子字符串也必定存在．因此我们可以二分最长公共子字符串的长度．假设现在的长度为 $k$，<code>check(k)</code> 的逻辑为我们将所有所有字符串的长度为 $k$ 的子串分别进行哈希，将哈希值放入 $n$ 个哈希表中存储．之后求交集即可．</p>
+<p>时间复杂度为 $O(m+n\log n)$．</p>
+<h3 id="_10">确定字符串中不同子字符串的数量</h3>
+<p>问题：给定长为 $n$ 的字符串，仅由小写英文字母组成，查找该字符串中不同子串的数量．</p>
+<p>为了解决这个问题，我们遍历了所有长度为 $l=1,\cdots ,n$ 的子串．对于每个长度为 $l$，我们将其 Hash 值乘以相同的 $b$ 的幂次方，并存入一个数组中．数组中不同元素的数量等于字符串中长度不同的子串的数量，并此数字将添加到最终答案中．</p>
+<p>为了方便起见，我们将使用 $h [i]$ 作为 Hash 的前缀字符，并定义 $h[0]=0$．</p>
+<p>??? note "参考代码"
+    ```cpp
+    int count_unique_substrings(string const&amp; s) {
+      int n = s.size();</p>
+<pre><code>  constexpr static int b = 31;
+  constexpr static int m = 1e9 + 9;
+  vector&lt;long long&gt; b_pow(n);
+  b_pow[0] = 1;
+  for (int i = 1; i &lt; n; i++) b_pow[i] = (b_pow[i - 1] * b) % m;
+
+  vector&lt;long long&gt; h(n + 1, 0);
+  for (int i = 0; i &lt; n; i++)
+    h[i + 1] = (h[i] + (s[i] - 'a' + 1) * b_pow[i]) % m;
+
+  int cnt = 0;
+  for (int l = 1; l &lt;= n; l++) {
+    set&lt;long long&gt; hs;
+    for (int i = 0; i &lt;= n - l; i++) {
+      long long cur_h = (h[i + l] + m - h[i]) % m;
+      cur_h = (cur_h * b_pow[n - i - 1]) % m;
+      hs.insert(cur_h);
+    }
+    cnt += hs.size();
+  }
+  return cnt;
+}
+```
+</code></pre>
+<h3 id="_11">例题</h3>
+<p>???+ note "<a href="http://codeforces.com/contest/1200/problem/E">CF1200E Compress Words</a>"
+    给你若干个字符串，答案串初始为空．第 $i$ 步将第 $i$ 个字符串加到答案串的后面，但是尽量地去掉重复部分（即去掉一个最长的、是原答案串的后缀、也是第 $i$ 个串的前缀的字符串），求最后得到的字符串．</p>
+<pre><code>字符串个数不超过 $10^5$，总长不超过 $10^6$．
+
+??? note "题解"
+    每次需要求最长的、是原答案串的后缀、也是第 $i$ 个串的前缀的字符串．枚举这个串的长度，哈希比较即可．
+
+    当然，这道题也可以使用 [KMP 算法](./kmp.md) 解决．
+
+??? note "参考代码"
+    ```cpp
+    --8&lt;-- "docs/string/code/hash/hash_1.cpp"
+    ```
+</code></pre>
+<p><strong>本页面部分内容译自博文 <a href="https://github.com/e-maxx-eng/e-maxx-eng/blob/61aff51f658644424c5e1b717f14fb7bf054ae80/src/string/string-hashing.md">строковый хеш</a> 与其英文翻译版 <a href="https://cp-algorithms.com/string/string-hashing.html">String Hashing</a>．其中俄文版版权协议为 Public Domain + Leave a Link；英文版版权协议为 CC-BY-SA 4.0．</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

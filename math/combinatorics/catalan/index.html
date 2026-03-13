@@ -1,0 +1,973 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人技术文章与观点评论，九边风格深度思考">
+      
+      
+        <meta name="author" content="赛博幽灵">
+      
+      
+        <link rel="canonical" href="https://m17y.github.io/math/combinatorics/catalan/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Catalan - 赛博幽灵的文章库</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-header__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            赛博幽灵的文章库
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Catalan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-tabs__link">
+          
+  
+  
+  九边风格
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="赛博幽灵的文章库" class="md-nav__button md-logo" aria-label="赛博幽灵的文章库" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg>
+
+    </a>
+    赛博幽灵的文章库
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/m17y/m17y.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    m17y/m17y.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    九边风格
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    九边风格
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-competition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型2026年竞争格局与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_tech-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2026年科技趋势展望
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../articles/jiubian/2026-0313_ai-latest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI大模型最新进展与行业影响
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引入
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见形式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="常见形式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代数推演
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        组合意义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考资料与注释
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/m17y/m17y.github.io/edit/main/math/combinatorics/catalan.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Catalan</h1>
+
+<h2 id="_1">引入</h2>
+<p>Catalan 数经常出现在各类计数问题中．比利时数学家 Eugène Charles Catalan 在 1958 年研究括号序列计数问题时发现了这一数列，它也因此得名．清朝数学家明安图早在 18 世纪 30 年代就已经发现这一数列．</p>
+<p>Catalan 数满足如下递推关系：</p>
+<p>$$
+C_n = \begin{cases}
+1, &amp; n = 0, \
+\sum_{i=0}^{n-1} C_{i}C_{n-1-i}, &amp; n &gt; 0.
+\end{cases}\tag{1}
+$$</p>
+<p>数列的前几项为：（<a href="https://oeis.org/A000108">OEIS: A000108</a>，下标从 $0$ 开始）</p>
+<p>$$
+1,1,2,5,14,42,132,429,1430,\ldots
+$$</p>
+<h2 id="_2">应用</h2>
+<p>Catalan 数 $C_n$ 的递推关系有着天然的递归结构：规模为 $n$ 的计数问题 $C_n$，可以通过枚举分界点，分拆为两个规模分别为 $i$ 和 $(n-1-i)$ 的子问题．这一递推关系使得 Catalan 数广泛出现于各类具有类似递归结构的问题中．</p>
+<ul>
+<li>
+<p><a id="path-counting"></a><strong>路径计数问题</strong>：有一个大小为 $n\times n$ 的方格图，左下角为 $(0, 0)$，右上角为 $(n, n)$．从左下角开始，每次都只能向右或者向上走一单位，不走到对角线 $y=x$ 上方（但可以触碰）的情况下，到达右上角的路径总数为 $C_n$．</p>
+<p>??? note "证明"
+    设方案数为 $T_n$．考虑 $n \ge 2$ 的情况．设路径 <strong>第一次</strong> 走到对角线 $y=x$ 的点是 $(k,k)~(k \in [1,n])$．考察从 $(0,0)$ 到 $(k,k)$ 的除起点和终点外，中间的点 <strong>不经过对角线（不能碰到）</strong> 的路径．</p>
+<pre><code>![catalan2](./images/catalan-2.svg)
+
+如图所示，这些路径的第一步一定向右，从 $(0,0)$ 到 $(1,0)$；最后一步一定向上，从 $(k,k-1)$ 到 $(k,k)$．因此，这些路径就是从 $(1,0)$ 到 $(k,k-1)$ 的不越过直线 $y=x-1$ 的路径，这样路径的数目就是 $T_{k-1}$．同时，从 $(k,k)$ 到 $(n,n)$ 的合法路径数就是 $T_{n-k}$．根据乘法原理，第一次在 $(k,k)$ 处触碰对角线的路径数目为 $T_{k-1} T_{n-k}$．枚举 $k$ 的所有可能性，所有合法路径的数目为
+
+$$
+T_n = \sum_{k=1}^n T_{k-1}T_{n-k}.
+$$
+
+做代换 $k=i+1$ 就可以发现，这就是 Catalan 数的递推关系．由 $T_0=1$ 可知 $T_n = C_n$．
+</code></pre>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><strong>圆内不相交弦计数问题</strong>：圆上有 $2n$ 个点，将这些点成对连接起来且使得所得到的 $n$ 条线段两两不交的方案数是 $C_n$．</p>
+<p>??? note "证明"
+    记 $2n$ 个点的方案数为 $T_n$．将 $2n$ 个点按顺时针标号，分别为 $1,2,\ldots,2n$．由于弦两两不交，$1$ 号点只能连接偶数号点；否则，两点之间的奇数个点无法在不穿过两点连线的情况下两两配对．如果连接了 $1$ 和 $2k~(k\in[1,n])$，那么左边有 $2k-2$ 个点，右边有 $2n-2k$ 个点，由乘法原理，这样的方案数为 $T_{k-1}T_{n-k}$．因此，枚举 $k$，有 $T_n = \sum_{k=1}^n T_{k-1} T_{n-k}$．令 $k=i+1$，就得到 Catalan 数的递推关系．由 $T_0=1$ 可知 $T_n=C_n$．</p>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><a id="triangulation-counting"></a><strong>三角剖分计数问题</strong>：对角线不相交的情况下，将一个凸 $(n+2)$ 边形区域分成三角形区域的方法数为 $C_n$．</p>
+<p>??? note "证明"
+    设 $(n+2)$ 边形三角剖分的方案数为 $T_n$．先选定一条边 $(1,n+2)$ 作为基边，它一定属于一个三角形，记该三角形的第三个点为 $k~(k\in[2,n+1])$．这样，原凸多边形变成了三个部分：</p>
+<pre><code>-   三角形 $(1,k,n+2)$．
+-   $k$ 边形，顶点 $1\sim k$．
+-   $(n+3-k)$ 边形，顶点 $k\sim (n+2)$．
+
+后面两个部分都是子问题，所以，有递推关系
+
+$$
+T_n = \sum_{k=2}^{n+1} T_{k-2}T_{n+1-k}.
+$$
+
+令 $k=i+2$，就得到 Catalan 数递归关系．由 $T_0=T_1=1$ 可知 $T_n=C_n$．
+</code></pre>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><strong>二叉树计数问题</strong>：含有 $n$ 个结点的形态不同的二叉树数目为 $C_n$．等价地，含有 $n$ 个非叶结点的形态不同的满二叉树数目为 $C_{n}$．</p>
+<p>??? note "证明"
+    记 $n$ 个结点的二叉树数目为 $T_n$．任取一个根结点，枚举左右子树大小．设左子树大小为 $i\in[0,n-1]$，则右子树大小为 $(n-1-i)$．左右子树均为子问题，所以，有递推关系</p>
+<pre><code>$$
+T_n = \sum_{i=0}^{n-1}T_iT_{n-1-i}.
+$$
+
+这就是 Catalan 数递推关系．由 $T_0=T_1=1$ 可知 $T_n=C_n$．
+</code></pre>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><strong>括号序列计数问题</strong>：由 $n$ 对括号构成的合法括号序列数为 $C_n$．</p>
+<p>??? note "证明"
+    联系路径计数问题．将左括号视为向上走，右括号视为向右走．合法括号序列即为，在任意位置，左括号的数量不少于右括号的数量．相当于路径计数问题中，在任意时刻，向上走的次数不少于向右走的次数．因此，合法括号序列与合法路径之间存在双射．合法括号序列的数目同样为 $C_n$．</p>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><strong>出栈序列计数问题</strong>：一个栈（无穷大）的进栈序列为 $1,2,3, \ldots ,n$，合法出栈序列的数目为 $C_n$．</p>
+<p>??? note "证明"
+    联系括号序列计数问题．将入栈视为左括号，出栈视为右括号．任意时刻，入栈的次数不少于出栈的次数．因此，合法出栈序列与合法括号序列之间存在双射．合法出栈序列的数目同样为 $C_n$．</p>
+<!-- To make bot happy. Do NOT delete this line. -->
+</li>
+<li>
+<p><a id="seq-counting"></a><strong>数列计数问题</strong>：由 $n$ 个 $+1$ 和 $n$ 个 $-1$ 组成的数列 $a_1,a_2, \ldots ,a_{2n}$ 中，部分和满足 $a_1+a_2+ \ldots +a_k \geq 0~(k=1,2,3, \ldots ,2n)$ 的数列数目为 $C_n$．</p>
+<p>??? note "证明"
+    联系括号序列计数问题．将 $+1$ 视为左括号，$-1$ 视为右括号．任意时刻，$+1$ 的数量不少于 $-1$ 的数量．因此，合法数列与合法括号序列之间存在双射．合法数列的数目同样为 $C_n$．</p>
+</li>
+</ul>
+<p>尽管这一递推关系应用广泛，但是直接计算复杂度较高，需要寻找更为简单的公式．</p>
+<h2 id="_3">常见形式</h2>
+<p>Catalan 数有如下常见的表达式：</p>
+<p>$$
+C_n = \frac{1}{n+1}\binom{2n}{n} = \dfrac{(2n)!}{n!(n+1)!},~ n\ge 0. \tag{2}
+$$</p>
+<p>$$
+C_n = \binom{2n}{n} - \binom{2n}{n+1},~n \ge 0. \tag{3}
+$$</p>
+<p>$$
+C_n = \frac{(4n-2)}{n+1}C_{n-1},~ n &gt; 0,~ C_0 = 1. \tag{4}
+$$</p>
+<p>Catalan 数的这些形式都可以高效计算：前两个形式将它转换为阶乘和组合数的计算问题，第三个形式则提供了顺次计算的递推公式．</p>
+<p>对于这三种常见形式，本文提供两种证明方式．</p>
+<h3 id="_4">代数推演</h3>
+<p>通过代数方法得出 Catalan 数的上述表达式共两步．首先，验证三个形式相互等价．</p>
+<p>??? note "证明表达式 $(2)\sim(4)$ 等价"
+    只需要证明表达式 $(3)$ 可以转化为表达式 $(2)$ 中阶乘形式：</p>
+<pre><code>$$
+\begin{aligned}
+C_n &amp;= \binom{2n}{n} - \binom{2n}{n+1} \\
+&amp;= \frac{(2n)!}{n!n!} - \frac{(2n)!}{(n-1)!(n+1)!} \\
+&amp;= \frac{(2n)!}{n!n!}\left(1 - \frac{n!}{(n-1)!(n+1)}\right) \\
+&amp;= \frac{(2n)!}{n!n!}\left(1- \frac{n}{n+1}\right) \\
+&amp;= \dfrac{(2n)!}{n!(n+1)!}.
+\end{aligned}
+$$
+
+以及，表达式 $(4)$ 也可以转化为表达式 $(2)$ 中阶乘形式：
+
+$$
+C_n = \prod_{i=1}^n\frac{(4i-2)}{i+1} = \prod_{i=1}^n\frac{2i(2i-1)}{i(i+1)} = \dfrac{(2n)!}{n!(n+1)!}.
+$$
+
+因此，三个表达式互相等价．
+</code></pre>
+<p>紧接着，验证这些形式确实是 Catalan 数递推公式的解．为此，考虑使用生成函数方法直接求出递推公式 $(1)$ 的解．</p>
+<p>??? note "利用生成函数方法求解递推公式 $(1)$"
+    考虑 Catalan 数的普通生成函数 $C(x)=\sum_{n=0}^{\infty}C_nx^n$．由于 Catalan 数的递推关系和卷积形式很相似，所以考虑用卷积构造 $C(x)$ 的方程：</p>
+<pre><code>$$
+\begin{aligned}
+C(x)&amp;=\sum_{n=0}^{\infty}C_nx^n\\
+&amp;=1+\sum_{n=1}^{\infty}\left(\sum_{i=0}^{n-1}C_iC_{n-i-1}\right)x^{n}\\
+&amp;=1+x\sum_{n=1}^{\infty}\sum_{i=0}^{n-1}C_ix^iC_{n-i-1}x^{n-i-1}\\
+&amp;=1+x\sum_{i=0}^{\infty}C_ix^i\sum_{j=0}^{\infty}C_jx^j\\
+&amp;=1+xC^2(x).
+\end{aligned}
+$$
+
+其中，倒数第二个等号交换了求和次序，并令 $j=n-1-i$．由此，解得：
+
+$$
+C(x)=\dfrac{1\pm \sqrt{1-4x}}{2x} = \frac{2}{1\mp \sqrt{1-4x}}.
+$$
+
+由初值条件 $C_0=1$ 可知，$C(0)=1$．代入检验可以发现唯一可行的解就是
+
+$$
+C(x) = \dfrac{1- \sqrt{1-4x}}{2x}.
+$$
+
+接下来，需要将它展开为幂级数的形式．利用 $(1+x)^a$ 的 [幂级数展开式](../poly/intro.md#常见的幂级数展开式) 可知：
+
+$$
+\sqrt{1-4x} = \sum_{n=0}^{\infty} \dfrac{\left(\frac{1}{2}\right)_{-n}}{n!}(-4x)^n,
+$$
+
+其中，$\left(\dfrac{1}{2}\right)_{-n}$ 是下降阶乘幂：
+
+$$
+\begin{aligned}
+\left(\frac{1}{2}\right)_{-n} &amp;= \prod_{k=0}^{n-1}\left(\dfrac{1}{2}-k\right) = \dfrac{1}{2^n}\prod_{k=1}^{n-1}(1-2k) = \dfrac{(-1)^{n-1}}{2^n}\prod_{k=1}^{n-1}(2k-1)\\
+&amp;= \dfrac{(-1)^{n-1}}{2^{2n-1}}\prod_{k=1}^{n-1}\dfrac{(2k-1)2k}{k} = \dfrac{(-1)^{n-1}}{2^{2n-1}}\dfrac{(2n-2)!}{(n-1)!}.
+\end{aligned}
+$$
+
+代入 $C(x)$ 的表达式，就有
+
+$$
+\begin{aligned}
+C(x) &amp;= \dfrac{1}{2x}\left(1-\sum_{n=0}^{\infty} \dfrac{\left(\frac{1}{2}\right)_{-n}}{n!}(-4x)^n\right)\\
+&amp;= -\dfrac{1}{2x}\sum_{n=1}^\infty \dfrac{(-4x)^n}{n!}\left(\frac{1}{2}\right)_{-n} \\
+&amp;= -\dfrac{1}{2x}\sum_{n=1}^\infty \dfrac{(-4x)^n}{n!}\dfrac{(-1)^{n-1}}{2^{2n-1}}\dfrac{(2n-2)!}{(n-1)!} \\
+&amp;= \sum_{n=1}^{\infty}\dfrac{(2n-2)!}{(n-1)!n!}x^{n-1}\\
+&amp;= \sum_{n=0}^{\infty}\dfrac{(2n)!}{n!(n+1)!}x^n.
+\end{aligned}
+$$
+
+由此，就得到 $C_n$ 的表达式 $(2)$．
+</code></pre>
+<h3 id="_5">组合意义</h3>
+<p>由于 Catalan 数具有明显的组合意义，所以只使用组合计数方法同样可以证明这些形式．本节为三个表达式分别提供一个组合意义的证明．</p>
+<p>??? note "表达式 $(2)$ 的证明"
+    考虑 <a href="#seq-counting">数列计数问题</a>．对于任意由 $\pm 1$ 组成的序列 ${a_i}<em>{i=1}^{2n}$，定义它的部分和为 $S_i = \sum</em>{j=1}^{i}a_i$，并定义它的 <strong>超额量</strong>（exceedance）为 $S_i &lt; 0$ 且 $a_i = -1$ 的下标数量．超额量为 $0$，就等价于数列合法；超额量的取值范围是 $[0,n]$，共 $(n+1)$ 种可能的取值．需要证明的是，不同超额量的数列数量其实是一样的．</p>
+<pre><code>为此，可以构造一个从超额量为 $e &gt; 0$ 的数列到超额量为 $(e-1)$ 的数列的映射 $f$．对于超额量为 $e &gt; 0$ 的序列 $\{a_i\}$，取下标 $k$ 为使得 $S_i = 0$ 且 $a_i = +1$ 成立的下标最小值．将 $a_k$ 左右两侧的序列交换，就得到如下序列 $\{a'_i\}$：
+
+$$
+a_{k+1},a_{k+2},\cdots,a_{2n},a_k,a_{1},a_{2},\cdots,a_{k-1}.
+$$
+
+由于原序列中 $a_k$ 右侧部分在交换前后对应的部分和序列不变，所以它们贡献的超额量也不变．对于原序列中 $a_k$ 左侧部分，它们对应的部分和在交换后全部增加 $1$，因此，它们贡献的超额量会减少，而且减少的数量恰好等于原序列 $a_k$ 左侧部分中满足 $S_i=-1$ 且 $a_i=-1$ 的下标数量．因为 $a_k$ 的选取保证了这样的下标有且仅有一个，所以，序列 $\{a'_i\}$ 的超额量就等于 $(e-1)$．也就是说，映射 $f$ 可以将序列的超额量恰好减少 $1$．
+
+映射 $f$ 是可逆的．注意到序列 $\{a'_i\}$ 中，$a_k$ 对应的位置恰好为满足 $S'_k=+1$ 且 $a'_i = +1$ 的下标最大值．这是因为交换后，这些部分和都比交换前对应的部分和恰好大 $1$，因此，现在的部分和为 $+1$ 对应交换前部分和等于 $0$．但是，根据 $k$ 的选取，交换前这一部分（即原序列 $a_k$ 左侧部分）是没有满足 $S_i = 0$ 且 $a_i = +1$ 成立的下标的．
+
+由此，映射 $f$ 构成了超额量为 $e&gt;0$ 的序列和超额量为 $(e-1)$ 的序列之间的双射．这就说明，不同超额量的数列数量其实是一样的．由于数列总数是 $\dbinom{2n}{n}$，合法数列（即超额量为 $0$ 的数列）数量就等于
+
+$$
+C_n = \dfrac{1}{n+1}\dbinom{2n}{n}.
+$$
+
+这就证明了 Catalan 数的表达式 $(2)$．
+</code></pre>
+<p>??? note "表达式 $(3)$ 的证明"
+    考虑 <a href="#path-counting">路径计数问题</a>．这是典型的格路计数问题，可以通过反射原理求解．具体到本问题，考虑用总路径数目减去不合法的路径数目．总路径数一共要走 $2n$ 步，其中 $n$ 步向右，所以方案数为 $\dbinom{2n}{n}$．一条路径不合法，当且仅当它碰到了直线 $y = x+1$．对于任意一条非法路径，可以找到第一次碰到直线 $y = x+1$ 的位置，并将该位置之后的路径关于直线 $y=x+1$ 做对称．此时，可以发现，一条从 $(0,0)$ 到 $(n,n)$ 的非法路径，变成了一条从 $(0,0)$ 到 $(n-1,n+1)$ 的路径．</p>
+<pre><code>![catalan1](./images/catalan-1.svg)
+
+由于从 $(0,0)$ 到 $(n-1,n+1)$ 的路径必定要穿过直线 $y = x+1$，所以每条这样的路径都对应一条从 $(0,0)$ 到 $(n,n)$ 的非法路径．类似总路径数的计算，非法路径数目的总数就是 $\dbinom{2n}{n+1}$．因此，合法路径的总数为
+
+$$
+C_n = \binom{2n}{n} - \binom{2n}{n+1}.
+$$
+
+这就是 Catalan 数的表达式 $(3)$．
+</code></pre>
+<p>??? note "表达式 $(4)$ 的证明"
+    考虑 <a href="#triangulation-counting">三角剖分计数问题</a>．设 $P$ 是凸 $(n+2)$ 边形，固定它的一个边为基边．对于多边形 $P$ 的每一个三角剖分，都可以选择它的一个非基边（包括三角剖分时新加的边）标记，并定向．这共有 $(4n+2)C_n$ 种剖分加标记的方案．又设 $Q$ 是凸 $(n+3)$ 边形，仍固定它的一个边为基边．对于多边形 $Q$，可以选择它的一条非基边标记，然后再做三角剖分．这共有 $(n+2)C_{n+1}$ 种标记加剖分的方案．</p>
+<pre><code>![](./images/catalan-triangulation.svg)
+
+如图所示，这两组操作得到的结果之间存在明显的双射．对于 $P$ 剖分并标记的一个结果，可以将它的标记边扩展为三角形，定向所指向的终点扩展为一条新边，并将这条新边打上标记，这就得到对 $Q$ 标记并剖分的一个结果；对于 $Q$ 标记并剖分的一个结果，可以将它的标记边压缩为一个点，并将压缩得到的对角线打上标记，且指向压缩得到的顶点，这就得到对 $P$ 剖分并标记的一个结果．因此，
+
+$$
+(4n+2)C_n = (n+2)C_{n+1}.
+$$
+
+稍作整理，并结合 $C_0=1$，就得到 Catalan 数的表达式 $(4)$．
+</code></pre>
+<h2 id="_6">例题</h2>
+<p>???+ example "<a href="https://www.luogu.com.cn/problem/P1044">洛谷 P1044 栈</a>"
+    入栈顺序为 $1,2,\ldots ,n$，求所有可能的出栈顺序的总数．</p>
+<p>??? note "参考代码"
+    === "C++"
+        <code>cpp
+        --8&lt;-- "docs/math/code/combinatorics/catalan/catalan_1.cpp"</code></p>
+<pre><code>=== "Python"
+    ```python
+    --8&lt;-- "docs/math/code/combinatorics/catalan/catalan_1.py"
+    ```
+</code></pre>
+<h2 id="_7">习题</h2>
+<ul>
+<li><a href="https://www.luogu.com.cn/problem/P2532">Luogu P2532 [AHOI2012] 树屋阶梯</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P1641">Luogu P1641 [SCOI2010] 生成字符串</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3200">Luogu P3200 [HNOI2009] 有趣的数列</a></li>
+<li><a href="https://atcoder.jp/contests/abc205/tasks/abc205_e">AtCoder Beginner Contest 205 E - White and Black Balls</a></li>
+<li><a href="https://www.luogu.com.cn/problem/AT_arc145_c">AtCoder Regular Contest 145 C - Split and Maximize</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P5014">Luogu P5014 水の三角（修改版）</a></li>
+<li><a href="https://www.luogu.com.cn/problem/P3978">Luogu P3978 [TJOI2015] 概率论</a></li>
+</ul>
+<h2 id="_8">参考资料与注释</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan number - Wikipedia</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 赛博幽灵
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.action.edit", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.instant", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
